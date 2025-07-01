@@ -131,7 +131,7 @@ const Header = () => {
             onClick={() => {
               window.location.href = "tel:1300894480";
             }}
-            className="w-[160px] sm:w-[180px] flex justify-center items-center gap-3 bg-orange-500 text-white px-4 py-2 sm:px-6 sm:py-3 font-semibold hover:bg-orange-600 transition rounded-md shadow-lg"
+            className="w-[160px] sm:w-[180px] flex justify-center items-center gap-3 bg-[rgb(165,14,14)] text-white px-4 py-2 sm:px-6 sm:py-3 font-semibold hover:bg-orange-600 transition rounded-md shadow-lg"
           >
             Contact Us
             <FaPhoneAlt size={18} />
