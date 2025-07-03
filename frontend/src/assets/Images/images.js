@@ -19,7 +19,7 @@ import image_Card04 from "./Home/Card04.png";
 import image_GIF01 from "./Video/GIF01.gif";
 
 // Self Image (example, optional — update path if needed)
-import image_self01 from "./Home/self.jpg"; 
+// import image_self01 from "./Home/self.jpg"; 
 const images = {
   // Slide Show
   image_one,
@@ -42,7 +42,7 @@ const images = {
   image_GIF01,
 
   // Self
-  image_self01,
+  // image_self01,  
 };
 
 export default images;
