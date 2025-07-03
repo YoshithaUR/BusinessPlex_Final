@@ -20,6 +20,11 @@ import image_GIF01 from "./Video/GIF01.gif";
 
 // Self Image (example, optional — update path if needed)
 // import image_self01 from "./Home/self.jpg"; 
+
+// testamonial
+import image_Testamonial1 from "./Testimonials/Liz Haselgrove .jpg"
+import image_Testamonial2 from "./Testimonials/Mark South.jpg"
+import image_Testamonial3 from "./Testimonials/Kevin Wright.jpg"
 const images = {
   // Slide Show
   image_one,
@@ -43,6 +48,11 @@ const images = {
 
   // Self
   // image_self01,  
+
+  // testamonial
+  image_Testamonial1,
+  image_Testamonial2,
+  image_Testamonial3
 };
 
 export default images;

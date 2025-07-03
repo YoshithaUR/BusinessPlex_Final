@@ -23,6 +23,35 @@ const Home = () => {
       offset: 120,
     });
   }, []);
+  // testamonial
+   const testimonials = [
+    {
+      id: 1,
+      image: images.image_Testamonial1,
+      alt: "Boss Centre CEO",
+      text: `I have known Gish for several years, having previously worked with him as a NIS trainer and mentor, and have since supported and collaborated together. Gish is one of the kindest, most honest and respectful people that I have ever met with a true passion for helping people to succeed in business. He has many years of experience in running a successful business and also helping people to move forward with their business journey.`,
+      company: "Boss Centre",
+      name: "Liz Haselgrove – CEO",
+    },
+    {
+      id: 2,
+      image: images.image_Testamonial2,
+      alt: "Business Station Manager",
+      text: `I think that one of Gish’s strongest attributes is his ability to build rapport and solid relationships, both with clients and with other stakeholders. I understand that this will be a critical factor for this contract, being able to successfully work with a variety of stakeholders, encourage collaboration and create opportunities for the clients / job seekers`,
+      company: "Business Station",
+      name: "Mark South – General Manager",
+    },
+    {
+      id: 3,
+      image: images.image_Testamonial3,
+      alt: "SW & Hart CEO",
+      text: `As well as his extensive recruitment / HR experience, Gish also has several years’ experience training and mentoring aspiring small business owners. With this being a field that may well be a better option for many job seekers, I believe that Gish is in a unique position to be able to give clients / job seekers a more holistic assessment of what might be the best fit for them, and so help them to successfully move forward with their business.`,
+      company: "SW & Hart",
+      name: "Kevin Wright – CEO",
+    },
+  ];
+
+  const [selectedTestimonial, setSelectedTestimonial] = useState(null);
 
   const paragraphData = [
     "We provide administrative support tailored to your business needs.",
@@ -400,7 +429,10 @@ const Home = () => {
       )}
 
       {/* Self Employment Section */}
-      <section className="relative w-full h-screen overflow-hidden">
+      <section
+        className="relative w-full min-h-[80vh] overflow-hidden mb-4"
+        data-aos="fade-in"
+      >
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat transition duration-700"
           style={{
@@ -466,8 +498,192 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Comment */}
+
+    <section
+  className="w-full min-h-[80vh] bg-gray-100 flex items-center justify-center p-4 -mt-6"
+  data-aos="fade-up"
+>
+  <div className="bg-black/80 rounded-3xl shadow-xl p-6 md:p-10 w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+   
+    <div className="absolute inset-0 rounded-3xl overflow-hidden z-0">
+     
+      <div
+        className="absolute inset-0 bg-contain bg-no-repeat bg-center"
+        style={{ backgroundImage: `url(${images.image_three})` }}
+        data-aos="fade-in"
+      />
+      
+      <div className="absolute inset-0 bg-black/90" />
+    </div>
+
+   
+    <div className="absolute top-4 w-full text-center z-10" data-aos="fade-down">
+      <h2 className="text-lg md:text-2xl font-bold text-white shadow-amber-900 px-2">
+        Have any Question ?
+      </h2>
+    </div>
+
+    
+    <div className="z-10 space-y-4 pt-8 md:pt-12 px-2 md:px-0" data-aos="fade-right" data-aos-delay="200">
+      <input
+        type="text"
+        placeholder="First Name"
+        className="w-full px-4 py-2 rounded-full border border-gray-300 outline-none focus:ring-2 focus:ring-blue-400 text-white"
+      />
+      <input
+        type="text"
+        placeholder="Last Name"
+        className="w-full px-4 py-2 rounded-full border border-gray-300 outline-none focus:ring-2 focus:ring-blue-400 text-white"
+      />
+      <input
+        type="email"
+        placeholder="E-Mail"
+        className="w-full px-4 py-2 rounded-full border border-gray-300 outline-none focus:ring-2 focus:ring-blue-400 text-white"
+      />
+      <input
+        type="number"
+        placeholder="Age"
+        className="w-full px-4 py-2 rounded-full border border-gray-300 outline-none focus:ring-2 focus:ring-blue-400 text-white"
+      />
+      <input
+        type="tel"
+        placeholder="Contact Number"
+        className="w-full px-4 py-2 rounded-full border border-gray-300 outline-none focus:ring-2 focus:ring-blue-400 text-white"
+      />
+    </div>
+
+    <div
+      className="z-10 flex flex-col items-center justify-between pt-8 md:pt-12 px-2 md:px-0"
+      data-aos="fade-left"
+      data-aos-delay="400"
+    >
+      <textarea
+        placeholder="Type Here….."
+        className="w-full h-36 md:h-40 px-4 py-3 rounded-xl border border-gray-300 outline-none resize-none mb-6 focus:ring-2 focus:ring-blue-400 text-white"
+        style={{ display: "flex", alignItems: "center" }}
+      ></textarea>
+      <button className="bg-gradient-to-r from-green-400 to-green-300 text-black font-semibold px-6 py-2 rounded-full shadow hover:scale-105 transition duration-300 w-full md:w-auto">
+        Submit
+      </button>
+    </div>
+  </div>
+</section>
+{/* Testimonial */}
+   <section
+        className="
+          max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12
+          text-center bg-gradient-to-r from-green-800 via-blue-900 to-purple-900
+          text-white rounded-3xl shadow-lg
+        "
+      >
+        <h2
+          data-aos="fade-down"
+          className="text-3xl sm:text-4xl font-extrabold mb-12 tracking-wider drop-shadow-lg"
+        >
+          Testimonials
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+          {testimonials.map((t) => (
+            <div
+              key={t.id}
+              onClick={() => setSelectedTestimonial(t)}
+              data-aos="fade-up"
+              className="
+                bg-white text-gray-700 p-6 sm:p-8 rounded-3xl shadow-2xl relative cursor-pointer
+                transform transition-transform duration-500 ease-in-out
+                hover:scale-105 hover:shadow-3xl hover:rotate-1 hover:z-10
+              "
+              style={{ perspective: "1000px" }}
+            >
+              
+              <div
+                className="
+                  text-6xl sm:text-7xl text-gray-300 absolute -top-5 left-5 sm:-top-6 sm:left-6
+                  select-none pointer-events-none
+                "
+                aria-hidden="true"
+              >
+                “
+              </div>
+
+             
+              <div
+                className="
+                  w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full overflow-hidden
+                  border-4 border-green-400 mb-6 shadow-md
+                "
+              >
+                <img
+                  src={t.image}
+                  alt={t.alt}
+                  className="object-cover w-full h-full"
+                  loading="lazy"
+                />
+              </div>
+
+             
+              <p className="text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8 line-clamp-4">
+                {t.text}
+              </p>
+
+              
+              <p className="font-semibold text-base sm:text-lg">{t.company}</p>
+              <p className="text-xs sm:text-sm text-gray-500">{t.name}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Popup */}
+      {selectedTestimonial && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex items-center justify-center p-6 z-50"
+          style={{ backgroundImage: `url(${images.image_three})` }}
+          onClick={() => setSelectedTestimonial(null)}
+          data-aos="fade-in"
+          data-aos-duration="600"
+        >
+      
+  <div className="absolute inset-0 bg-black/60" />
+
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white rounded-3xl p-6 sm:p-8 max-w-md sm:max-w-3xl w-full shadow-2xl relative mx-4 sm:mx-auto"
+            data-aos="zoom-in"
+            data-aos-duration="600"
+            data-aos-delay="100"
+          >
+            <button
+              onClick={() => setSelectedTestimonial(null)}
+              className="absolute top-4 right-4 text-gray-700 hover:text-red-600 text-2xl font-bold"
+              aria-label="Close modal"
+            >
+              &times;
+            </button>
+
+            <div className="w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full overflow-hidden border-4 border-green-400 mb-6 shadow-lg">
+              <img
+                src={selectedTestimonial.image}
+                alt={selectedTestimonial.alt}
+                className="object-cover w-full h-full"
+              />
+            </div>
+
+            <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-8 whitespace-pre-line">
+              {selectedTestimonial.text}
+            </p>
+
+            <p className="font-semibold text-xl">{selectedTestimonial.company}</p>
+            <p className="text-gray-600 text-sm">{selectedTestimonial.name}</p>
+          </div>
+        </div>
+      )}
     </>
+    
   );
-};
+}
 
 export default Home;
