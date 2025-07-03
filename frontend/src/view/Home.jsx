@@ -301,12 +301,21 @@ const Home = () => {
             style={{
               backgroundImage: `url(${services[serviceModalIndex].image})`,
             }}
-            aria-hidden="true"
+            aria-hidden="true" 
           />
-          <div
-            className="absolute inset-0 bg-black bg-opacity-70"
-            aria-hidden="true"
-          />
+          <div className="absolute inset-0 z-0" aria-hidden="true">
+  {/* Background image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{
+      backgroundImage: `url(${images.image_SuportService02})`,
+    }}
+  />
+
+  {/* Black overlay */}
+  <div className="absolute inset-0 bg-black/80" />
+</div>
+
 
           <div
             className="relative bg-transparent rounded-xl p-6 max-w-3xl w-full shadow-2xl overflow-y-auto max-h-[80vh]"
