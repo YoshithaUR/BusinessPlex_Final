@@ -25,6 +25,12 @@ import image_GIF01 from "./Video/GIF01.gif";
 import image_Testamonial1 from "./Testimonials/Liz Haselgrove .jpg"
 import image_Testamonial2 from "./Testimonials/Mark South.jpg"
 import image_Testamonial3 from "./Testimonials/Kevin Wright.jpg"
+
+// Footer
+import image_Footer1 from "./AllLogos/AQF.png"
+import image_Footer2 from "./AllLogos/workforec.png"
+import image_logo from "./HomeSlideShow/logo.png"
+
 const images = {
   // Slide Show
   image_one,
@@ -52,7 +58,12 @@ const images = {
   // testamonial
   image_Testamonial1,
   image_Testamonial2,
-  image_Testamonial3
+  image_Testamonial3,
+
+  // Footer
+   image_Footer1 ,
+   image_Footer2,
+   image_logo
 };
 
 export default images;

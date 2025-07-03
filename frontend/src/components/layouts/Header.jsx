@@ -83,21 +83,50 @@ const Header = () => {
 
   const BlueNavBar = () => (
     <div
-  className="w-full text-white text-sm py-2 px-4 flex justify-between items-center z-50 fixed top-0 left-0"
-  style={{ backgroundColor: "rgb(165, 14, 14)" }}
->
+      className="w-full text-white text-sm py-2 px-4 flex justify-between items-center z-50 fixed top-0 left-0"
+      style={{ backgroundColor: "rgb(165, 14, 14)" }}
+    >
       <div className="flex items-center gap-5">
         <div className="flex gap-3">
-          <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-gray-300"><FaFacebookF /></a>
-          <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:text-gray-300"><FaTwitter /></a>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-gray-300"><FaInstagram /></a>
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-gray-300"
+          >
+            <FaFacebookF />
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-gray-300"
+          >
+            <FaTwitter />
+          </a>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-gray-300"
+          >
+            <FaInstagram />
+          </a>
         </div>
-        <a href="tel:1300894480" className="font-medium hover:text-gray-200 transition-all">
+        <a
+          href="tel:1300894480"
+          className="font-medium hover:text-gray-200 transition-all"
+        >
           INQUIRIES? CALL: 1300 894 480
         </a>
       </div>
       <div className="flex items-center bg-white text-black px-2 py-1 rounded-md">
-        <input type="text" placeholder="Search..." className="bg-transparent outline-none text-sm w-24 sm:w-40" />
+        <input
+          type="text"
+          placeholder="Search..."
+          className="bg-transparent outline-none text-sm w-24 sm:w-40"
+          aria-label="Search"
+        />
         <button title="Search" className="text-gray-700 hover:text-black transition">
           <FaSearch />
         </button>
@@ -118,8 +147,14 @@ const Header = () => {
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
               index === currentIndex ? "opacity-100 z-0" : "opacity-0 -z-10"
             }`}
+            aria-hidden={index !== currentIndex}
           >
-            <img src={src} alt={`slide-${index}`} className="w-full h-full object-cover" />
+            <img
+              src={src}
+              alt={`slide-${index + 1}`}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
           </div>
         ))}
       </div>
@@ -132,6 +167,7 @@ const Header = () => {
               window.location.href = "tel:1300894480";
             }}
             className="w-[160px] sm:w-[180px] flex justify-center items-center gap-3 bg-[rgb(165,14,14)] text-white px-4 py-2 sm:px-6 sm:py-3 font-semibold hover:bg-orange-600 transition rounded-md shadow-lg"
+            aria-label="Contact Us"
           >
             Contact Us
             <FaPhoneAlt size={18} />
@@ -148,57 +184,59 @@ const Header = () => {
               Business Plex
             </span>
           </div>
-          <div className="hidden sm:flex items-center gap-2 text-sm font-semibold text-gray-700">
-           {NAV_ITEMS.map(({ to, label }) => (
-  <NavLink
-    key={to}
-    to={to}
-    className={({ isActive }) =>
-      `px-4 py-2 rounded-full transition-all duration-300 transform ${
-        isActive
-          ? "bg-[rgb(165,14,14)] text-white shadow-md scale-105"
-          : "hover:bg-[rgb(165,10,10)] hover:text-white hover:scale-105"
-      }`
-    
+          <nav className="hidden sm:flex items-center gap-2 text-sm font-semibold text-gray-700">
+            {NAV_ITEMS.map(({ to, label }) => (
+              <NavLink
+                key={to}
+                to={to}
+                className={({ isActive }) =>
+                  `px-4 py-2 rounded-full transition-all duration-300 transform ${
+                    isActive
+                      ? "bg-[rgb(165,14,14)] text-white shadow-md scale-105"
+                      : "hover:bg-[rgb(165,10,10)] hover:text-white hover:scale-105"
+                  }`
                 }
               >
                 {label}
               </NavLink>
             ))}
-          </div>
+          </nav>
         </div>
       </div>
 
       {/* Highlights Section */}
       <div className="relative bg-white py-4 px-4 sm:px-6 md:px-12 z-20">
-  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 text-center">
-    {highlights.map((item, index) => (
-      <div
-        key={index}
-        className="flex flex-col items-center gap-2 group transition-transform duration-300"
-      >
-        {/* Icon with hover zoom and color change */}
-        <div className="text-black text-3xl transition-all duration-300 transform group-hover:scale-125 group-hover:text-purple-600">
-          {item.icon}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 text-center">
+          {highlights.map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center gap-2 group transition-transform duration-300"
+            >
+              {/* Icon with hover zoom and color change */}
+              <div className="text-black text-3xl transition-all duration-300 transform group-hover:scale-125 group-hover:text-purple-600">
+                {item.icon}
+              </div>
+
+              {/* Title with hover color change */}
+              <p className="text-sm font-semibold leading-tight text-black group-hover:text-purple-600 transition-colors duration-300">
+                {item.title}
+              </p>
+            </div>
+          ))}
         </div>
-
-        {/* Title with hover color change */}
-        <p className="text-sm font-semibold leading-tight text-black group-hover:text-purple-600 transition-colors duration-300">
-          {item.title}
-        </p>
       </div>
-    ))}
-  </div>
-</div>
-
 
       {/* Marquee Section */}
-      <div className="w-full py-2 z-30 overflow-hidden"  style={{ backgroundColor: "rgb(165, 14, 14)" }}
->
+      <div
+        className="w-full py-2 z-30 overflow-hidden"
+        style={{ backgroundColor: "rgb(165, 14, 14)" }}
+      >
         <div className="flex justify-center">
           <div className="inline-flex whitespace-nowrap animate-marquee text-white text-sm">
             {[...Array(11)].map((_, i) => (
-              <span key={i} className="mx-4">News Alert..</span>
+              <span key={i} className="mx-4">
+                News Alert..
+              </span>
             ))}
           </div>
         </div>

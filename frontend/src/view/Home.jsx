@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { FaStar, FaSearch, FaHandPointRight } from "react-icons/fa";
 import {
-  FaStar,
-  FaSearch,
-  FaHandPointRight,
+  FaPhoneAlt,
+  FaWhatsapp,
+  FaYoutube,
+  FaFacebook,
+  FaLinkedin,
 } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+
 import images from "../assets/Images/images";
 
 const Home = () => {
@@ -24,7 +29,7 @@ const Home = () => {
     });
   }, []);
   // testamonial
-   const testimonials = [
+  const testimonials = [
     {
       id: 1,
       image: images.image_Testamonial1,
@@ -157,19 +162,20 @@ const Home = () => {
 
   return (
     <>
+      {/* Business Support Section */}
       <section className="relative bg-white py-12 px-6 sm:px-12 lg:px-20 font-[Inter] overflow-hidden min-h-screen">
-        <div className="absolute -bottom-20 -left-32 w-[500px] h-[500px] bg-purple-300 opacity-30 rounded-full blur-3xl animate-pulse-slow z-0"></div>
+        <div className="absolute -bottom-20 -left-32 w-[300px] sm:w-[400px] md:w-[500px] h-[300px] sm:h-[400px] md:h-[500px] bg-purple-300 opacity-30 rounded-full blur-3xl animate-pulse-slow z-0"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2 relative">
             <h2
-              className="text-[40px] leading-[26px] font-semibold text-gray-800 mb-6"
+              className="text-3xl sm:text-4xl font-semibold text-gray-800 mb-6"
               data-aos="fade-up"
             >
               Business Support Services
             </h2>
 
-            <div className="space-y-6 text-gray-600 text-justify">
+            <div className="space-y-6 text-gray-600 text-justify text-sm sm:text-base">
               {paragraphData.map((text, index) => (
                 <div
                   key={index}
@@ -193,7 +199,7 @@ const Home = () => {
           </div>
 
           <div
-            className="lg:w-1/2 h-[400px]"
+            className="lg:w-1/2 h-64 sm:h-80 md:h-96 lg:h-[400px]"
             data-aos="fade-left"
             data-aos-delay="300"
           >
@@ -220,7 +226,7 @@ const Home = () => {
             />
             <div className="absolute inset-0 bg-black/40" />
             <div
-              className={`relative max-w-2xl max-h-[80vh] w-full overflow-auto p-8 rounded-xl bg-white bg-opacity-20 backdrop-blur-lg shadow-2xl transition-transform duration-300 ease-in-out ${
+              className={`relative max-w-2xl max-h-[80vh] w-full overflow-auto p-6 sm:p-8 rounded-xl bg-white bg-opacity-20 backdrop-blur-lg shadow-2xl transition-transform duration-300 ease-in-out ${
                 modalVisible
                   ? "scale-100 opacity-100 pointer-events-auto"
                   : "scale-90 opacity-0 pointer-events-none"
@@ -240,19 +246,20 @@ const Home = () => {
         )}
       </section>
 
+      {/* Services Section */}
       <section className="py-12 px-6 sm:px-12 lg:px-20 bg-gray-50 font-timmana">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 px-2 sm:px-6 lg:px-12">
           {services.map((service, index) => (
             <div
               key={index}
               onMouseEnter={() => setHoveredCard(index)}
               onMouseLeave={() => setHoveredCard(null)}
-              className="relative h-[520px] md:h-[480px] sm:h-[460px] bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-500 group cursor-pointer"
+              className="relative h-auto md:h-[480px] sm:h-[460px] bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-500 group cursor-pointer"
               data-aos="zoom-in"
               data-aos-delay={index * 100}
             >
               <div
-                className={`absolute inset-0 z-20 px-8 py-10 transition-transform duration-500 bg-cover bg-top flex flex-col justify-center ${
+                className={`absolute inset-0 z-20 px-6 sm:px-8 py-8 transition-transform duration-500 bg-cover bg-top flex flex-col justify-center ${
                   hoveredCard === index
                     ? "-translate-x-full opacity-0"
                     : "translate-x-0 opacity-100"
@@ -265,18 +272,18 @@ const Home = () => {
               >
                 <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-0" />
 
-                <div className="relative z-10 text-center text-white space-y-5 text-shadow">
-                  <h3 className="text-xl font-extrabold underline decoration-white decoration-2 mb-4">
+                <div className="relative z-10 text-center text-white space-y-5 text-shadow px-4 sm:px-6">
+                  <h3 className="text-xl sm:text-2xl font-extrabold underline decoration-white decoration-2 mb-4">
                     {service.title}
                   </h3>
 
-                  <div className="text-sm leading-relaxed space-y-3 px-4">
+                  <div className="text-sm sm:text-base leading-relaxed space-y-3 px-2 sm:px-4">
                     {service.paragraph.map((para, idx) => (
                       <p key={idx}>{para}</p>
                     ))}
                   </div>
 
-                  <ul className="text-xs space-y-2 mt-4 px-5 py-2 rounded-md bg-black/40 shadow font-medium text-left mx-auto w-fit">
+                  <ul className="text-xs sm:text-sm space-y-2 mt-4 px-5 py-2 rounded-md bg-black/40 shadow font-medium text-left mx-auto w-fit">
                     {service.points.map((point, i) => (
                       <li
                         key={i}
@@ -320,6 +327,7 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Service Modal */}
       {serviceModalIndex !== null && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center px-4"
@@ -330,24 +338,23 @@ const Home = () => {
             style={{
               backgroundImage: `url(${services[serviceModalIndex].image})`,
             }}
-            aria-hidden="true" 
+            aria-hidden="true"
           />
           <div className="absolute inset-0 z-0" aria-hidden="true">
-  {/* Background image */}
-  <div
-    className="absolute inset-0 bg-cover bg-center"
-    style={{
-      backgroundImage: `url(${images.image_SuportService02})`,
-    }}
-  />
+          
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${images.image_SuportService02})`,
+              }}
+            />
 
-  {/* Black overlay */}
-  <div className="absolute inset-0 bg-black/80" />
-</div>
-
+            
+            <div className="absolute inset-0 bg-black/80" />
+          </div>
 
           <div
-            className="relative bg-transparent rounded-xl p-6 max-w-3xl w-full shadow-2xl overflow-y-auto max-h-[80vh]"
+            className="relative bg-transparent rounded-xl p-4 sm:p-6 max-w-full sm:max-w-3xl w-full shadow-2xl overflow-y-auto max-h-[80vh]"
             onClick={(e) => e.stopPropagation()}
             data-aos="zoom-in"
             data-aos-duration="800"
@@ -409,7 +416,9 @@ const Home = () => {
               data-aos-delay="600"
             >
               <button
-                onClick={() => handleApplyNow(services[serviceModalIndex].title)}
+                onClick={() =>
+                  handleApplyNow(services[serviceModalIndex].title)
+                }
                 className="group bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-3 rounded-full shadow-lg transition-colors duration-300 flex items-center gap-2"
               >
                 Apply Now
@@ -427,7 +436,6 @@ const Home = () => {
           </div>
         </div>
       )}
-
       {/* Self Employment Section */}
       <section
         className="relative w-full min-h-[80vh] overflow-hidden mb-4"
@@ -448,7 +456,7 @@ const Home = () => {
 
         <div className="relative z-10 flex flex-col md:flex-row justify-center items-center h-full px-6 md:px-20 text-white">
           <div
-            className="md:w-2/3 mb-10 md:mb-0 bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"
+            className="md:w-2/3 mb-10 md:mb-0 mt-16 bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"
             data-aos="fade-right"
             data-aos-duration="900"
             data-aos-delay="150"
@@ -499,89 +507,12 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Comment */}
-
-    <section
-  className="w-full min-h-[80vh] bg-gray-100 flex items-center justify-center p-4 -mt-6"
-  data-aos="fade-up"
->
-  <div className="bg-black/80 rounded-3xl shadow-xl p-6 md:p-10 w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 relative">
-   
-    <div className="absolute inset-0 rounded-3xl overflow-hidden z-0">
-     
-      <div
-        className="absolute inset-0 bg-contain bg-no-repeat bg-center"
-        style={{ backgroundImage: `url(${images.image_three})` }}
-        data-aos="fade-in"
-      />
-      
-      <div className="absolute inset-0 bg-black/90" />
-    </div>
-
-   
-    <div className="absolute top-4 w-full text-center z-10" data-aos="fade-down">
-      <h2 className="text-lg md:text-2xl font-bold text-white shadow-amber-900 px-2">
-        Have any Question ?
-      </h2>
-    </div>
-
-    
-    <div className="z-10 space-y-4 pt-8 md:pt-12 px-2 md:px-0" data-aos="fade-right" data-aos-delay="200">
-      <input
-        type="text"
-        placeholder="First Name"
-        className="w-full px-4 py-2 rounded-full border border-gray-300 outline-none focus:ring-2 focus:ring-blue-400 text-white"
-      />
-      <input
-        type="text"
-        placeholder="Last Name"
-        className="w-full px-4 py-2 rounded-full border border-gray-300 outline-none focus:ring-2 focus:ring-blue-400 text-white"
-      />
-      <input
-        type="email"
-        placeholder="E-Mail"
-        className="w-full px-4 py-2 rounded-full border border-gray-300 outline-none focus:ring-2 focus:ring-blue-400 text-white"
-      />
-      <input
-        type="number"
-        placeholder="Age"
-        className="w-full px-4 py-2 rounded-full border border-gray-300 outline-none focus:ring-2 focus:ring-blue-400 text-white"
-      />
-      <input
-        type="tel"
-        placeholder="Contact Number"
-        className="w-full px-4 py-2 rounded-full border border-gray-300 outline-none focus:ring-2 focus:ring-blue-400 text-white"
-      />
-    </div>
-
-    <div
-      className="z-10 flex flex-col items-center justify-between pt-8 md:pt-12 px-2 md:px-0"
-      data-aos="fade-left"
-      data-aos-delay="400"
-    >
-      <textarea
-        placeholder="Type Here….."
-        className="w-full h-36 md:h-40 px-4 py-3 rounded-xl border border-gray-300 outline-none resize-none mb-6 focus:ring-2 focus:ring-blue-400 text-white"
-        style={{ display: "flex", alignItems: "center" }}
-      ></textarea>
-      <button className="bg-gradient-to-r from-green-400 to-green-300 text-black font-semibold px-6 py-2 rounded-full shadow hover:scale-105 transition duration-300 w-full md:w-auto">
-        Submit
-      </button>
-    </div>
-  </div>
-</section>
-{/* Testimonial */}
-   <section
-        className="
-          max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12
-          text-center bg-gradient-to-r from-green-800 via-blue-900 to-purple-900
-          text-white rounded-3xl shadow-lg
-        "
+      {/* Testimonials Section */}
+      <section
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 text-center bg-gradient-to-r from-green-800 via-blue-900 to-purple-900 text-white rounded-3xl shadow-lg"
+        data-aos="fade-up"
       >
-        <h2
-          data-aos="fade-down"
-          className="text-3xl sm:text-4xl font-extrabold mb-12 tracking-wider drop-shadow-lg"
-        >
+        <h2 className="text-3xl sm:text-4xl font-extrabold mb-12 tracking-wider drop-shadow-lg">
           Testimonials
         </h2>
 
@@ -590,15 +521,14 @@ const Home = () => {
             <div
               key={t.id}
               onClick={() => setSelectedTestimonial(t)}
-              data-aos="fade-up"
               className="
                 bg-white text-gray-700 p-6 sm:p-8 rounded-3xl shadow-2xl relative cursor-pointer
                 transform transition-transform duration-500 ease-in-out
                 hover:scale-105 hover:shadow-3xl hover:rotate-1 hover:z-10
               "
               style={{ perspective: "1000px" }}
+              data-aos="fade-up"
             >
-              
               <div
                 className="
                   text-6xl sm:text-7xl text-gray-300 absolute -top-5 left-5 sm:-top-6 sm:left-6
@@ -609,7 +539,6 @@ const Home = () => {
                 “
               </div>
 
-             
               <div
                 className="
                   w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full overflow-hidden
@@ -624,12 +553,10 @@ const Home = () => {
                 />
               </div>
 
-             
               <p className="text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8 line-clamp-4">
                 {t.text}
               </p>
 
-              
               <p className="font-semibold text-base sm:text-lg">{t.company}</p>
               <p className="text-xs sm:text-sm text-gray-500">{t.name}</p>
             </div>
@@ -637,7 +564,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Popup */}
+      {/* Testimonial Popup */}
       {selectedTestimonial && (
         <div
           className="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex items-center justify-center p-6 z-50"
@@ -646,8 +573,7 @@ const Home = () => {
           data-aos="fade-in"
           data-aos-duration="600"
         >
-      
-  <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-black/60" />
 
           <div
             onClick={(e) => e.stopPropagation()}
@@ -676,14 +602,263 @@ const Home = () => {
               {selectedTestimonial.text}
             </p>
 
-            <p className="font-semibold text-xl">{selectedTestimonial.company}</p>
+            <p className="font-semibold text-xl">
+              {selectedTestimonial.company}
+            </p>
             <p className="text-gray-600 text-sm">{selectedTestimonial.name}</p>
           </div>
         </div>
       )}
+
+      {/* Contact */}
+      <section
+        className="w-full min-h-[80vh] bg-gray-100 flex items-center justify-center p-4 -mt-6"
+        data-aos="fade-up"
+      >
+        <div className="bg-black/80 rounded-3xl shadow-xl p-6 md:p-10 w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+        
+          <div className="absolute inset-0 rounded-3xl overflow-hidden z-0">
+            <div
+              className="absolute inset-0 bg-contain bg-no-repeat bg-center"
+              style={{ backgroundImage: `url(${images.image_three})` }}
+              data-aos="fade-in"
+            />
+            <div className="absolute inset-0 bg-black/90" />
+          </div>
+
+          <div
+            className="absolute top-4 w-full text-center z-10"
+            data-aos="fade-down"
+          >
+            <h2 className="text-lg md:text-2xl font-bold text-white shadow-amber-900 px-2">
+              Have any Question ?
+            </h2>
+          </div>
+
+          <div
+            className="z-10 space-y-4 pt-8 md:pt-12 px-2 md:px-0"
+            data-aos="fade-right"
+            data-aos-delay="200"
+          >
+            <input
+              type="text"
+              placeholder="First Name"
+              className="w-full px-4 py-2 rounded-full border border-gray-300 outline-none focus:ring-2 focus:ring-blue-400 placeholder-white text-white bg-transparent"
+            />
+            <input
+              type="text"
+              placeholder="Last Name"
+              className="w-full px-4 py-2 rounded-full border border-gray-300 outline-none focus:ring-2 focus:ring-blue-400 placeholder-white text-white bg-transparent"
+            />
+            <input
+              type="email"
+              placeholder="E-Mail"
+              className="w-full px-4 py-2 rounded-full border border-gray-300 outline-none focus:ring-2 focus:ring-blue-400 placeholder-white text-white bg-transparent"
+            />
+            <input
+              type="number"
+              placeholder="Age"
+              className="w-full px-4 py-2 rounded-full border border-gray-300 outline-none focus:ring-2 focus:ring-blue-400 placeholder-white text-white bg-transparent"
+            />
+            <input
+              type="tel"
+              placeholder="Contact Number"
+              className="w-full px-4 py-2 rounded-full border border-gray-300 outline-none focus:ring-2 focus:ring-blue-400 placeholder-white text-white bg-transparent"
+            />
+          </div>
+
+          <div
+            className="z-10 flex flex-col items-center justify-between pt-8 md:pt-12 px-2 md:px-0"
+            data-aos="fade-left"
+            data-aos-delay="400"
+          >
+            <textarea
+              placeholder="Type Here….."
+              className="w-full h-36 md:h-40 px-4 py-3 rounded-xl border border-gray-300 outline-none resize-none mb-6 focus:ring-2 focus:ring-blue-400 placeholder-white text-white bg-transparent"
+              style={{ display: "flex", alignItems: "center" }}
+            ></textarea>
+            <button className="bg-gradient-to-r from-green-400 to-green-300 text-black font-semibold px-6 py-2 rounded-full shadow hover:scale-105 transition duration-300 w-full md:w-auto">
+              Submit
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+
+      <section>
+        <footer className="text-white text-sm">
+          <div className="bg-gray-900 px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8 rounded-t-3xl -mt-6">
+            <div>
+              
+              <img
+                src={images.image_logo}
+                alt="Businessplex"
+                className="w-28 mb-4 mx-auto md:mx-0"
+              />
+              <div className="space-y-2 text-center md:text-left">
+                <a
+                  href="https://www.google.com/maps?q=1/3+Marchant+Way,+Morley+WA+6062"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block hover:text-amber-400 transition"
+                >
+                  1/3 Marchant Way, Morley 6062
+                </a>
+                <a
+                  href="tel:1300894480"
+                  className="flex items-center justify-center md:justify-start gap-2 hover:text-amber-400 transition"
+                >
+                  <FaPhoneAlt /> Free call: 1300 894 480
+                </a>
+                <a
+                  href="tel:0861565820"
+                  className="flex items-center justify-center md:justify-start gap-2 hover:text-amber-400 transition"
+                >
+                  <FaPhoneAlt /> 08 6156 5820
+                </a>
+                <a
+                  href="mailto:admin@businessplex.com.au"
+                  className="flex items-center justify-center md:justify-start gap-2 hover:text-amber-400 transition break-words"
+                >
+                  <MdEmail /> admin@businessplex.com.au
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-4 text-center md:text-left">
+                Quick Links
+              </h3>
+              <ul className="space-y-2 text-center md:text-left">
+                {[
+                  { href: "/", label: "Home" },
+                  { href: "#", label: "About Us" },
+                  { href: "#", label: "Our Team" },
+                  { href: "#", label: "Contact Us" },
+                  { href: "#", label: "Privacy Policy" },
+                ].map((link, idx) => (
+                  <li key={idx}>
+                    <a
+                      href={link.href}
+                      className="block hover:text-amber-400 transition"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-4 text-center md:text-left">
+                Services
+              </h3>
+              <ul className="space-y-2 text-center md:text-left">
+                {[
+                  { href: "#", label: "Small Business Training" },
+                  { href: "#", label: "Exploring Self-Employment Workshops" },
+                  { href: "#", label: "Business Health Checks" },
+                  { href: "#", label: "Business Advice" },
+                ].map((link, idx) => (
+                  <li key={idx}>
+                    <a
+                      href={link.href}
+                      className="block hover:text-amber-400 transition"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-4 text-center md:text-left">
+                Newsletter
+              </h3>
+              <form
+                className="flex flex-col space-y-3 max-w-xs mx-auto md:mx-0"
+                onSubmit={(e) => e.preventDefault()}
+              >
+                <input
+                  type="text"
+                  placeholder="Name"
+                  className="px-3 py-2 rounded text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-amber-400"
+                  required
+                />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="px-3 py-2 rounded text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-amber-400"
+                  required
+                />
+                <button className="bg-amber-400 text-blue-900 font-semibold py-2 rounded hover:bg-amber-500 transition">
+                  Subscribe
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div className="bg-gray-800 py-4 px-6 flex flex-col md:flex-row justify-between items-center text-gray-400">
+            <div className="flex gap-4 mb-4 md:mb-0">
+        
+              <img
+                src={images.image_Footer1}
+                alt="Australian Qualification"
+                className="h-16"
+              />
+              <img
+                src={images.image_Footer2}
+                alt="Workforce Australia"
+                className="h-16"
+              />
+            </div>
+
+            <p className="text-center md:text-left text-sm">
+              Copyright 2025 © Businessplex. All Rights Reserved. Development by
+              A4Technologies.
+            </p>
+
+            <div className="flex gap-4 mt-4 md:mt-0">
+              <a
+                href="https://wa.me/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-green-500 transition"
+              >
+                <FaWhatsapp size={20} />
+              </a>
+              <a
+                href="https://www.youtube.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-red-500 transition"
+              >
+                <FaYoutube size={20} />
+              </a>
+              <a
+                href="https://web.facebook.com/BusinessplexTrainingCentre"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-500 transition"
+              >
+                <FaFacebook size={20} />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/businessplex/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-400 transition"
+              >
+                <FaLinkedin size={20} />
+              </a>
+            </div>
+          </div>
+        </footer>
+      </section>
     </>
-    
   );
-}
+};
 
 export default Home;
