@@ -5,7 +5,6 @@ import {
   FaStar,
   FaSearch,
   FaHandPointRight,
-  FaArrowRight,
 } from "react-icons/fa";
 import images from "../assets/Images/images";
 
@@ -42,7 +41,7 @@ const Home = () => {
       image: images.image_Card01,
       gif: images.image_GIF01,
       paragraph: [
-        "Let us help build your business plan The development and implementation of a viable business plan is an important element of the Self‑Employment Assistance program.",
+        "Let us help build your business plan. The development and implementation of a viable business plan is an important element of the Self‑Employment Assistance program.",
         "You can develop your Business Plan in various ways.",
       ],
       points: [
@@ -57,12 +56,12 @@ const Home = () => {
       image: images.image_Card02,
       gif: images.image_GIF01,
       paragraph: [
-        "Let us help build your business plan The development and implementation of a viable business plan is an important element of the Self‑Employment Assistance program.",
+        "Let us help build your business plan. The development and implementation of a viable business plan is an important element of the Self‑Employment Assistance program.",
         "You can develop your Business Plan in various ways.",
       ],
       points: [
         "Participants can have individual business plan mentoring with us through a single 3 hour business planning session or over a number of smaller sessions in total of 3 hours.",
-        "Participants can enrol in Small Business Training(Cert III in New Business and Entrepreneurship or Skills Set) to start developing their Business Plan during their training",
+        "Participants can enrol in Small Business Training(Cert III in New Business and Entrepreneurship or Skills Set) to start developing their Business Plan during their training.",
         "Participants may develop a Business Plan on their own and seek assistance from us to ensure it is a viable plan.",
       ],
       modalImage: images.image_Card02,
@@ -72,7 +71,7 @@ const Home = () => {
       image: images.image_Card03,
       gif: images.image_GIF01,
       paragraph: [
-        "Let us help build your business plan The development and implementation of a viable business plan is an important element of the Self‑Employment Assistance program.",
+        "Let us help build your business plan. The development and implementation of a viable business plan is an important element of the Self‑Employment Assistance program.",
         "You can develop your Business Plan in various ways.",
       ],
       points: [
@@ -87,7 +86,7 @@ const Home = () => {
       image: images.image_Card04,
       gif: images.image_GIF01,
       paragraph: [
-        "Let us help build your business plan The development and implementation of a viable business plan is an important element of the Self‑Employment Assistance program.",
+        "Let us help build your business plan. The development and implementation of a viable business plan is an important element of the Self‑Employment Assistance program.",
         "You can develop your Business Plan in various ways.",
       ],
       points: [
@@ -129,7 +128,6 @@ const Home = () => {
 
   return (
     <>
-      
       <section className="relative bg-white py-12 px-6 sm:px-12 lg:px-20 font-[Inter] overflow-hidden min-h-screen">
         <div className="absolute -bottom-20 -left-32 w-[500px] h-[500px] bg-purple-300 opacity-30 rounded-full blur-3xl animate-pulse-slow z-0"></div>
 
@@ -178,7 +176,6 @@ const Home = () => {
           </div>
         </div>
 
-        
         {zoomActive && zoomIndex !== null && (
           <div
             className={`fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-60 transition-opacity duration-300 ${
@@ -214,7 +211,6 @@ const Home = () => {
         )}
       </section>
 
-      
       <section className="py-12 px-6 sm:px-12 lg:px-20 bg-gray-50 font-timmana">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (
@@ -226,7 +222,6 @@ const Home = () => {
               data-aos="zoom-in"
               data-aos-delay={index * 100}
             >
-              
               <div
                 className={`absolute inset-0 z-20 px-8 py-10 transition-transform duration-500 bg-cover bg-top flex flex-col justify-center ${
                   hoveredCard === index
@@ -268,7 +263,6 @@ const Home = () => {
                 </div>
               </div>
 
-              
               <div
                 className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover bg-center transition-all duration-500 ${
                   hoveredCard === index
@@ -297,13 +291,11 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Popup  */}
       {serviceModalIndex !== null && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center px-4"
           onClick={closeServiceModal}
         >
-          
           <div
             className="absolute inset-0 bg-cover bg-center filter blur-sm brightness-50"
             style={{
@@ -316,14 +308,12 @@ const Home = () => {
             aria-hidden="true"
           />
 
-         
           <div
             className="relative bg-transparent rounded-xl p-6 max-w-3xl w-full shadow-2xl overflow-y-auto max-h-[80vh]"
             onClick={(e) => e.stopPropagation()}
             data-aos="zoom-in"
             data-aos-duration="800"
           >
-        
             <div
               className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-6"
               data-aos="fade-up"
@@ -357,7 +347,6 @@ const Home = () => {
               </div>
             </div>
 
-         
             <ul
               className="space-y-3 text-white text-[15px] leading-relaxed mb-8"
               data-aos="fade-up"
@@ -376,16 +365,13 @@ const Home = () => {
               ))}
             </ul>
 
-        
             <div
               className="flex justify-center"
               data-aos="zoom-in"
               data-aos-delay="600"
             >
               <button
-                onClick={() =>
-                  handleApplyNow(services[serviceModalIndex].title)
-                }
+                onClick={() => handleApplyNow(services[serviceModalIndex].title)}
                 className="group bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-3 rounded-full shadow-lg transition-colors duration-300 flex items-center gap-2"
               >
                 Apply Now
@@ -393,7 +379,6 @@ const Home = () => {
               </button>
             </div>
 
-           
             <button
               onClick={closeServiceModal}
               className="absolute top-3 right-4 text-white hover:text-red-500 font-bold text-3xl"
@@ -405,27 +390,22 @@ const Home = () => {
         </div>
       )}
 
-      {/* Self */}
+      {/* Self Employment Section */}
       <section className="relative w-full h-screen overflow-hidden">
-        
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat transition duration-700"
           style={{
             backgroundImage: `url(${images.image_three})`,
           }}
           data-aos="fade-in"
-          data-aos-duration="1000" 
+          data-aos-duration="1000"
         >
-         
           <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black/70 to-transparent"></div>
         </div>
 
-       
         <div className="absolute inset-0 bg-black/60 backdrop-blur-sm z-0" />
 
-    
         <div className="relative z-10 flex flex-col md:flex-row justify-center items-center h-full px-6 md:px-20 text-white">
-      
           <div
             className="md:w-2/3 mb-10 md:mb-0 bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"
             data-aos="fade-right"
