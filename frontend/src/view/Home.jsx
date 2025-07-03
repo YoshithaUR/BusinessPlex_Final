@@ -411,7 +411,7 @@ const Home = () => {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat transition duration-700"
           style={{
-            backgroundImage: `url(${images.image_self01})`,
+            backgroundImage: `url(${images.image_three})`,
           }}
           data-aos="fade-in"
           data-aos-duration="1000" 
