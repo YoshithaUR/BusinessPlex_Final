@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { FaStar, FaSearch } from "react-icons/fa";
+import {
+  FaStar,
+  FaSearch,
+  FaHandPointRight,
+  FaArrowRight,
+} from "react-icons/fa";
 import images from "../assets/Images/images";
-import { FaHandPointRight } from "react-icons/fa";import { FaArrowRight } from "react-icons/fa"; 
 
 const Home = () => {
   const [zoomActive, setZoomActive] = useState(false);
@@ -46,7 +50,7 @@ const Home = () => {
         "Participants can enrol in Small Business Training(Cert III in New Business and Entrepreneurship or Skills Set) to start developing their Business Plan during their training.",
         "Participants may develop a Business Plan on their own and seek assistance from us to ensure it is a viable plan.",
       ],
-      modalImage: images.image_Card01, 
+      modalImage: images.image_Card01,
     },
     {
       title: "Business Advice",
@@ -118,25 +122,34 @@ const Home = () => {
   };
 
   const handleApplyNow = (serviceTitle) => {
-    alert(`Thank you for your interest in "${serviceTitle}". Application process will start soon.`);
-    
+    alert(
+      `Thank you for your interest in "${serviceTitle}". Application process will start soon.`
+    );
   };
 
   return (
     <>
-      {/* Top Section */}
+      
       <section className="relative bg-white py-12 px-6 sm:px-12 lg:px-20 font-[Inter] overflow-hidden min-h-screen">
         <div className="absolute -bottom-20 -left-32 w-[500px] h-[500px] bg-purple-300 opacity-30 rounded-full blur-3xl animate-pulse-slow z-0"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2 relative">
-            <h2 className="text-[40px] leading-[26px] font-semibold text-gray-800 mb-6" data-aos="fade-up">
+            <h2
+              className="text-[40px] leading-[26px] font-semibold text-gray-800 mb-6"
+              data-aos="fade-up"
+            >
               Business Support Services
             </h2>
 
             <div className="space-y-6 text-gray-600 text-justify">
               {paragraphData.map((text, index) => (
-                <div key={index} className="relative flex items-start gap-2 group" data-aos="fade-up" data-aos-delay={index * 100}>
+                <div
+                  key={index}
+                  className="relative flex items-start gap-2 group"
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                >
                   <FaStar className="text-yellow-500 mt-1 flex-shrink-0" />
                   <p className="flex-1">{text}</p>
                   <button
@@ -152,7 +165,11 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="lg:w-1/2 h-[400px]" data-aos="fade-left" data-aos-delay="300">
+          <div
+            className="lg:w-1/2 h-[400px]"
+            data-aos="fade-left"
+            data-aos-delay="300"
+          >
             <img
               src={images.image_SuportService01}
               alt="Business Support"
@@ -161,7 +178,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Zoom Modal */}
+        
         {zoomActive && zoomIndex !== null && (
           <div
             className={`fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-60 transition-opacity duration-300 ${
@@ -178,7 +195,9 @@ const Home = () => {
             <div className="absolute inset-0 bg-black/40" />
             <div
               className={`relative max-w-2xl max-h-[80vh] w-full overflow-auto p-8 rounded-xl bg-white bg-opacity-20 backdrop-blur-lg shadow-2xl transition-transform duration-300 ease-in-out ${
-                modalVisible ? "scale-100 opacity-100 pointer-events-auto" : "scale-90 opacity-0 pointer-events-none"
+                modalVisible
+                  ? "scale-100 opacity-100 pointer-events-auto"
+                  : "scale-90 opacity-0 pointer-events-none"
               }`}
               onClick={(e) => e.stopPropagation()}
               onMouseLeave={closeZoom}
@@ -187,28 +206,32 @@ const Home = () => {
                 <FaStar className="text-yellow-500" />
                 Business Support Services
               </h3>
-              <p className="leading-8 text-black max-w-lg mb-4 text-lg font-medium">{paragraphData[zoomIndex]}</p>
+              <p className="leading-8 text-black max-w-lg mb-4 text-lg font-medium">
+                {paragraphData[zoomIndex]}
+              </p>
             </div>
           </div>
         )}
       </section>
 
-      {/* Services Cards Section */}
+      
       <section className="py-12 px-6 sm:px-12 lg:px-20 bg-gray-50 font-timmana">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              onMouseEnter={() => setHoveredCard(index)} p
+              onMouseEnter={() => setHoveredCard(index)}
               onMouseLeave={() => setHoveredCard(null)}
-              className="relative h-[420px] bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-500 group"
+              className="relative h-[520px] md:h-[480px] sm:h-[460px] bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-500 group cursor-pointer"
               data-aos="zoom-in"
               data-aos-delay={index * 100}
             >
-              {/* Left Side */}
+              
               <div
-                className={`absolute inset-0 z-20 px-6 py-8 transition-transform duration-500 bg-cover bg-top flex flex-col justify-center ${
-                  hoveredCard === index ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100"
+                className={`absolute inset-0 z-20 px-8 py-10 transition-transform duration-500 bg-cover bg-top flex flex-col justify-center ${
+                  hoveredCard === index
+                    ? "-translate-x-full opacity-0"
+                    : "translate-x-0 opacity-100"
                 }`}
                 style={{
                   backgroundImage: `url(${service.image})`,
@@ -216,24 +239,20 @@ const Home = () => {
                   backgroundPosition: "top",
                 }}
               >
-               
                 <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-0" />
 
-                
-                <div className="relative z-10 text-center text-white space-y-6 text-shadow">
-                  <h3 className="text-2xl font-extrabold underline decoration-white decoration-2 mb-4">
+                <div className="relative z-10 text-center text-white space-y-5 text-shadow">
+                  <h3 className="text-xl font-extrabold underline decoration-white decoration-2 mb-4">
                     {service.title}
                   </h3>
 
-                  {/* Paragraphs */}
-                  <div className="text-[15px] leading-relaxed space-y-3 px-2">
+                  <div className="text-sm leading-relaxed space-y-3 px-4">
                     {service.paragraph.map((para, idx) => (
                       <p key={idx}>{para}</p>
                     ))}
                   </div>
 
-                  {/* Points */}
-                  <ul className="text-sm space-y-3 mt-3 px-4 py-2 rounded-md bg-black/40 shadow font-medium text-left mx-auto w-fit">
+                  <ul className="text-xs space-y-2 mt-4 px-5 py-2 rounded-md bg-black/40 shadow font-medium text-left mx-auto w-fit">
                     {service.points.map((point, i) => (
                       <li
                         key={i}
@@ -249,7 +268,7 @@ const Home = () => {
                 </div>
               </div>
 
-              {/* Right Side GIF */}
+              
               <div
                 className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover bg-center transition-all duration-500 ${
                   hoveredCard === index
@@ -266,115 +285,198 @@ const Home = () => {
 
                 <button
                   onClick={() => openServiceModal(index)}
-                  className="relative z-10 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-5 py-2 rounded-full shadow-lg"
+                  className="relative z-10 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full shadow-lg"
                 >
                   Read More
                 </button>
               </div>
 
-          
               <div className="absolute inset-0 bg-white/50 z-0" />
             </div>
           ))}
         </div>
       </section>
 
-      {/* popup */}
-     {serviceModalIndex !== null && (
-  <div
-    className="fixed inset-0 z-50 flex items-center justify-center px-4"
-    onClick={closeServiceModal}
-  >
-    {/* Background image with blur and dark overlay */}
-    <div
-      className="absolute inset-0 bg-cover bg-center filter blur-sm brightness-50"
-      style={{ backgroundImage: `url(${images.image_SuportService01})` }}
-      aria-hidden="true"
-    />
-    <div className="absolute inset-0  bg-opacity-70" aria-hidden="true" />
-
-    {/* Modal content with zoom-in effect */}
-    <div
-      className="relative bg-transparent rounded-xl p-6 max-w-3xl w-full shadow-2xl overflow-y-auto max-h-[80vh]"
-      onClick={(e) => e.stopPropagation()}
-      data-aos="zoom-in"
-      data-aos-duration="800"
-    >
-      {/* Image and Header Section */}
-      <div
-        className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-6"
-        data-aos="fade-up"
-        data-aos-duration="700"
-      >
-        <img
-          src={services[serviceModalIndex].modalImage}
-          alt={services[serviceModalIndex].title}
-          className="w-full md:w-48 rounded-lg shadow-lg object-cover"
-          data-aos="zoom-in"
-          data-aos-duration="800"
-        />
-        <div className="flex-1" data-aos="fade-left" data-aos-duration="700">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            {services[serviceModalIndex].title}
-          </h2>
-          {services[serviceModalIndex].paragraph.map((para, idx) => (
-            <p
-              key={idx}
-              className="text-white mb-3 text-[16px] leading-relaxed"
-              data-aos="fade-up"
-              data-aos-delay={idx * 100}
-            >
-              {para}
-            </p>
-          ))}
-        </div>
-      </div>
-
-      {/* Points List */}
-      <ul
-        className="space-y-3 text-white text-[15px] leading-relaxed mb-8"
-        data-aos="fade-up"
-        data-aos-delay="300"
-      >
-        {services[serviceModalIndex].points.map((point, i) => (
-          <li
-            key={i}
-            className="flex items-start gap-3"
-            data-aos="fade-right"
-            data-aos-delay={i * 100}
-          >
-            <span className="mt-1 w-4 h-4 bg-red-600 rounded-full flex-shrink-0" />
-            <span>{point}</span>
-          </li>
-        ))}
-      </ul>
-
-      {/* Apply Now Button */}
-      <div className="flex justify-center" data-aos="zoom-in" data-aos-delay="600">
-        <button
-          onClick={() => handleApplyNow(services[serviceModalIndex].title)}
-          className="group bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-3 rounded-full shadow-lg transition-colors duration-300 flex items-center gap-2"
+      {/* Popup  */}
+      {serviceModalIndex !== null && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center px-4"
+          onClick={closeServiceModal}
         >
-          Apply Now
-          <FaHandPointRight className="transition-transform duration-300 group-hover:translate-x-2" />
-        </button>
-      </div>
+          
+          <div
+            className="absolute inset-0 bg-cover bg-center filter blur-sm brightness-50"
+            style={{
+              backgroundImage: `url(${services[serviceModalIndex].image})`,
+            }}
+            aria-hidden="true"
+          />
+          <div
+            className="absolute inset-0 bg-black bg-opacity-70"
+            aria-hidden="true"
+          />
 
-      {/* Close Button */}
-      <button
-        onClick={closeServiceModal}
-        className="absolute top-3 right-4 text-white hover:text-red-500 font-bold text-3xl"
-        aria-label="Close modal"
-      >
-        &times;
-      </button>
-    </div>
-  </div>
-)}
+         
+          <div
+            className="relative bg-transparent rounded-xl p-6 max-w-3xl w-full shadow-2xl overflow-y-auto max-h-[80vh]"
+            onClick={(e) => e.stopPropagation()}
+            data-aos="zoom-in"
+            data-aos-duration="800"
+          >
+        
+            <div
+              className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-6"
+              data-aos="fade-up"
+              data-aos-duration="700"
+            >
+              <img
+                src={services[serviceModalIndex].modalImage}
+                alt={services[serviceModalIndex].title}
+                className="w-full md:w-48 rounded-lg shadow-lg object-cover"
+                data-aos="zoom-in"
+                data-aos-duration="800"
+              />
+              <div
+                className="flex-1"
+                data-aos="fade-left"
+                data-aos-duration="700"
+              >
+                <h2 className="text-3xl font-bold text-white mb-4">
+                  {services[serviceModalIndex].title}
+                </h2>
+                {services[serviceModalIndex].paragraph.map((para, idx) => (
+                  <p
+                    key={idx}
+                    className="text-white mb-3 text-[16px] leading-relaxed"
+                    data-aos="fade-up"
+                    data-aos-delay={idx * 100}
+                  >
+                    {para}
+                  </p>
+                ))}
+              </div>
+            </div>
 
+         
+            <ul
+              className="space-y-3 text-white text-[15px] leading-relaxed mb-8"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              {services[serviceModalIndex].points.map((point, i) => (
+                <li
+                  key={i}
+                  className="flex items-start gap-3"
+                  data-aos="fade-right"
+                  data-aos-delay={i * 100}
+                >
+                  <span className="mt-1 w-4 h-4 bg-red-600 rounded-full flex-shrink-0" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
 
+        
+            <div
+              className="flex justify-center"
+              data-aos="zoom-in"
+              data-aos-delay="600"
+            >
+              <button
+                onClick={() =>
+                  handleApplyNow(services[serviceModalIndex].title)
+                }
+                className="group bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-3 rounded-full shadow-lg transition-colors duration-300 flex items-center gap-2"
+              >
+                Apply Now
+                <FaHandPointRight className="transition-transform duration-300 group-hover:translate-x-2" />
+              </button>
+            </div>
 
-   
+           
+            <button
+              onClick={closeServiceModal}
+              className="absolute top-3 right-4 text-white hover:text-red-500 font-bold text-3xl"
+              aria-label="Close modal"
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Self */}
+      <section className="relative w-full h-screen overflow-hidden">
+        
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition duration-700"
+          style={{
+            backgroundImage: `url(${images.image_self01})`,
+          }}
+          data-aos="fade-in"
+          data-aos-duration="1000" 
+        >
+         
+          <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black/70 to-transparent"></div>
+        </div>
+
+       
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm z-0" />
+
+    
+        <div className="relative z-10 flex flex-col md:flex-row justify-center items-center h-full px-6 md:px-20 text-white">
+      
+          <div
+            className="md:w-2/3 mb-10 md:mb-0 bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"
+            data-aos="fade-right"
+            data-aos-duration="900"
+            data-aos-delay="150"
+          >
+            <h1
+              className="text-3xl md:text-5xl font-extrabold mb-6 drop-shadow-md text-left"
+              data-aos="fade-up"
+              data-aos-duration="900"
+              data-aos-delay="300"
+            >
+              Self-Employment Assistance Program
+            </h1>
+
+            <p
+              className="text-lg md:text-xl leading-relaxed text-left md:text-justify max-w-2xl"
+              data-aos="fade-up"
+              data-aos-duration="900"
+              data-aos-delay="450"
+            >
+              We offer a range of practical workshops across{" "}
+              <strong>Perth, Australia</strong>. They are{" "}
+              <strong>delivered</strong> by selected presenters who are
+              specialists in their subject matters and have a background in
+              small business. Self-Employment Assistance Program is{" "}
+              <strong>funded</strong> by the Australian Federal Government to
+              assist unemployed, under-employed and owners of existing
+              micro-businesses (with up to 4 employees) to explore opportunities
+              for self-employment.
+            </p>
+          </div>
+
+          <div
+            className="md:w-1/3 flex justify-center md:justify-end mt-6 md:mt-0"
+            data-aos="fade-left"
+            data-aos-duration="900"
+            data-aos-delay="600"
+          >
+            <button
+              className="bg-white text-black px-6 py-4 rounded-full font-semibold flex items-center hover:scale-105 hover:bg-gray-200 transition duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.2),0_0_10px_rgba(255,165,0,0.7)]"
+              data-aos="zoom-in"
+              data-aos-duration="900"
+              data-aos-delay="600"
+            >
+              Read More …
+              <FaHandPointRight className="ml-2 text-xl" />
+            </button>
+          </div>
+        </div>
+      </section>
     </>
   );
 };

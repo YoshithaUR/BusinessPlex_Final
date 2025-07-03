@@ -5,37 +5,44 @@ import image_three from "./HomeSlideShow/3.jpg";
 import image_four from "./HomeSlideShow/4.jpg";
 import image_five from "./HomeSlideShow/5.jpg";
 
-// Home
+// Home Support Services
 import image_SuportService01 from "./Home/SuportServices1.jpg";
 import image_SuportService02 from "./Home/SuportServices.jpeg";
-// Course Card
+
+// Course Cards
 import image_Card01 from "./Home/Card01.png";
 import image_Card02 from "./Home/Card02.png";
 import image_Card03 from "./Home/Card03.png";
 import image_Card04 from "./Home/Card04.png";
 
-// GIF
+// GIFs
 import image_GIF01 from "./Video/GIF01.gif";
 
+// Self Image (example, optional — update path if needed)
+import image_self01 from "./Home/self.jpg"; 
 const images = {
-  // Slide
+  // Slide Show
   image_one,
   image_two,
   image_three,
   image_four,
   image_five,
 
-  // home
+  // Home Support Services
   image_SuportService01,
   image_SuportService02,
-  // Course Card
+
+  // Course Cards
   image_Card01,
   image_Card02,
   image_Card03,
   image_Card04,
 
-  //   GIF
+  // GIFs
   image_GIF01,
+
+  // Self
+  image_self01,
 };
 
 export default images;
