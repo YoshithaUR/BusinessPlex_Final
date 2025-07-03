@@ -247,51 +247,41 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-12 px-6 sm:px-12 lg:px-20 bg-gray-50 font-timmana">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 px-2 sm:px-6 lg:px-12">
+      
+      <section className="py-12 px-4 sm:px-6 lg:px-20 bg-gray-50 font-timmana">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
           {services.map((service, index) => (
             <div
               key={index}
               onMouseEnter={() => setHoveredCard(index)}
               onMouseLeave={() => setHoveredCard(null)}
-              className="relative h-auto md:h-[480px] sm:h-[460px] bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-500 group cursor-pointer"
+              className="relative h-[520px] bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-500 group cursor-pointer"
               data-aos="zoom-in"
               data-aos-delay={index * 100}
             >
+             
               <div
-                className={`absolute inset-0 z-20 px-6 sm:px-8 py-8 transition-transform duration-500 bg-cover bg-top flex flex-col justify-center ${
-                  hoveredCard === index
-                    ? "-translate-x-full opacity-0"
-                    : "translate-x-0 opacity-100"
+                className={`absolute inset-0 z-20 p-6 transition-transform duration-500 bg-cover bg-top flex flex-col justify-center ${
+                  hoveredCard === index ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100"
                 }`}
                 style={{
                   backgroundImage: `url(${service.image})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "top",
                 }}
               >
                 <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-0" />
-
-                <div className="relative z-10 text-center text-white space-y-5 text-shadow px-4 sm:px-6">
-                  <h3 className="text-xl sm:text-2xl font-extrabold underline decoration-white decoration-2 mb-4">
+                <div className="relative z-10 text-white text-center px-2 sm:px-4">
+                  <h3 className="text-lg sm:text-2xl font-extrabold underline mb-4">
                     {service.title}
                   </h3>
-
-                  <div className="text-sm sm:text-base leading-relaxed space-y-3 px-2 sm:px-4">
+                  <div className="text-sm leading-relaxed space-y-2">
                     {service.paragraph.map((para, idx) => (
                       <p key={idx}>{para}</p>
                     ))}
                   </div>
-
-                  <ul className="text-xs sm:text-sm space-y-2 mt-4 px-5 py-2 rounded-md bg-black/40 shadow font-medium text-left mx-auto w-fit">
+                  <ul className="text-xs sm:text-sm mt-4 p-3 bg-black/40 rounded-md">
                     {service.points.map((point, i) => (
-                      <li
-                        key={i}
-                        className="relative pl-6"
-                        data-aos="fade-up"
-                        data-aos-delay={i * 100}
-                      >
-                        <span className="absolute left-0 top-2 w-3 h-3 bg-red-600 rounded-full"></span>
+                      <li key={i} className="relative pl-6">
+                        <span className="absolute left-0 top-1.5 w-3 h-3 bg-red-600 rounded-full"></span>
                         {point}
                       </li>
                     ))}
@@ -299,20 +289,16 @@ const Home = () => {
                 </div>
               </div>
 
+             
               <div
-                className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover bg-center transition-all duration-500 ${
-                  hoveredCard === index
-                    ? "translate-x-0 opacity-100"
-                    : "translate-x-full opacity-0"
+                className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover transition-all duration-500 ${
+                  hoveredCard === index ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
                 }`}
                 style={{
                   backgroundImage: `url(${service.gif})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
                 }}
               >
-                <div className="absolute inset-0 bg-black/50 backdrop-blur-xs z-0" />
-
+                <div className="absolute inset-0 bg-black/50 z-0" />
                 <button
                   onClick={() => openServiceModal(index)}
                   className="relative z-10 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full shadow-lg"
@@ -320,8 +306,6 @@ const Home = () => {
                   Read More
                 </button>
               </div>
-
-              <div className="absolute inset-0 bg-white/50 z-0" />
             </div>
           ))}
         </div>
