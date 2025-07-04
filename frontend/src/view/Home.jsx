@@ -165,7 +165,7 @@ const Home = () => {
     <>
       {/* Business Support Section */}
 
-      <section className="relative bg-linear-to-r from-cyan-100 via-blue-300 to-indigo-400 py-12 px-6 sm:px-12 lg:px-20 font-[Inter] overflow-hidden min-h-[60vh]">
+      <section className="relative bg-amber-50 py-12 px-6 sm:px-12 lg:px-20 font-[Inter] overflow-hidden min-h-[60vh]">
 
         {/* Enhanced Background Elements */}
         {/* Enhanced Background Elements */}
@@ -741,7 +741,7 @@ const Home = () => {
 
       {/* Footer */}
 
-      <section>
+      <>
         <footer className="text-white text-sm">
           <div className="bg-gray-900 px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8 rounded-t-3xl -mt-6">
             <div>
@@ -911,7 +911,7 @@ const Home = () => {
             </div>
           </div>
         </footer>
-      </section>
+      </>
     </>
   );
 };
