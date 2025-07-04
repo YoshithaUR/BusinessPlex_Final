@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { FaStar, FaSearch, FaHandPointRight } from "react-icons/fa";
+import { TiTickOutline } from "react-icons/ti";
 import {
   FaPhoneAlt,
   FaWhatsapp,
@@ -163,8 +164,74 @@ const Home = () => {
   return (
     <>
       {/* Business Support Section */}
-      <section className="relative bg-white py-12 px-6 sm:px-12 lg:px-20 font-[Inter] overflow-hidden min-h-screen">
+      <section className="relative bg-gradient-to-br from-slate-50 via-white to-purple-50 py-12 px-6 sm:px-12 lg:px-20 font-[Inter] overflow-hidden min-h-[60vh]">
+        {/* Enhanced Background Elements */}
+        {/* Enhanced Background Elements */}
         <div className="absolute -bottom-20 -left-32 w-[300px] sm:w-[400px] md:w-[500px] h-[300px] sm:h-[400px] md:h-[500px] bg-purple-300 opacity-30 rounded-full blur-3xl animate-pulse-slow z-0"></div>
+
+        {/* Large floating elements */}
+        <div className="absolute top-10 right-20 w-[200px] h-[200px] bg-blue-200 opacity-20 rounded-full blur-2xl animate-bounce-slow z-0"></div>
+        <div className="absolute bottom-32 right-10 w-[150px] h-[150px] bg-yellow-200 opacity-25 rounded-full blur-xl animate-pulse z-0"></div>
+        <div className="absolute top-1/2 left-10 w-[100px] h-[100px] bg-pink-200 opacity-20 rounded-full blur-lg animate-ping-slow z-0"></div>
+        <div className="absolute top-5 left-1/2 w-[180px] h-[180px] bg-green-200 opacity-15 rounded-full blur-2xl animate-pulse z-0"></div>
+        <div className="absolute bottom-10 left-1/4 w-[120px] h-[120px] bg-orange-200 opacity-20 rounded-full blur-xl animate-bounce z-0"></div>
+        <div className="absolute top-1/4 right-5 w-[90px] h-[90px] bg-indigo-200 opacity-25 rounded-full blur-lg animate-ping z-0"></div>
+        <div className="absolute bottom-1/3 right-1/2 w-[160px] h-[160px] bg-teal-200 opacity-18 rounded-full blur-2xl animate-pulse-slow z-0"></div>
+        <div className="absolute top-3/4 left-1/3 w-[140px] h-[140px] bg-rose-200 opacity-22 rounded-full blur-xl animate-bounce-slow z-0"></div>
+        <div className="absolute bottom-1/5 right-1/4 w-[130px] h-[130px] bg-violet-200 opacity-20 rounded-full blur-xl animate-ping-slow z-0"></div>
+        <div className="absolute top-2/5 left-1/4 w-[110px] h-[110px] bg-amber-200 opacity-25 rounded-full blur-lg animate-bounce z-0"></div>
+
+        {/* Medium floating elements */}
+        <div className="absolute top-16 left-3/4 w-[80px] h-[80px] bg-cyan-200 opacity-20 rounded-full blur-lg animate-pulse z-0"></div>
+        <div className="absolute bottom-20 left-2/3 w-[70px] h-[70px] bg-violet-200 opacity-25 rounded-full blur-md animate-ping z-0"></div>
+        <div className="absolute top-2/3 right-1/4 w-[60px] h-[60px] bg-amber-200 opacity-20 rounded-full blur-md animate-bounce z-0"></div>
+        <div className="absolute bottom-1/4 left-1/6 w-[85px] h=[85px] bg-emerald-200 opacity-18 rounded-full blur-lg animate-pulse-slow z-0"></div>
+        <div className="absolute top-1/6 right-2/3 w-[75px] h=[75px] bg-sky-200 opacity-22 rounded-full blur-md animate-ping-slow z-0"></div>
+        <div className="absolute bottom-3/5 left-1/2 w-[65px] h=[65px] bg-mint-200 opacity-20 rounded-full blur-md animate-bounce-slow z-0"></div>
+        <div className="absolute top-3/5 right-1/6 w-[70px] h=[70px] bg-lime-200 opacity-25 rounded-full blur-md animate-ping z-0"></div>
+        <div className="absolute bottom-2/5 left-3/4 w-[75px] h=[75px] bg-coral-200 opacity-20 rounded-full blur-lg animate-pulse z-0"></div>
+
+        {/* Small floating elements */}
+        <div className="absolute top-1/3 left-1/5 w-[50px] h=[50px] bg-fuchsia-200 opacity-25 rounded-full blur-sm animate-bounce z-0"></div>
+        <div className="absolute bottom-1/2 right-1/6 w=[45px] h=[45px] bg-lime-200 opacity-20 rounded-full blur-sm animate-pulse z-0"></div>
+        <div className="absolute top-5/6 right-3/5 w=[40px] h=[40px] bg-red-200 opacity-18 rounded-full blur-sm animate-ping z-0"></div>
+        <div className="absolute bottom-1/6 right-3/4 w=[55px] h=[55px] bg-blue-300 opacity-22 rounded-full blur-sm animate-bounce-slow z-0"></div>
+        <div className="absolute top-1/2 left-2/3 w=[35px] h=[35px] bg-purple-200 opacity-20 rounded-full blur-sm animate-pulse-slow z-0"></div>
+        <div className="absolute bottom-3/4 left-1/4 w=[30px] h=[30px] bg-rose-300 opacity-25 rounded-full blur-sm animate-bounce z-0"></div>
+        <div className="absolute top-1/4 right-1/3 w=[45px] h=[45px] bg-teal-300 opacity-20 rounded-full blur-sm animate-ping-slow z-0"></div>
+        <div className="absolute bottom-1/3 left-1/2 w=[40px] h=[40px] bg-orange-300 opacity-22 rounded-full blur-sm animate-pulse z-0"></div>
+
+        {/* Geometric shapes */}
+        <div className="absolute top-20 left-1/3 w-8 h-8 bg-purple-400 opacity-30 rotate-45 animate-spin-slow z-0"></div>
+        <div className="absolute bottom-40 left-1/4 w-6 h-6 bg-blue-400 opacity-25 rounded-full animate-bounce z-0"></div>
+        <div className="absolute top-1/3 right-1/3 w-4 h-16 bg-gradient-to-b from-purple-300 to-transparent opacity-40 animate-pulse z-0"></div>
+        <div className="absolute bottom-1/4 right-1/5 w-10 h-10 bg-green-400 opacity-20 rotate-12 animate-spin z-0"></div>
+        <div className="absolute top-1/6 left-1/2 w-3 h-12 bg-gradient-to-t from-blue-300 to-transparent opacity-30 animate-pulse-slow z-0"></div>
+        <div className="absolute bottom-1/3 left-3/4 w-7 h-7 bg-yellow-400 opacity-25 rounded-full animate-ping z-0"></div>
+        <div className="absolute top-2/3 right-1/6 w-5 h-20 bg-gradient-to-b from-pink-300 to-transparent opacity-35 animate-bounce-slow z-0"></div>
+        <div className="absolute bottom-1/5 right-2/5 w-12 h-12 bg-orange-400 opacity-20 rotate-45 animate-spin-slow z-0"></div>
+        <div className="absolute top-1/4 left-1/6 w-4 h-4 bg-indigo-400 opacity-30 animate-pulse z-0"></div>
+        <div className="absolute bottom-2/3 right-1/3 w-8 h-8 bg-teal-400 opacity-25 rounded-full animate-bounce z-0"></div>
+        <div className="absolute top-3/5 left-2/5 w-6 h-6 bg-violet-400 opacity-25 rotate-45 animate-ping-slow z-0"></div>
+        <div className="absolute bottom-1/2 left-1/8 w-5 h-5 bg-amber-400 opacity-20 animate-spin z-0"></div>
+
+        {/* Extra tiny elements */}
+        <div className="absolute top-1/5 right-1/2 w-2 h-2 bg-rose-400 opacity-40 rounded-full animate-ping z-0"></div>
+        <div className="absolute bottom-1/6 left-2/5 w-3 h-3 bg-cyan-400 opacity-35 animate-bounce z-0"></div>
+        <div className="absolute top-3/4 right-1/8 w-2 h-8 bg-gradient-to-t from-violet-400 to-transparent opacity-30 animate-pulse z-0"></div>
+        <div className="absolute bottom-1/2 left-1/8 w-4 h-4 bg-amber-400 opacity-25 rotate-90 animate-spin-slow z-0"></div>
+        <div className="absolute top-1/8 right-3/5 w-3 h-3 bg-emerald-400 opacity-30 rounded-full animate-ping-slow z-0"></div>
+        <div className="absolute bottom-3/8 left-3/8 w-2 h-2 bg-pink-400 opacity-35 animate-bounce-slow z-0"></div>
+        <div className="absolute top-2/8 right-1/8 w-3 h-3 bg-blue-400 opacity-30 rounded-full animate-pulse z-0"></div>
+        <div className="absolute bottom-2/8 left-1/8 w-4 h-4 bg-orange-400 opacity-25 rotate-45 animate-bounce z-0"></div>
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 opacity-5 z-0" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(139, 92, 246, 0.3) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }}></div>
+
+        {/* Subtle gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent z-0"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2 relative">
@@ -179,23 +246,29 @@ const Home = () => {
               {paragraphData.map((text, index) => (
                 <div
                   key={index}
-                  className="relative flex items-start gap-2 group"
+                  className="relative group bg-white/70 p-5 rounded-xl shadow hover:shadow-lg transition duration-300 border border-gray-200 cursor-context-menu"
                   data-aos="fade-up"
                   data-aos-delay={index * 100}
                 >
-                  <FaStar className="text-yellow-500 mt-1 flex-shrink-0" />
-                  <p className="flex-1">{text}</p>
+                  <div className="flex items-start gap-3">
+                    <TiTickOutline className="text-yellow-500 mt-1 animate-pulse" />
+                    <p className="flex-1 leading-relaxed group-hover:text-gray-800 transition duration-200">
+                      {text}
+                    </p>
+                  </div>
+
                   <button
                     type="button"
                     onClick={() => openZoom(index)}
-                    className="absolute -top-8 right-0 flex items-center gap-1 bg-white rounded-full px-3 py-1 shadow-md text-gray-700 hover:text-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="absolute -top-3 right-3 flex items-center gap-1 bg-white backdrop-blur-md rounded-full px-3 py-1 shadow text-gray-700 hover:bg-purple-100 hover:text-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   >
                     <FaSearch size={14} />
-                    <span className="text-sm font-medium">Zoom</span>
+                    <span className="text-xs font-semibold">Zoom</span>
                   </button>
                 </div>
               ))}
             </div>
+
           </div>
 
           <div
@@ -213,9 +286,8 @@ const Home = () => {
 
         {zoomActive && zoomIndex !== null && (
           <div
-            className={`fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-60 transition-opacity duration-300 ${
-              modalVisible ? "opacity-100" : "opacity-0 pointer-events-none"
-            }`}
+            className={`fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-60 transition-opacity duration-300 ${modalVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}
             onClick={closeZoom}
           >
             <img
@@ -226,11 +298,10 @@ const Home = () => {
             />
             <div className="absolute inset-0 bg-black/40" />
             <div
-              className={`relative max-w-2xl max-h-[80vh] w-full overflow-auto p-6 sm:p-8 rounded-xl bg-white bg-opacity-20 backdrop-blur-lg shadow-2xl transition-transform duration-300 ease-in-out ${
-                modalVisible
-                  ? "scale-100 opacity-100 pointer-events-auto"
-                  : "scale-90 opacity-0 pointer-events-none"
-              }`}
+              className={`relative max-w-2xl max-h-[80vh] w-full overflow-auto p-6 sm:p-8 rounded-xl bg-white bg-opacity-20 backdrop-blur-lg shadow-2xl transition-transform duration-300 ease-in-out ${modalVisible
+                ? "scale-100 opacity-100 pointer-events-auto"
+                : "scale-90 opacity-0 pointer-events-none"
+                }`}
               onClick={(e) => e.stopPropagation()}
               onMouseLeave={closeZoom}
             >
@@ -247,7 +318,7 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      
+
       <section className="py-12 px-4 sm:px-6 lg:px-20 bg-gray-50 font-timmana">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
           {services.map((service, index) => (
@@ -259,11 +330,10 @@ const Home = () => {
               data-aos="zoom-in"
               data-aos-delay={index * 100}
             >
-             
+
               <div
-                className={`absolute inset-0 z-20 p-6 transition-transform duration-500 bg-cover bg-top flex flex-col justify-center ${
-                  hoveredCard === index ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100"
-                }`}
+                className={`absolute inset-0 z-20 p-6 transition-transform duration-500 bg-cover bg-top flex flex-col justify-center ${hoveredCard === index ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100"
+                  }`}
                 style={{
                   backgroundImage: `url(${service.image})`,
                 }}
@@ -289,11 +359,10 @@ const Home = () => {
                 </div>
               </div>
 
-             
+
               <div
-                className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover transition-all duration-500 ${
-                  hoveredCard === index ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
-                }`}
+                className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover transition-all duration-500 ${hoveredCard === index ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
+                  }`}
                 style={{
                   backgroundImage: `url(${service.gif})`,
                 }}
@@ -325,7 +394,7 @@ const Home = () => {
             aria-hidden="true"
           />
           <div className="absolute inset-0 z-0" aria-hidden="true">
-          
+
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
@@ -333,7 +402,7 @@ const Home = () => {
               }}
             />
 
-            
+
             <div className="absolute inset-0 bg-black/80" />
           </div>
 
@@ -596,11 +665,11 @@ const Home = () => {
 
       {/* Contact */}
       <section
-        className="w-full min-h-[80vh] bg-gray-100 flex items-center justify-center p-4 -mt-6"
+        className="w-full min-h-[50vh] bg-gray-100 flex items-center justify-center"
         data-aos="fade-up"
       >
         <div className="bg-black/80 rounded-3xl shadow-xl p-6 md:p-10 w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 relative">
-        
+
           <div className="absolute inset-0 rounded-3xl overflow-hidden z-0">
             <div
               className="absolute inset-0 bg-contain bg-no-repeat bg-center"
@@ -674,7 +743,7 @@ const Home = () => {
         <footer className="text-white text-sm">
           <div className="bg-gray-900 px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8 rounded-t-3xl -mt-6">
             <div>
-              
+
               <img
                 src={images.image_logo}
                 alt="Businessplex"
@@ -786,7 +855,7 @@ const Home = () => {
 
           <div className="bg-gray-800 py-4 px-6 flex flex-col md:flex-row justify-between items-center text-gray-400">
             <div className="flex gap-4 mb-4 md:mb-0">
-        
+
               <img
                 src={images.image_Footer1}
                 alt="Australian Qualification"
