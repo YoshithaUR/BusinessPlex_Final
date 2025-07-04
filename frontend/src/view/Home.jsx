@@ -164,7 +164,7 @@ const Home = () => {
   return (
     <>
       {/* Business Support Section */}
-      <section className="relative bg-gradient-to-br from-slate-50 via-white to-purple-50 py-12 px-6 sm:px-12 lg:px-20 font-[Inter] overflow-hidden min-h-[60vh]">
+      <section className="relative bg-amber-50 from-slate-50 via-white to-purple-50 py-12 px-6 sm:px-12 lg:px-20 font-[Inter] overflow-hidden min-h-[60vh]">
         {/* Enhanced Background Elements */}
         {/* Enhanced Background Elements */}
         <div className="absolute -bottom-20 -left-32 w-[300px] sm:w-[400px] md:w-[500px] h-[300px] sm:h-[400px] md:h-[500px] bg-purple-300 opacity-30 rounded-full blur-3xl animate-pulse-slow z-0"></div>
