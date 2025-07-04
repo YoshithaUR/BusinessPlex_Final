@@ -321,7 +321,7 @@ const Home = () => {
 
       {/* Services Section */}
 
-      <section className="py-12 px-4 sm:px-6 lg:px-20 bg-gray-50 font-timmana">
+      <section className="bg-amber-50 py-12 px-4 sm:px-6 lg:px-20 font-timmana">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
           {services.map((service, index) => (
             <div
@@ -563,10 +563,7 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 text-center bg-gradient-to-r from-green-800 via-blue-900 to-purple-900 text-white rounded-3xl shadow-lg"
-        data-aos="fade-up"
-      >
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 text-center bg-linear-to-r from-blue-200 via-blue-400 to-blue-600 text-white rounded-3xl shadow-lg" data-aos="fade-up">
         <h2 className="text-3xl sm:text-4xl font-extrabold mb-12 tracking-wider drop-shadow-lg">
           Testimonials
         </h2>
@@ -667,7 +664,7 @@ const Home = () => {
 
       {/* Contact */}
       <section
-        className="w-full min-h-[50vh] bg-gray-100 flex items-center justify-center"
+        className="w-full min-h-[50vh] bg-amber-50 flex items-center justify-center"
         data-aos="fade-up"
       >
         <div className="bg-black/80 rounded-3xl shadow-xl p-6 md:p-10 w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 relative">
