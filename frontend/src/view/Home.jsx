@@ -408,7 +408,7 @@ const Home = () => {
             />
 
 
-            <div className="absolute inset-0 bg-black/80" />
+            <div className="absolute inset-0 bg-black/30" />
           </div>
 
           <div
