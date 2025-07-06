@@ -341,7 +341,7 @@ const Home = () => {
                   backgroundImage: `url(${service.image})`,
                 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70 backdrop-blur-sm z-0" />
+                <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70 backdrop- z-0" />
 
                 {/* Content */}
                 <div className="relative z-10 text-white text-center px-4 sm:px-6">
@@ -389,7 +389,7 @@ const Home = () => {
           onClick={closeServiceModal}
         >
           <div
-            className="absolute inset-0 bg-cover bg-center filter blur-sm brightness-50"
+            className="absolute inset-0 bg-cover bg-center filter  brightness-50"
             style={{
               backgroundImage: `url(${services[serviceModalIndex].image})`,
             }}
@@ -507,7 +507,7 @@ const Home = () => {
           <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black/70 to-transparent"></div>
         </div>
 
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm z-0" />
+        <div className="absolute inset-0 bg-black/60  z-0" />
 
         <div className="relative z-10 flex flex-col md:flex-row justify-center items-center h-full px-6 md:px-20 text-white">
           <div
