@@ -209,10 +209,9 @@ const Header = () => {
                 key={to}
                 to={to}
                 className={({ isActive }) =>
-                  `px-3 py-2 rounded-full transition-all duration-300 transform ${
-                    isActive
-                      ? "bg-[rgb(26,43,60,1)] text-white shadow-md scale-105"
-                      : "hover:bg-[rgb(26,43,60,1)] hover:text-white hover:scale-105"
+                  `px-3 py-2 rounded-full transition-all duration-300 transform ${isActive
+                    ? "bg-[rgb(26,43,60,1)] text-white shadow-md scale-105"
+                    : "hover:bg-[rgb(26,43,60,1)] hover:text-white hover:scale-105"
                   }`
                 }
               >
@@ -244,9 +243,8 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`mobile-menu fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 lg:hidden ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`mobile-menu fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 lg:hidden ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="flex items-center justify-between p-4 border-b border-gray-200">
           <div className="flex items-center gap-3">
@@ -271,10 +269,9 @@ const Header = () => {
               to={to}
               onClick={closeMenu}
               className={({ isActive }) =>
-                `px-6 py-4 text-lg font-medium transition-all duration-300 border-l-4 ${
-                  isActive
-                    ? "bg-[rgb(26,43,60,1)] text-white border-[rgb(26,43,60,1)] shadow-md"
-                    : "text-gray-700 hover:bg-gray-50 hover:text-[rgb(26,43,60,1)] hover:border-[rgb(26,43,60,1)] border-transparent"
+                `px-6 py-4 text-lg font-medium transition-all duration-300 border-l-4 ${isActive
+                  ? "bg-[rgb(26,43,60,1)] text-white border-[rgb(26,43,60,1)] shadow-md"
+                  : "text-gray-700 hover:bg-gray-50 hover:text-[rgb(26,43,60,1)] hover:border-[rgb(26,43,60,1)] border-transparent"
                 }`
               }
             >
@@ -302,9 +299,8 @@ const Header = () => {
           {IMAGES.map((src, index) => (
             <div
               key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                index === currentIndex ? "opacity-100 z-0" : "opacity-0 -z-10"
-              }`}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentIndex ? "opacity-100 z-0" : "opacity-0 -z-10"
+                }`}
               aria-hidden={index !== currentIndex}
             >
               <img
@@ -372,12 +368,13 @@ const Header = () => {
       {showScrollTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 right-6 z-50 bg-[rgb(26,43,60,1)] text-white p-3 rounded-full shadow-lg hover:bg-orange-600 transition cursor-pointer"
+          className="fixed bottom-20 right-6 z-50 bg-[rgb(26,43,60,1)] text-white p-3 rounded-full shadow-lg hover:bg-orange-600 transition cursor-pointer outline outline-2 outline-white"
           aria-label="Scroll to top"
         >
           <FaArrowUp size={20} />
         </button>
       )}
+
     </div>
   );
 };
