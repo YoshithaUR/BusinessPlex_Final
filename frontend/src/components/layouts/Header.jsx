@@ -84,7 +84,7 @@ const Header = () => {
   const BlueNavBar = () => (
     <div
       className="w-full text-white text-sm py-2 px-4 flex justify-between items-center z-50 fixed top-0 left-0"
-      style={{ backgroundColor: "rgb(165, 14, 14)" }}
+      style={{ backgroundColor: "rgba(26, 43, 60, 1)" }}
     >
       <div className="flex items-center gap-5">
         <div className="flex gap-3">
@@ -166,7 +166,7 @@ const Header = () => {
             onClick={() => {
               window.location.href = "tel:1300894480";
             }}
-            className="w-[160px] sm:w-[180px] flex justify-center items-center gap-3 bg-[rgb(165,14,14)] text-white px-4 py-2 sm:px-6 sm:py-3 font-semibold hover:bg-orange-600 transition rounded-md shadow-lg"
+            className="w-[160px] sm:w-[180px] flex justify-center items-center gap-3 bg-[#1A2B3C] text-white px-4 py-2 sm:px-6 sm:py-3 font-semibold hover:bg-[rgb(165,14,14)] transition rounded-md shadow-lg"
             aria-label="Contact Us"
           >
             Contact Us
@@ -192,8 +192,8 @@ const Header = () => {
                 className={({ isActive }) =>
                   `px-4 py-2 rounded-full transition-all duration-300 transform ${
                     isActive
-                      ? "bg-[rgb(165,14,14)] text-white shadow-md scale-105"
-                      : "hover:bg-[rgb(165,10,10)] hover:text-white hover:scale-105"
+                      ? "bg-[#1A2B3C] text-white shadow-md scale-105"
+                      : "hover:bg-[#1A2B3C] hover:text-white hover:scale-105"
                   }`
                 }
               >
@@ -229,7 +229,7 @@ const Header = () => {
       {/* Marquee Section */}
       <div
         className="w-full py-2 z-30 overflow-hidden"
-        style={{ backgroundColor: "rgb(165, 14, 14)" }}
+        style={{ backgroundColor: "rgba(26, 43, 60, 1)" }}
       >
         <div className="flex justify-center">
           <div className="inline-flex whitespace-nowrap animate-marquee text-white text-sm">
