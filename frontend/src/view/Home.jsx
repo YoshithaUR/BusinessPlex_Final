@@ -541,24 +541,40 @@ const Home = () => {
               micro-businesses (with up to 4 employees) to explore opportunities
               for self-employment.
             </p>
+
+            <div className="flex flex-col md:flex-row items-center justify-between w-full gap-6">
+              {/* Text Section */}
+              <div
+                className="md:w-2/3"
+                data-aos="fade-right"
+                data-aos-duration="900"
+                data-aos-delay="400"
+              >
+              </div>
+
+              {/* Button Section */}
+              <div
+                className="md:w-1/3 flex justify-center md:justify-end mt-6 md:mt-0"
+                data-aos="fade-left"
+                data-aos-duration="900"
+                data-aos-delay="600"
+              >
+                <button
+                  className="bg-white text-black px-6 py-4 rounded-full font-semibold flex items-center hover:scale-105 hover:bg-gray-200 transition duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.2),0_0_10px_rgba(255,165,0,0.7)] cursor-pointer"
+                  data-aos="zoom-in"
+                  data-aos-duration="900"
+                  data-aos-delay="600"
+                >
+                  Read More …
+                  <FaHandPointRight className="ml-2 text-xl" />
+                </button>
+              </div>
+            </div>
+
+
           </div>
 
-          <div
-            className="md:w-1/3 flex justify-center md:justify-end mt-6 md:mt-0"
-            data-aos="fade-left"
-            data-aos-duration="900"
-            data-aos-delay="600"
-          >
-            <button
-              className="bg-white text-black px-6 py-4 rounded-full font-semibold flex items-center hover:scale-105 hover:bg-gray-200 transition duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.2),0_0_10px_rgba(255,165,0,0.7)]"
-              data-aos="zoom-in"
-              data-aos-duration="900"
-              data-aos-delay="600"
-            >
-              Read More …
-              <FaHandPointRight className="ml-2 text-xl" />
-            </button>
-          </div>
+
         </div>
       </section>
 
