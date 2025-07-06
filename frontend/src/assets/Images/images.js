@@ -19,7 +19,7 @@ import image_Card04 from "./Home/Card04.jpg";
 import image_GIF01 from "./Video/GIF01.gif";
 
 // Self Image 
-import image_self from "./Home/self.jpg";
+// import image_self from "./Home/self.jpg";
 
 // testamonial
 import image_Testamonial1 from "./Testimonials/Liz Haselgrove .jpg"
@@ -53,7 +53,7 @@ const images = {
   image_GIF01,
 
   // Self
- image_self,
+//  image_self,
 
   // testamonial
   image_Testamonial1,

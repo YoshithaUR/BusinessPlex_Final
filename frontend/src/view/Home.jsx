@@ -494,6 +494,7 @@ const Home = () => {
           </div>
         </div>
       )}
+      {/* Self */}
       <section
   className="relative w-full min-h-[80vh] overflow-hidden mb-4"
   data-aos="fade-in"
@@ -501,7 +502,7 @@ const Home = () => {
   <div
     className="absolute inset-0 bg-cover bg-center bg-no-repeat transition duration-700"
     style={{
-      backgroundImage: `url(${images.image_self})`,
+      backgroundImage: `url(${images.image_five})`,
     }}
     data-aos="fade-in"
     data-aos-duration="1000"
