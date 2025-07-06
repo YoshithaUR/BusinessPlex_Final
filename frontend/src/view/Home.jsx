@@ -567,7 +567,7 @@ const Home = () => {
 
       {/* Testimonials Section */}
 <section
-  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 text-center bg-gradient-to-r  text-white rounded-3xl shadow-lg"
+  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 text-center   text-white  "
   data-aos="fade-up"
 >
 
