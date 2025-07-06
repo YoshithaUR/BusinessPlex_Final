@@ -10,16 +10,16 @@ import image_SuportService01 from "./Home/SuportServices1.jpg";
 import image_SuportService02 from "./Home/SuportServices.jpeg";
 
 // Course Cards
-import image_Card01 from "./Home/Card01.png";
-import image_Card02 from "./Home/Card02.png";
-import image_Card03 from "./Home/Card03.png";
-import image_Card04 from "./Home/Card04.png";
+import image_Card01 from "./Home/Card01.jpeg";
+import image_Card02 from "./Home/Card02.jpg";
+import image_Card03 from "./Home/Card03.jpg";
+import image_Card04 from "./Home/Card04.jpg";
 
 // GIFs
 import image_GIF01 from "./Video/GIF01.gif";
 
-// Self Image (example, optional — update path if needed)
-// import image_self01 from "./Home/self.jpg"; 
+// Self Image 
+import image_self from "./Home/self.jpg";
 
 // testamonial
 import image_Testamonial1 from "./Testimonials/Liz Haselgrove .jpg"
@@ -53,12 +53,13 @@ const images = {
   image_GIF01,
 
   // Self
-  // image_self01,  
+ image_self,
 
   // testamonial
   image_Testamonial1,
   image_Testamonial2,
   image_Testamonial3,
+  
 
   // Footer
    image_Footer1 ,

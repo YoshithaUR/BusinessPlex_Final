@@ -275,18 +275,18 @@ const Home = () => {
         </div>
 
         {/* Right Image content */}
-        <div
-          className="lg:w-1/2 h-64 sm:h-80 md:h-96 lg:h-[400px]"
-          data-aos="fade-left"
-          data-aos-delay="300"
-        >
-          <img
-            src={images.image_SuportService01}
-            alt="Business Support"
-            className="w-full h-full object-cover rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-105"
-          />
-        </div>
-      </div>
+       <div
+  className="lg:w-1/2 h-64 sm:h-80 md:h-96 lg:h-[450px] mt-8"  // mt-8 margin top add කරලා
+  data-aos="fade-left"
+  data-aos-delay="300"
+>
+  <img
+    src={images.image_SuportService01}
+    alt="Business Support"
+    className="w-full h-full object-cover rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-105"
+  />
+</div>
+</div>
 
       {/* Zoom Modal */}
       {zoomActive && zoomIndex !== null && (
@@ -501,7 +501,7 @@ const Home = () => {
   <div
     className="absolute inset-0 bg-cover bg-center bg-no-repeat transition duration-700"
     style={{
-      backgroundImage: `url(${images.image_three})`,
+      backgroundImage: `url(${images.image_self})`,
     }}
     data-aos="fade-in"
     data-aos-duration="1000"
@@ -566,9 +566,10 @@ const Home = () => {
 
       {/* Testimonials Section */}
 <section
-  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 text-center bg-gradient-to-r from-blue-200 via-blue-400 to-blue-600 text-white rounded-3xl shadow-lg"
+  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 text-center bg-gradient-to-r from-black via-green-700 to-green-400 text-white rounded-3xl shadow-lg"
   data-aos="fade-up"
 >
+
   <h2
     className="text-3xl sm:text-4xl font-extrabold mb-12 tracking-wider drop-shadow-lg font-[Montserrat,Open_Sans,sans-serif]"
   >
