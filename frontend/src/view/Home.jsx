@@ -132,13 +132,6 @@ const Home = () => {
       modalImage: images.image_Card04,
     },
   ];
-
-  const openZoom = (index) => {
-    setZoomIndex(index);
-    setZoomActive(true);
-    setTimeout(() => setModalVisible(true), 20);
-  };
-
   const closeZoom = () => {
     setModalVisible(false);
     setTimeout(() => {
@@ -260,15 +253,6 @@ const Home = () => {
                       {text}
                     </p>
                   </div>
-
-                  <button
-                    type="button"
-                    onClick={() => openZoom(index)}
-                    className="absolute -top-3 right-3 flex items-center gap-1 bg-white backdrop-blur-md rounded-full px-3 py-1 shadow text-gray-700 hover:bg-purple-100 hover:text-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-[Poppins,Roboto,sans-serif] text-sm"
-                  >
-                    <FaSearch size={14} />
-                    <span className="text-xs font-semibold">Zoom</span>
-                  </button>
                 </div>
               ))}
             </div>
@@ -322,63 +306,63 @@ const Home = () => {
           </div>
         )}
       </section>
-{/* Services */}
-     <section className="bg-amber-50 py-12 px-4 sm:px-6 lg:px-20 font-[Poppins,Roboto,sans-serif]">
-  <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-    {services.map((service, index) => (
-      <div
-        key={index}
-        onMouseEnter={() => setHoveredCard(index)}
-        onMouseLeave={() => setHoveredCard(null)}
-        className="relative h-[520px] bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-500 group cursor-pointer"
-        data-aos="zoom-in"
-        data-aos-delay={index * 100}
-      >
-        {/* Image + overlay */}
-        <div
-          className={`absolute inset-0 z-20 p-6 transition-all duration-700 ease-in-out bg-cover bg-top flex flex-col justify-center items-center rounded-3xl shadow-xl overflow-hidden 
+      {/* Services */}
+      <section className="bg-amber-50 py-12 px-4 sm:px-6 lg:px-20 font-[Poppins,Roboto,sans-serif]">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              onMouseEnter={() => setHoveredCard(index)}
+              onMouseLeave={() => setHoveredCard(null)}
+              className="relative h-[520px] bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-500 group cursor-pointer"
+              data-aos="zoom-in"
+              data-aos-delay={index * 100}
+            >
+              {/* Image + overlay */}
+              <div
+                className={`absolute inset-0 z-20 p-6 transition-all duration-700 ease-in-out bg-cover bg-top flex flex-col justify-center items-center rounded-3xl shadow-xl overflow-hidden 
           ${hoveredCard === index ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100"}`}
-          style={{
-            backgroundImage: `url(${service.image})`,
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70 z-0" />
+                style={{
+                  backgroundImage: `url(${service.image})`,
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70 z-0" />
 
-          {/* Content */}
-          <div className="relative z-10 text-white text-center px-4 sm:px-6">
-            <h3 className="text-2xl sm:text-3xl font-bold tracking-wider text-green-300 drop-shadow-lg animate-fade-in mb-4 font-[Montserrat,Open_Sans,sans-serif]">
-              {service.title}
-            </h3>
-            <div className="text-sm sm:text-base mt-4 p-4 bg-black/40 rounded-xl backdrop-blur-md shadow-md space-y-2 font-[Poppins,Roboto,sans-serif]">
-              {/* {service.paragraph.map((para, idx) => (
+                {/* Content */}
+                <div className="relative z-10 text-white text-center px-4 sm:px-6">
+                  <h3 className="text-2xl sm:text-3xl font-bold tracking-wider text-green-300 drop-shadow-lg animate-fade-in mb-4 font-[Montserrat,Open_Sans,sans-serif]">
+                    {service.title}
+                  </h3>
+                  <div className="text-sm sm:text-base mt-4 p-4 bg-black/40 rounded-xl backdrop-blur-md shadow-md space-y-2 font-[Poppins,Roboto,sans-serif]">
+                    {/* {service.paragraph.map((para, idx) => (
                 <p key={idx} className="leading-relaxed text-white/90 tracking-wide">
                   {para}
                 </p>
               ))} */}
-            </div>
-          </div>
-        </div>
+                  </div>
+                </div>
+              </div>
 
-        {/* Hover GIF + button */}
-        <div
-          className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover transition-all duration-500 
+              {/* Hover GIF + button */}
+              <div
+                className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover transition-all duration-500 
           ${hoveredCard === index ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`}
-          style={{
-            backgroundImage: `url(${service.gif})`,
-          }}
-        >
-          <div className="absolute inset-0 bg-black/50 z-0" />
-          <button
-            onClick={() => openServiceModal(index)}
-            className="relative z-10 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full shadow-lg font-[Poppins,Roboto,sans-serif]"
-          >
-            Read More
-          </button>
+                style={{
+                  backgroundImage: `url(${service.gif})`,
+                }}
+              >
+                <div className="absolute inset-0 bg-black/50 z-0" />
+                <button
+                  onClick={() => openServiceModal(index)}
+                  className="relative z-10 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full shadow-lg font-[Poppins,Roboto,sans-serif]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
-    ))}
-  </div>
-</section>
+      </section>
 
 
 
@@ -563,57 +547,57 @@ const Home = () => {
 
 
       {/* Testimonials Section */}
-<section
-  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 text-center   text-white  "
-  data-aos="fade-up"
->
-  <h2
-    className="text-3xl sm:text-4xl text-black font-extrabold mb-12 tracking-wider drop-shadow-lg font-[Montserrat,Open_Sans,sans-serif]"
-  >
-    Testimonials
-  </h2>
+      <section
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 text-center   text-white  "
+        data-aos="fade-up"
+      >
+        <h2
+          className="text-3xl sm:text-4xl text-black font-extrabold mb-12 tracking-wider drop-shadow-lg font-[Montserrat,Open_Sans,sans-serif]"
+        >
+          Testimonials
+        </h2>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 group">
-    {testimonials.map((t, index) => (
-      <div
-        key={t.id || index}
-        onClick={() => setSelectedTestimonial(t)}
-        className={`
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 group">
+          {testimonials.map((t, index) => (
+            <div
+              key={t.id || index}
+              onClick={() => setSelectedTestimonial(t)}
+              className={`
           bg-white text-gray-700 p-6 sm:p-8 rounded-3xl shadow-2xl relative cursor-pointer
           transform transition-all duration-500 ease-in-out
           hover:scale-105 hover:shadow-3xl hover:rotate-1 hover:z-10
           group-hover:blur-sm group-hover:brightness-75 hover:!blur-none hover:!brightness-100
         `}
-        style={{ perspective: "1000px" }}
-        data-aos="fade-up"
-        data-aos-delay={index * 100}
-      >
-        <div
-          className="text-6xl sm:text-7xl text-gray-300 absolute -top-5 left-5 sm:-top-6 sm:left-6 select-none pointer-events-none"
-          aria-hidden="true"
-        >
-          “
+              style={{ perspective: "1000px" }}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
+              <div
+                className="text-6xl sm:text-7xl text-gray-300 absolute -top-5 left-5 sm:-top-6 sm:left-6 select-none pointer-events-none"
+                aria-hidden="true"
+              >
+                “
+              </div>
+
+              <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full overflow-hidden border-4 border-green-400 mb-6 shadow-md">
+                <img
+                  src={t.image}
+                  alt={t.alt || `Testimonial ${index + 1}`}
+                  className="object-cover w-full h-full"
+                  loading="lazy"
+                />
+              </div>
+
+              <p className="text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8 line-clamp-4 font-[Poppins,Roboto,sans-serif]">
+                {t.text}
+              </p>
+
+              <p className="font-semibold text-base sm:text-lg font-[Poppins,Roboto,sans-serif]">{t.company}</p>
+              <p className="text-xs sm:text-sm text-gray-500 font-[Poppins,Roboto,sans-serif]">{t.name}</p>
+            </div>
+          ))}
         </div>
-
-        <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full overflow-hidden border-4 border-green-400 mb-6 shadow-md">
-          <img
-            src={t.image}
-            alt={t.alt || `Testimonial ${index + 1}`}
-            className="object-cover w-full h-full"
-            loading="lazy"
-          />
-        </div>
-
-        <p className="text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8 line-clamp-4 font-[Poppins,Roboto,sans-serif]">
-          {t.text}
-        </p>
-
-        <p className="font-semibold text-base sm:text-lg font-[Poppins,Roboto,sans-serif]">{t.company}</p>
-        <p className="text-xs sm:text-sm text-gray-500 font-[Poppins,Roboto,sans-serif]">{t.name}</p>
-      </div>
-    ))}
-  </div>
-</section>
+      </section>
 
 
 
