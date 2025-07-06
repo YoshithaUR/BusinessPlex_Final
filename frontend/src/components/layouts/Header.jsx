@@ -1,3 +1,4 @@
+// Same imports as yours...
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import {
@@ -67,20 +68,12 @@ const Header = () => {
       ([entry]) => {
         setShowContactButton(entry.isIntersecting);
       },
-      {
-        root: null,
-        threshold: 0.1,
-      }
+      { root: null, threshold: 0.1 }
     );
 
-    if (slideshowRef.current) {
-      observer.observe(slideshowRef.current);
-    }
-
+    if (slideshowRef.current) observer.observe(slideshowRef.current);
     return () => {
-      if (slideshowRef.current) {
-        observer.unobserve(slideshowRef.current);
-      }
+      if (slideshowRef.current) observer.unobserve(slideshowRef.current);
     };
   }, []);
 
@@ -95,72 +88,58 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (isMenuOpen && !event.target.closest('.mobile-menu') && !event.target.closest('.hamburger-button')) {
+      if (
+        isMenuOpen &&
+        !event.target.closest(".mobile-menu") &&
+        !event.target.closest(".hamburger-button")
+      ) {
         setIsMenuOpen(false);
       }
     };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isMenuOpen]);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [isMenuOpen]);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
 
   const BlueNavBar = () => (
-    <div
-      className="w-full text-white text-sm py-2 px-4 flex justify-between items-center z-50 fixed top-0 left-0"
-      style={{ backgroundColor: "rgb(165, 14, 14)" }}
-    >
-      <div className="flex items-center gap-5">
+    <div className="w-full overflow-x-hidden text-white text-sm py-2 px-4 flex justify-between items-center z-50 fixed top-0 left-0"
+      style={{ backgroundColor: "rgb(165, 14, 14)" }}>
+      <div className="flex items-center gap-5 max-w-screen-xl mx-auto w-full">
         <div className="flex gap-3">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300"><FaFacebookF /></a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300"><FaTwitter /></a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300"><FaInstagram /></a>
+          <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-gray-300"><FaFacebookF /></a>
+          <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:text-gray-300"><FaTwitter /></a>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-gray-300"><FaInstagram /></a>
         </div>
-        <a href="tel:1300894480" className="font-medium hover:text-gray-200 transition-all hidden sm:block">INQUIRIES? CALL: 1300 894 480</a>
+        <a href="tel:1300894480" className="hidden sm:block font-medium hover:text-gray-200">INQUIRIES? CALL: 1300 894 480</a>
       </div>
       <div className="flex items-center bg-white text-black px-2 py-1 rounded-md">
-        <input type="text" placeholder="Search..." className="bg-transparent outline-none text-sm w-16 sm:w-24 md:w-40" aria-label="Search" />
-        <button title="Search" className="text-gray-700 hover:text-black transition"><FaSearch /></button>
+        <input type="text" placeholder="Search..." className="bg-transparent outline-none text-sm w-16 sm:w-24 md:w-40" />
+        <button title="Search" className="text-gray-700 hover:text-black"><FaSearch /></button>
       </div>
     </div>
   );
 
   return (
-    <div className="relative w-full min-h-fit overflow-hidden pt-[96px]">
-      {/* Top Red Bar */}
+    <div className="relative w-full overflow-x-hidden min-h-fit pt-[96px]">
       <BlueNavBar />
 
-      {/* Fixed White Nav */}
       <div className="fixed top-[40px] left-0 w-full z-40 bg-white/60 backdrop-blur-md shadow-md">
         <div className="max-w-screen-xl mx-auto flex items-center justify-between px-4 sm:px-6 md:px-12 py-3">
           <div className="flex items-center gap-3">
             <img src={logo} alt="Logo" className="h-10 sm:h-12" />
-            <span className="text-xl sm:text-2xl font-bold text-blue-800 tracking-wide">Business Plex</span>
+            <span className="text-xl sm:text-2xl font-bold text-blue-800">Business Plex</span>
           </div>
-          
-          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-2 text-sm font-semibold text-gray-700">
             {NAV_ITEMS.map(({ to, label }) => (
               <NavLink
@@ -177,19 +156,14 @@ const Header = () => {
               </NavLink>
             ))}
           </nav>
-
-          {/* Hamburger Menu Button */}
-          <button
-            className="lg:hidden hamburger-button text-gray-700 hover:text-[rgb(165,14,14)] transition-colors duration-300 p-2"
-            onClick={toggleMenu}
-            aria-label="Toggle navigation menu"
-          >
+          <button className="lg:hidden hamburger-button text-gray-700 hover:text-[rgb(165,14,14)] p-2"
+            onClick={toggleMenu} aria-label="Toggle navigation menu">
             {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Backdrop */}
       {isMenuOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 lg:hidden" onClick={closeMenu}>
           <div className="absolute inset-0" />
@@ -197,23 +171,16 @@ const Header = () => {
       )}
 
       {/* Mobile Menu */}
-      <div className={`mobile-menu fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 lg:hidden ${
-        isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-      }`}>
-        <div className="flex items-center justify-between p-4 border-b border-gray-200">
+      <div className={`mobile-menu fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl transition-transform z-50 lg:hidden ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
+        <div className="flex justify-between items-center p-4 border-b">
           <div className="flex items-center gap-3">
             <img src={logo} alt="Logo" className="h-8" />
-            <span className="text-lg font-bold text-blue-800 tracking-wide">Business Plex</span>
+            <span className="text-lg font-bold text-blue-800">Business Plex</span>
           </div>
-          <button
-            onClick={closeMenu}
-            className="text-gray-700 hover:text-[rgb(165,14,14)] transition-colors duration-300 p-2"
-            aria-label="Close menu"
-          >
+          <button onClick={closeMenu} className="text-gray-700 hover:text-[rgb(165,14,14)] p-2">
             <FaTimes size={20} />
           </button>
         </div>
-        
         <nav className="flex flex-col py-4">
           {NAV_ITEMS.map(({ to, label }) => (
             <NavLink
@@ -221,8 +188,8 @@ const Header = () => {
               to={to}
               onClick={closeMenu}
               className={({ isActive }) =>
-                `px-6 py-4 text-lg font-medium transition-all duration-300 border-l-4 ${isActive
-                  ? "bg-[rgb(165,14,14)] text-white border-[rgb(165,14,14)] shadow-md"
+                `px-6 py-4 text-lg font-medium border-l-4 transition-all ${isActive
+                  ? "bg-[rgb(165,14,14)] text-white border-[rgb(165,14,14)]"
                   : "text-gray-700 hover:bg-gray-50 hover:text-[rgb(165,14,14)] hover:border-[rgb(165,14,14)] border-transparent"
                 }`
               }
@@ -231,66 +198,50 @@ const Header = () => {
             </NavLink>
           ))}
         </nav>
-        
-        {/* Mobile Menu Footer */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 bg-gray-50">
-          <a 
-            href="tel:1300894480" 
-            className="flex items-center justify-center gap-3 bg-[rgb(165,14,14)] text-white px-4 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors duration-300 shadow-md"
-          >
-            <FaPhoneAlt size={16} />
-            Call: 1300 894 480
+        <div className="absolute bottom-0 w-full p-4 border-t bg-gray-50">
+          <a href="tel:1300894480" className="flex items-center justify-center gap-3 bg-[rgb(165,14,14)] text-white px-4 py-3 rounded-lg">
+            <FaPhoneAlt size={16} /> Call: 1300 894 480
           </a>
         </div>
       </div>
 
-      {/* Slideshow (Auto Height) */}
-      <div ref={slideshowRef} className="relative w-full h-[60vh] md:h-[76vh] z-0">
+      {/* Slideshow */}
+      <div ref={slideshowRef} className="relative w-full h-[60vh] md:h-[76vh] z-0 overflow-hidden">
         {IMAGES.map((src, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentIndex ? "opacity-100 z-0" : "opacity-0 -z-10"
-              }`}
-            aria-hidden={index !== currentIndex}
-          >
-            <img src={src} alt={`slide-${index + 1}`} className="w-full h-full object-cover" loading="lazy" />
+          <div key={index} className={`absolute inset-0 transition-opacity duration-1000 ${index === currentIndex ? "opacity-100 z-0" : "opacity-0 -z-10"}`}>
+            <img src={src} alt={`slide-${index}`} className="w-full h-full object-cover max-w-full" />
           </div>
         ))}
       </div>
 
       {/* Contact Button */}
       {showContactButton && (
-        <div className="fixed top-[110px] right-4 z-10 transition-opacity duration-500">
+        <div className="fixed top-[110px] right-4 z-10">
           <button
             onClick={() => window.location.href = "tel:1300894480"}
-            className="w-[140px] sm:w-[160px] md:w-[180px] flex justify-center items-center gap-2 sm:gap-3 bg-[rgb(165,14,14)] text-white px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 text-sm sm:text-base font-semibold hover:bg-orange-600 transition rounded-md shadow-lg"
-            aria-label="Contact Us"
+            className="bg-[rgb(165,14,14)] text-white px-4 py-2 rounded-md shadow-md hover:bg-orange-600 transition"
           >
             <span className="hidden sm:inline">Contact Us</span>
             <span className="sm:hidden">Call</span>
-            <FaPhoneAlt size={16} />
+            <FaPhoneAlt className="ml-2" />
           </button>
         </div>
       )}
 
       {/* Highlights */}
-      <div className="relative bg-white py-6 px-4 sm:px-6 md:px-12 z-20">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 text-center">
+      <div className="bg-white py-6 px-4 sm:px-6 md:px-12">
+        <div className="max-w-screen-xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 text-center">
           {highlights.map((item, index) => (
-            <div key={index} className="flex flex-col items-center gap-2 group transition-transform duration-300">
-              <div className="text-black text-3xl transition-all duration-300 transform group-hover:scale-125 group-hover:text-purple-600">
-                {item.icon}
-              </div>
-              <p className="text-sm font-semibold leading-tight text-black group-hover:text-purple-600 transition-colors duration-300">
-                {item.title}
-              </p>
+            <div key={index} className="flex flex-col items-center gap-2">
+              <div className="text-3xl text-black group-hover:text-purple-600 transition">{item.icon}</div>
+              <p className="text-sm font-semibold text-black group-hover:text-purple-600">{item.title}</p>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Marquee Bar */}
-      <div className="w-full py-2 z-30 overflow-hidden" style={{ backgroundColor: "rgb(165, 14, 14)" }}>
+      {/* Marquee */}
+      <div className="w-full py-2 overflow-hidden" style={{ backgroundColor: "rgb(165, 14, 14)" }}>
         <div className="flex justify-center">
           <div className="inline-flex whitespace-nowrap animate-marquee text-white text-sm">
             {[...Array(11)].map((_, i) => (
@@ -300,11 +251,11 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Scroll to Top Button */}
+      {/* Scroll to Top */}
       {showScrollTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 right-6 z-50 bg-[rgb(165,14,14)] text-white p-3 rounded-full shadow-lg hover:bg-orange-600 transition cursor-pointer"
+          className="fixed bottom-6 right-6 z-50 bg-[rgb(165,14,14)] text-white p-3 rounded-full shadow-lg hover:bg-orange-600 transition"
           aria-label="Scroll to top"
         >
           <FaArrowUp size={20} />
