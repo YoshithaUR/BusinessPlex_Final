@@ -17,6 +17,7 @@ import image_Card04 from "./Home/Card04.jpg";
 
 // GIFs
 import image_GIF01 from "./Video/GIF01.gif";
+import vuideo_video2 from "./Video/suport.mp4";
 
 // Self Image 
 // import image_self from "./Home/self.jpg";
@@ -51,6 +52,7 @@ const images = {
 
   // GIFs
   image_GIF01,
+  vuideo_video2,
 
   // Self
 //  image_self,
