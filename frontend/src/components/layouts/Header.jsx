@@ -6,6 +6,9 @@ import {
   FaInstagram,
   FaSearch,
   FaPhoneAlt,
+  FaArrowUp,
+  FaBars,
+  FaTimes,
 } from "react-icons/fa";
 
 import images from "../../assets/Images/images";
@@ -47,10 +50,11 @@ const highlights = [
 const Header = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showContactButton, setShowContactButton] = useState(true);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const timeoutRef = useRef(null);
   const slideshowRef = useRef(null);
 
-  // Image slider effect
   useEffect(() => {
     timeoutRef.current = setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % IMAGES.length);
@@ -58,7 +62,6 @@ const Header = () => {
     return () => clearTimeout(timeoutRef.current);
   }, [currentIndex]);
 
-  // Observe slideshow visibility
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -81,6 +84,49 @@ const Header = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const headerHeight = slideshowRef.current?.offsetHeight || 0;
+      setShowScrollTop(scrollPosition > headerHeight);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMenuOpen && !event.target.closest('.mobile-menu') && !event.target.closest('.hamburger-button')) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMenuOpen]);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   const BlueNavBar = () => (
     <div
       className="w-full text-white text-sm py-2 px-4 flex justify-between items-center z-50 fixed top-0 left-0"
@@ -88,112 +134,42 @@ const Header = () => {
     >
       <div className="flex items-center gap-5">
         <div className="flex gap-3">
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-gray-300"
-          >
-            <FaFacebookF />
-          </a>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-gray-300"
-          >
-            <FaTwitter />
-          </a>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-gray-300"
-          >
-            <FaInstagram />
-          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300"><FaFacebookF /></a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300"><FaTwitter /></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300"><FaInstagram /></a>
         </div>
-        <a
-          href="tel:1300894480"
-          className="font-medium hover:text-gray-200 transition-all"
-        >
-          INQUIRIES? CALL: 1300 894 480
-        </a>
+        <a href="tel:1300894480" className="font-medium hover:text-gray-200 transition-all hidden sm:block">INQUIRIES? CALL: 1300 894 480</a>
       </div>
       <div className="flex items-center bg-white text-black px-2 py-1 rounded-md">
-        <input
-          type="text"
-          placeholder="Search..."
-          className="bg-transparent outline-none text-sm w-24 sm:w-40"
-          aria-label="Search"
-        />
-        <button title="Search" className="text-gray-700 hover:text-black transition">
-          <FaSearch />
-        </button>
+        <input type="text" placeholder="Search..." className="bg-transparent outline-none text-sm w-16 sm:w-24 md:w-40" aria-label="Search" />
+        <button title="Search" className="text-gray-700 hover:text-black transition"><FaSearch /></button>
       </div>
     </div>
   );
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden pt-[96px]">
-      {/* Top Blue Bar */}
+    <div className="relative w-full min-h-fit overflow-hidden pt-[96px]">
+      {/* Top Red Bar */}
       <BlueNavBar />
 
-      {/* Slideshow */}
-      <div ref={slideshowRef} className="relative w-full h-screen z-0">
-        {IMAGES.map((src, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === currentIndex ? "opacity-100 z-0" : "opacity-0 -z-10"
-            }`}
-            aria-hidden={index !== currentIndex}
-          >
-            <img
-              src={src}
-              alt={`slide-${index + 1}`}
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        ))}
-      </div>
-
-      {/* Contact Us Button */}
-      {showContactButton && (
-        <div className="fixed top-[110px] right-4 z-10 transition-opacity duration-500">
-          <button
-            onClick={() => {
-              window.location.href = "tel:1300894480";
-            }}
-            className="w-[160px] sm:w-[180px] flex justify-center items-center gap-3 bg-[rgb(165,14,14)] text-white px-4 py-2 sm:px-6 sm:py-3 font-semibold hover:bg-orange-600 transition rounded-md shadow-lg"
-            aria-label="Contact Us"
-          >
-            Contact Us
-            <FaPhoneAlt size={18} />
-          </button>
-        </div>
-      )}
-
-      {/* Main Navbar */}
+      {/* Fixed White Nav */}
       <div className="fixed top-[40px] left-0 w-full z-40 bg-white/60 backdrop-blur-md shadow-md">
         <div className="max-w-screen-xl mx-auto flex items-center justify-between px-4 sm:px-6 md:px-12 py-3">
           <div className="flex items-center gap-3">
             <img src={logo} alt="Logo" className="h-10 sm:h-12" />
-            <span className="text-2xl font-bold text-blue-800 tracking-wide">
-              Business Plex
-            </span>
+            <span className="text-xl sm:text-2xl font-bold text-blue-800 tracking-wide">Business Plex</span>
           </div>
-          <nav className="hidden sm:flex items-center gap-2 text-sm font-semibold text-gray-700">
+          
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-2 text-sm font-semibold text-gray-700">
             {NAV_ITEMS.map(({ to, label }) => (
               <NavLink
                 key={to}
                 to={to}
                 className={({ isActive }) =>
-                  `px-4 py-2 rounded-full transition-all duration-300 transform ${
-                    isActive
-                      ? "bg-[rgb(165,14,14)] text-white shadow-md scale-105"
-                      : "hover:bg-[rgb(165,10,10)] hover:text-white hover:scale-105"
+                  `px-4 py-2 rounded-full transition-all duration-300 transform ${isActive
+                    ? "bg-[rgb(165,14,14)] text-white shadow-md scale-105"
+                    : "hover:bg-[rgb(165,10,10)] hover:text-white hover:scale-105"
                   }`
                 }
               >
@@ -201,23 +177,110 @@ const Header = () => {
               </NavLink>
             ))}
           </nav>
+
+          {/* Hamburger Menu Button */}
+          <button
+            className="lg:hidden hamburger-button text-gray-700 hover:text-[rgb(165,14,14)] transition-colors duration-300 p-2"
+            onClick={toggleMenu}
+            aria-label="Toggle navigation menu"
+          >
+            {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+          </button>
         </div>
       </div>
 
-      {/* Highlights Section */}
-      <div className="relative bg-white py-4 px-4 sm:px-6 md:px-12 z-20">
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 lg:hidden" onClick={closeMenu}>
+          <div className="absolute inset-0" />
+        </div>
+      )}
+
+      {/* Mobile Menu */}
+      <div className={`mobile-menu fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 lg:hidden ${
+        isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+      }`}>
+        <div className="flex items-center justify-between p-4 border-b border-gray-200">
+          <div className="flex items-center gap-3">
+            <img src={logo} alt="Logo" className="h-8" />
+            <span className="text-lg font-bold text-blue-800 tracking-wide">Business Plex</span>
+          </div>
+          <button
+            onClick={closeMenu}
+            className="text-gray-700 hover:text-[rgb(165,14,14)] transition-colors duration-300 p-2"
+            aria-label="Close menu"
+          >
+            <FaTimes size={20} />
+          </button>
+        </div>
+        
+        <nav className="flex flex-col py-4">
+          {NAV_ITEMS.map(({ to, label }) => (
+            <NavLink
+              key={to}
+              to={to}
+              onClick={closeMenu}
+              className={({ isActive }) =>
+                `px-6 py-4 text-lg font-medium transition-all duration-300 border-l-4 ${isActive
+                  ? "bg-[rgb(165,14,14)] text-white border-[rgb(165,14,14)] shadow-md"
+                  : "text-gray-700 hover:bg-gray-50 hover:text-[rgb(165,14,14)] hover:border-[rgb(165,14,14)] border-transparent"
+                }`
+              }
+            >
+              {label}
+            </NavLink>
+          ))}
+        </nav>
+        
+        {/* Mobile Menu Footer */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 bg-gray-50">
+          <a 
+            href="tel:1300894480" 
+            className="flex items-center justify-center gap-3 bg-[rgb(165,14,14)] text-white px-4 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors duration-300 shadow-md"
+          >
+            <FaPhoneAlt size={16} />
+            Call: 1300 894 480
+          </a>
+        </div>
+      </div>
+
+      {/* Slideshow (Auto Height) */}
+      <div ref={slideshowRef} className="relative w-full h-[60vh] md:h-[76vh] z-0">
+        {IMAGES.map((src, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentIndex ? "opacity-100 z-0" : "opacity-0 -z-10"
+              }`}
+            aria-hidden={index !== currentIndex}
+          >
+            <img src={src} alt={`slide-${index + 1}`} className="w-full h-full object-cover" loading="lazy" />
+          </div>
+        ))}
+      </div>
+
+      {/* Contact Button */}
+      {showContactButton && (
+        <div className="fixed top-[110px] right-4 z-10 transition-opacity duration-500">
+          <button
+            onClick={() => window.location.href = "tel:1300894480"}
+            className="w-[140px] sm:w-[160px] md:w-[180px] flex justify-center items-center gap-2 sm:gap-3 bg-[rgb(165,14,14)] text-white px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 text-sm sm:text-base font-semibold hover:bg-orange-600 transition rounded-md shadow-lg"
+            aria-label="Contact Us"
+          >
+            <span className="hidden sm:inline">Contact Us</span>
+            <span className="sm:hidden">Call</span>
+            <FaPhoneAlt size={16} />
+          </button>
+        </div>
+      )}
+
+      {/* Highlights */}
+      <div className="relative bg-white py-6 px-4 sm:px-6 md:px-12 z-20">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 text-center">
           {highlights.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center gap-2 group transition-transform duration-300"
-            >
-              {/* Icon with hover zoom and color change */}
+            <div key={index} className="flex flex-col items-center gap-2 group transition-transform duration-300">
               <div className="text-black text-3xl transition-all duration-300 transform group-hover:scale-125 group-hover:text-purple-600">
                 {item.icon}
               </div>
-
-              {/* Title with hover color change */}
               <p className="text-sm font-semibold leading-tight text-black group-hover:text-purple-600 transition-colors duration-300">
                 {item.title}
               </p>
@@ -226,21 +289,27 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Marquee Section */}
-      <div
-        className="w-full py-2 z-30 overflow-hidden"
-        style={{ backgroundColor: "rgb(165, 14, 14)" }}
-      >
+      {/* Marquee Bar */}
+      <div className="w-full py-2 z-30 overflow-hidden" style={{ backgroundColor: "rgb(165, 14, 14)" }}>
         <div className="flex justify-center">
           <div className="inline-flex whitespace-nowrap animate-marquee text-white text-sm">
             {[...Array(11)].map((_, i) => (
-              <span key={i} className="mx-4">
-                News Alert..
-              </span>
+              <span key={i} className="mx-4">News Alert..</span>
             ))}
           </div>
         </div>
       </div>
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="fixed bottom-6 right-6 z-50 bg-[rgb(165,14,14)] text-white p-3 rounded-full shadow-lg hover:bg-orange-600 transition cursor-pointer"
+          aria-label="Scroll to top"
+        >
+          <FaArrowUp size={20} />
+        </button>
+      )}
     </div>
   );
 };
