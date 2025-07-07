@@ -595,7 +595,7 @@ const Home = () => {
           <div className="absolute inset-0 rounded-3xl z-0">
             <div
               className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${images.image_three})` }}
+              style={{ backgroundImage: `url(${images.image_Question01})` }}
             />
             <div className="absolute inset-0 bg-black/80" />
           </div>
