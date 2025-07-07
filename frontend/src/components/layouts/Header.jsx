@@ -215,7 +215,7 @@ const Header = () => {
           News Alerts
         </h4>
 
-        <ul className="space-y-2 list-disc list-inside text-[12px]">
+        <ul className="space-y list-disc  text-[12px]">
           <li>New course enrollment open now!</li>
           <li>Workshop scheduled for July 12.</li>
           <li>Congrats to our recent graduates!</li>
