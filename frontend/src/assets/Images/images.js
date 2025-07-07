@@ -1,9 +1,9 @@
 // Slide Show
-import image_one from "./HomeSlideShow/1.jpg";
-import image_two from "./HomeSlideShow/2.jpg";
-import image_three from "./HomeSlideShow/3.jpg";
-import image_four from "./HomeSlideShow/4.jpg";
-import image_five from "./HomeSlideShow/5.jpg";
+import image_one from "./HomeSlideShow/1.png";
+import image_two from "./HomeSlideShow/2.png";
+import image_three from "./HomeSlideShow/3.png";
+import image_four from "./HomeSlideShow/4.png";
+import image_five from "./HomeSlideShow/5.png";
 
 // Home Support Services
 import image_SuportService01 from "./Home/SuportServices1.jpg";
