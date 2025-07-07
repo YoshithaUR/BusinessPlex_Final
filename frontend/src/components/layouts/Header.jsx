@@ -160,77 +160,77 @@ const Header = () => {
       </div>
 
       <div className="flex items-center gap-4 ml-auto">
-           
-          <button
-            title="Search"
-            className="text-gray-700 hover:text-black transition px-2 absolute right-6"
-            aria-label="Search"
-          >
-            <FaSearch />
-          </button>
-          
-          <div className="flex items-center gap-4 ml-auto">
-  
-  <div className="relative flex items-center bg-white text-black rounded-md overflow-visible px-2 py-1">
-    <input
-      type="text"
-      placeholder="Search..."
-      className="bg-transparent outline-none text-sm w-16 sm:w-24 md:w-40 pr-20"
-    />
 
-    {/* Search icon */}
-    <button
-      title="Search"
-      className="text-gray-700 hover:text-black transition px-2 absolute right-6"
-      aria-label="Search"
-    >
-      <FaSearch />
-    </button>
-
-    {/* Notification bell icon */}
-    <FaBell
-      onClick={toggleNotif}
-      className="notif-bell-icon text-gray-700 hover:text-yellow-400 cursor-pointer absolute right-2"
-      size={18}
-    />
-
-    {/* Notification Popup */}
-    {isNotifOpen && (
-      <div
-        ref={notifRef}
-        className="absolute top-full right-0 mt-2 w-64 max-h-48 overflow-y-auto bg-white text-black text-xs rounded shadow-xl px-4 py-3 z-50 border border-gray-300"
-        style={{ minWidth: "240px" }}
-      >
-        {/* Close Button */}
         <button
-          onClick={() => setIsNotifOpen(false)}
-          className="absolute top-2 right-2 text-black hover:text-red-500"
-          title="Close"
+          title="Search"
+          className="text-gray-700 hover:text-black transition px-2 absolute right-6"
+          aria-label="Search"
         >
-          <FaTimes size={14} />
+          <FaSearch />
         </button>
 
-        <h4 className="flex items-center gap-2 font-bold text-sm mb-2 text-blue-600">
-          <FaBell className="text-yellow-500" size={16} />
-          News Alerts
-        </h4>
+        <div className="flex items-center gap-4 ml-auto">
 
-        <ul className=" list-disc list-inside text-[12px]">
-          <li>New course enrollment open now!</li>
-          <li>Workshop scheduled for July 12.</li>
-          <li>Congrats to our recent graduates!</li>
-          <li>System update on July 9 (12AM–2AM)</li>
-          <li>More notifications can be added here as needed.</li>
-          <li>Scroll to see more notifications if list grows.</li>
-        </ul>
+          <div className="relative flex items-center bg-white text-black rounded-md overflow-visible px-2 py-1">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="bg-transparent outline-none text-sm w-16 sm:w-24 md:w-40 pr-20"
+            />
+
+            {/* Search icon */}
+            <button
+              title="Search"
+              className="text-gray-700 hover:text-black transition px-2 absolute right-6"
+              aria-label="Search"
+            >
+              <FaSearch />
+            </button>
+
+            {/* Notification bell icon */}
+            <FaBell
+              onClick={toggleNotif}
+              className="notif-bell-icon text-gray-700 hover:text-yellow-400 cursor-pointer absolute right-2"
+              size={18}
+            />
+
+            {/* Notification Popup */}
+            {isNotifOpen && (
+              <div
+                ref={notifRef}
+                className="absolute top-full right-0 mt-2 w-64 max-h-48 overflow-y-auto bg-white text-black text-xs rounded shadow-xl px-4 py-3 z-50 border border-gray-300"
+                style={{ minWidth: "240px" }}
+              >
+                {/* Close Button */}
+                <button
+                  onClick={() => setIsNotifOpen(false)}
+                  className="absolute top-2 right-2 text-black hover:text-red-500"
+                  title="Close"
+                >
+                  <FaTimes size={14} />
+                </button>
+
+                <h4 className="flex items-center gap-2 font-bold text-sm mb-2 text-blue-600">
+                  <FaBell className="text-yellow-500" size={16} />
+                  News Alerts
+                </h4>
+
+                <ul className=" list-disc list-inside text-[12px]">
+                  <li>New course enrollment open now!</li>
+                  <li>Workshop scheduled for July 12.</li>
+                  <li>Congrats to our recent graduates!</li>
+                  <li>System update on July 9 (12AM–2AM)</li>
+                  <li>More notifications can be added here as needed.</li>
+                  <li>Scroll to see more notifications if list grows.</li>
+                </ul>
+              </div>
+
+            )}
+          </div>
+        </div>
       </div>
-      
-    )}
-  </div>
-</div>
-</div>
-  
-</div>
+
+    </div>
 
   );
 
@@ -253,10 +253,9 @@ const Header = () => {
                 key={to}
                 to={to}
                 className={({ isActive }) =>
-                  `px-3 py-2 rounded-full transition-all duration-300 ${
-                    isActive
-                      ? "bg-[rgb(26,43,60,1)] text-white shadow-md scale-105"
-                      : "hover:bg-[rgb(26,43,60,1)] hover:text-white hover:scale-105"
+                  `px-3 py-2 rounded-full transition-all duration-300 ${isActive
+                    ? "bg-[rgb(26,43,60,1)] text-white shadow-md scale-105"
+                    : "hover:bg-[rgb(26,43,60,1)] hover:text-white hover:scale-105"
                   }`
                 }
               >
@@ -280,9 +279,8 @@ const Header = () => {
         </div>
       )}
       <div
-        className={`mobile-menu fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 transition-transform duration-300 ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`mobile-menu fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 transition-transform duration-300 ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="flex justify-between items-center p-4 border-b">
           <div className="flex items-center gap-2">
@@ -300,10 +298,9 @@ const Header = () => {
               to={to}
               onClick={closeMenu}
               className={({ isActive }) =>
-                `px-6 py-4 text-lg font-medium border-l-4 ${
-                  isActive
-                    ? "bg-[rgb(26,43,60,1)] text-white border-[rgb(26,43,60,1)]"
-                    : "text-gray-700 hover:bg-gray-50 hover:border-[rgb(26,43,60,1)] border-transparent"
+                `px-6 py-4 text-lg font-medium border-l-4 ${isActive
+                  ? "bg-[rgb(26,43,60,1)] text-white border-[rgb(26,43,60,1)]"
+                  : "text-gray-700 hover:bg-gray-50 hover:border-[rgb(26,43,60,1)] border-transparent"
                 }`
               }
             >
@@ -330,16 +327,15 @@ const Header = () => {
           {IMAGES.map((src, index) => (
             <div
               key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ${
-                index === currentIndex
+              className={`absolute inset-0 transition-opacity duration-1000 ${index === currentIndex
                   ? "opacity-100 scale-100 z-0"
                   : "opacity-0 scale-105 -z-10"
-              }`}
+                }`}
             >
               <img
                 src={src}
                 alt={`slide-${index}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain bg-gradient-to-r from-blue-200 to-cyan-200"
                 loading="lazy"
               />
             </div>
