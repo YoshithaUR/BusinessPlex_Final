@@ -165,10 +165,10 @@ const Home = () => {
     <>
       <section className="relative bg-amber-50 py-12 px-6 sm:px-12 lg:px-20 font-[Poppins,Roboto,sans-serif] overflow-hidden min-h-[60vh]">
         {/* Background floating elements */}
-        <div className="absolute -bottom-20 -left-32 w-[300px] sm:w-[400px] md:w-[500px] h-[300px] sm:h-[400px] md:h-[500px] bg-purple-300 opacity-30 rounded-full blur-3xl animate-pulse-slow z-0"></div>
-        <div className="absolute top-10 right-20 w-[200px] h-[200px] bg-blue-200 opacity-20 rounded-full blur-2xl animate-bounce-slow z-0"></div>
-        <div className="absolute bottom-32 right-10 w-[150px] h-[150px] bg-yellow-200 opacity-25 rounded-full blur-xl animate-pulse z-0"></div>
-        <div className="absolute top-1/2 left-10 w-[100px] h-[100px] bg-pink-200 opacity-20 rounded-full blur-lg animate-ping-slow z-0"></div>
+        <div className="absolute -bottom-20 -left-32 w-[300px] sm:w-[400px] md:w-[500px] h-[300px] sm:h-[400px] md:h-[500px] bg-purple-500 opacity-30 rounded-full blur-3xl animate-pulse-slow z-0"></div>
+        <div className="absolute top-10 right-20 w-[200px] h-[200px] bg-blue-300 opacity-20 rounded-full blur-2xl animate-bounce-slow z-0"></div>
+        <div className="absolute bottom-32 right-10 w-[150px] h-[150px] bg-yellow-300 opacity-25 rounded-full blur-xl animate-pulse z-0"></div>
+        <div className="absolute top-1/2 left-10 w-[100px] h-[100px] bg-pink-00 opacity-20 rounded-full blur-lg animate-ping-slow z-0"></div>
         <div className="absolute top-5 left-1/2 w-[180px] h-[180px] bg-green-200 opacity-15 rounded-full blur-2xl animate-pulse z-0"></div>
         <div className="absolute bottom-10 left-1/4 w-[120px] h-[120px] bg-orange-200 opacity-20 rounded-full blur-xl animate-bounce z-0"></div>
         <div className="absolute top-1/4 right-5 w-[90px] h-[90px] bg-indigo-200 opacity-25 rounded-full blur-lg animate-ping z-0"></div>
