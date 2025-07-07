@@ -328,21 +328,21 @@ const Home = () => {
 
           {/* Content */}
           <div className="relative z-10 text-white text-center px-4 sm:px-6">
-            <h3 className="text-2xl sm:text-3xl font-bold tracking-wider text-green-300 drop-shadow-lg animate-fade-in mb-4 font-[Montserrat,Open_Sans,sans-serif]">
-              {service.title}
-            </h3>
-            <div className="text-sm sm:text-base mt-4 p-4 bg-black/40 rounded-xl backdrop-blur-md shadow-md space-y-2 font-[Poppins,Roboto,sans-serif]">
-              {service.paragraph.map((para, idx) => (
-                <p
-                  key={idx}
-                  className="leading-relaxed text-white/90 tracking-wide"
-                >
-                  {para}
-                </p>
-              ))}
-            </div>
-          </div>
-        </div>
+  <h3 className="text-2xl sm:text-3xl font-bold tracking-wider text-green-300 drop-shadow-lg animate-fade-in mb-4 font-[Montserrat,Open_Sans,sans-serif]">
+    {service.title}
+  </h3>
+  <div className="text-sm sm:text-base mt-4 p-4 bg-black/40 rounded-xl backdrop-blur-md shadow-md space-y-2 font-[Poppins,Roboto,sans-serif]">
+    {service.paragraph.map((para, idx) => (
+      <p
+        key={idx}
+        className="leading-relaxed text-white/90 tracking-wide"
+      >
+        {para}
+      </p>
+    ))}
+  </div>
+</div>
+</div>
 
         {/* Hover GIF + Button */}
         <div
