@@ -89,7 +89,7 @@ const Home = () => {
     {
       title: "Business Advice",
       image: images.image_Card02,
-      gif: images.image_GIF01,
+      gif: images.image_GIF02,
       paragraph: [
         "Let us help build your business plan. The development and implementation of a viable business plan is an important element of the Self‑Employment Assistance program.",
         "You can develop your Business Plan in various ways.",
@@ -100,11 +100,12 @@ const Home = () => {
         "Participants may develop a Business Plan on their own and seek assistance from us to ensure it is a viable plan.",
       ],
       modalImage: images.image_Card02,
+      
     },
     {
       title: "Business Health Check",
       image: images.image_Card03,
-      gif: images.image_GIF01,
+      gif: images.image_GIF03,
       paragraph: [
         "Let us help build your business plan. The development and implementation of a viable business plan is an important element of the Self‑Employment Assistance program.",
         "You can develop your Business Plan in various ways.",
@@ -119,7 +120,7 @@ const Home = () => {
     {
       title: "Exploring Self-Employment Workshop",
       image: images.image_Card04,
-      gif: images.image_GIF01,
+      gif: images.image_GIF04,
       paragraph: [
         "Let us help build your business plan. The development and implementation of a viable business plan is an important element of the Self‑Employment Assistance program.",
         "You can develop your Business Plan in various ways.",
@@ -331,16 +332,16 @@ const Home = () => {
   <h3 className="text-2xl sm:text-3xl font-bold tracking-wider text-green-300 drop-shadow-lg animate-fade-in mb-4 font-[Montserrat,Open_Sans,sans-serif]">
     {service.title}
   </h3>
-  <div className="text-sm sm:text-base mt-4 p-4 bg-black/40 rounded-xl backdrop-blur-md shadow-md space-y-2 font-[Poppins,Roboto,sans-serif]">
-    {service.paragraph.map((para, idx) => (
+  {/* <div className="text-sm sm:text-base mt-4 p-4 bg-black/40 rounded-xl backdrop-blur-md shadow-md space-y-2 font-[Poppins,Roboto,sans-serif]"> */}
+    {/* {service.paragraph.map((para, idx) => (
       <p
         key={idx}
         className="leading-relaxed text-white/90 tracking-wide"
       >
         {para}
       </p>
-    ))}
-  </div>
+    ))} */}
+  {/* </div> */}
 </div>
 </div>
 
@@ -353,8 +354,8 @@ const Home = () => {
           <div className="absolute inset-0 bg-black/50 z-0" />
           <button
             onClick={() => openServiceModal(index)}
-            className="relative z-10 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full shadow-lg font-[Poppins,Roboto,sans-serif]"
-          >
+            className="relative z-10 bg-transparent border border-orange-600 text-white font-semibold px-6 py-3 rounded-full shadow-lg font-[Poppins,Roboto,sans-serif]">
+
             Read More
           </button>
         </div>
