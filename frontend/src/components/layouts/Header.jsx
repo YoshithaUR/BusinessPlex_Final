@@ -333,7 +333,7 @@ const Header = () => {
         </div>
 
         {/* Marquee Bar - Compact */}
-        <div
+        {/* <div
           className="w-full py-1 z-30 overflow-hidden"
           style={{ backgroundColor: "rgb(26,43,60,1)" }}
         >
@@ -346,7 +346,7 @@ const Header = () => {
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Contact Button */}
