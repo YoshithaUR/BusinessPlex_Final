@@ -13,11 +13,12 @@ import {
 import { MdEmail } from "react-icons/md";
 
 import images from "../assets/Images/images";
+import ApplyNow from "../components/Modal/ApplyNow";
 
 const Home = () => {
-  const [zoomActive, setZoomActive] = useState(false);
-  const [zoomIndex, setZoomIndex] = useState(null);
-  const [modalVisible, setModalVisible] = useState(false);
+  // const [zoomActive, setZoomActive] = useState(false);
+  // const [zoomIndex, setZoomIndex] = useState(null);
+  // const [modalVisible, setModalVisible] = useState(false);
   const [serviceModalIndex, setServiceModalIndex] = useState(null);
   const [hoveredCard, setHoveredCard] = useState(null);
 
@@ -139,13 +140,13 @@ const Home = () => {
       backgroundImage: images.image_ServicePopup04,
     },
   ];
-  const closeZoom = () => {
-    setModalVisible(false);
-    setTimeout(() => {
-      setZoomActive(false);
-      setZoomIndex(null);
-    }, 300);
-  };
+  // const closeZoom = () => {
+  //   setModalVisible(false);
+  //   setTimeout(() => {
+  //     setZoomActive(false);
+  //     setZoomIndex(null);
+  //   }, 300);
+  // };
 
   const openServiceModal = (index) => {
     setServiceModalIndex(index);
@@ -163,76 +164,76 @@ const Home = () => {
 
   return (
     <>
-       <section className="relative bg-amber-50 py-16 px-6 sm:px-12 lg:px-20 font-[Poppins,Roboto,sans-serif] overflow-hidden min-h-[60vh]">
-  {/* Background Decorations */}
-  <div
-    className="absolute inset-0 opacity-5 z-0"
-    style={{
-      backgroundImage: `radial-gradient(circle at 1px 1px, rgba(139, 92, 246, 0.3) 1px, transparent 0)`,
-      backgroundSize: "40px 40px",
-    }}
-  ></div>
-  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent z-0"></div>
+      <section className="relative bg-amber-50 py-16 px-6 sm:px-12 lg:px-20 font-[Poppins,Roboto,sans-serif] overflow-hidden min-h-[60vh]">
+        {/* Background Decorations */}
+        <div
+          className="absolute inset-0 opacity-5 z-0"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(139, 92, 246, 0.3) 1px, transparent 0)`,
+            backgroundSize: "40px 40px",
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent z-0"></div>
 
-  {/* Main Content */}
-  <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
-    {/* Left - Timeline Text Content */}
-    <div className="lg:w-1/2 relative">
-      <h2
-        className="text-3xl sm:text-4xl font-semibold text-gray-800 mb-8 font-[Montserrat,Open_Sans,sans-serif]"
-        data-aos="fade-up"
-      >
-        Business Support Services
-      </h2>
+        {/* Main Content */}
+        <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+          {/* Left - Timeline Text Content */}
+          <div className="lg:w-1/2 relative">
+            <h2
+              className="text-3xl sm:text-4xl font-semibold text-gray-800 mb-8 font-[Montserrat,Open_Sans,sans-serif]"
+              data-aos="fade-up"
+            >
+              Business Support Services
+            </h2>
 
-      <div className="relative border-l-4 border-yellow-400 pl-6 space-y-10">
-        {paragraphData.map((text, index) => (
-          <div
-            key={index}
-            className="relative group"
-            data-aos="fade-up"
-            data-aos-delay={index * 100}
-            onClick={() => {
-              setZoomIndex(index);
-              setZoomActive(true);
-              setTimeout(() => setModalVisible(true), 50);
-            }}
-          >
-            {/* Ping Dot */}
-            <div className="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-yellow-400 shadow-lg border-4 border-white z-10 animate-ping-slow"></div>
+            <div className="relative border-l-4 border-yellow-400 pl-6 space-y-10">
+              {paragraphData.map((text, index) => (
+                <div
+                  key={index}
+                  className="relative group"
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                  onClick={() => {
+                    setZoomIndex(index);
+                    setZoomActive(true);
+                    setTimeout(() => setModalVisible(true), 50);
+                  }}
+                >
+                  {/* Ping Dot */}
+                  <div className="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-yellow-400 shadow-lg border-4 border-white z-10 animate-ping-slow"></div>
 
-            {/* Text Card */}
-            <div className="bg-white/80 p-5 rounded-xl shadow-md border border-gray-200 hover:shadow-xl transition duration-300 backdrop-blur-lg cursor-pointer group-hover:scale-[1.03] transform">
-              <div className="flex items-start gap-3">
-                <TiTickOutline className="text-yellow-500 text-xl animate-bounce" />
-                <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-[Poppins,Roboto,sans-serif]">
-                  {text}
-                </p>
-              </div>
+                  {/* Text Card */}
+                  <div className="bg-white/80 p-5 rounded-xl shadow-md border border-gray-200 hover:shadow-xl transition duration-300 backdrop-blur-lg cursor-pointer group-hover:scale-[1.03] transform">
+                    <div className="flex items-start gap-3">
+                      <TiTickOutline className="text-yellow-500 text-xl animate-bounce" />
+                      <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-[Poppins,Roboto,sans-serif]">
+                        {text}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-
-    {/* Right - Video Preview */}
-    <div
-      className="lg:w-1/2 h-64 sm:h-80 md:h-96 lg:h-[450px] mt-8"
-      data-aos="fade-left"
-      data-aos-delay="300"
-    >
-      <video
-        autoPlay
-        muted
-        loop
-        src={images.vuideo_video2}
-        className="w-full h-full object-cover rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-105"
-      />
-    </div>
-  </div>
+          {/* Right - Video Preview */}
+          <div
+            className="lg:w-1/2 h-64 sm:h-80 md:h-96 lg:h-[450px] mt-8"
+            data-aos="fade-left"
+            data-aos-delay="300"
+          >
+            <video
+              autoPlay
+              muted
+              loop
+              src={images.vuideo_video2}
+              className="w-full h-full object-cover rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-105"
+            />
+          </div>
+        </div>
 
 
-</section>
+      </section>
+      <ApplyNow />
 
       {/* Services */}
       <section className="bg-amber-50 py-12 px-4 sm:px-6 lg:px-20 font-[Poppins,Roboto,sans-serif]">
@@ -249,11 +250,10 @@ const Home = () => {
               {/* Default Image + Overlay */}
               <div
                 className={`absolute inset-0 z-20 p-6 transition-all duration-700 ease-in-out bg-cover bg-top flex flex-col justify-center items-center rounded-3xl shadow-xl 
-            ${
-              hoveredCard === index
-                ? "-translate-x-full opacity-0"
-                : "translate-x-0 opacity-100"
-            }`}
+            ${hoveredCard === index
+                    ? "-translate-x-full opacity-0"
+                    : "translate-x-0 opacity-100"
+                  }`}
                 style={{ backgroundImage: `url(${service.image})` }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-black/30 z-0" />
@@ -280,11 +280,10 @@ const Home = () => {
 
               <div
                 className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover transition-all duration-500 ease-in-out 
-            ${
-              hoveredCard === index
-                ? "translate-x-0 opacity-100"
-                : "translate-x-full opacity-0"
-            }`}
+            ${hoveredCard === index
+                    ? "translate-x-0 opacity-100"
+                    : "translate-x-full opacity-0"
+                  }`}
                 style={{ backgroundImage: `url(${service.gif})` }}
               >
                 <div className="absolute inset-0 bg-black/60 z-0" />
@@ -572,9 +571,9 @@ const Home = () => {
               />
             </div>
 
-           <p className="text-white text-base sm:text-lg leading-relaxed mb-8 whitespace-pre-line text-justify">
-  {selectedTestimonial.text}
-</p>
+            <p className="text-white text-base sm:text-lg leading-relaxed mb-8 whitespace-pre-line text-justify">
+              {selectedTestimonial.text}
+            </p>
 
 
             <p className="font-semibold text-xl">
@@ -621,8 +620,8 @@ const Home = () => {
                     placeholder === "E-Mail"
                       ? "email"
                       : placeholder === "Age"
-                      ? "number"
-                      : "text"
+                        ? "number"
+                        : "text"
                   }
                   placeholder={placeholder}
                   className="w-full px-4 py-2 rounded-full border border-gray-300 outline-none focus:ring-2 focus:ring-green-400 placeholder-white text-white bg-transparent"
