@@ -38,6 +38,9 @@ import image_Testamonial2 from "./Testimonials/Mark South.jpg"
 import image_Testamonial3 from "./Testimonials/Kevin Wright.jpg"
 import image_Testamonial4 from "./Testimonials/bg.jpg"
 
+
+// Question
+import image_Question01 from "./Home/Question.jpg";
 // Footer
 import image_Footer1 from "./AllLogos/AQF.png"
 import image_Footer2 from "./AllLogos/workforec.png"
@@ -82,6 +85,8 @@ image_program,
   image_Testamonial3,
   image_Testamonial4,
   
+  //
+  image_Question01,
 
   // Footer
    image_Footer1 ,
