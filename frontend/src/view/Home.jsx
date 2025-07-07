@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { FaStar, FaSearch, FaHandPointRight } from "react-icons/fa";
+import { FaStar,  FaHandPointRight } from "react-icons/fa";
 import { TiTickOutline } from "react-icons/ti";
 import {
   FaPhoneAlt,
