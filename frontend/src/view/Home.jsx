@@ -242,7 +242,7 @@ const Home = () => {
               key={index}
               onMouseEnter={() => setHoveredCard(index)}
               onMouseLeave={() => setHoveredCard(null)}
-              className="relative h-[520px] bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-500 group cursor-pointer"
+              className="relative h-[520px] bg- rounded-xl shadow-xl overflow-hidden transition-all duration-500 group cursor-pointer"
               data-aos="zoom-in"
               data-aos-delay={index * 100}
             >
@@ -256,7 +256,7 @@ const Home = () => {
             }`}
                 style={{ backgroundImage: `url(${service.image})` }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70 z-0" />
+                <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-black/30 z-0" />
 
                 {/* Content */}
                 <div className="relative z-10 text-white text-center px-4 sm:px-6">
@@ -287,7 +287,7 @@ const Home = () => {
             }`}
                 style={{ backgroundImage: `url(${service.gif})` }}
               >
-                <div className="absolute inset-0 bg-black/50 z-0" />
+                <div className="absolute inset-0 bg-black/60 z-0" />
                 <button
                   onClick={() => openServiceModal(index)}
                   className="relative z-10 bg-transparent border border-orange-600 text-white font-semibold px-6 py-3 rounded-full shadow-lg font-[Poppins,Roboto,sans-serif]"
