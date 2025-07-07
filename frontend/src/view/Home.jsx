@@ -284,7 +284,7 @@ const Home = () => {
 
               src={images.vuideo_video2}
               alt="Business Support"
-              className="w-full h-full object-cover rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-105"
+              className="w-full h-full object-cover rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-105 "
             />
           </div>
         </div>
@@ -349,13 +349,13 @@ const Home = () => {
             <h3 className="text-2xl sm:text-3xl font-bold tracking-wider text-green-300 drop-shadow-lg animate-fade-in mb-4 font-[Montserrat,Open_Sans,sans-serif]">
               {service.title}
             </h3>
-            <div className="text-sm sm:text-base mt-4 p-4 bg-black/40 rounded-xl backdrop-blur-md shadow-md space-y-2 font-[Poppins,Roboto,sans-serif]">
+            {/* <div className="text-sm sm:text-base mt-4 p-4 bg-black/40 rounded-xl backdrop-blur-md shadow-md space-y-2 font-[Poppins,Roboto,sans-serif]"> */}
               {/* {service.paragraph.map((para, idx) => (
                 <p key={idx} className="leading-relaxed text-white/90 tracking-wide">
                   {para}
                 </p>
               ))} */}
-            </div>
+            {/* </div> */}
           </div>
         </div>
 
