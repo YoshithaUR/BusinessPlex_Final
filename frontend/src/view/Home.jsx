@@ -231,42 +231,7 @@ const Home = () => {
     </div>
   </div>
 
-  {/* Zoom Modal */}
-  {zoomActive && zoomIndex !== null && (
-    <div
-      className={`fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-60 transition-opacity duration-300 ${
-        modalVisible ? "opacity-100" : "opacity-0 pointer-events-none"
-      }`}
-      onClick={closeZoom}
-    >
-      {/* Background Overlay */}
-      <img
-        src={images.image_SuportService02}
-        className="absolute inset-0 w-full h-full object-cover filter blur-sm brightness-75"
-        aria-hidden="true"
-      />
-      <div className="absolute inset-0 bg-black/40" />
 
-      {/* Zoom Content */}
-      <div
-        className={`relative max-w-2xl max-h-[80vh] w-full overflow-auto p-6 sm:p-8 rounded-xl bg-white bg-opacity-20 backdrop-blur-lg shadow-2xl transition-transform duration-300 ease-in-out ${
-          modalVisible
-            ? "scale-100 opacity-100 pointer-events-auto"
-            : "scale-90 opacity-0 pointer-events-none"
-        }`}
-        onClick={(e) => e.stopPropagation()}
-        onMouseLeave={closeZoom}
-      >
-        <h3 className="text-3xl font-semibold mb-6 text-black flex items-center gap-3 font-[Montserrat,Open_Sans,sans-serif]">
-          <FaStar className="text-yellow-500" />
-          Business Support Services
-        </h3>
-        <p className="leading-8 text-black max-w-lg mb-4 text-lg font-[Poppins,Roboto,sans-serif] font-medium">
-          {paragraphData[zoomIndex]}
-        </p>
-      </div>
-    </div>
-  )}
 </section>
 
       {/* Services */}
