@@ -57,6 +57,10 @@ const Header = () => {
   const timeoutRef = useRef(null);
   const slideshowRef = useRef(null);
   const notifRef = useRef(null);
+  const [showApplyModal, setShowApplyModal] = useState(false);
+  const [hasManuallyClosed, setHasManuallyClosed] = useState(false);
+
+  const applyTriggerRef = useRef(null);
 
   useEffect(() => {
     timeoutRef.current = setTimeout(() => {
@@ -114,6 +118,30 @@ const Header = () => {
     };
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasManuallyClosed) {
+          setShowApplyModal(true);
+        } else {
+          setShowApplyModal(false); // Optional: auto-hide if not visible
+        }
+      },
+      { threshold: 0.5 } // Adjust sensitivity
+    );
+
+    if (applyTriggerRef.current) {
+      observer.observe(applyTriggerRef.current);
+    }
+
+    return () => {
+      if (applyTriggerRef.current) {
+        observer.unobserve(applyTriggerRef.current);
+      }
+    };
+  }, [hasManuallyClosed]);
+
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -158,6 +186,36 @@ const Header = () => {
           INQUIRIES? CALL: 1300 894 480
         </a>
       </div>
+      {showApplyModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+          <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full relative">
+            <button
+              onClick={() => {
+                setShowApplyModal(false);
+                setHasManuallyClosed(true);
+              }}
+              className="absolute top-2 right-2 text-gray-600 hover:text-red-500"
+              title="Close"
+            >
+              <FaTimes />
+            </button>
+            <h2 className="text-xl font-bold mb-4 text-center text-green-700">
+              Ready to Enroll?
+            </h2>
+            <p className="text-sm mb-4 text-center text-gray-700">
+              Apply now to start your journey with us!
+            </p>
+            <div className="flex justify-center">
+              <a
+                href="/apply"
+                className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-semibold shadow-md transition"
+              >
+                Apply Now
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="flex items-center gap-4 ml-auto">
 
@@ -328,14 +386,14 @@ const Header = () => {
             <div
               key={index}
               className={`absolute inset-0 transition-opacity duration-1000 ${index === currentIndex
-                  ? "opacity-100 scale-100 z-0"
-                  : "opacity-0 scale-105 -z-10"
+                ? "opacity-100 scale-100 z-0"
+                : "opacity-0 scale-105 -z-10"
                 }`}
             >
               <img
                 src={src}
                 alt={`slide-${index}`}
-                className="w-full h-full object-contain bg-gradient-to-r from-blue-200 to-cyan-200"
+                className="w-full h-full object-cover"
                 loading="lazy"
               />
             </div>
@@ -378,11 +436,10 @@ const Header = () => {
         </div>
       )}
 
-      {/* Scroll to top button */}
       {showScrollTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-20 right-6 z-50 bg-[rgb(26,43,60,1)] text-white p-3 rounded-full shadow-lg hover:bg-orange-600 outline outline-2 outline-white"
+          className="fixed bottom-20 right-6 z-50 bg-[rgb(26,43,60,1)] text-white p-3 rounded-full shadow-lg hover:bg-orange-600 outline-2 outline-white"
           aria-label="Scroll to top"
         >
           <FaArrowUp size={20} />
