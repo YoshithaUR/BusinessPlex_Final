@@ -306,79 +306,62 @@ const Home = () => {
           </div>
         )}
       </section>
-      {/* Services */}
-      <section className="bg-amber-50 py-12 px-4 sm:px-6 lg:px-20 font-[Poppins,Roboto,sans-serif]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              onMouseEnter={() => setHoveredCard(index)}
-              onMouseLeave={() => setHoveredCard(null)}
-              className="relative h-[520px] bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-500 group cursor-pointer"
-              data-aos="zoom-in"
-              data-aos-delay={index * 100}
-            >
-              {/* Image + overlay */}
-              <div
-                className={`absolute inset-0 z-20 p-6 transition-all duration-700 ease-in-out bg-cover bg-top flex flex-col justify-center items-center rounded-3xl shadow-xl overflow-hidden 
-          ${hoveredCard === index ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100"}`}
-                style={{
-                  backgroundImage: `url(${service.image})`,
-                }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70 z-0" />
-
-<<<<<<< HEAD
-          {/* Content */}
+     {/* Services */}
+<section className="bg-amber-50 py-12 px-4 sm:px-6 lg:px-20 font-[Poppins,Roboto,sans-serif]">
+  <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    {services.map((service, index) => (
+      <div
+        key={index}
+        onMouseEnter={() => setHoveredCard(index)}
+        onMouseLeave={() => setHoveredCard(null)}
+        className="relative h-[520px] bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-500 group cursor-pointer"
+        data-aos="zoom-in"
+        data-aos-delay={index * 100}
+      >
+        {/* Default Image + Overlay */}
+        <div
+          className={`absolute inset-0 z-20 p-6 transition-all duration-700 ease-in-out bg-cover bg-top flex flex-col justify-center items-center rounded-3xl shadow-xl 
+            ${hoveredCard === index ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100"}`}
+          style={{
+            backgroundImage: `url(${service.image})`,
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70 z-0" />
           <div className="relative z-10 text-white text-center px-4 sm:px-6">
             <h3 className="text-2xl sm:text-3xl font-bold tracking-wider text-green-300 drop-shadow-lg animate-fade-in mb-4 font-[Montserrat,Open_Sans,sans-serif]">
               {service.title}
             </h3>
-            {/* <div className="text-sm sm:text-base mt-4 p-4 bg-black/40 rounded-xl backdrop-blur-md shadow-md space-y-2 font-[Poppins,Roboto,sans-serif]"> */}
-              {/* {service.paragraph.map((para, idx) => (
-=======
-                {/* Content */}
-                <div className="relative z-10 text-white text-center px-4 sm:px-6">
-                  <h3 className="text-2xl sm:text-3xl font-bold tracking-wider text-green-300 drop-shadow-lg animate-fade-in mb-4 font-[Montserrat,Open_Sans,sans-serif]">
-                    {service.title}
-                  </h3>
-                  <div className="text-sm sm:text-base mt-4 p-4 bg-black/40 rounded-xl backdrop-blur-md shadow-md space-y-2 font-[Poppins,Roboto,sans-serif]">
-                    {/* {service.paragraph.map((para, idx) => (
->>>>>>> a00b91e82bdaa2e8bbb4d5d62417031ab3e5b1ef
+            <div className="text-sm sm:text-base mt-4 p-4 bg-black/40 rounded-xl backdrop-blur-md shadow-md space-y-2 font-[Poppins,Roboto,sans-serif]">
+              {service.paragraph.map((para, idx) => (
                 <p key={idx} className="leading-relaxed text-white/90 tracking-wide">
                   {para}
                 </p>
-              ))} */}
-<<<<<<< HEAD
-            {/* </div> */}
+              ))}
+            </div>
           </div>
         </div>
-=======
-                  </div>
-                </div>
-              </div>
->>>>>>> a00b91e82bdaa2e8bbb4d5d62417031ab3e5b1ef
 
-              {/* Hover GIF + button */}
-              <div
-                className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover transition-all duration-500 
-          ${hoveredCard === index ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`}
-                style={{
-                  backgroundImage: `url(${service.gif})`,
-                }}
-              >
-                <div className="absolute inset-0 bg-black/50 z-0" />
-                <button
-                  onClick={() => openServiceModal(index)}
-                  className="relative z-10 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full shadow-lg font-[Poppins,Roboto,sans-serif]"
-                >
-                  Read More
-                </button>
-              </div>
-            </div>
-          ))}
+        {/* Hover GIF + Button */}
+        <div
+          className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover transition-all duration-500 
+            ${hoveredCard === index ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`}
+          style={{
+            backgroundImage: `url(${service.gif})`,
+          }}
+        >
+          <div className="absolute inset-0 bg-black/50 z-0" />
+          <button
+            onClick={() => openServiceModal(index)}
+            className="relative z-10 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full shadow-lg font-[Poppins,Roboto,sans-serif]"
+          >
+            Read More
+          </button>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
+
 
 
 
