@@ -215,7 +215,7 @@ const Header = () => {
           News Alerts
         </h4>
 
-        <ul className="space-y list-disc  text-[12px]">
+        <ul className=" list-disc list-inside text-[12px]">
           <li>New course enrollment open now!</li>
           <li>Workshop scheduled for July 12.</li>
           <li>Congrats to our recent graduates!</li>
@@ -247,7 +247,7 @@ const Header = () => {
               Business Plex
             </span>
           </div>
-          <nav className="hidden lg:flex items-center gap-2 text-sm font-semibold text-gray-700">
+          <nav className="hidden lg:flex items-center gap-2 text-m font-semibold text-gray-700">
             {NAV_ITEMS.map(({ to, label }) => (
               <NavLink
                 key={to}
