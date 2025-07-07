@@ -20,7 +20,7 @@ import image_GIF01 from "./Video/GIF01.gif";
 import vuideo_video2 from "./Video/suport.mp4";
 
 // Self Image 
-// import image_self from "./Home/self.jpg";
+import image_program from "./Home/123.jpg";
 
 // testamonial
 import image_Testamonial1 from "./Testimonials/Liz Haselgrove .jpg"
@@ -55,7 +55,7 @@ const images = {
   vuideo_video2,
 
   // Self
-//  image_self,
+image_program,
 
   // testamonial
   image_Testamonial1,
