@@ -349,7 +349,7 @@ const Home = () => {
         <div
           className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover transition-all duration-500 ease-in-out 
             ${hoveredCard === index ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`}
-          style={{ backgroundImage: `url(${service.gif})` }}
+          style={{ backgroundImage: `url(${service.gif})`  }}
         >
           <div className="absolute inset-0 bg-black/50 z-0" />
           <button
