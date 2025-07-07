@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { FaStar,  FaHandPointRight } from "react-icons/fa";
+import { FaStar, FaHandPointRight } from "react-icons/fa";
 import { TiTickOutline } from "react-icons/ti";
 import {
   FaPhoneAlt,
@@ -34,6 +34,7 @@ const Home = () => {
     {
       id: 1,
       image: images.image_Testamonial1,
+      backgroundImage: images.image_Testamonial4,
       alt: "Boss Centre CEO",
       text: `I have known Gish for several years, having previously worked with him as a NIS trainer and mentor, and have since supported and collaborated together. Gish is one of the kindest, most honest and respectful people that I have ever met with a true passion for helping people to succeed in business. He has many years of experience in running a successful business and also helping people to move forward with their business journey.`,
       company: "Boss Centre",
@@ -42,6 +43,7 @@ const Home = () => {
     {
       id: 2,
       image: images.image_Testamonial2,
+      backgroundImage: images.image_Testamonial4,
       alt: "Business Station Manager",
       text: `I think that one of Gish’s strongest attributes is his ability to build rapport and solid relationships, both with clients and with other stakeholders. I understand that this will be a critical factor for this contract, being able to successfully work with a variety of stakeholders, encourage collaboration and create opportunities for the clients / job seekers`,
       company: "Business Station",
@@ -50,6 +52,7 @@ const Home = () => {
     {
       id: 3,
       image: images.image_Testamonial3,
+      backgroundImage: images.image_Testamonial4,
       alt: "SW & Hart CEO",
       text: `As well as his extensive recruitment / HR experience, Gish also has several years’ experience training and mentoring aspiring small business owners. With this being a field that may well be a better option for many job seekers, I believe that Gish is in a unique position to be able to give clients / job seekers a more holistic assessment of what might be the best fit for them, and so help them to successfully move forward with their business.`,
       company: "SW & Hart",
@@ -85,6 +88,7 @@ const Home = () => {
         "Participants may develop a Business Plan on their own and seek assistance from us to ensure it is a viable plan.",
       ],
       modalImage: images.image_Card01,
+      backgroundImage: images.image_ServicePopup01,
     },
     {
       title: "Business Advice",
@@ -100,7 +104,7 @@ const Home = () => {
         "Participants may develop a Business Plan on their own and seek assistance from us to ensure it is a viable plan.",
       ],
       modalImage: images.image_Card02,
-      
+      backgroundImage: images.image_ServicePopup02,
     },
     {
       title: "Business Health Check",
@@ -116,6 +120,7 @@ const Home = () => {
         "Participants may develop a Business Plan on their own and seek assistance from us to ensure it is a viable plan.",
       ],
       modalImage: images.image_Card03,
+      backgroundImage: images.image_ServicePopup03,
     },
     {
       title: "Exploring Self-Employment Workshop",
@@ -131,6 +136,7 @@ const Home = () => {
         "Participants may develop a Business Plan on their own and seek assistance from us to ensure it is a viable plan.",
       ],
       modalImage: images.image_Card04,
+      backgroundImage: images.image_ServicePopup04,
     },
   ];
   const closeZoom = () => {
@@ -238,9 +244,7 @@ const Home = () => {
               Business Support Services
             </h2>
 
-            <div
-              className="space-y-6 text-gray-600 text-justify text-sm sm:text-base font-[Poppins,Roboto,sans-serif]"
-            >
+            <div className="space-y-6 text-gray-600 text-justify text-sm sm:text-base font-[Poppins,Roboto,sans-serif]">
               {paragraphData.map((text, index) => (
                 <div
                   key={index}
@@ -261,12 +265,14 @@ const Home = () => {
 
           {/* Right Image content */}
           <div
-            className="lg:w-1/2 h-64 sm:h-80 md:h-96 lg:h-[450px] mt-8"  // mt-8 margin top add කරලා
+            className="lg:w-1/2 h-64 sm:h-80 md:h-96 lg:h-[450px] mt-8" // mt-8 margin top add කරලා
             data-aos="fade-left"
             data-aos-delay="300"
           >
-            <video autoPlay muted loop
-
+            <video
+              autoPlay
+              muted
+              loop
               src={images.vuideo_video2}
               alt="Business Support"
               className="w-full h-full object-cover rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-105 "
@@ -277,8 +283,9 @@ const Home = () => {
         {/* Zoom Modal */}
         {zoomActive && zoomIndex !== null && (
           <div
-            className={`fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-60 transition-opacity duration-300 ${modalVisible ? "opacity-100" : "opacity-0 pointer-events-none"
-              }`}
+            className={`fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-60 transition-opacity duration-300 ${
+              modalVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
             onClick={closeZoom}
           >
             <img
@@ -289,10 +296,11 @@ const Home = () => {
             />
             <div className="absolute inset-0 bg-black/40" />
             <div
-              className={`relative max-w-2xl max-h-[80vh] w-full overflow-auto p-6 sm:p-8 rounded-xl bg-white bg-opacity-20 backdrop-blur-lg shadow-2xl transition-transform duration-300 ease-in-out ${modalVisible
-                ? "scale-100 opacity-100 pointer-events-auto"
-                : "scale-90 opacity-0 pointer-events-none"
-                }`}
+              className={`relative max-w-2xl max-h-[80vh] w-full overflow-auto p-6 sm:p-8 rounded-xl bg-white bg-opacity-20 backdrop-blur-lg shadow-2xl transition-transform duration-300 ease-in-out ${
+                modalVisible
+                  ? "scale-100 opacity-100 pointer-events-auto"
+                  : "scale-90 opacity-0 pointer-events-none"
+              }`}
               onClick={(e) => e.stopPropagation()}
               onMouseLeave={closeZoom}
             >
@@ -309,31 +317,35 @@ const Home = () => {
       </section>
       {/* Services */}
       <section className="bg-amber-50 py-12 px-4 sm:px-6 lg:px-20 font-[Poppins,Roboto,sans-serif]">
-  <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-    {services.map((service, index) => (
-      <div
-        key={index}
-        onMouseEnter={() => setHoveredCard(index)}
-        onMouseLeave={() => setHoveredCard(null)}
-        className="relative h-[520px] bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-500 group cursor-pointer"
-        data-aos="zoom-in"
-        data-aos-delay={index * 100}
-      >
-        {/* Default Image + Overlay */}
-        <div
-          className={`absolute inset-0 z-20 p-6 transition-all duration-700 ease-in-out bg-cover bg-top flex flex-col justify-center items-center rounded-3xl shadow-xl 
-            ${hoveredCard === index ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100"}`}
-          style={{ backgroundImage: `url(${service.image})` }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70 z-0" />
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              onMouseEnter={() => setHoveredCard(index)}
+              onMouseLeave={() => setHoveredCard(null)}
+              className="relative h-[520px] bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-500 group cursor-pointer"
+              data-aos="zoom-in"
+              data-aos-delay={index * 100}
+            >
+              {/* Default Image + Overlay */}
+              <div
+                className={`absolute inset-0 z-20 p-6 transition-all duration-700 ease-in-out bg-cover bg-top flex flex-col justify-center items-center rounded-3xl shadow-xl 
+            ${
+              hoveredCard === index
+                ? "-translate-x-full opacity-0"
+                : "translate-x-0 opacity-100"
+            }`}
+                style={{ backgroundImage: `url(${service.image})` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70 z-0" />
 
-          {/* Content */}
-          <div className="relative z-10 text-white text-center px-4 sm:px-6">
-  <h3 className="text-2xl sm:text-3xl font-bold tracking-wider text-green-300 drop-shadow-lg animate-fade-in mb-4 font-[Montserrat,Open_Sans,sans-serif]">
-    {service.title}
-  </h3>
-  {/* <div className="text-sm sm:text-base mt-4 p-4 bg-black/40 rounded-xl backdrop-blur-md shadow-md space-y-2 font-[Poppins,Roboto,sans-serif]"> */}
-    {/* {service.paragraph.map((para, idx) => (
+                {/* Content */}
+                <div className="relative z-10 text-white text-center px-4 sm:px-6">
+                  <h3 className="text-2xl sm:text-3xl font-bold tracking-wider text-green-300 drop-shadow-lg animate-fade-in mb-4 font-[Montserrat,Open_Sans,sans-serif]">
+                    {service.title}
+                  </h3>
+                  {/* <div className="text-sm sm:text-base mt-4 p-4 bg-black/40 rounded-xl backdrop-blur-md shadow-md space-y-2 font-[Poppins,Roboto,sans-serif]"> */}
+                  {/* {service.paragraph.map((para, idx) => (
       <p
         key={idx}
         className="leading-relaxed text-white/90 tracking-wide"
@@ -341,31 +353,33 @@ const Home = () => {
         {para}
       </p>
     ))} */}
-  {/* </div> */}
-</div>
-</div>
+                  {/* </div> */}
+                </div>
+              </div>
 
-        {/* Hover GIF + Button */}
-        <div
-          className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover transition-all duration-500 ease-in-out 
-            ${hoveredCard === index ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`}
-          style={{ backgroundImage: `url(${service.gif})`  }}
-        >
-          <div className="absolute inset-0 bg-black/50 z-0" />
-          <button
-            onClick={() => openServiceModal(index)}
-            className="relative z-10 bg-transparent border border-orange-600 text-white font-semibold px-6 py-3 rounded-full shadow-lg font-[Poppins,Roboto,sans-serif]">
+              {/* Hover GIF + Button */}
 
-            Read More
-          </button>
+              <div
+                className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover transition-all duration-500 ease-in-out 
+            ${
+              hoveredCard === index
+                ? "translate-x-0 opacity-100"
+                : "translate-x-full opacity-0"
+            }`}
+                style={{ backgroundImage: `url(${service.gif})` }}
+              >
+                <div className="absolute inset-0 bg-black/50 z-0" />
+                <button
+                  onClick={() => openServiceModal(index)}
+                  className="relative z-10 bg-transparent border border-orange-600 text-white font-semibold px-6 py-3 rounded-full shadow-lg font-[Poppins,Roboto,sans-serif]"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
-    ))}
-  </div>
-</section>
-
-
-
+      </section>
 
       {/* Service Modal */}
       {serviceModalIndex !== null && (
@@ -381,16 +395,14 @@ const Home = () => {
             aria-hidden="true"
           />
           <div className="absolute inset-0 z-0" aria-hidden="true">
-
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url(${images.image_SuportService02})`,
+                backgroundImage: `url(${services[serviceModalIndex].backgroundImage})`,
               }}
             />
 
-
-            <div className="absolute inset-0 bg-black/30" />
+            <div className="absolute inset-0 bg-black/60" />
           </div>
 
           <div
@@ -518,12 +530,13 @@ const Home = () => {
             >
               We offer a range of practical workshops across{" "}
               <strong>Perth, Australia</strong>. They are{" "}
-              <strong>delivered</strong> by selected presenters who are specialists
-              in their subject matters and have a background in small business.
-              Self-Employment Assistance Program is{" "}
-              <strong>funded</strong> by the Australian Federal Government to assist
-              unemployed, under-employed and owners of existing micro-businesses
-              (with up to 4 employees) to explore opportunities for self-employment.
+              <strong>delivered</strong> by selected presenters who are
+              specialists in their subject matters and have a background in
+              small business. Self-Employment Assistance Program is{" "}
+              <strong>funded</strong> by the Australian Federal Government to
+              assist unemployed, under-employed and owners of existing
+              micro-businesses (with up to 4 employees) to explore opportunities
+              for self-employment.
             </p>
           </div>
 
@@ -546,15 +559,12 @@ const Home = () => {
         </div>
       </section>
 
-
       {/* Testimonials Section */}
       <section
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 text-center   text-white  "
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 text-center text-white"
         data-aos="fade-up"
       >
-        <h2
-          className="text-3xl sm:text-4xl text-black font-extrabold mb-12 tracking-wider drop-shadow-lg font-[Montserrat,Open_Sans,sans-serif]"
-        >
+        <h2 className="text-3xl sm:text-4xl text-black font-extrabold mb-12 tracking-wider drop-shadow-lg font-[Montserrat,Open_Sans,sans-serif]">
           Testimonials
         </h2>
 
@@ -567,12 +577,14 @@ const Home = () => {
           bg-white text-gray-700 p-6 sm:p-8 rounded-3xl shadow-2xl relative cursor-pointer
           transform transition-all duration-500 ease-in-out
           hover:scale-105 hover:shadow-3xl hover:rotate-1 hover:z-10
-          group-hover:blur-sm group-hover:brightness-75 hover:!blur-none hover:!brightness-100
+          group-hover:filter group-hover:blur-[2px] group-hover:brightness-75
+          hover:!blur-none hover:!brightness-100
         `}
               style={{ perspective: "1000px" }}
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
+              {/* Quotation Mark */}
               <div
                 className="text-6xl sm:text-7xl text-gray-300 absolute -top-5 left-5 sm:-top-6 sm:left-6 select-none pointer-events-none"
                 aria-hidden="true"
@@ -580,6 +592,7 @@ const Home = () => {
                 “
               </div>
 
+              {/* Avatar Image */}
               <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full overflow-hidden border-4 border-green-400 mb-6 shadow-md">
                 <img
                   src={t.image}
@@ -589,40 +602,44 @@ const Home = () => {
                 />
               </div>
 
-              <p className="text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8 line-clamp-4 font-[Poppins,Roboto,sans-serif]">
-                {t.text}
-              </p>
+              {/* Testimonial Text */}
+              {/* <p className="text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8 line-clamp-4 font-[Poppins,Roboto,sans-serif]">
+          {t.text}
+        </p> */}
 
-              <p className="font-semibold text-base sm:text-lg font-[Poppins,Roboto,sans-serif]">{t.company}</p>
-              <p className="text-xs sm:text-sm text-gray-500 font-[Poppins,Roboto,sans-serif]">{t.name}</p>
+              {/* Company & Name */}
+              <p className="font-semibold text-base sm:text-lg font-[Poppins,Roboto,sans-serif]">
+                {t.company}
+              </p>
+              <p className="text-xs sm:text-sm text-gray-500 font-[Poppins,Roboto,sans-serif]">
+                {t.name}
+              </p>
             </div>
           ))}
         </div>
       </section>
 
-
-
-      {/* Testimonial Popup */}
+      {/* Testimonial Popup  */}
       {selectedTestimonial && (
         <div
           className="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex items-center justify-center p-6 z-50"
-          style={{ backgroundImage: `url(${images.image_three})` }}
+          style={{ backgroundImage: `url(${selectedTestimonial?.backgroundImage})` }}
           onClick={() => setSelectedTestimonial(null)}
           data-aos="fade-in"
           data-aos-duration="600"
         >
-          <div className="absolute inset-0 bg-black/60" />
+          {/* <div className="absolute inset-0 bg-black/30" /> */}
 
           <div
             onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-3xl p-6 sm:p-8 max-w-md sm:max-w-3xl w-full shadow-2xl relative mx-4 sm:mx-auto font-[Poppins,Roboto,sans-serif]"
+            className="bg-white/20 backdrop-blur-sm rounded-3xl p-6 sm:p-8 max-w-md sm:max-w-3xl w-full shadow-2xl relative mx-4 sm:mx-auto font-[Poppins,Roboto,sans-serif]"
             data-aos="zoom-in"
             data-aos-duration="600"
             data-aos-delay="100"
           >
             <button
               onClick={() => setSelectedTestimonial(null)}
-              className="absolute top-4 right-4 text-gray-700 hover:text-red-600 text-2xl font-bold"
+              className="absolute top-4 right-4 text-white hover:text-red-600 text-2xl font-bold"
               aria-label="Close modal"
             >
               &times;
@@ -636,18 +653,18 @@ const Home = () => {
               />
             </div>
 
-            <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-8 whitespace-pre-line">
-              {selectedTestimonial.text}
-            </p>
+           <p className="text-white text-base sm:text-lg leading-relaxed mb-8 whitespace-pre-line text-justify">
+  {selectedTestimonial.text}
+</p>
+
 
             <p className="font-semibold text-xl">
               {selectedTestimonial.company}
             </p>
-            <p className="text-gray-600 text-sm">{selectedTestimonial.name}</p>
+            <p className="text-white text-sm">{selectedTestimonial.name}</p>
           </div>
         </div>
       )}
-
 
       {/* Contact */}
       <section
@@ -655,7 +672,6 @@ const Home = () => {
         data-aos="fade-up"
       >
         <div className="relative bg-black/80 rounded-3xl shadow-xl px-4 sm:px-8 py-10 w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6 overflow-hidden">
-
           {/* Background Overlay */}
           <div className="absolute inset-0 rounded-3xl z-0">
             <div
@@ -673,25 +689,35 @@ const Home = () => {
           </div>
 
           {/* Left Column - Inputs */}
-          <div className="z-10 flex flex-col justify-center space-y-4 mt-10 md:mt-12 px-2 md:px-4" data-aos="fade-right" data-aos-delay="200">
-            {[
-              "First Name",
-              "Last Name",
-              "E-Mail",
-              "Age",
-              "Contact Number",
-            ].map((placeholder, i) => (
-              <input
-                key={i}
-                type={placeholder === "E-Mail" ? "email" : placeholder === "Age" ? "number" : "text"}
-                placeholder={placeholder}
-                className="w-full px-4 py-2 rounded-full border border-gray-300 outline-none focus:ring-2 focus:ring-green-400 placeholder-white text-white bg-transparent"
-              />
-            ))}
+          <div
+            className="z-10 flex flex-col justify-center space-y-4 mt-10 md:mt-12 px-2 md:px-4"
+            data-aos="fade-right"
+            data-aos-delay="200"
+          >
+            {["First Name", "Last Name", "E-Mail", "Age", "Contact Number"].map(
+              (placeholder, i) => (
+                <input
+                  key={i}
+                  type={
+                    placeholder === "E-Mail"
+                      ? "email"
+                      : placeholder === "Age"
+                      ? "number"
+                      : "text"
+                  }
+                  placeholder={placeholder}
+                  className="w-full px-4 py-2 rounded-full border border-gray-300 outline-none focus:ring-2 focus:ring-green-400 placeholder-white text-white bg-transparent"
+                />
+              )
+            )}
           </div>
 
           {/* Right Column - Textarea + Button */}
-          <div className="z-10 flex flex-col justify-center gap-4 mt-10 md:mt-12 px-2 md:px-4" data-aos="fade-left" data-aos-delay="400">
+          <div
+            className="z-10 flex flex-col justify-center gap-4 mt-10 md:mt-12 px-2 md:px-4"
+            data-aos="fade-left"
+            data-aos-delay="400"
+          >
             <textarea
               placeholder="Type your message..."
               className="w-full h-32 md:h-36 px-4 py-3 rounded-xl border border-gray-300 outline-none resize-none focus:ring-2 focus:ring-green-400 placeholder-white text-white bg-transparent"
@@ -702,8 +728,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-
 
       {/* Footer Section */}
       <footer className="text-white text-sm">

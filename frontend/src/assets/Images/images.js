@@ -22,6 +22,12 @@ import image_GIF03 from "./Video/GIF03.gif";
 import image_GIF04 from "./Video/GIF04.gif"
 import vuideo_video2 from "./Video/suport.mp4";
 
+// ServicePopup
+import image_ServicePopup01 from "./ServicePopup/1.jpg";
+import image_ServicePopup02 from "./ServicePopup/2.jpg";
+import image_ServicePopup03 from "./ServicePopup/3.jpg";
+import image_ServicePopup04 from "./ServicePopup/4.jpg"
+
 
 // Self Image 
 import image_program from "./Home/123.jpg";
@@ -30,6 +36,7 @@ import image_program from "./Home/123.jpg";
 import image_Testamonial1 from "./Testimonials/Liz Haselgrove .jpg"
 import image_Testamonial2 from "./Testimonials/Mark South.jpg"
 import image_Testamonial3 from "./Testimonials/Kevin Wright.jpg"
+import image_Testamonial4 from "./Testimonials/bg.jpg"
 
 // Footer
 import image_Footer1 from "./AllLogos/AQF.png"
@@ -61,6 +68,11 @@ const images = {
   image_GIF04,
   vuideo_video2,
 
+  //ServicePopup
+  image_ServicePopup01,
+  image_ServicePopup02, 
+  image_ServicePopup03,
+   image_ServicePopup04,
   // Self
 image_program,
 
@@ -68,6 +80,7 @@ image_program,
   image_Testamonial1,
   image_Testamonial2,
   image_Testamonial3,
+  image_Testamonial4,
   
 
   // Footer
