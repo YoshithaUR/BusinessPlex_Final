@@ -57,7 +57,7 @@ const ApplyNow = () => {
             </p>
             <div className="flex justify-center">
               <a
-                href="/apply"
+                href="https://businessplex.e-learnme.com.au/login/index.php"
                 className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-semibold shadow-md transition"
               >
                 Apply Now
