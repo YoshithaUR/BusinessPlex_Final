@@ -8,7 +8,7 @@ import Blog from './view/Blog';
 import Policies from './view/Policies';
 import Gallery from './view/Gallery';
 import StudentLogin from './view/StudentLogin';
-
+import SelfEmployment from './view/SelfEmployment';
 
 const App = () => {
   const router = createBrowserRouter(
@@ -21,6 +21,7 @@ const App = () => {
         <Route path='policies' element={<Policies />} />
         <Route path='gallery' element={<Gallery />} />
         <Route path='login' element={<StudentLogin />} />
+        <Route path='selfEmployment' element={<SelfEmployment />} /> 
         
       </Route>
     )
