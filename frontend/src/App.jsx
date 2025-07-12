@@ -22,7 +22,6 @@ const App = () => {
         <Route path='gallery' element={<Gallery />} />
         <Route path='login' element={<StudentLogin />} />
         <Route path='selfEmployment' element={<SelfEmployment />} /> 
-        
       </Route>
     )
   );
