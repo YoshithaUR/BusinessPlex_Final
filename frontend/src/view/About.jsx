@@ -27,13 +27,7 @@ const AboutUs = () => {
     "Validation",
     "Certification",
   ];
-  const paragraphData = [
-    "You must be at least 18 years of age for Small Business Training",
-    "You must not be prohibited by law from working in Australia",
-    "You must not be an overseas visitor on a working holiday visa or an overseas student studying in Australia",
-    "You cannot be an undischarged bankrupt.",
-   
-  ];
+ 
 
   const team = [
     {
@@ -190,68 +184,7 @@ const AboutUs = () => {
 
       {/* ,,,,,,,,,,,, */}
       
-      <section className="relative bg-gradient-to-br from-amber-100 via-white to-amber-50 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,Roboto,sans-serif] overflow-hidden">
-  {/* Background Decorations - Subtle Grid Dots */}
-  <div
-    className="absolute inset-0 opacity-10 z-0"
-    style={{
-      backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.08) 1px, transparent 0)`,
-      backgroundSize: "30px 30px",
-    }}
-  ></div>
-
-  {/* Main Content Wrapper */}
-  <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-    {/* Left Column - Services List */}
-    <div>
-      <h2
-        className="text-4xl font-bold text-gray-800 mb-10 tracking-tight"
-        data-aos="fade-right"
-      >
-        Businessplex Eligibility Criteria
-      </h2>
-
-      <div className="space-y-6">
-        {paragraphData.map((text, index) => (
-          <div
-            key={index}
-            className="relative group cursor-pointer transition-all"
-            data-aos="fade-up"
-            data-aos-delay={index * 100}
-            onClick={() => {
-              setZoomIndex(index);
-              setZoomActive(true);
-              setTimeout(() => setModalVisible(true), 50);
-            }}
-          >
-            <div className="flex items-start gap-4 p-4 rounded-xl shadow-md bg-white/60 backdrop-blur-xl border border-gray-200 hover:shadow-xl transition-transform transform hover:scale-[1.03]">
-              <div className="flex-shrink-0 mt-1">
-                <span className="block w-4 h-4 bg-yellow-400 rounded-full animate-ping shadow-md"></span>
-              </div>
-              <p className="text-gray-800 text-sm sm:text-base leading-relaxed">
-                {text}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    {/* Right Column - Video */}
-   <div
-  className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[450px] overflow-hidden rounded-3xl shadow-2xl group"
-  data-aos="zoom-in"
-  data-aos-delay="300"
->
-  <img
-    src={images.image_Criteria01}
-    alt="Performance Criteria"
-    className="w-full h-full object-cover rounded-3xl transition-transform duration-700 ease-in-out group-hover:scale-105"
-  />
-</div>
-  </div>
-</section>
-
+    
 
       {/* Vision & Mission Section with Background Image */}
       <section

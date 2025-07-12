@@ -33,19 +33,19 @@ const NAV_ITEMS = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/qualifications", label: "Qualification" },
-  { to: "/blog", label: "Blog" },
+  // { to: "/blog", label: "Blog" },
   { to: "/policies", label: "Our Policies" },
-  { to: "/gallery", label: "Gallery" },
+  // { to: "/gallery", label: "Gallery" },
   { to: "https://businessplex.e-learnme.com.au/login/index.php", label: "Student Login" },
 ];
 
 const highlights = [
   { icon: <GiTennisBall size={36} />, title: "Perth Based" },
   { icon: <BsFlag size={36} />, title: "Nationally Recognized" },
-  { icon: <PiBooksDuotone size={36} />, title: "Australia Wide Training" },
+  // { icon: <PiBooksDuotone size={36} />, title: "Australia Wide Training" },  
   { icon: <FaGraduationCap size={36} />, title: "E-Skilled LMS" },
-  { icon: <BsCreditCard2Front size={36} />, title: "Flexible Payment Method" },
-  { icon: <AiOutlineStar size={36} />, title: "Recruitment Licence" },
+  // { icon: <BsCreditCard2Front size={36} />, title: "Flexible Payment Method" },
+  // { icon: <AiOutlineStar size={36} />, title: "Recruitment Licence" },
 ];
 
 const Header = () => {
@@ -302,7 +302,7 @@ const Header = () => {
           <div className="flex items-center gap-3">
             <img src={logo} alt="Logo" className="h-8 sm:h-10" />
             <span className="text-lg sm:text-xl font-bold text-blue-800">
-              Business Plex
+              {/* Business Plex */}
             </span>
           </div>
           <nav className="hidden lg:flex items-center gap-2 text-m font-semibold text-gray-700">

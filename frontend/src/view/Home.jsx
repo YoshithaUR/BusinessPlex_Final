@@ -64,29 +64,36 @@ const Home = () => {
   const [selectedTestimonial, setSelectedTestimonial] = useState(null);
 
   const paragraphData = [
-    "We provide administrative support tailored to your business needs.",
-    "Our virtual assistant services help you stay productive and organized.",
-    "Data entry and management solutions are offered with accuracy and speed.",
-    "Customized customer support services enhance your client satisfaction.",
-    "Bookkeeping and invoicing handled by professionals for smooth finances.",
-    "HR support services including recruitment and payroll assistance.",
-    "Technical support solutions tailored to small and medium businesses.",
-    "Project management and reporting services that drive efficiency.",
+    "Small Business Training. ",
+    "Business Plan Development.",
+    "Mentorship.",
+    "Exploring Self-Employment Workshop.",
+    "Business Health Check .",
+    "Business Advice.",
+    // "Technical support solutions tailored to small and medium businesses.",
+    // "Project management and reporting services that drive efficiency.",
   ];
-
+ const paragraphData2 = [
+    "You must be at least 18 years of age for Small Business Training",
+    "You must not be prohibited by law from working in Australia",
+    "You must not be an overseas visitor on a working holiday visa or an overseas student studying in Australia",
+    "You cannot be an undischarged bankrupt.",
+   
+  ];
   const services = [
     {
       title: "Small Business Training",
       image: images.image_Card01,
       gif: images.image_GIF01,
       paragraph: [
-        "Let us help build your business plan. The development and implementation of a viable business plan is an important element of the Self‑Employment Assistance program.",
-        "You can develop your Business Plan in various ways.",
+        "Our Small Business Training equips you with the essential skills to start, manage, and grow a successful business. As part of the program, you'll also develop a comprehensive business plan to help guide your business strategy and long-term goals. ",
+        "Training is delivered two days per week over four weeks, with both online and classroom options available. ",
+        "You can choose from the following nationally accredited qualifications:",
       ],
       points: [
-        "Participants can have individual business plan mentoring with us through a single 3 hour business planning session or over a number of smaller sessions in total of 3 hours.",
-        "Participants can enrol in Small Business Training(Cert III in New Business and Entrepreneurship or Skills Set) to start developing their Business Plan during their training.",
-        "Participants may develop a Business Plan on their own and seek assistance from us to ensure it is a viable plan.",
+        "Certificate III in Entrepreneurship and New Business (BSB30220)",
+        "Certificate IV in Entrepreneurship and New Business (BSB40320) ",
+        // "Participants may develop a Business Plan on their own and seek assistance from us to ensure it is a viable plan.",
       ],
       modalImage: images.image_Card01,
       backgroundImage: images.image_ServicePopup01,
@@ -96,14 +103,16 @@ const Home = () => {
       image: images.image_Card02,
       gif: images.image_GIF02,
       paragraph: [
-        "Let us help build your business plan. The development and implementation of a viable business plan is an important element of the Self‑Employment Assistance program.",
-        "You can develop your Business Plan in various ways.",
+        "Our Business Advice Sessions are personalised, one-hour consultations with an experienced business advisor. Whether you're starting out or already running a business, these sessions are designed to provide practical guidance tailored to your unique needs.",
+        "You can use these sessions for:",
       ],
       points: [
-        "Participants can have individual business plan mentoring with us through a single 3 hour business planning session or over a number of smaller sessions in total of 3 hours.",
-        "Participants can enrol in Small Business Training(Cert III in New Business and Entrepreneurship or Skills Set) to start developing their Business Plan during their training.",
-        "Participants may develop a Business Plan on their own and seek assistance from us to ensure it is a viable plan.",
+        "Strategies to improve your business's commercial viability ",
+        "Support on a wide range of small business-related topics",
+        "Referrals to other relevant business support networks ",
+        "If you're eligible, you can access up to 2 free sessions every 12 months.",
       ],
+      
       modalImage: images.image_Card02,
       backgroundImage: images.image_ServicePopup02,
     },
@@ -112,13 +121,14 @@ const Home = () => {
       image: images.image_Card03,
       gif: images.image_GIF03,
       paragraph: [
-        "Let us help build your business plan. The development and implementation of a viable business plan is an important element of the Self‑Employment Assistance program.",
-        "You can develop your Business Plan in various ways.",
+        "A Business Health Check is a comprehensive 3-hour one-on-one session. It’s designed to help you evaluate how your business is performing and identify practical steps to improve its operations and outcomes.",
+        "During the session, your provider will help you:",
       ],
       points: [
-        "Participants can have individual business plan mentoring with us through a single 3 hour business planning session or over a number of smaller sessions in total of 3 hours.",
-        "Participants can enrol in Small Business Training(Cert III in New Business and Entrepreneurship or Skills Set) to start developing their Business Plan during their training.",
-        "Participants may develop a Business Plan on their own and seek assistance from us to ensure it is a viable plan.",
+        "Analyse key areas of your business ",
+        "Identify challenges and opportunities for growth",
+        "Connect with other relevant local business support services ",
+        "If you're eligible, you can access one free Business Health Check every 12 months.",
       ],
       modalImage: images.image_Card03,
       backgroundImage: images.image_ServicePopup03,
@@ -128,13 +138,14 @@ const Home = () => {
       image: images.image_Card04,
       gif: images.image_GIF04,
       paragraph: [
-        "Let us help build your business plan. The development and implementation of a viable business plan is an important element of the Self‑Employment Assistance program.",
-        "You can develop your Business Plan in various ways.",
+        "Our Exploring Self-Employment Workshops are designed to help you understand the fundamentals of self-employment and assess if it’s the right path for you. Workshops are delivered one day a week over four weeks, giving you time to reflect and apply what you learn. ",
+        "Through these sessions, you'll gain the skills to:",
       ],
       points: [
-        "Participants can have individual business plan mentoring with us through a single 3 hour business planning session or over a number of smaller sessions in total of 3 hours.",
-        "Participants can enrol in Small Business Training(Cert III in New Business and Entrepreneurship or Skills Set) to start developing their Business Plan during their training.",
-        "Participants may develop a Business Plan on their own and seek assistance from us to ensure it is a viable plan.",
+        "Understand what’s involved in starting and managing a business",
+        "Develop or validate a business idea",
+        "Make an informed decision about pursuing self-employment",
+        "This is the ideal first step if you're unsure about where to begin or whether running a business suits your goals.",
       ],
       modalImage: images.image_Card04,
       backgroundImage: images.image_ServicePopup04,
@@ -234,8 +245,145 @@ const Home = () => {
 
       </section>
       <ApplyNow />
+{/* ...............................
 
-      {/* Services */}
+*/}
+        <section className="relative bg-gradient-to-br from-amber-100 via-white to-amber-50 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,Roboto,sans-serif] overflow-hidden">
+  {/* Background Decorations - Subtle Grid Dots */}
+  <div
+    className="absolute inset-0 opacity-10 z-0"
+    style={{
+      backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.08) 1px, transparent 0)`,
+      backgroundSize: "30px 30px",
+    }}
+  ></div>
+
+  {/* Main Content Wrapper */}
+  <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+    
+    {/* Left Column - Image */}
+    <div
+      className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[450px] overflow-hidden rounded-3xl shadow-2xl group"
+      data-aos="zoom-in"
+      data-aos-delay="300"
+    >
+      <img
+        src={images.image_Criteria01}
+        alt="Performance Criteria"
+        className="w-full h-full object-cover rounded-3xl transition-transform duration-700 ease-in-out group-hover:scale-105"
+      />
+    </div>
+
+    {/* Right Column - Services List */}
+    <div>
+      <h2
+        className="text-4xl font-bold text-gray-800 mb-10 tracking-tight"
+        data-aos="fade-right"
+      >
+        Businessplex Eligibility Criteria
+      </h2>
+
+      <div className="space-y-6">
+        {paragraphData2.map((text, index) => (
+          <div
+            key={index}
+            className="relative group cursor-pointer transition-all"
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
+            onClick={() => {
+              setZoomIndex(index);
+              setZoomActive(true);
+              setTimeout(() => setModalVisible(true), 50);
+            }}
+          >
+            <div className="flex items-start gap-4 p-4 rounded-xl shadow-md bg-white/60 backdrop-blur-xl border border-gray-200 hover:shadow-xl transition-transform transform hover:scale-[1.03]">
+              <div className="flex-shrink-0 mt-1">
+                <span className="block w-4 h-4 bg-yellow-400 rounded-full animate-ping shadow-md"></span>
+              </div>
+              <p className="text-gray-800 text-sm sm:text-base leading-relaxed">
+                {text}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+       
+      {/* Self */}
+      <section
+        className="relative w-full min-h-[80vh] overflow-hidden mb-4"
+        data-aos="fade-in"
+      >
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition duration-700"
+          style={{
+            backgroundImage: `url(${images.image_program})`,
+          }}
+          data-aos="fade-in"
+          data-aos-duration="1000"
+        >
+          <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black/70 to-transparent"></div>
+        </div>
+
+        <div className="absolute inset-0 bg-black/60  z-0" />
+
+        <div className="relative z-10 flex flex-col md:flex-row justify-center items-center h-full px-6 md:px-20 text-white">
+          <div
+            className="md:w-2/3 mb-10 md:mb-0 mt-16 bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"
+            data-aos="fade-right"
+            data-aos-duration="900"
+            data-aos-delay="150"
+          >
+            <h1
+              className="text-3xl md:text-5xl font-extrabold mb-6 drop-shadow-md text-left font-[Montserrat,Open_Sans,sans-serif]"
+              data-aos="fade-up"
+              data-aos-duration="900"
+              data-aos-delay="300"
+            >
+              Self-Employment Assistance Program
+            </h1>
+
+            <p
+              className="text-lg md:text-xl leading-relaxed text-left md:text-justify max-w-2xl font-[Poppins,Roboto,sans-serif]"
+              data-aos="fade-up"
+              data-aos-duration="900"
+              data-aos-delay="450"
+            >
+              We offer a range of practical workshops across{" "}
+              <strong>Perth, Australia</strong>. They are{" "}
+              <strong>delivered</strong> by selected presenters who are
+              specialists in their subject matters and have a background in
+              small business. Self-Employment Assistance Program is{" "}
+              <strong>funded</strong> by the Australian Federal Government to
+              assist unemployed, under-employed and owners of existing
+              micro-businesses (with up to 4 employees) to explore opportunities
+              for self-employment.
+            </p>
+          </div>
+
+          <div
+            className="md:w-1/3 flex justify-center md:justify-end mt-6 md:mt-0"
+            data-aos="fade-left"
+            data-aos-duration="900"
+            data-aos-delay="600"
+          >
+            <button
+              className="bg-white text-black px-6 py-4 rounded-full font-semibold flex items-center hover:scale-105 hover:bg-gray-200 transition duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.2),0_0_10px_rgba(255,165,0,0.7)] font-[Poppins,Roboto,sans-serif]"
+              data-aos="zoom-in"
+              data-aos-duration="900"
+              data-aos-delay="600"
+            >
+              Read More …
+              <FaHandPointRight className="ml-2 text-xl" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+       {/* Services */}
       <section className="bg-amber-50 py-12 px-4 sm:px-6 lg:px-20 font-[Poppins,Roboto,sans-serif]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
@@ -406,79 +554,9 @@ const Home = () => {
           </div>
         </div>
       )}
-      {/* Self */}
-      <section
-        className="relative w-full min-h-[80vh] overflow-hidden mb-4"
-        data-aos="fade-in"
-      >
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition duration-700"
-          style={{
-            backgroundImage: `url(${images.image_program})`,
-          }}
-          data-aos="fade-in"
-          data-aos-duration="1000"
-        >
-          <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black/70 to-transparent"></div>
-        </div>
-
-        <div className="absolute inset-0 bg-black/60  z-0" />
-
-        <div className="relative z-10 flex flex-col md:flex-row justify-center items-center h-full px-6 md:px-20 text-white">
-          <div
-            className="md:w-2/3 mb-10 md:mb-0 mt-16 bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"
-            data-aos="fade-right"
-            data-aos-duration="900"
-            data-aos-delay="150"
-          >
-            <h1
-              className="text-3xl md:text-5xl font-extrabold mb-6 drop-shadow-md text-left font-[Montserrat,Open_Sans,sans-serif]"
-              data-aos="fade-up"
-              data-aos-duration="900"
-              data-aos-delay="300"
-            >
-              Self-Employment Assistance Program
-            </h1>
-
-            <p
-              className="text-lg md:text-xl leading-relaxed text-left md:text-justify max-w-2xl font-[Poppins,Roboto,sans-serif]"
-              data-aos="fade-up"
-              data-aos-duration="900"
-              data-aos-delay="450"
-            >
-              We offer a range of practical workshops across{" "}
-              <strong>Perth, Australia</strong>. They are{" "}
-              <strong>delivered</strong> by selected presenters who are
-              specialists in their subject matters and have a background in
-              small business. Self-Employment Assistance Program is{" "}
-              <strong>funded</strong> by the Australian Federal Government to
-              assist unemployed, under-employed and owners of existing
-              micro-businesses (with up to 4 employees) to explore opportunities
-              for self-employment.
-            </p>
-          </div>
-
-          <div
-            className="md:w-1/3 flex justify-center md:justify-end mt-6 md:mt-0"
-            data-aos="fade-left"
-            data-aos-duration="900"
-            data-aos-delay="600"
-          >
-            <button
-              className="bg-white text-black px-6 py-4 rounded-full font-semibold flex items-center hover:scale-105 hover:bg-gray-200 transition duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.2),0_0_10px_rgba(255,165,0,0.7)] font-[Poppins,Roboto,sans-serif]"
-              data-aos="zoom-in"
-              data-aos-duration="900"
-              data-aos-delay="600"
-            >
-              Read More …
-              <FaHandPointRight className="ml-2 text-xl" />
-            </button>
-          </div>
-        </div>
-      </section>
 
       {/* Testimonials Section */}
-      <section
+      {/* <section
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 text-center text-white"
         data-aos="fade-up"
       >
@@ -501,24 +579,24 @@ const Home = () => {
               style={{ perspective: "1000px" }}
               data-aos="fade-up"
               data-aos-delay={index * 100}
-            >
+            > */}
               {/* Quotation Mark */}
-              <div
+              {/* <div
                 className="text-6xl sm:text-7xl text-gray-300 absolute -top-5 left-5 sm:-top-6 sm:left-6 select-none pointer-events-none"
                 aria-hidden="true"
               >
                 “
-              </div>
+              </div> */}
 
               {/* Avatar Image */}
-              <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full overflow-hidden border-4 border-green-400 mb-6 shadow-md">
+              {/* <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full overflow-hidden border-4 border-green-400 mb-6 shadow-md">
                 <img
                   src={t.image}
                   alt={t.alt || `Testimonial ${index + 1}`}
                   className="object-cover w-full h-full"
                   loading="lazy"
                 />
-              </div>
+              </div> */}
 
               {/* Testimonial Text */}
               {/* <p className="text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8 line-clamp-4 font-[Poppins,Roboto,sans-serif]">
@@ -526,7 +604,7 @@ const Home = () => {
         </p> */}
 
               {/* Company & Name */}
-              <p className="font-semibold text-base sm:text-lg font-[Poppins,Roboto,sans-serif]">
+              {/* <p className="font-semibold text-base sm:text-lg font-[Poppins,Roboto,sans-serif]">
                 {t.company}
               </p>
               <p className="text-xs sm:text-sm text-gray-500 font-[Poppins,Roboto,sans-serif]">
@@ -535,20 +613,20 @@ const Home = () => {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* Testimonial Popup  */}
-      {selectedTestimonial && (
+      {/* {selectedTestimonial && (
         <div
           className="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex items-center justify-center p-6 z-50"
           style={{ backgroundImage: `url(${selectedTestimonial?.backgroundImage})` }}
           onClick={() => setSelectedTestimonial(null)}
           data-aos="fade-in"
           data-aos-duration="600"
-        >
+        > */}
           {/* <div className="absolute inset-0 bg-black/30" /> */}
 
-          <div
+          {/* <div
             onClick={(e) => e.stopPropagation()}
             className="bg-white/20 backdrop-blur-sm rounded-3xl p-6 sm:p-8 max-w-md sm:max-w-3xl w-full shadow-2xl relative mx-4 sm:mx-auto font-[Poppins,Roboto,sans-serif]"
             data-aos="zoom-in"
@@ -582,7 +660,7 @@ const Home = () => {
             <p className="text-white text-sm">{selectedTestimonial.name}</p>
           </div>
         </div>
-      )}
+      )} */}
 
       {/* Contact */}
       <section
