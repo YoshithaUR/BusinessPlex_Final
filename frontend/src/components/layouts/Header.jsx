@@ -302,7 +302,7 @@ const Header = () => {
           <div className="flex items-center gap-3">
             <img src={logo} alt="Logo" className="h-8 sm:h-10" />
             <span className="text-lg sm:text-xl font-bold text-blue-800">
-              {/* Business Plex */}
+              BusinessPlex
             </span>
           </div>
           <nav className="hidden lg:flex items-center gap-2 text-m font-semibold text-gray-700">
