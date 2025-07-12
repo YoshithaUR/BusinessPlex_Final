@@ -180,7 +180,7 @@ const MainFooter = () => {
             </a>
           </div>
         </div>
-      </footer>F
+      </footer>
     </>
   )
 }
