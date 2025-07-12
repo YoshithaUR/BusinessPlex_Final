@@ -80,6 +80,7 @@ const Home = () => {
     "You cannot be an undischarged bankrupt.",
    
   ];
+  
   const services = [
     {
       title: "Small Business Training",
@@ -158,7 +159,10 @@ const Home = () => {
   //     setZoomIndex(null);
   //   }, 300);
   // };
+const SelfEmployment = () => {
+  const navigate = useNavigate(); };
 
+  
   const openServiceModal = (index) => {
     setServiceModalIndex(index);
   };
@@ -370,15 +374,15 @@ const Home = () => {
             data-aos-duration="900"
             data-aos-delay="600"
           >
-            <button
-              className="bg-white text-black px-6 py-4 rounded-full font-semibold flex items-center hover:scale-105 hover:bg-gray-200 transition duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.2),0_0_10px_rgba(255,165,0,0.7)] font-[Poppins,Roboto,sans-serif]"
-              data-aos="zoom-in"
-              data-aos-duration="900"
-              data-aos-delay="600"
-            >
-              Read More …
-              <FaHandPointRight className="ml-2 text-xl" />
-            </button>
+             <div className="text-center pt-10" data-aos="zoom-in" data-aos-delay="600">
+                        <button
+                          onClick={() => navigate("/self-employment-details")}
+                          className="bg-white text-green-800 px-8 py-4 rounded-full font-semibold flex items-center justify-center mx-auto hover:scale-105 hover:bg-gray-100 transition duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.2),0_0_10px_rgba(34,197,94,0.6)]"
+                        >
+                          Read More
+                          <FaHandPointRight className="ml-2 text-xl" />
+                        </button>
+                      </div>
           </div>
         </div>
       </section>

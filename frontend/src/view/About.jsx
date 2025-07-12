@@ -10,7 +10,7 @@ import {
   FaUsers,
   FaLightbulb,
 } from "react-icons/fa";
-import images from "../assets/Images/images"; // Ensure all images used below exist here
+import images from "../assets/Images/images"; 
 
 const AboutUs = () => {
   useEffect(() => {
