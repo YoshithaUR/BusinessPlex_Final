@@ -294,11 +294,6 @@ const SelfEmployment = () => {
             className="relative group cursor-pointer transition-all"
             data-aos="fade-up"
             data-aos-delay={index * 100}
-            onClick={() => {
-              setZoomIndex(index);
-              setZoomActive(true);
-              setTimeout(() => setModalVisible(true), 50);
-            }}
           >
             <div className="flex items-start gap-4 p-4 rounded-xl shadow-md bg-white/60 backdrop-blur-xl border border-gray-200 hover:shadow-xl transition-transform transform hover:scale-[1.03]">
               <div className="flex-shrink-0 mt-1">
