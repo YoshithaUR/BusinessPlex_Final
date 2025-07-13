@@ -3,8 +3,8 @@ import React from 'react'
 const Policies = () => {
     return (
         <>
-            <div className="w-screen h-screen flex items-center justify-center">
-                Policies
+            <div className='text-black'>
+                home Policies
             </div>
         </>
     )
