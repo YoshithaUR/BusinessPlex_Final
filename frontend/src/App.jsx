@@ -5,10 +5,17 @@ import Home from './view/Home';
 import About from './view/About';
 import Qualification from './view/Qualification';
 import Blog from './view/Blog';
-import Policies from './view/Policies';
 import Gallery from './view/Gallery';
 import StudentLogin from './view/StudentLogin';
 import SelfEmployment from './view/SelfEmployment';
+
+// Policy Pages
+import PoliciesLayout from './components/layouts/PoliciesLayout';
+import PrivacyPolicy from './view/Policies/PrivacyPolicy';
+import LearnerSupportPolicy from './view/Policies/LearnerSupportPolicy';
+import AccessEquityPolicy from './view/Policies/AccessEquityPolicy';
+import StudentInformationHandbook from './view/Policies/StudentInformationHandbook';
+import AppealsComplaintsPolicy from './view/Policies/AppealsComplaintsPolicy';
 
 const App = () => {
   const router = createBrowserRouter(
@@ -18,10 +25,18 @@ const App = () => {
         <Route path='about' element={<About />} />
         <Route path='qualifications' element={<Qualification />} />
         <Route path='blog' element={<Blog />} />
-        <Route path='policies' element={<Policies />} />
         <Route path='gallery' element={<Gallery />} />
         <Route path='login' element={<StudentLogin />} />
-        <Route path='selfEmployment' element={<SelfEmployment />} /> 
+        <Route path='selfEmployment' element={<SelfEmployment />} />
+
+        {/* Policies Section */}
+        <Route path='policies' element={<PoliciesLayout />}>
+          <Route index element={<PrivacyPolicy />} />
+          <Route path='support-policy' element={<LearnerSupportPolicy />} />
+          <Route path='access-equity' element={<AccessEquityPolicy />} />
+          <Route path='student-handbook' element={<StudentInformationHandbook />} />
+          <Route path='appeals-complaints' element={<AppealsComplaintsPolicy />} />
+        </Route>
       </Route>
     )
   );

@@ -71,71 +71,71 @@ const AboutUs = () => {
       </section>
 
       {/* About Section */}
-<section className="relative py-20 px-6 md:px-20 overflow-hidden">
-  {/* Soft gradient background */}
-  <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-white to-purple-50" />
-  <div className="absolute inset-0 opacity-10">
-    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400" />
-  </div>
-
-  {/* Main content */}
-  <div className="relative z-10 max-w-5xl mx-auto text-center space-y-16">
-    {/* About Us Card */}
-    <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl">
-      <div className="flex items-center justify-center gap-4 mb-6">
-        <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center animate-pulse">
-          <Megaphone className="text-white w-8 h-8" />
+      <section className="relative py-20 px-6 md:px-20 overflow-hidden">
+        {/* Soft gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-white to-purple-50" />
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400" />
         </div>
-        <h3 className="text-4xl font-extrabold text-blue-600">About Us</h3>
-      </div>
-      <p className="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto">
-        Businessplex is an <span className="font-semibold bg-yellow-100 px-1 rounded">Australian-owned</span> Registered Training Organisation
-        <span className="inline-flex items-center gap-1 bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm font-semibold ml-2">
-          (RTO ID: 45725)
-        </span>. Since 2022, we’ve been committed to helping individuals turn their business ideas into reality by delivering nationally accredited training and real-world support.
-      </p>
 
-      <div className="mt-6 inline-flex items-center justify-center gap-2 bg-green-100 text-green-800 px-4 py-1 rounded-full text-sm font-semibold w-fit mx-auto">
-        <div className="w-2 h-2 bg-green-500 rounded-full animate-ping" />
-        Government-Accredited Training Provider
-      </div>
-    </div>
+        {/* Main content */}
+        <div className="relative z-10 max-w-5xl mx-auto text-center space-y-16">
+          {/* About Us Card */}
+          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl">
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center animate-pulse">
+                <Megaphone className="text-white w-8 h-8" />
+              </div>
+              <h3 className="text-4xl font-extrabold text-blue-600">About Us</h3>
+            </div>
+            <p className="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto">
+              Businessplex is an <span className="font-semibold bg-yellow-100 px-1 rounded">Australian-owned</span> Registered Training Organisation
+              <span className="inline-flex items-center gap-1 bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm font-semibold ml-2">
+                (RTO ID: 45725)
+              </span>. Since 2022, we’ve been committed to helping individuals turn their business ideas into reality by delivering nationally accredited training and real-world support.
+            </p>
 
-    {/* Qualifications */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {/* Primary */}
-      <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-xl text-left space-y-4">
-        <h4 className="text-xl font-bold text-green-700 flex items-center gap-2">
-          <div className="w-3 h-3 bg-green-500 rounded-full animate-ping" />
-          Primary Qualifications
-        </h4>
-        <ul className="text-gray-700 space-y-2 pl-4">
-          <li className="list-disc"><strong>BSB30220</strong> – Certificate III in Entrepreneurship and New Business</li>
-          <li className="list-disc"><strong>BSB40220</strong> – Certificate IV in Entrepreneurship and New Business</li>
-        </ul>
-      </div>
+            <div className="mt-6 inline-flex items-center justify-center gap-2 bg-green-100 text-green-800 px-4 py-1 rounded-full text-sm font-semibold w-fit mx-auto">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-ping" />
+              Government-Accredited Training Provider
+            </div>
+          </div>
 
-      {/* Additional */}
-      <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-xl text-left space-y-4">
-        <h4 className="text-xl font-bold text-purple-700 flex items-center gap-2">
-          <div className="w-3 h-3 bg-purple-500 rounded-full animate-ping" />
-          Additional Qualifications
-        </h4>
-        <ul className="text-gray-700 space-y-2 pl-4">
-          <li className="list-disc"><strong>BSB30120</strong> – Certificate III in Business</li>
-          <li className="list-disc"><strong>BSB50920</strong> – Diploma of Quality Auditing</li>
-        </ul>
-      </div>
-    </div>
+          {/* Qualifications */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Primary */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-xl text-left space-y-4">
+              <h4 className="text-xl font-bold text-green-700 flex items-center gap-2">
+                <div className="w-3 h-3 bg-green-500 rounded-full animate-ping" />
+                Primary Qualifications
+              </h4>
+              <ul className="text-gray-700 space-y-2 pl-4">
+                <li className="list-disc"><strong>BSB30220</strong> – Certificate III in Entrepreneurship and New Business</li>
+                <li className="list-disc"><strong>BSB40220</strong> – Certificate IV in Entrepreneurship and New Business</li>
+              </ul>
+            </div>
 
-    {/* Call to Action */}
-    <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-4 px-6 rounded-3xl shadow-xl text-center max-w-2xl mx-auto">
-      <p className="text-lg font-semibold">
-        ✓ Government-Funded Programs Available — Start Your Business Journey with Confidence!
-      </p>
-    </div>
-  </div>
-</section>
+            {/* Additional */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-xl text-left space-y-4">
+              <h4 className="text-xl font-bold text-purple-700 flex items-center gap-2">
+                <div className="w-3 h-3 bg-purple-500 rounded-full animate-ping" />
+                Additional Qualifications
+              </h4>
+              <ul className="text-gray-700 space-y-2 pl-4">
+                <li className="list-disc"><strong>BSB30120</strong> – Certificate III in Business</li>
+                <li className="list-disc"><strong>BSB50920</strong> – Diploma of Quality Auditing</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-4 px-6 rounded-3xl shadow-xl text-center max-w-2xl mx-auto">
+            <p className="text-lg font-semibold">
+              ✓ Government-Funded Programs Available — Start Your Business Journey with Confidence!
+            </p>
+          </div>
+        </div>
+      </section>
 
 
       {/* Vision & Mission Section */}
