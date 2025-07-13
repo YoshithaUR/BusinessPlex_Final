@@ -76,16 +76,34 @@ const AboutUs = () => {
         <div className="absolute top-20 left-10 w-80 h-80 bg-blue-200 opacity-20 rounded-full blur-3xl" />
         <div className="absolute bottom-10 right-10 w-72 h-72 bg-purple-200 opacity-20 rounded-full blur-3xl" />
 
+        {/* Additional floating elements */}
+        <div className="absolute top-40 right-20 w-32 h-32 bg-green-300 opacity-15 rounded-full blur-2xl animate-pulse" />
+        <div className="absolute bottom-40 left-20 w-48 h-48 bg-yellow-200 opacity-10 rounded-full blur-3xl" />
+
         <div className="relative z-10 flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
           <div className="w-full md:w-1/2">
-            <div className="bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl p-1 shadow-2xl">
-              <div className="bg-white rounded-2xl p-8 h-80 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl p-1 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+              <div className="bg-white rounded-2xl p-8 h-80 flex items-center justify-center relative overflow-hidden">
+                {/* Background pattern */}
+                <div className="absolute inset-0 opacity-5">
+                  <div className="absolute inset-0" style={{
+                    backgroundImage: `radial-gradient(circle at 2px 2px, rgba(59, 130, 246, 0.5) 1px, transparent 0)`,
+                    backgroundSize: "20px 20px"
+                  }} />
+                </div>
+
+                <div className="text-center relative z-10">
+                  <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg animate-pulse">
                     <Megaphone className="text-white w-12 h-12" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-800 mb-2">About Us</h3>
-                  <p className="text-gray-600">Building futures through education</p>
+                  <p className="text-gray-600 font-medium">Supporting Small Business Success Since 2022</p>
+
+                  {/* Achievement badge */}
+                  <div className="mt-4 inline-flex items-center gap-2 bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-ping" />
+                    RTO Accredited
+                  </div>
                 </div>
               </div>
             </div>
@@ -93,25 +111,81 @@ const AboutUs = () => {
 
           <div className="w-full md:w-1/2">
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-2 h-16 bg-green-500 rounded-full" />
+              <div className="w-2 h-16 bg-gradient-to-b from-green-400 to-green-600 rounded-full shadow-md" />
               <div className="flex items-center gap-3">
-                <Megaphone className="text-green-600 w-8 h-8" />
-                <h2 className="text-3xl md:text-4xl font-bold text-green-600">Who We Are</h2>
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-lg">
+                  <Megaphone className="text-white w-6 h-6" />
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                  Who We Are
+                </h2>
               </div>
             </div>
+
             <div className="space-y-4 text-lg leading-relaxed text-gray-700">
-              <p>
-                Businessplex is a Registered Training Organisation (RTO ID 45725) accredited by ASQA,
-                specializing in providing comprehensive business training and support services.
+              <p className="bg-white/60 backdrop-blur-sm p-4 rounded-xl border-l-4 border-blue-500 shadow-sm">
+                Businessplex is an <span className="bg-yellow-200 px-2 py-1 rounded font-semibold text-gray-800">Australian-owned</span> Registered Training Organisation
+                <span className="inline-flex items-center gap-1 bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm font-bold ml-2">
+                  (RTO ID: 45725)
+                </span>,
+                established to support entrepreneurs and small businesses through nationally accredited
+                training and practical business support.
               </p>
-              <p>
-                We are committed to empowering individuals and organizations through quality education,
-                practical skills development, and innovative learning solutions that drive real business results.
+
+              <p className="bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-xl border border-green-200 shadow-sm">
+                We specialise in delivering the <span className="font-bold text-green-700 bg-green-100 px-2 py-1 rounded">Self-Employment Assistance Program</span> from accredited
+                qualifications such as:
               </p>
-              <p>
-                Our expert team brings decades of combined experience in business training, assessment,
-                and mentoring to help you achieve your professional goals.
-              </p>
+
+              <div className="ml-4 space-y-3 bg-white/80 p-4 rounded-xl shadow-sm border-l-4 border-green-500">
+                <h4 className="font-bold text-green-700 mb-2 flex items-center gap-2">
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                  Primary Qualifications
+                </h4>
+                <div className="flex items-start gap-3 group hover:bg-green-50 p-2 rounded-lg transition-colors">
+                  <span className="text-green-600 font-bold text-xl">➢</span>
+                  <span className="group-hover:text-green-700 transition-colors">
+                    <span className="font-semibold">BSB30220</span> Certificate III in Entrepreneurship and New Business
+                  </span>
+                </div>
+                <div className="flex items-start gap-3 group hover:bg-green-50 p-2 rounded-lg transition-colors">
+                  <span className="text-green-600 font-bold text-xl">➢</span>
+                  <span className="group-hover:text-green-700 transition-colors">
+                    <span className="font-semibold">BSB40220</span> Certificate IV in Entrepreneurship and New Business
+                  </span>
+                </div>
+              </div>
+
+              <div className="ml-4 space-y-3 bg-white/80 p-4 rounded-xl shadow-sm border-l-4 border-purple-500">
+                <h4 className="font-bold text-purple-700 mb-2 flex items-center gap-2">
+                  <div className="w-3 h-3 bg-purple-500 rounded-full animate-pulse" />
+                  Additional Qualifications
+                </h4>
+                <div className="flex items-start gap-3 group hover:bg-purple-50 p-2 rounded-lg transition-colors">
+                  <span className="text-purple-600 font-bold text-xl">➢</span>
+                  <span className="group-hover:text-purple-700 transition-colors">
+                    <span className="font-semibold">BSB30120</span> Certificate III in Business
+                  </span>
+                </div>
+                <div className="flex items-start gap-3 group hover:bg-purple-50 p-2 rounded-lg transition-colors">
+                  <span className="text-purple-600 font-bold text-xl">➢</span>
+                  <span className="group-hover:text-purple-700 transition-colors">
+                    <span className="font-semibold">BSB50920</span> Diploma of Quality Auditing
+                  </span>
+                </div>
+              </div>
+
+              {/* Call to action highlight */}
+              <div className="mt-6 p-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl text-white shadow-lg">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                    <span className="text-sm font-bold">✓</span>
+                  </div>
+                  <p className="font-semibold">
+                    Government Funded Programs Available - Start Your Business Journey Today!
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
