@@ -1,8 +1,5 @@
 import React from 'react'
 
-
-
-
 const topics = [
     {
         title: 'Admission Process',
@@ -136,14 +133,12 @@ const topics = [
 
 ];
 
-
 const PrivacyPolicy = () => {
     const [openIndex, setOpenIndex] = React.useState(null);
 
     const toggleTopic = (index) => {
         setOpenIndex(openIndex === index ? null : index);
 
-        // Auto-focus on the newly expanded card
         if (openIndex !== index) {
             setTimeout(() => {
                 const expandedCard = document.getElementById(`card-${index}`);
@@ -179,7 +174,7 @@ const PrivacyPolicy = () => {
                         return (
                             <div
                                 key={index}
-                                id={`card-${index}`} // ✅ This is the only addition
+                                id={`card-${index}`}
                                 className={`border-2 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl ${isOpen
                                     ? 'border-blue-500 bg-gradient-to-r from-blue-50 to-purple-50'
                                     : 'border-gray-200 bg-white hover:border-gray-300'
