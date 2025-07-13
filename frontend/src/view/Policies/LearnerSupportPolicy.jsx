@@ -5,7 +5,9 @@ const topics = [
         title: 'Learner Support Policy',
         content: (
             <div>
-                <p>Businessplex Management and staff are committed to the provision of support services for enrolled students, with staff in place who are appointed for contact and referral for student support and general welfare matters. All enrolling students are provided with an orientation event which includes guidance concerning student support services.</p>
+                <p>
+                    Businessplex Management and staff are committed to the provision of support services for enrolled students, with staff in place who are appointed for contact and referral for student support and general welfare matters. All enrolling students are provided with an orientation event which includes guidance concerning student support services.
+                </p>
                 <ul className="list-disc list-inside mt-2 space-y-1">
 
                 </ul>
@@ -19,7 +21,9 @@ const topics = [
         title: 'Student Support Procedure',
         content: (
             <div>
-                <p>The Administration Manager is the designated member of staff at Businessplex and is the contact point for all students. The Administration Manager will ensure that where staff have identified, or enrolled students have indicated their need of support or welfare, that further advice will be sought from the student.</p>
+                <p>
+                    The Administration Manager is the designated member of staff at Businessplex and is the contact point for all students. The Administration Manager will ensure that where staff have identified, or enrolled students have indicated their need of support or welfare, that further advice will be sought from the student.
+                </p>
                 <ol className="list-decimal list-inside mt-2 space-y-1">
 
                 </ol>
@@ -32,9 +36,11 @@ const topics = [
         title: 'Equipped with advice from the student the Administration Manager will:',
         content: (
             <div>
-                <p>Respond to questions concerning course progress or other course issues and refer the student to the CEO if required.
+                <p>
+                    Respond to questions concerning course progress or other course issues and refer the student to the CEO if required.
                     Where an accommodation or general welfare issue arises the Administration Manager will provide advice and/or referral on accommodation, Western Australian Public services, counselling assistance with personal, emotional or cultural issues.
-                    The student will be advised that the support services of Businessplex are at no extra cost.</p>
+                    The student will be advised that the support services of Businessplex are at no extra cost.
+                </p>
                 <ol className="list-decimal list-inside mt-2 space-y-1">
 
                 </ol>
