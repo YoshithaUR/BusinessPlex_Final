@@ -33,7 +33,7 @@ const NAV_ITEMS = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/qualifications", label: "Qualification" },
-  // { to: "/blog", label: "Blog" },
+  { to: "/blog", label: "Training Resources" },
   { to: "/policies", label: "Our Policies" },
   // { to: "/gallery", label: "Gallery" },
   { to: "https://businessplex.e-learnme.com.au/login/index.php", label: "Student Login" },

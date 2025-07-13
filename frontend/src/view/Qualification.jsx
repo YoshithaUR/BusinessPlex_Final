@@ -75,7 +75,7 @@ const Qualifications = () => {
   }, []);
 
   return (
-    <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-24 px-6 sm:px-10 lg:px-20 font-[Poppins,Roboto,sans-serif] overflow-hidden">
+    <section className="relative bg-amber-50 py-24 px-6 sm:px-10 lg:px-20 font-[Poppins,Roboto,sans-serif] overflow-hidden">
    
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-600/20 rounded-full blur-3xl animate-pulse"></div>
