@@ -255,8 +255,9 @@ const AboutUs = () => {
               <h2 className="text-4xl font-bold text-green-600">Meet Our Team</h2>
             </div>
             <p className="text-gray-700 text-lg max-w-2xl mx-auto">
-              Our team is a dynamic blend of professionals bringing together diverse expertise,
-              passion, and commitment to excellence in business training and support.
+              Our team is made up of experienced professionals dedicated to helping individuals turn business
+              ideas into reality. With a focus on practical support, personalised mentoring, and nationally
+              recognised training, we’re here to guide you every step of the way toward business success
             </p>
           </div>
 
