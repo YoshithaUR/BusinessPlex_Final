@@ -381,7 +381,7 @@ const Header = () => {
 
       {/* Slideshow Section */}
       <div className="flex flex-col h-full pt-[88px]">
-        <div ref={slideshowRef} className="relative w-full flex-1 z-0">
+        <div ref={slideshowRef} className="relative w-full h-[70vh] sm:h-[75vh] md:h-[80vh] lg:h-[85vh] xl:h-[90vh] z-0">
           {IMAGES.map((src, index) => (
             <div
               key={index}
@@ -393,57 +393,152 @@ const Header = () => {
               <img
                 src={src}
                 alt={`slide-${index}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
                 loading="lazy"
               />
             </div>
           ))}
-        </div>
-
-        {/* Highlights */}
-        <div className="relative bg-white py-3 px-4 z-20">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 text-center">
-            {highlights.map((item, index) => (
-              <div
+          
+          {/* Slideshow Overlay for Better Text Readability */}
+          <div className="absolute inset-0 bg-black/10 z-10"></div>
+          
+          {/* Optional: Slideshow Navigation Dots */}
+          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
+            {IMAGES.map((_, index) => (
+              <button
                 key={index}
-                className="flex flex-col items-center gap-1 group transition-transform"
-              >
-                <div className="text-black text-2xl group-hover:text-purple-600 group-hover:scale-125">
-                  {item.icon}
-                </div>
-                <p className="text-xs font-semibold text-black group-hover:text-purple-600">
-                  {item.title}
-                </p>
-              </div>
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? "bg-white scale-125 shadow-lg"
+                    : "bg-white/50 hover:bg-white/75"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
             ))}
           </div>
         </div>
+
+        {/* Enhanced Highlights Section */}
+        <div className="relative bg-gradient-to-r from-slate-50 via-white to-slate-50 py-12 px-4 z-20 border-t border-gray-200 shadow-lg">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-600/10 to-purple-600/10"></div>
+            <div className="absolute top-0 left-0 w-32 h-32 bg-blue-400/20 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 right-0 w-32 h-32 bg-purple-400/20 rounded-full blur-3xl"></div>
+          </div>
+          
+          <div className="relative z-10">
+            {/* Section Title */}
+            <div className="text-center mb-6">
+              <h3 className="text-2xl font-bold text-gray-800 mb-2">Why Choose BusinessPlex?</h3>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {highlights.map((item, index) => (
+                <div
+                  key={index}
+                  className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-200/50 group transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:-translate-y-2"
+                >
+                  {/* Card Background Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  {/* Icon Container */}
+                  <div className="relative z-10 w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-500 group-hover:rotate-6">
+                    <div className="text-white text-2xl group-hover:scale-110 transition-transform duration-300">
+                      {item.icon}
+                    </div>
+                  </div>
+                  
+                  {/* Title */}
+                  <h4 className="relative z-10 text-center font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300 text-lg">
+                    {item.title}
+                  </h4>
+                  
+                  {/* Decorative Elements */}
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-blue-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute bottom-2 left-2 w-1 h-1 bg-purple-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                  
+                  {/* Hover Border Effect */}
+                  <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-500"></div>
+                </div>
+              ))}
+            </div>
+            
+            {/* Bottom Decorative Line */}
+            <div className="mt-8 flex justify-center">
+              <div className="flex gap-2">
+                {[...Array(5)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 opacity-60"
+                    style={{
+                      animationDelay: `${i * 0.2}s`,
+                      animation: 'pulse 2s infinite'
+                    }}
+                  ></div>
+                ))}
+              </div>
+            </div>
+          </div>
+          
+          {/* Add CSS Animation */}
+          <style jsx>{`
+            @keyframes pulse {
+              0%, 100% {
+                opacity: 0.6;
+                transform: scale(1);
+              }
+              50% {
+                opacity: 1;
+                transform: scale(1.2);
+              }
+            }
+            
+            .group:hover .border-gradient-to-r {
+              background: linear-gradient(45deg, #60a5fa, #a855f7);
+              background-clip: border-box;
+            }
+          `}</style>
+        </div>
       </div>
 
-      {/* Floating Contact Button */}
+      {/* Enhanced Floating Contact Button */}
       {showContactButton && (
-        <div className="fixed top-[100px] right-4 z-10 transition-opacity duration-500">
-          <button
-            onClick={() => (window.location.href = "tel:1300894480")}
-            className="w-[120px] sm:w-[140px] md:w-[160px] bg-[rgb(26,43,60,1)] text-white px-3 py-2 text-sm font-semibold rounded-md shadow-lg hover:bg-[rgb(165,14,14)] flex items-center justify-center gap-2"
-          >
-            <span className="inline-flex items-center">
-              <FaPhoneAlt size={14} />
-            </span>
-            <span className="hidden sm:inline">Contact Us</span>
-            <span className="sm:hidden">Call</span>
-          </button>
+        <div className="fixed top-[100px] right-4 z-10 transition-all duration-500">
+          <div className="relative">
+            {/* Pulsing Ring Effect */}
+            <div className="absolute inset-0 bg-[rgb(26,43,60)] rounded-md opacity-20 animate-ping"></div>
+            <button
+              onClick={() => (window.location.href = "tel:1300894480")}
+              className="relative w-[120px] sm:w-[140px] md:w-[160px] bg-gradient-to-r from-[rgb(26,43,60)] to-[rgb(165,14,14)] text-white px-3 py-2 text-sm font-semibold rounded-md shadow-lg hover:shadow-2xl hover:scale-105 flex items-center justify-center gap-2 transition-all duration-300 border border-white/20"
+            >
+              <span className="inline-flex items-center animate-bounce">
+                <FaPhoneAlt size={14} />
+              </span>
+              <span className="hidden sm:inline">Contact Us</span>
+              <span className="sm:hidden">Call</span>
+            </button>
+          </div>
         </div>
       )}
 
+      {/* Enhanced Scroll to Top Button */}
       {showScrollTop && (
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-20 right-6 z-50 bg-[rgb(26,43,60,1)] text-white p-3 rounded-full shadow-lg hover:bg-orange-600 outline-2 outline-white cursor-alias"
-          aria-label="Scroll to top"
-        >
-          <FaArrowUp size={20} />
-        </button>
+        <div className="fixed bottom-20 right-6 z-50">
+          <div className="relative">
+            {/* Glow Effect */}
+            <div className="absolute inset-0 bg-[rgb(26,43,60)] rounded-full blur-lg opacity-30"></div>
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="relative bg-gradient-to-r from-[rgb(26,43,60)] to-blue-700 text-white p-3 rounded-full shadow-2xl hover:shadow-orange-500/50 hover:scale-110 transition-all duration-300 border-2 border-white/20"
+              aria-label="Scroll to top"
+            >
+              <FaArrowUp size={20} className="animate-bounce" />
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );
