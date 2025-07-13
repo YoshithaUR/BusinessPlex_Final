@@ -36,6 +36,9 @@ const App = () => {
           <Route path='access-equity' element={<AccessEquityPolicy />} />
           <Route path='student-handbook' element={<StudentInformationHandbook />} />
           <Route path='appeals-complaints' element={<AppealsComplaintsPolicy />} />
+
+         
+         
         </Route>
       </Route>
     )
