@@ -310,4 +310,3 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
-// editted about

@@ -11,4 +11,3 @@ const Blog = () => {
 }
 
 export default Blog
-// edited blog

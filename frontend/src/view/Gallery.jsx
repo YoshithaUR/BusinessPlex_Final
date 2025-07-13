@@ -11,4 +11,3 @@ const Gallery = () => {
 }
 
 export default Gallery
-//edited gallery
