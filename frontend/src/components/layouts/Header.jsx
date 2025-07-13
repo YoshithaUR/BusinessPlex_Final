@@ -149,7 +149,7 @@ const Header = () => {
 
   const BlueNavBar = () => (
     <div
-      className="w-full text-white text-sm py-2 px-4 flex justify-between items-center z-50 fixed top-0 left-0"
+      className="w-full text-white text-sm py-2 px-4 flex justify-between items-center z-90 fixed top-0 left-0 "
       style={{ backgroundColor: "rgba(26, 43, 60, 1)" }}
     >
       <div className="flex items-center gap-5">
@@ -297,7 +297,7 @@ const Header = () => {
       <BlueNavBar />
 
       {/* Main Navbar */}
-      <div className="fixed top-[40px] left-0 w-full z-40 bg-white/60 backdrop-blur-md shadow-md">
+      <div className="fixed top-[40px] left-0 w-full z-99 bg-white/60 backdrop-blur-md shadow-md">
         <div className="max-w-screen-xl mx-auto flex justify-between items-center px-4 py-2">
           <div className="flex items-center gap-3">
             <img src={logo} alt="Logo" className="h-8 sm:h-10" />
@@ -439,7 +439,7 @@ const Header = () => {
       {showScrollTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-20 right-6 z-50 bg-[rgb(26,43,60,1)] text-white p-3 rounded-full shadow-lg hover:bg-orange-600 outline-2 outline-white cursor-alias"
+          className="fixed bottom-25 right-6 z-99 bg-[rgb(26,43,60,1)] text-white p-3 rounded-full shadow-lg hover:bg-orange-600 outline-2 outline-white cursor-alias"
           aria-label="Scroll to top"
         >
           <FaArrowUp size={20} />
