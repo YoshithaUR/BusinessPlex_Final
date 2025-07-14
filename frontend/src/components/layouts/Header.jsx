@@ -155,14 +155,14 @@ const Header = () => {
           >
             <FaFacebookF />
           </a>
-          <a
+          {/* <a
             href="https://twitter.com"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-gray-300"
           >
             <FaTwitter />
-          </a>
+          </a> */}
           <a
             href="https://instagram.com"
             target="_blank"
