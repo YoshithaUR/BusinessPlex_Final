@@ -118,10 +118,10 @@ const ApplicationForm = () => {
         <div key={step} className="flex items-center">
           <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-300 ${
             step === currentStep 
-              ? 'bg-blue-700 text-white shadow-lg scale-110' 
+              ? 'bg-blue-700 text-black shadow-lg scale-110' 
               : step < currentStep 
-                ? 'bg-green-500 text-white' 
-                : 'bg-gray-300 text-gray-600'
+                ? 'bg-green-500 text-black' 
+                : 'bg-gray-300 text-black'
           }`}>
             {step < currentStep ? <CheckCircle className="w-5 h-5" /> : step}
           </div>
@@ -139,13 +139,13 @@ const ApplicationForm = () => {
     <div className="space-y-6">
       <div className="text-center mb-8">
         <User className="w-12 h-12 text-blue-700 mx-auto mb-4" />
-        <h3 className="text-2xl font-bold text-gray-900 mb-2">Personal Information</h3>
+        <h3 className="text-2xl font-bold text-black mb-2">Personal Information</h3>
         <p className="text-gray-600">Please provide your basic personal details</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-black mb-2">
             First Name *
           </label>
           <input
@@ -153,7 +153,7 @@ const ApplicationForm = () => {
             name="firstName"
             value={formData.firstName}
             onChange={handleInputChange}
-            className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 ${
+            className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-black ${
               errors.firstName ? 'border-red-500' : 'border-amber-400'
             }`}
             placeholder="Enter your first name"
@@ -162,7 +162,7 @@ const ApplicationForm = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-black mb-2">
             Last Name *
           </label>
           <input
@@ -170,7 +170,7 @@ const ApplicationForm = () => {
             name="lastName"
             value={formData.lastName}
             onChange={handleInputChange}
-            className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 ${
+            className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200  text-black ${
               errors.lastName ? 'border-red-500' : 'border-amber-400'
             }`}
             placeholder="Enter your last name"
@@ -179,17 +179,17 @@ const ApplicationForm = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-black mb-2">
             Email Address *
           </label>
           <div className="relative">
-            <Mail className="absolute left-3 top-3.5 w-5 h-5 text-gray-400" />
+            <Mail className="absolute left-3 top-3.5 w-5 h-5 text-black" />
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className={`w-full pl-12 pr-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 ${
+              className={`w-full pl-12 pr-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-black ${
                 errors.email ? 'border-red-500' : 'border-amber-400'
               }`}
               placeholder="your.email@example.com"
@@ -199,17 +199,17 @@ const ApplicationForm = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-black mb-2">
             Phone Number *
           </label>
-          <div className="relative">
-            <Phone className="absolute left-3 top-3.5 w-5 h-5 text-gray-400" />
+          <div className="relative text-black">
+            <Phone className="absolute left-3 top-3.5 w-5 h-5 text-black" />
             <input
               type="tel"
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
-              className={`w-full pl-12 pr-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 ${
+              className={`w-full pl-12 pr-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200  text-black${
                 errors.phone ? 'border-red-500' : 'border-amber-400'
               }`}
               placeholder="0400 000 000"
@@ -219,17 +219,17 @@ const ApplicationForm = () => {
         </div>
 
         <div className="md:col-span-2">
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-black mb-2">
             Street Address *
           </label>
           <div className="relative">
-            <MapPin className="absolute left-3 top-3.5 w-5 h-5 text-gray-400" />
+            <MapPin className="absolute left-3 top-3.5 w-5 h-5 text-black" />
             <input
               type="text"
               name="address"
               value={formData.address}
               onChange={handleInputChange}
-              className={`w-full pl-12 pr-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 ${
+              className={`w-full pl-12 pr-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-black ${
                 errors.address ? 'border-red-500' : 'border-amber-400'
               }`}
               placeholder="123 Main Street"
@@ -239,7 +239,7 @@ const ApplicationForm = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-black mb-2">
             Suburb
           </label>
           <input
@@ -247,13 +247,13 @@ const ApplicationForm = () => {
             name="suburb"
             value={formData.suburb}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border-2 border-amber-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+            className="w-full px-4 py-3 border-2 border-amber-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-black"
             placeholder="Enter suburb"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-black mb-2">
             Postcode
           </label>
           <input
@@ -261,20 +261,20 @@ const ApplicationForm = () => {
             name="postcode"
             value={formData.postcode}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border-2 border-amber-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+            className="w-full px-4 py-3 border-2 border-amber-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-black"
             placeholder="6000"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-black mb-2">
             State
           </label>
           <select
             name="state"
             value={formData.state}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border-2 border-amber-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+            className="w-full px-4 py-3 border-2 border-amber-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-black"
           >
             <option value="">Select State</option>
             <option value="WA">Western Australia</option>
@@ -289,11 +289,11 @@ const ApplicationForm = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-black mb-2">
             Date of Birth *
           </label>
-          <div className="relative">
-            <Calendar className="absolute left-3 top-3.5 w-5 h-5 text-gray-400" />
+          <div className="relative text-black">
+            <Calendar className="absolute left-3 top-3.5 w-5 h-5 text-black" />
             <input
               type="date"
               name="dateOfBirth"
@@ -313,8 +313,8 @@ const ApplicationForm = () => {
   const renderStep2 = () => (
     <div className="space-y-6">
       <div className="text-center mb-8">
-        <FileText className="w-12 h-12 text-blue-700 mx-auto mb-4" />
-        <h3 className="text-2xl font-bold text-gray-900 mb-2">Program Selection</h3>
+        <FileText className="w-12 h-12 text-blue-700 mx-auto mb-4 " />
+        <h3 className="text-2xl font-bold text-black mb-2">Program Selection</h3>
         <p className="text-gray-600">Choose your preferred program and delivery options</p>
       </div>
 
@@ -348,7 +348,7 @@ const ApplicationForm = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-black mb-2">
             Preferred Start Date
           </label>
           <input
@@ -356,12 +356,12 @@ const ApplicationForm = () => {
             name="preferredStartDate"
             value={formData.preferredStartDate}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border-2 border-amber-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+            className="w-full px-4 py-3 border-2 border-amber-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-black"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-black mb-2">
             Delivery Mode *
           </label>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -370,7 +370,7 @@ const ApplicationForm = () => {
               { value: 'online', label: 'Online', icon: Building2 },
               { value: 'blended', label: 'Blended', icon: Clock }
             ].map(({ value, label, icon: Icon }) => (
-              <label key={value} className="flex flex-col items-center p-4 border-2 border-amber-400 rounded-lg hover:bg-amber-50 cursor-pointer transition-all duration-200">
+              <label key={value} className="flex flex-col items-center p-4 border-2 border-amber-400 rounded-lg hover:bg-amber-50 cursor-pointer transition-all duration-200 text-black">
                 <input
                   type="radio"
                   name="deliveryMode"
@@ -379,8 +379,8 @@ const ApplicationForm = () => {
                   onChange={handleInputChange}
                   className="sr-only"
                 />
-                <Icon className={`w-8 h-8 mb-2 ${formData.deliveryMode === value ? 'text-blue-700' : 'text-gray-400'}`} />
-                <span className={`font-medium ${formData.deliveryMode === value ? 'text-blue-700' : 'text-gray-700'}`}>
+                <Icon className={`w-8 h-8 mb-2 ${formData.deliveryMode === value ? 'text-blue-700' : 'text-black'}`} />
+                <span className={`font-medium ${formData.deliveryMode === value ? 'text-blue-700' : 'text-black'}`}>
                   {label}
                 </span>
               </label>
@@ -396,20 +396,20 @@ const ApplicationForm = () => {
     <div className="space-y-6">
       <div className="text-center mb-8">
         <Building2 className="w-12 h-12 text-blue-700 mx-auto mb-4" />
-        <h3 className="text-2xl font-bold text-gray-900 mb-2">Employment Status</h3>
-        <p className="text-gray-600">Tell us about your current employment situation</p>
+        <h3 className="text-2xl font-bold text-black mb-2">Employment Status</h3>
+        <p className="text-black">Tell us about your current employment situation</p>
       </div>
 
       <div className="space-y-6">
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-black mb-2">
             Current Employment Status *
           </label>
           <select
             name="employmentStatus"
             value={formData.employmentStatus}
             onChange={handleInputChange}
-            className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 ${
+            className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-black ${
               errors.employmentStatus ? 'border-red-500' : 'border-amber-400'
             }`}
           >
@@ -421,11 +421,11 @@ const ApplicationForm = () => {
             <option value="student">Student</option>
             <option value="retired">Retired</option>
           </select>
-          {errors.employmentStatus && <p className="text-red-500 text-sm mt-1">{errors.employmentStatus}</p>}
+          {errors.employmentStatus && <p className="text-black text-sm mt-1 ">{errors.employmentStatus}</p>}
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-black mb-2">
             Are you currently a Centrelink customer? *
           </label>
           <div className="flex space-x-4">
@@ -436,7 +436,7 @@ const ApplicationForm = () => {
                 value="yes"
                 checked={formData.centrelinkCustomer === 'yes'}
                 onChange={handleInputChange}
-                className="text-blue-700 focus:ring-blue-500"
+                className="text-black focus:ring-blue-500"
               />
               <span>Yes</span>
             </label>
@@ -457,7 +457,7 @@ const ApplicationForm = () => {
 
         {formData.centrelinkCustomer === 'yes' && (
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-black mb-2">
               Centrelink Customer Reference Number
             </label>
             <input
@@ -465,7 +465,7 @@ const ApplicationForm = () => {
               name="centrelinkNumber"
               value={formData.centrelinkNumber}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 border-2 border-amber-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+              className="w-full px-4 py-3 border-2 border-amber-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-black"
               placeholder="Enter your CRN"
             />
           </div>
@@ -492,7 +492,7 @@ const ApplicationForm = () => {
             value={formData.businessIdea}
             onChange={handleInputChange}
             rows={4}
-            className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none ${
+            className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none text-black ${
               errors.businessIdea ? 'border-red-500' : 'border-amber-400'
             }`}
             placeholder="Please describe your business idea, products or services you plan to offer..."
@@ -508,8 +508,8 @@ const ApplicationForm = () => {
             name="industryType"
             value={formData.industryType}
             onChange={handleInputChange}
-            className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 ${
-              errors.industryType ? 'border-red-500' : 'border-amber-400'
+            className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-black ${
+              errors.industryType ? 'border-red-500' : 'border-amber-400 text-black'
             }`}
           >
             <option value="">Select Industry</option>
@@ -528,14 +528,14 @@ const ApplicationForm = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-black mb-2">
             Business Stage
           </label>
           <select
             name="businessStage"
             value={formData.businessStage}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border-2 border-amber-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+            className="w-full px-4 py-3 border-2 border-amber-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-black"
           >
             <option value="">Select Stage</option>
             <option value="idea">Just an idea</option>
@@ -546,7 +546,7 @@ const ApplicationForm = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-black mb-2">
             Previous Business Experience
           </label>
           <textarea
@@ -554,13 +554,13 @@ const ApplicationForm = () => {
             value={formData.businessExperience}
             onChange={handleInputChange}
             rows={3}
-            className="w-full px-4 py-3 border-2 border-amber-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none"
+            className="w-full px-4 py-3 border-2 border-amber-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none text-black"
             placeholder="Describe any previous business or relevant experience..."
           />
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-black mb-2">
             Previous Training
           </label>
           <textarea
@@ -568,13 +568,13 @@ const ApplicationForm = () => {
             value={formData.previousTraining}
             onChange={handleInputChange}
             rows={3}
-            className="w-full px-4 py-3 border-2 border-amber-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none"
+            className="w-full px-4 py-3 border-2 border-amber-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none text-black"
             placeholder="List any previous business training or qualifications..."
           />
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-black mb-2">
             Special Requirements
           </label>
           <textarea
@@ -582,7 +582,7 @@ const ApplicationForm = () => {
             value={formData.specialRequirements}
             onChange={handleInputChange}
             rows={2}
-            className="w-full px-4 py-3 border-2 border-amber-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none"
+            className="w-full px-4 py-3 border-2 border-amber-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none text-black"
             placeholder="Any special requirements or accessibility needs..."
           />
         </div>
@@ -595,7 +595,7 @@ const ApplicationForm = () => {
             name="hearAboutUs"
             value={formData.hearAboutUs}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border-2 border-amber-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+            className="w-full px-4 py-3 border-2 border-amber-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-black"
           >
             <option value="">Select Option</option>
             <option value="google">Google Search</option>
