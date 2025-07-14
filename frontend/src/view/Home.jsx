@@ -29,40 +29,41 @@ const Home = () => {
       once: false,
       easing: "ease-in-out",
       offset: 120,
+      
     });
   }, []);
   // testamonial
-  const testimonials = [
-    {
-      id: 1,
-      image: images.image_Testamonial1,
-      backgroundImage: images.image_Testamonial4,
-      alt: "Boss Centre CEO",
-      text: `I have known Gish for several years, having previously worked with him as a NIS trainer and mentor, and have since supported and collaborated together. Gish is one of the kindest, most honest and respectful people that I have ever met with a true passion for helping people to succeed in business. He has many years of experience in running a successful business and also helping people to move forward with their business journey.`,
-      company: "Boss Centre",
-      name: "Liz Haselgrove – CEO",
-    },
-    {
-      id: 2,
-      image: images.image_Testamonial2,
-      backgroundImage: images.image_Testamonial4,
-      alt: "Business Station Manager",
-      text: `I think that one of Gish’s strongest attributes is his ability to build rapport and solid relationships, both with clients and with other stakeholders. I understand that this will be a critical factor for this contract, being able to successfully work with a variety of stakeholders, encourage collaboration and create opportunities for the clients / job seekers`,
-      company: "Business Station",
-      name: "Mark South – General Manager",
-    },
-    {
-      id: 3,
-      image: images.image_Testamonial3,
-      backgroundImage: images.image_Testamonial4,
-      alt: "SW & Hart CEO",
-      text: `As well as his extensive recruitment / HR experience, Gish also has several years’ experience training and mentoring aspiring small business owners. With this being a field that may well be a better option for many job seekers, I believe that Gish is in a unique position to be able to give clients / job seekers a more holistic assessment of what might be the best fit for them, and so help them to successfully move forward with their business.`,
-      company: "SW & Hart",
-      name: "Kevin Wright – CEO",
-    },
-  ];
+  // const testimonials = [
+  //   {
+  //     id: 1,
+  //     image: images.image_Testamonial1,
+  //     backgroundImage: images.image_Testamonial4,
+  //     alt: "Boss Centre CEO",
+  //     text: `I have known Gish for several years, having previously worked with him as a NIS trainer and mentor, and have since supported and collaborated together. Gish is one of the kindest, most honest and respectful people that I have ever met with a true passion for helping people to succeed in business. He has many years of experience in running a successful business and also helping people to move forward with their business journey.`,
+  //     company: "Boss Centre",
+  //     name: "Liz Haselgrove – CEO",
+  //   },
+  //   {
+  //     id: 2,
+  //     image: images.image_Testamonial2,
+  //     backgroundImage: images.image_Testamonial4,
+  //     alt: "Business Station Manager",
+  //     text: `I think that one of Gish’s strongest attributes is his ability to build rapport and solid relationships, both with clients and with other stakeholders. I understand that this will be a critical factor for this contract, being able to successfully work with a variety of stakeholders, encourage collaboration and create opportunities for the clients / job seekers`,
+  //     company: "Business Station",
+  //     name: "Mark South – General Manager",
+  //   },
+  //   {
+  //     id: 3,
+  //     image: images.image_Testamonial3,
+  //     backgroundImage: images.image_Testamonial4,
+  //     alt: "SW & Hart CEO",
+  //     text: `As well as his extensive recruitment / HR experience, Gish also has several years’ experience training and mentoring aspiring small business owners. With this being a field that may well be a better option for many job seekers, I believe that Gish is in a unique position to be able to give clients / job seekers a more holistic assessment of what might be the best fit for them, and so help them to successfully move forward with their business.`,
+  //     company: "SW & Hart",
+  //     name: "Kevin Wright – CEO",
+  //   },
+  // ];
 
-  const [selectedTestimonial, setSelectedTestimonial] = useState(null);
+  // const [selectedTestimonial, setSelectedTestimonial] = useState(null);
 
   const paragraphData = [
     "Small Business Training. ",
@@ -87,6 +88,7 @@ const Home = () => {
       title: "Small Business Training",
       image: images.image_Card01,
       gif: images.image_GIF01,
+      link: "./ApplicationForm",
       paragraph: [
         "Our Small Business Training equips you with the essential skills to start, manage, and grow a successful business. As part of the program, you'll also develop a comprehensive business plan to help guide your business strategy and long-term goals. ",
         "Training is delivered two days per week over four weeks, with both online and classroom options available. ",
@@ -241,7 +243,7 @@ const SelfEmployment = () => {
               autoPlay
               muted
               loop
-              src={images.vuideo_video2}
+              src={images.video_video2}
               className="w-full h-full object-cover rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-105"
             />
           </div>

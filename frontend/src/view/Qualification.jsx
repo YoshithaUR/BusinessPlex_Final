@@ -14,7 +14,7 @@ const qualificationsData = [
       "Small Business Management Skill Set",
     ],
     image: images.image_ServicePopup01,
-    link: "/apply/entrepreneurship",
+    link: "./ApplicationForm",
     icon: FaBusinessTime,
     gradient: "from-blue-500 to-purple-600",
     accentColor: "blue"
@@ -186,6 +186,7 @@ const Qualifications = () => {
                       rel="noopener noreferrer"
                     >
                       <span className="relative z-10 flex items-center gap-3">
+                        
                         Apply Now 
                         <FaArrowRight className="transition-transform duration-300 group-hover/btn:translate-x-2" />
                       </span>
