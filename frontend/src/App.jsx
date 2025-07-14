@@ -4,7 +4,7 @@ import RootLayout from './components/layouts/RootLayout';
 import Home from './view/Home';
 import About from './view/About';
 import Qualification from './view/Qualification';
-import Blog from './view/Blog';
+import TrainingResources from './view/TrainingResources';
 import Gallery from './view/Gallery';
 import StudentLogin from './view/StudentLogin';
 import SelfEmployment from './view/SelfEmployment';
@@ -24,7 +24,7 @@ const App = () => {
         <Route index element={<Home />} />
         <Route path='about' element={<About />} />
         <Route path='qualifications' element={<Qualification />} />
-        <Route path='blog' element={<Blog />} />
+        <Route path='trainingResources' element={<TrainingResources />} />
         <Route path='gallery' element={<Gallery />} />
         <Route path='login' element={<StudentLogin />} />
         <Route path='selfEmployment' element={<SelfEmployment />} />

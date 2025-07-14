@@ -3,6 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { FaStar, FaHandPointRight } from "react-icons/fa";
 import { TiTickOutline } from "react-icons/ti";
+import { CheckCircle, Users, Building2, Shield, AlertCircle, FileText, Award, Globe } from 'lucide-react';
 import {
   FaPhoneAlt,
   FaWhatsapp,
@@ -310,6 +311,274 @@ const SelfEmployment = () => {
   </div>
 </section>
 
+
+ {/* Hero Section */}
+      <section className="py-20 px-4 bg-amber-50">
+        <div className="max-w-6xl mx-auto text-center bg-amber-50">
+          <div data-aos="fade-down" data-aos-duration="1200">
+            <Award className="w-16 h-16 text-blue-600 mx-auto mb-6" />
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+               Eligibility Criteria
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              for Self-Employment Assistance Program 
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* General Requirements Section */}
+      <section className="py-16 px-4 bg-amber-50">
+        <div className="max-w-6xl mx-auto">
+          <div data-aos="zoom-in" data-aos-duration="800" className="text-center mb-16 bg-amber-50">
+            <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">General Requirements</h2>
+            <p className="text-lg text-gray-600">Basic eligibility criteria for all applicants</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Age Requirements */}
+            <div 
+              data-aos="fade-right" 
+              data-aos-delay="100"
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500"
+            >
+              <div className="flex items-center mb-6">
+                <div className="bg-blue-100 p-3 rounded-full mr-4">
+                  <Users className="w-8 h-8 text-blue-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Age Requirements</h3>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="text-gray-700 font-medium">Be at least 15 years of age</p>
+                    <p className="text-sm text-blue-600 mt-1">Eligible for Exploring Self-Employment Workshop</p>
+                  </div>
+                </div>
+                <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg">
+                  <div className="flex items-center">
+                    <AlertCircle className="w-5 h-5 text-amber-600 mr-2" />
+                    <p className="text-amber-800 font-medium">Note: Must be 18+ for Small Business Coaching</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Citizenship & Visa */}
+            <div 
+              data-aos="fade-left" 
+              data-aos-delay="200"
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-green-500"
+            >
+              <div className="flex items-center mb-6">
+                <div className="bg-green-100 p-3 rounded-full mr-4">
+                  <Globe className="w-8 h-8 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Citizenship & Visa Status</h3>
+              </div>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-500" />
+                  <p className="text-gray-700">Australian citizen</p>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-500" />
+                  <p className="text-gray-700">Permanent visa holder</p>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-500" />
+                  <p className="text-gray-700">New Zealand Special Category Visa</p>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-500" />
+                  <p className="text-gray-700">Temporary Protection Visa</p>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-500" />
+                  <p className="text-gray-700">Safe Haven Visa</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Financial Standing */}
+            <div 
+              data-aos="fade-right" 
+              data-aos-delay="300"
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-purple-500"
+            >
+              <div className="flex items-center mb-6">
+                <div className="bg-purple-100 p-3 rounded-full mr-4">
+                  <Shield className="w-8 h-8 text-purple-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Financial Standing</h3>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-6 h-6 text-green-500" />
+                <p className="text-gray-700 font-medium">Not be an undischarged bankrupt</p>
+              </div>
+            </div>
+
+            {/* Business Requirements */}
+            <div 
+              data-aos="fade-left" 
+              data-aos-delay="400"
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-indigo-500"
+            >
+              <div className="flex items-center mb-6">
+                <div className="bg-indigo-100 p-3 rounded-full mr-4">
+                  <Building2 className="w-8 h-8 text-indigo-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Business-Specific</h3>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-6 h-6 text-green-500" />
+                <p className="text-gray-700 font-medium">Meet additional eligibility criteria specific to chosen business</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Small Business Coaching Section */}
+      <section className="py-16 px-4 bg-gradient-to-r bg-amber-50 backdrop-blur-xl border border-gray-200">
+        <div className="max-w-6xl mx-auto">
+          <div data-aos="flip-up" data-aos-duration="1000" className="text-center mb-16">
+            <FileText className="w-12 h-12 text-blue-700 mx-auto mb-4" />
+            <h2 className="text-4xl font-bold text-black mb-4">Small Business Coaching</h2>
+            <p className="text-xl text-black">Additional criteria for accessing coaching services</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Business Size */}
+            <div 
+              data-aos="fade-up" 
+              data-aos-delay="100"
+              className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300"
+            >
+              <div className="flex items-center mb-4">
+                <Users className="w-8 h-8 text-blue-700 mr-3" />
+                <h3 className="text-xl font-bold text-black">Business Size</h3>
+              </div>
+              <p className="text-black">New or existing micro-business with up to 4 employees</p>
+            </div>
+
+            {/* Risk Assessment */}
+            <div 
+              data-aos="fade-up" 
+              data-aos-delay="200"
+              className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300"
+            >
+              <div className="flex items-center mb-4">
+                <AlertCircle className="w-8 h-8 text-blue-700 mr-3" />
+                <h3 className="text-xl font-bold text-black">Risk Assessment</h3>
+              </div>
+              <p className="text-black">Be at risk of not operating commercially</p>
+            </div>
+
+            {/* Viability */}
+            <div 
+              data-aos="fade-up" 
+              data-aos-delay="300"
+              className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300"
+            >
+              <div className="flex items-center mb-4">
+                <Award className="w-8 h-8 text-blue-700 mr-3" />
+                <h3 className="text-xl font-bold text-black">Viability</h3>
+              </div>
+              <p className="text-black">Be assessed as viable by Businessplex</p>
+            </div>
+
+            {/* Business Structure */}
+            <div 
+              data-aos="fade-up" 
+              data-aos-delay="400"
+              className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300"
+            >
+              <div className="flex items-center mb-4">
+                <Building2 className="w-8 h-8 text-blue-700 mr-3" />
+                <h3 className="text-xl font-bold text-black">Structure</h3>
+              </div>
+              <p className="text-black">Have an independent business structure</p>
+            </div>
+
+            {/* Legal Standards */}
+            <div 
+              data-aos="fade-up" 
+              data-aos-delay="500"
+              className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300"
+            >
+              <div className="flex items-center mb-4">
+                <Shield className="w-8 h-8 text-blue-700 mr-3" />
+                <h3 className="text-xl font-bold text-black">Legal Standards</h3>
+              </div>
+              <p className="text-black">Be lawful and able to withstand public scrutiny</p>
+            </div>
+
+            {/* Location */}
+            <div 
+              data-aos="fade-up" 
+              data-aos-delay="600"
+              className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300"
+            >
+              <div className="flex items-center mb-4">
+                <Globe className="w-8 h-8 text-blue-700 mr-3" />
+                <h3 className="text-xl font-bold text-black">Location</h3>
+              </div>
+              <p className="text-black">Established, located, and operated entirely within Australia</p>
+            </div>
+          </div>
+
+          {/* Controlling Interest */}
+          <div 
+            data-aos="zoom-in" 
+            data-aos-delay="700"
+            className="mt-12 bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center"
+          >
+            <div className="flex items-center justify-center mb-4">
+              <Users className="w-10 h-10 text-blue-700 mr-4" />
+              <h3 className="text-2xl font-bold text-black">Ownership Control</h3>
+            </div>
+            <p className="text-blue-700 text-lg">
+              Allow you to maintain controlling interest in the business while accessing the program
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div 
+            data-aos="fade-up" 
+            data-aos-duration="1200"
+            className="bg-gradient-to-r from-green-500 to-blue-600 rounded-3xl p-12 text-white shadow-2xl"
+          >
+            <CheckCircle className="w-16 h-16 mx-auto mb-6" />
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Journey?</h2>
+            <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
+              If you meet these eligibility criteria, take the next step towards building your successful business
+            </p>
+            <div className="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
+              <button 
+                data-aos="slide-right" 
+                data-aos-delay="200"
+                className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg transform hover:scale-105"
+              >
+                Apply Now
+              </button>
+              <button 
+                data-aos="slide-left" 
+                data-aos-delay="400"
+                className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105"
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
        
       {/* Self */}
       <section
