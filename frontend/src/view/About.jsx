@@ -175,7 +175,7 @@ const AboutUs = () => {
       </section>
 
       {/* RPL Section */}
-      <section className="relative py-20 px-6 md:px-20 mb-20">
+      {/* <section className="relative py-20 px-6 md:px-20 mb-20">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" />
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-600 via-purple-600 to-green-600" />
@@ -211,7 +211,7 @@ const AboutUs = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CEO Section */}
       <section className="relative py-20 px-6 md:px-20 mb-20">

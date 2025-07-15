@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { FaStar, FaHandPointRight } from "react-icons/fa";
@@ -22,6 +23,7 @@ const Home = () => {
   // const [modalVisible, setModalVisible] = useState(false);
   const [serviceModalIndex, setServiceModalIndex] = useState(null);
   const [hoveredCard, setHoveredCard] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     AOS.init({
@@ -180,6 +182,7 @@ const SelfEmployment = () => {
     );
   };
 
+  
   return (
     <>
       <section className="relative bg-amber-50 py-16 px-6 sm:px-12 lg:px-20 font-[Poppins,Roboto,sans-serif] overflow-hidden min-h-[60vh]">
@@ -551,7 +554,8 @@ const SelfEmployment = () => {
               building your successful business
             </p>
             <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-              <button
+              <button 
+            onClick={() => navigate("/ApplicationForm")} 
                 data-aos="slide-right"
                 data-aos-delay="200"
                 className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg transform hover:scale-105"
@@ -631,7 +635,7 @@ const SelfEmployment = () => {
           >
              <div className="text-center pt-10" data-aos="zoom-in" data-aos-delay="600">
                         <button
-                          onClick={() => navigate("/self-employment-details")}
+            onClick={() => navigate("/SelfEmployment")} 
                           className="bg-white text-green-800 px-8 py-4 rounded-full font-semibold flex items-center justify-center mx-auto hover:scale-105 hover:bg-gray-100 transition duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.2),0_0_10px_rgba(34,197,94,0.6)]"
                         >
                           Read More
@@ -793,9 +797,7 @@ const SelfEmployment = () => {
               data-aos-delay="600"
             >
               <button
-                onClick={() =>
-                  handleApplyNow(services[serviceModalIndex].title)
-                }
+            onClick={() => navigate("/ApplicationForm")} 
                 className="group bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-3 rounded-full shadow-lg transition-colors duration-300 flex items-center gap-2"
               >
                 Apply Now

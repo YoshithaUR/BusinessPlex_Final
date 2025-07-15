@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import {
   FaFacebookF,
-  FaTwitter,
+  FaLinkedin,
   FaInstagram,
   FaSearch,
   FaPhoneAlt,
@@ -10,6 +12,8 @@ import {
   FaBars,
   FaTimes,
   FaBell,
+  FaChevronDown,
+  FaFileAlt,
 } from "react-icons/fa";
 
 import images from "../../assets/Images/images";
@@ -27,11 +31,30 @@ const IMAGES = [
   images.image_five,
 ];
 
+const formlink = {
+  link: "./ApplicationForm",
+};
+
 const NAV_ITEMS = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/qualifications", label: "Qualification" },
   { to: "/trainingResources", label: "Training Resources" },
+  { 
+    to: "#", 
+    label: "Forms", 
+    hasDropdown: true,
+    dropdownItems: [
+      { to: "/forms/expression-of-interest", label: "Expression of Interest Form" },
+      { to: "/forms/enrolment", label: "Enrolment Form" },
+      { to: "/forms/business-registration", label: "Business Registration Form" },
+      { to: "/forms/business-information", label: "Business Information Form" },
+      { to: "/forms/application-assessment", label: "Application Assessment Form" },
+      { to: "/forms/quarterly-income", label: "Quarterly Income Statement Form" },
+      { to: "/forms/monthly-feedback", label: "Monthly Feedback Form" },
+      { to: "/forms/change-of-circumstance", label: "Change of Circumstance Form" },
+    ]
+  },
   { to: "/policies", label: "Our Policies" },
   { to: "https://businessplex.e-learnme.com.au/login/index.php", label: "Student Login" },
 ];
@@ -48,12 +71,15 @@ const Header = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isNotifOpen, setIsNotifOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [mobileActiveDropdown, setMobileActiveDropdown] = useState(null);
   const timeoutRef = useRef(null);
   const slideshowRef = useRef(null);
   const notifRef = useRef(null);
+  const dropdownRef = useRef(null);
   const [showApplyModal, setShowApplyModal] = useState(false);
   const [hasManuallyClosed, setHasManuallyClosed] = useState(false);
-
+  const navigate = useNavigate();
   const applyTriggerRef = useRef(null);
 
   useEffect(() => {
@@ -100,10 +126,18 @@ const Header = () => {
       ) {
         setIsNotifOpen(false);
       }
+
+      if (
+        activeDropdown &&
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target)
+      ) {
+        setActiveDropdown(null);
+      }
     };
     document.addEventListener("mousedown", handleOutsideClick);
     return () => document.removeEventListener("mousedown", handleOutsideClick);
-  }, [isMenuOpen, isNotifOpen]);
+  }, [isMenuOpen, isNotifOpen, activeDropdown]);
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
@@ -140,6 +174,14 @@ const Header = () => {
 
   const toggleNotif = () => setIsNotifOpen((prev) => !prev);
 
+  const handleDropdownToggle = (index) => {
+    setActiveDropdown(activeDropdown === index ? null : index);
+  };
+
+  const handleMobileDropdownToggle = (index) => {
+    setMobileActiveDropdown(mobileActiveDropdown === index ? null : index);
+  };
+
   const BlueNavBar = () => (
     <div
       className="w-full text-white text-sm py-2 px-4 flex justify-between items-center z-90 fixed top-0 left-0 "
@@ -148,29 +190,29 @@ const Header = () => {
       <div className="flex items-center gap-5">
         <div className="flex gap-3">
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/share/16yoXUzBX7/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-gray-300"
           >
             <FaFacebookF />
           </a>
-          {/* <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-gray-300"
-          >
-            <FaTwitter />
-          </a> */}
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/businessplex_rto?igsh=N2hlZWh6M2hnbXY4"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-gray-300"
           >
             <FaInstagram />
           </a>
+         <a
+  href="https://au.linkedin.com/company/businessplex"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="hover:text-gray-300"
+>
+  <FaLinkedin />
+</a>
         </div>
         <a
           href="tel:1300894480"
@@ -199,12 +241,12 @@ const Header = () => {
               Apply now to start your journey with us!
             </p>
             <div className="flex justify-center">
-              <a
-                href="/apply"
+              <button
+                onClick={() => navigate("/ApplicationForm")} 
                 className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-semibold shadow-md transition"
               >
                 Apply Now
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -272,22 +314,62 @@ const Header = () => {
             </span>
           </div>
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2 text-sm xl:text-base font-semibold text-gray-700">
-            {NAV_ITEMS.map(({ to, label }) => (
-              <NavLink
-                key={to}
-                to={to}
-                className={({ isActive }) =>
-                  `px-2 xl:px-3 py-2 rounded-full transition-all duration-300 whitespace-nowrap ${isActive
-                    ? "bg-[rgb(26,43,60,1)] text-white shadow-md scale-105"
-                    : "hover:bg-[rgb(26,43,60,1)] hover:text-white hover:scale-105"
-                  }`
-                }
-              >
-                {label}
-              </NavLink>
+            {NAV_ITEMS.map((item, index) => (
+              <div key={item.to} className="relative" ref={item.hasDropdown ? dropdownRef : null}>
+                {item.hasDropdown ? (
+                  <>
+                    <button
+                      onClick={() => handleDropdownToggle(index)}
+                      className={`px-2 xl:px-3 py-2 rounded-full transition-all duration-300 whitespace-nowrap flex items-center gap-1 ${
+                        activeDropdown === index
+                          ? "bg-[rgb(26,43,60,1)] text-white shadow-md scale-105"
+                          : "hover:bg-[rgb(26,43,60,1)] hover:text-white hover:scale-105"
+                      }`}
+                    >
+                      {item.label}
+                      <FaChevronDown 
+                        className={`transition-transform duration-200 ${
+                          activeDropdown === index ? 'rotate-180' : ''
+                        }`} 
+                        size={12} 
+                      />
+                    </button>
+                    {activeDropdown === index && (
+                      <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50 animate-fadeIn ">
+                        {item.dropdownItems.map((dropdownItem) => (
+                          <NavLink
+                            key={dropdownItem.to}
+                            to={dropdownItem.to}
+                            onClick={() => setActiveDropdown(null)}
+                            className="block px-4 py-3 text-sm text-black hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 border-b border-gray-100 last:border-b-0 "
+                          >
+                            <div className="flex items-center gap-2">
+                              <FaFileAlt size={14} className="text-blue-500" />
+                              {dropdownItem.label}
+                            </div>
+                          </NavLink>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <NavLink
+                    to={item.to}
+                    className={({ isActive }) =>
+                      `px-2 xl:px-3 py-2 rounded-full transition-all duration-300 whitespace-nowrap ${
+                        isActive
+                          ? "bg-[rgb(26,43,60,1)] text-white shadow-md scale-105"
+                          : "hover:bg-[rgb(26,43,60,1)] hover:text-white hover:scale-105"
+                      }`
+                    }
+                  >
+                    {item.label}
+                  </NavLink>
+                )}
+              </div>
             ))}
           </nav>
-          <button className="lg:hidden hamburger-button  text-black " onClick={toggleMenu}>
+          <button className="lg:hidden hamburger-button text-black" onClick={toggleMenu}>
             {isMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
           </button>
         </div>
@@ -303,8 +385,9 @@ const Header = () => {
         </div>
       )}
       <div
-        className={`mobile-menu fixed top-0 right-0 h-full w-72 sm:w-80 bg-white shadow-2xl z-50 transition-transform duration-300 ${isMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`mobile-menu fixed top-0 right-0 h-full w-72 sm:w-80 bg-white shadow-2xl z-50 transition-transform duration-300 overflow-y-auto ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="flex justify-between items-center p-4 border-b">
           <div className="flex items-center gap-2">
@@ -316,20 +399,56 @@ const Header = () => {
           </button>
         </div>
         <nav className="flex flex-col py-4">
-          {NAV_ITEMS.map(({ to, label }) => (
-            <NavLink
-              key={to}
-              to={to}
-              onClick={closeMenu}
-              className={({ isActive }) =>
-                `px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg font-medium border-l-4 ${isActive
-                  ? "bg-[rgb(26,43,60,1)] text-white border-[rgb(26,43,60,1)]"
-                  : "text-gray-700 hover:bg-gray-50 hover:border-[rgb(26,43,60,1)] border-transparent"
-                }`
-              }
-            >
-              {label}
-            </NavLink>
+          {NAV_ITEMS.map((item, index) => (
+            <div key={item.to}>
+              {item.hasDropdown ? (
+                <>
+                  <button
+                    onClick={() => handleMobileDropdownToggle(index)}
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg font-medium border-l-4 text-gray-700 hover:bg-gray-50 hover:border-[rgb(26,43,60,1)] border-transparent flex items-center justify-between"
+                  >
+                    <span>{item.label}</span>
+                    <FaChevronDown 
+                      className={`transition-transform duration-200 ${
+                        mobileActiveDropdown === index ? 'rotate-180' : ''
+                      }`} 
+                      size={14} 
+                    />
+                  </button>
+                  {mobileActiveDropdown === index && (
+                    <div className="bg-gray-50 border-l-4 border-blue-200">
+                      {item.dropdownItems.map((dropdownItem) => (
+                        <NavLink
+                          key={dropdownItem.to}
+                          to={dropdownItem.to}
+                          onClick={closeMenu}
+                          className="block px-8 sm:px-10 py-2 sm:py-3 text-sm sm:text-base text-black hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200"
+                        >
+                          <div className="flex items-center gap-2">
+                            <FaFileAlt size={12} className="text-blue-500" />
+                            {dropdownItem.label}
+                          </div>
+                        </NavLink>
+                      ))}
+                    </div>
+                  )}
+                </>
+              ) : (
+                <NavLink
+                  to={item.to}
+                  onClick={closeMenu}
+                  className={({ isActive }) =>
+                    `px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg font-medium border-l-4 ${
+                      isActive
+                        ? "bg-[rgb(26,43,60,1)] text-white border-[rgb(26,43,60,1)]"
+                        : "text-gray-700 hover:bg-gray-50 hover:border-[rgb(26,43,60,1)] border-transparent"
+                    }`
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              )}
+            </div>
           ))}
         </nav>
         <div className="p-4 border-t bg-gray-50">
@@ -345,50 +464,79 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Slideshow Section */}
+       {/* Slideshow Section with Full Image Display */}
       <div className="flex flex-col h-full pt-[88px]">
-        <div ref={slideshowRef} className="relative w-full h-[75vh] sm:h-[80vh] md:h-[85vh] z-0">
+        <div ref={slideshowRef} className="relative w-full h-[75vh] sm:h-[80vh] md:h-[85vh] z-0 overflow-hidden bg-gray-900">
           {IMAGES.map((src, index) => (
             <div
               key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ${index === currentIndex
-                ? "opacity-100 scale-100 z-0"
-                : "opacity-0 scale-105 -z-10"
-                }`}
+              className={`absolute inset-0 transition-all duration-[2000ms] ease-in-out ${
+                index === currentIndex
+                  ? "opacity-100 scale-100 z-10 translate-x-0"
+                  : index === (currentIndex - 1 + IMAGES.length) % IMAGES.length
+                  ? "opacity-0 scale-110 z-0 -translate-x-full"
+                  : "opacity-0 scale-95 z-0 translate-x-full"
+              }`}
             >
-              <img
-                src={src}
-                alt={`slide-${index}`}
-                className="w-full h-full object-cover object-center"
-                loading="lazy"
-              />
+              <div className="relative w-full h-full overflow-hidden flex items-center justify-center">
+                <img
+                  src={src}
+                  alt={`slide-${index}`}
+                  className={`max-w-full max-h-full object-contain transition-transform duration-[8000ms] ease-out ${
+                    index === currentIndex ? "scale-105" : "scale-100"
+                  }`}
+                  loading="lazy"
+                />
+                {/* Subtle parallax overlay */}
+                <div 
+                  className={`absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-purple-900/20 transition-opacity duration-[2000ms] ${
+                    index === currentIndex ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              </div>
             </div>
           ))}
           
+          {/* Enhanced overlay with animated gradient */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/20 z-20">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-transparent to-purple-600/10 animate-pulse"></div>
+          </div>
           
-          <div className="absolute inset-0 bg-black/10 z-10"></div>
-          
-          
-          <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex gap-1 sm:gap-2">
+          {/* Enhanced slide indicators */}
+          <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex gap-1 sm:gap-2">
             {IMAGES.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+                className={`relative transition-all duration-500 ${
                   index === currentIndex
-                    ? "bg-white scale-125 shadow-lg"
-                    : "bg-white/50 hover:bg-white/75"
-                }`}
+                    ? "w-8 h-3 sm:w-10 sm:h-4"
+                    : "w-2 h-2 sm:w-3 sm:h-3"
+                } rounded-full overflow-hidden group`}
                 aria-label={`Go to slide ${index + 1}`}
-              />
+              >
+                <div className={`absolute inset-0 transition-all duration-500 ${
+                  index === currentIndex
+                    ? "bg-gradient-to-r from-white via-blue-200 to-white shadow-lg"
+                    : "bg-white/50 group-hover:bg-white/75"
+                } rounded-full`} />
+                {index === currentIndex && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent animate-shimmer rounded-full" />
+                )}
+              </button>
             ))}
+          </div>
+
+          {/* Slide transition effects */}
+          <div className="absolute inset-0 pointer-events-none z-25">
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse" />
+            <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse delay-1000" />
           </div>
         </div>
 
         {/* Highlights Section */}
-      
         <div className="relative bg-gradient-to-r from-blue-900 via-slate-800 to-blue-900 py-3 sm:py-4 px-2 sm:px-4 z-20 overflow-hidden">
-         
+          {/* Background effects */}
           <div className="absolute inset-0">
             <div className="absolute top-0 left-1/4 w-32 h-32 bg-blue-400/10 rounded-full blur-2xl animate-pulse"></div>
             <div className="absolute bottom-0 right-1/4 w-24 h-24 bg-purple-400/10 rounded-full blur-xl animate-pulse delay-1000"></div>
@@ -401,7 +549,7 @@ const Header = () => {
                   key={index} 
                   className="group flex items-center gap-2 sm:gap-3 text-white hover:scale-105 transition-all duration-300 cursor-pointer"
                 >
-                 
+                  {/* Icon container */}
                   <div className="relative">
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-md opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
                     <div className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
@@ -411,7 +559,7 @@ const Header = () => {
                     </div>
                   </div>
                   
-                 
+                  {/* Text */}
                   <span className="font-semibold text-xs sm:text-sm md:text-base bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent group-hover:from-blue-200 group-hover:to-white transition-all duration-300 whitespace-nowrap">
                     {item.title}
                   </span>
@@ -420,16 +568,16 @@ const Header = () => {
             </div>
           </div>
           
-         
+          {/* Top border effect */}
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"></div>
         </div>
       </div>
 
-    
+      {/* Contact Button */}
       {showContactButton && (
         <div className="fixed top-[90px] sm:top-[100px] right-2 sm:right-4 z-10 transition-all duration-500">
           <div className="relative">
-         
+            {/* Animated background */}
             <div className="absolute inset-0 bg-[rgb(26,43,60)] rounded-md opacity-20 animate-ping"></div>
             <button
               onClick={() => (window.location.href = "tel:1300894480")}
@@ -455,6 +603,36 @@ const Header = () => {
           <FaArrowUp size={16} className="sm:w-5 sm:h-5" />
         </button>
       )}
+
+      <style jsx>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes shimmer {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
+        }
+
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-out;
+        }
+
+        .animate-shimmer {
+          animation: shimmer 2s infinite;
+        }
+      `}</style>
     </div>
   );
 };

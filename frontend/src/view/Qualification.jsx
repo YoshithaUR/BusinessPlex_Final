@@ -30,10 +30,10 @@ const qualificationsData = [
       "Stakeholder collaboration",
     ],
     image: images.image_abouteHome01,
-    link: "/apply/auditing",
+    link: "./ApplicationForm",
     icon: FaCertificate,
     gradient: "from-emerald-500 to-teal-600",
-    accentColor: "emerald"
+    accentColor: "blue"
   },
   {
     title: "Certificate III in Business",
@@ -46,10 +46,10 @@ const qualificationsData = [
       "Business Intelligence (BI)",
     ],
     image: images.image_Card02,
-    link: "/apply/business",
+    link: "./ApplicationForm",
     icon: FaGraduationCap,
     gradient: "from-amber-500 to-orange-600",
-    accentColor: "amber"
+     accentColor: "blue"
   },
   {
     title: "Certificate IV in Entrepreneurship and New Business",
@@ -62,10 +62,10 @@ const qualificationsData = [
       "Advanced entrepreneurship skills",
     ],
     image: images.image_abouteHome01,
-    link: "/apply/entrepreneurship-advanced",
+    link: "./ApplicationForm",
     icon: FaBusinessTime,
     gradient: "from-rose-500 to-pink-600",
-    accentColor: "rose"
+     accentColor: "blue"
   },
 ];
 
@@ -168,7 +168,7 @@ const Qualifications = () => {
                       </h4>
                       <ul className="space-y-3">
                         {qual.skills.map((skill, i) => (
-                          <li key={i} className="flex items-start gap-3 text-sm text-gray-600 leading-relaxed">
+                          <li key={i} className="flex items-start gap-3 text-sm text-black leading-relaxed">
                             <FaCheckCircle className="text-emerald-500 mt-1 flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
                             <span className="group-hover:text-gray-700 transition-colors font-medium">{skill}</span>
                           </li>
@@ -223,10 +223,11 @@ const Qualifications = () => {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-bold hover:shadow-2xl hover:shadow-indigo-500/30 transition-all duration-300 hover:scale-105 transform">
-                  View All Programs
+                  Contact Now
                 </button>
-                <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-2xl font-bold hover:border-indigo-300 hover:text-indigo-600 transition-all duration-300 hover:scale-105 transform bg-white/50">
-                  Download Brochure
+                <button 
+                className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-2xl font-bold hover:border-indigo-300 hover:text-indigo-600 transition-all duration-300 hover:scale-105 transform bg-white/50">
+                 Student Handbook
                 </button>
               </div>
             </div>
