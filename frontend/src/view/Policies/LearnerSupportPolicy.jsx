@@ -155,13 +155,13 @@ const LearnerSupportPolicy = () => {
                     })}
                 </div>
 
-                <div className="mt-12 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200">
+                <div className="mt-12 mb-10 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200">
                     <div className="text-center">
                         <h3 className="text-xl font-semibold text-gray-800 mb-2">Questions about our Privacy Policy?</h3>
                         <p className="text-gray-600 mb-4">We're here to help you understand how we protect your data.</p>
-                        <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
+                        {/* <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"> */}
                             Contact Our Privacy Team
-                        </button>
+                        {/* </button> */}
                     </div>
                 </div>
             </div>
