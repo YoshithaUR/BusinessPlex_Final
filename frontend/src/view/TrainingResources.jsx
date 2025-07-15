@@ -339,7 +339,9 @@ const TrainingResources = () => {
                   {/* <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" /> */}
                 </button>
                 <button className="border-2 border-emerald-300 text-emerald-700 px-8 py-4 rounded-2xl font-bold hover:border-emerald-400 hover:text-emerald-800 transition-all duration-300 hover:scale-105 transform bg-white/50">
-                  Download Schedule
+                  <a href={images.pdf_SmallBusiness}>
+                  Download SEA Program <br/>Schedule
+                  </a>
                 </button>
               </div>
             </div>
