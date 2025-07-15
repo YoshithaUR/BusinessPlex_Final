@@ -62,6 +62,7 @@ import image_END01 from "./Aboute/End.jpg"
 
 import pdf_ExploringSelf from "./PDF/Exploring Self-Employment Workshop Dates.pdf";
 import pdf_SmallBusiness from "./PDF/Small Business Training (SEA Program) Dates .pdf";
+import pdf_StudentInformation from "./PDF/Student Information Handbook.pdf";
 
 const images = {
   // Slide Show
@@ -126,6 +127,8 @@ const images = {
   // PDF
   pdf_ExploringSelf,
   pdf_SmallBusiness,
+  pdf_StudentInformation,
+  
 };
 
 export default images;

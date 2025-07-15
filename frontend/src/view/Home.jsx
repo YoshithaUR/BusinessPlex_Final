@@ -567,7 +567,9 @@ const SelfEmployment = () => {
                 data-aos-delay="400"
                 className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105"
               >
+                <a href={images.pdf_StudentInformation}>
                 Student Handbook
+                </a>
               </button>
             </div>
           </div>
