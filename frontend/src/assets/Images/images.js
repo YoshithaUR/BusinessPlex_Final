@@ -57,6 +57,11 @@ import image_Criteria01 from "./Aboute/Criteria.jpg"
 import image_TeamBG from "./Aboute/Team.jpg";
 import image_END01 from "./Aboute/End.jpg"
 
+
+// PDF
+
+import pdf_ExploringSelf from "./PDF/Exploring Self-Employment Workshop Dates.pdf";
+
 const images = {
   // Slide Show
   image_one,
@@ -116,6 +121,9 @@ const images = {
   image_Criteria01,
   image_TeamBG,
   image_END01,
+
+  // PDF
+  pdf_ExploringSelf,
 };
 
 export default images;

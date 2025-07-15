@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import images from "../assets/Images/images";
 import {
   Calendar,
   Clock,
@@ -332,8 +333,10 @@ const TrainingResources = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="group bg-gradient-to-r from-emerald-500 to-blue-600 text-white px-8 py-4 rounded-2xl font-bold hover:shadow-2xl hover:shadow-emerald-500/30 transition-all duration-300 hover:scale-105 transform flex items-center justify-center gap-2">
-                  Enroll Now
-                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                 <a href={images.pdf_ExploringSelf}>
+                 Download ESEW <br/>Dates Schedule
+                  </a>
+                  {/* <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" /> */}
                 </button>
                 <button className="border-2 border-emerald-300 text-emerald-700 px-8 py-4 rounded-2xl font-bold hover:border-emerald-400 hover:text-emerald-800 transition-all duration-300 hover:scale-105 transform bg-white/50">
                   Download Schedule
