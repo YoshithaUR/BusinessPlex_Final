@@ -556,7 +556,7 @@ const SelfEmployment = () => {
                 data-aos-delay="200"
                 className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg transform hover:scale-105"
               >
-                Read More...
+                Apply Now
               </button>
               <button
                 data-aos="slide-left"
@@ -572,7 +572,7 @@ const SelfEmployment = () => {
 
        
       {/* Self */}
-      {/* <section
+      <section
         className="relative w-full min-h-[80vh] overflow-hidden mb-4"
         data-aos="fade-in"
       >
@@ -640,7 +640,7 @@ const SelfEmployment = () => {
                       </div>
           </div>
         </div>
-      </section> */}
+      </section>
 
        {/* Services */}
       <section className="bg-amber-50 py-12 px-4 sm:px-6 lg:px-20 font-[Poppins,Roboto,sans-serif]">
