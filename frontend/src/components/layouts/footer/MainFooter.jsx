@@ -150,7 +150,7 @@ const MainFooter = () => {
       <div className="relative z-30">
         <button
           onClick={scrollToTop}
-          className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-amber-400 text-gray-900 p-3 rounded-full shadow-lg hover:bg-amber-500 hover:scale-110 transition-all duration-300 group"
+          className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-amber-400 text-gray-900 p-3 rounded-full shadow-lg hover:bg-amber-500 hover:scale-110 transition-all duration-300 group cursor-pointer"
           aria-label="Scroll to top"
         >
           <FaChevronUp size={16} className="group-hover:animate-bounce" />

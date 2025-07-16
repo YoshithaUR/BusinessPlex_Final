@@ -607,7 +607,7 @@ const Header = () => {
       )}
 
       {/* Scroll to Top Button */}
-      {showScrollTop && (
+      {/* {showScrollTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="fixed bottom-8 right-6 bg-slate-800 text-white p-3 rounded-full shadow-lg hover:bg-slate-900 hover:scale-110 transform transition-all duration-300 z-30 cursor-pointer"
@@ -615,7 +615,7 @@ const Header = () => {
         >
           <FaArrowUp size={18} />
         </button>
-      )}
+      )} */}
 
       {/* Trigger element for apply modal */}
       <div ref={applyTriggerRef} className="absolute bottom-0 left-0 w-full h-1" />
