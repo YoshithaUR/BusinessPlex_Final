@@ -586,7 +586,7 @@ const Header = () => {
       {showScrollTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-16 sm:bottom-20 right-4 sm:right-6 z-50 bg-[rgb(26,43,60,1)] text-white p-2 sm:p-3 rounded-full shadow-lg hover:bg-orange-600 outline-2 outline-white cursor-alias transition-all duration-300"
+          className="fixed bottom-16 sm:bottom-20 right-4 sm:right-6 z-60 bg-[rgb(26,43,60,1)] text-white p-2 sm:p-3 rounded-full shadow-lg hover:bg-orange-600 outline-2 outline-white cursor-alias transition-all duration-300"
           aria-label="Scroll to top"
         >
           <FaArrowUp size={16} className="sm:w-5 sm:h-5" />
