@@ -53,16 +53,17 @@ const ApplyNow = () => {
               Ready to Enroll?
             </h2>
             <p className="text-sm mb-4 text-center text-gray-700">
-              Apply now to start your journey with us!
+              Apply now to start your journey with us and unlock your potential!
             </p>
             <div className="flex justify-center">
               <a
                 href="./ApplicationForm"
-                className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-semibold shadow-md transition"
+                className="inline-block w-full text-center bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
               >
                 Apply Now
               </a>
             </div>
+
           </div>
         </div>
       )}

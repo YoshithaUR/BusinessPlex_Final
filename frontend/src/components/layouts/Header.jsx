@@ -290,48 +290,48 @@ const Header = () => {
     </div>
   );
 
-  // Apply Modal
-  const ApplyModal = () => (
-    showApplyModal && (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-        <div className="bg-white rounded-xl shadow-2xl max-w-md w-full transform transition-all duration-300 scale-100">
-          <div className="relative p-6">
-            <button
-              onClick={() => {
-                setShowApplyModal(false);
-                setHasManuallyClosed(true);
-              }}
-              className="absolute top-4 right-4 text-gray-500 hover:text-red-500 transition-colors duration-200"
-              aria-label="Close modal"
-            >
-              <FaTimes size={18} />
-            </button>
+  // // Apply Modal
+  // const ApplyModal = () => (
+  //   showApplyModal && (
+  //     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+  //       <div className="bg-white rounded-xl shadow-2xl max-w-md w-full transform transition-all duration-300 scale-100">
+  //         <div className="relative p-6">
+  //           <button
+  //             onClick={() => {
+  //               setShowApplyModal(false);
+  //               setHasManuallyClosed(true);
+  //             }}
+  //             className="absolute top-4 right-4 text-gray-500 hover:text-red-500 transition-colors duration-200"
+  //             aria-label="Close modal"
+  //           >
+  //             <FaTimes size={18} />
+  //           </button>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <FaGraduationCap className="text-green-600" size={24} />
-              </div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-2">Ready to Enroll?</h2>
-              <p className="text-gray-600 mb-6">
-                Apply now to start your journey with us and unlock your potential!
-              </p>
-              <button
-                onClick={() => navigate("/ApplicationForm")}
-                className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-              >
-                Apply Now
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  );
+  //           <div className="text-center">
+  //             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+  //               <FaGraduationCap className="text-green-600" size={24} />
+  //             </div>
+  //             <h2 className="text-2xl font-bold text-gray-800 mb-2">Ready to Enroll?</h2>
+  //             <p className="text-gray-600 mb-6">
+  //               Apply now to start your journey with us and unlock your potential!
+  //             </p>
+  //             <button
+  //               onClick={() => navigate("/ApplicationForm")}
+  //               className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+  //             >
+  //               Apply Now
+  //             </button>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   )
+  // );
 
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
       <BlueNavBar />
-      <ApplyModal />
+      {/* <ApplyModal /> */}
 
       {/* Main Navigation */}
       <nav className="fixed top-[48px] left-0 w-full z-40 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200">

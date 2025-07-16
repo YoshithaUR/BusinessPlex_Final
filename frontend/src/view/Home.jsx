@@ -39,14 +39,14 @@ const Home = () => {
     "Business Health Check .",
     "Business Advice.",
   ];
-  
+
   const paragraphData2 = [
     "You must be at least 18 years of age for Small Business Training",
     "You must not be prohibited by law from working in Australia",
     "You must not be an overseas visitor on a working holiday visa or an overseas student studying in Australia",
     "You cannot be an undischarged bankrupt.",
   ];
-  
+
   const services = [
     {
       title: "Small Business Training",
@@ -208,7 +208,7 @@ const Home = () => {
 
         {/* Main Content Wrapper */}
         <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          
+
           {/* Image Column */}
           <div
             className="relative w-full h-64 md:h-80 lg:h-[450px] overflow-hidden rounded-3xl shadow-2xl group order-2 lg:order-1"
@@ -491,8 +491,8 @@ const Home = () => {
               building your successful business
             </p>
             <div className="flex flex-col md:flex-row gap-3 md:gap-4 justify-center items-center">
-              <button 
-                onClick={() => navigate("/ApplicationForm")} 
+              <button
+                onClick={() => navigate("/ApplicationForm")}
                 data-aos="slide-right"
                 data-aos-delay="200"
                 className="w-full md:w-auto bg-white text-blue-600 px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-base md:text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg transform hover:scale-105"
@@ -573,7 +573,7 @@ const Home = () => {
           >
             <div className="text-center pt-6 md:pt-10" data-aos="zoom-in" data-aos-delay="600">
               <button
-                onClick={() => navigate("/SelfEmployment")} 
+                onClick={() => navigate("/SelfEmployment")}
                 className="bg-white text-green-800 px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold flex items-center justify-center mx-auto hover:scale-105 hover:bg-gray-100 transition duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.2),0_0_10px_rgba(34,197,94,0.6)] text-sm md:text-base"
               >
                 Read More
@@ -725,7 +725,7 @@ const Home = () => {
               data-aos-delay="600"
             >
               <button
-                onClick={() => navigate("/ApplicationForm")} 
+                onClick={() => navigate("/ApplicationForm")}
                 className="group bg-green-600 hover:bg-green-700 text-white font-bold px-4 md:px-6 py-2 md:py-3 rounded-full shadow-lg transition-colors duration-300 flex items-center gap-2 text-sm md:text-base"
               >
                 Apply Now
@@ -807,7 +807,8 @@ const Home = () => {
         </div>
       </section>
 
-      <style jsx>{`
+      <style>
+        {`
         @keyframes ping-slow {
           0%, 100% {
             transform: scale(1);
@@ -885,7 +886,8 @@ const Home = () => {
             gap: 1rem;
           }
         }
-      `}</style>
+        `}
+      </style>
     </div>
   );
 };
