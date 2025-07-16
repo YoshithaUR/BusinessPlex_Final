@@ -40,9 +40,9 @@ const NAV_ITEMS = [
   { to: "/about", label: "About" },
   { to: "/qualifications", label: "Qualification" },
   { to: "/trainingResources", label: "Training Resources" },
-  { 
-    to: "#", 
-    label: "Forms", 
+  {
+    to: "#",
+    label: "Forms",
     hasDropdown: true,
     dropdownItems: [
       { to: "/forms/expression-of-interest", label: "Expression of Interest Form" },
@@ -205,14 +205,14 @@ const Header = () => {
           >
             <FaInstagram />
           </a>
-         <a
-  href="https://au.linkedin.com/company/businessplex"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="hover:text-gray-300"
->
-  <FaLinkedin />
-</a>
+          <a
+            href="https://au.linkedin.com/company/businessplex"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-gray-300"
+          >
+            <FaLinkedin />
+          </a>
         </div>
         <a
           href="tel:1300894480"
@@ -242,7 +242,7 @@ const Header = () => {
             </p>
             <div className="flex justify-center">
               <button
-                onClick={() => navigate("/ApplicationForm")} 
+                onClick={() => navigate("/ApplicationForm")}
                 className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-semibold shadow-md transition"
               >
                 Apply Now
@@ -254,16 +254,16 @@ const Header = () => {
 
       <div className="flex items-center gap-2 sm:gap-4 ml-auto relative">
         <div className="relative flex items-center bg-white text-black rounded-md px-2 py-1 min-w-0">
-          <input 
-            type="text" 
-            placeholder="Search..." 
-            className="bg-transparent outline-none text-sm w-12 sm:w-16 md:w-24 lg:w-32 xl:w-40 pr-12 sm:pr-16 md:pr-20" 
+          <input
+            type="text"
+            placeholder="Search..."
+            className="bg-transparent outline-none text-sm w-12 sm:w-16 md:w-24 lg:w-32 xl:w-40 pr-12 sm:pr-16 md:pr-20"
           />
           <button className="text-gray-700 hover:text-black transition px-1 sm:px-2 absolute right-4 sm:right-6"><FaSearch size={14} /></button>
-          <FaBell 
-            onClick={toggleNotif} 
-            className="notif-bell-icon text-gray-700 hover:text-yellow-400 cursor-pointer absolute right-1 sm:right-2" 
-            size={16} 
+          <FaBell
+            onClick={toggleNotif}
+            className="notif-bell-icon text-gray-700 hover:text-yellow-400 cursor-pointer absolute right-1 sm:right-2"
+            size={16}
           />
 
           {isNotifOpen && (
@@ -320,18 +320,16 @@ const Header = () => {
                   <>
                     <button
                       onClick={() => handleDropdownToggle(index)}
-                      className={`px-2 xl:px-3 py-2 rounded-full transition-all duration-300 whitespace-nowrap flex items-center gap-1 ${
-                        activeDropdown === index
+                      className={`px-2 xl:px-3 py-2 rounded-full transition-all duration-300 whitespace-nowrap flex items-center gap-1 ${activeDropdown === index
                           ? "bg-[rgb(26,43,60,1)] text-white shadow-md scale-105"
                           : "hover:bg-[rgb(26,43,60,1)] hover:text-white hover:scale-105"
-                      }`}
+                        }`}
                     >
                       {item.label}
-                      <FaChevronDown 
-                        className={`transition-transform duration-200 ${
-                          activeDropdown === index ? 'rotate-180' : ''
-                        }`} 
-                        size={12} 
+                      <FaChevronDown
+                        className={`transition-transform duration-200 ${activeDropdown === index ? 'rotate-180' : ''
+                          }`}
+                        size={12}
                       />
                     </button>
                     {activeDropdown === index && (
@@ -356,10 +354,9 @@ const Header = () => {
                   <NavLink
                     to={item.to}
                     className={({ isActive }) =>
-                      `px-2 xl:px-3 py-2 rounded-full transition-all duration-300 whitespace-nowrap ${
-                        isActive
-                          ? "bg-[rgb(26,43,60,1)] text-white shadow-md scale-105"
-                          : "hover:bg-[rgb(26,43,60,1)] hover:text-white hover:scale-105"
+                      `px-2 xl:px-3 py-2 rounded-full transition-all duration-300 whitespace-nowrap ${isActive
+                        ? "bg-[rgb(26,43,60,1)] text-white shadow-md scale-105"
+                        : "hover:bg-[rgb(26,43,60,1)] hover:text-white hover:scale-105"
                       }`
                     }
                   >
@@ -385,9 +382,8 @@ const Header = () => {
         </div>
       )}
       <div
-        className={`mobile-menu fixed top-0 right-0 h-full w-72 sm:w-80 bg-white shadow-2xl z-50 transition-transform duration-300 overflow-y-auto ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`mobile-menu fixed top-0 right-0 h-full w-72 sm:w-80 bg-white shadow-2xl z-50 transition-transform duration-300 overflow-y-auto ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="flex justify-between items-center p-4 border-b">
           <div className="flex items-center gap-2">
@@ -408,11 +404,10 @@ const Header = () => {
                     className="w-full px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg font-medium border-l-4 text-gray-700 hover:bg-gray-50 hover:border-[rgb(26,43,60,1)] border-transparent flex items-center justify-between"
                   >
                     <span>{item.label}</span>
-                    <FaChevronDown 
-                      className={`transition-transform duration-200 ${
-                        mobileActiveDropdown === index ? 'rotate-180' : ''
-                      }`} 
-                      size={14} 
+                    <FaChevronDown
+                      className={`transition-transform duration-200 ${mobileActiveDropdown === index ? 'rotate-180' : ''
+                        }`}
+                      size={14}
                     />
                   </button>
                   {mobileActiveDropdown === index && (
@@ -438,10 +433,9 @@ const Header = () => {
                   to={item.to}
                   onClick={closeMenu}
                   className={({ isActive }) =>
-                    `px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg font-medium border-l-4 ${
-                      isActive
-                        ? "bg-[rgb(26,43,60,1)] text-white border-[rgb(26,43,60,1)]"
-                        : "text-gray-700 hover:bg-gray-50 hover:border-[rgb(26,43,60,1)] border-transparent"
+                    `px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg font-medium border-l-4 ${isActive
+                      ? "bg-[rgb(26,43,60,1)] text-white border-[rgb(26,43,60,1)]"
+                      : "text-gray-700 hover:bg-gray-50 hover:border-[rgb(26,43,60,1)] border-transparent"
                     }`
                   }
                 >
@@ -464,62 +458,57 @@ const Header = () => {
         </div>
       </div>
 
-       {/* Slideshow Section with Full Image Display */}
+      {/* Slideshow Section with Full Image Display */}
       <div className="flex flex-col h-full pt-[88px]">
         <div ref={slideshowRef} className="relative w-full h-[75vh] sm:h-[80vh] md:h-[85vh] z-0 overflow-hidden bg-gray-900">
           {IMAGES.map((src, index) => (
             <div
               key={index}
-              className={`absolute inset-0 transition-all duration-[2000ms] ease-in-out ${
-                index === currentIndex
+              className={`absolute inset-0 transition-all duration-[2000ms] ease-in-out ${index === currentIndex
                   ? "opacity-100 scale-100 z-10 translate-x-0"
                   : index === (currentIndex - 1 + IMAGES.length) % IMAGES.length
-                  ? "opacity-0 scale-110 z-0 -translate-x-full"
-                  : "opacity-0 scale-95 z-0 translate-x-full"
-              }`}
+                    ? "opacity-0 scale-110 z-0 -translate-x-full"
+                    : "opacity-0 scale-95 z-0 translate-x-full"
+                }`}
             >
               <div className="relative w-full h-full overflow-hidden flex items-center justify-center">
                 <img
                   src={src}
                   alt={`slide-${index}`}
-                  className={`max-w-full max-h-full object-contain transition-transform duration-[8000ms] ease-out ${
-                    index === currentIndex ? "scale-105" : "scale-100"
-                  }`}
+                  className={`max-w-full max-h-full object-contain transition-transform duration-[8000ms] ease-out ${index === currentIndex ? "scale-105" : "scale-100"
+                    }`}
                   loading="lazy"
                 />
                 {/* Subtle parallax overlay */}
-                <div 
-                  className={`absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-purple-900/20 transition-opacity duration-[2000ms] ${
-                    index === currentIndex ? "opacity-100" : "opacity-0"
-                  }`}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-purple-900/20 transition-opacity duration-[2000ms] ${index === currentIndex ? "opacity-100" : "opacity-0"
+                    }`}
                 />
               </div>
             </div>
           ))}
-          
+
           {/* Enhanced overlay with animated gradient */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/20 z-20">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-transparent to-purple-600/10 animate-pulse"></div>
           </div>
-          
+
           {/* Enhanced slide indicators */}
           <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex gap-1 sm:gap-2">
             {IMAGES.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`relative transition-all duration-500 ${
-                  index === currentIndex
+                className={`relative transition-all duration-500 ${index === currentIndex
                     ? "w-8 h-3 sm:w-10 sm:h-4"
                     : "w-2 h-2 sm:w-3 sm:h-3"
-                } rounded-full overflow-hidden group`}
+                  } rounded-full overflow-hidden group`}
                 aria-label={`Go to slide ${index + 1}`}
               >
-                <div className={`absolute inset-0 transition-all duration-500 ${
-                  index === currentIndex
+                <div className={`absolute inset-0 transition-all duration-500 ${index === currentIndex
                     ? "bg-gradient-to-r from-white via-blue-200 to-white shadow-lg"
                     : "bg-white/50 group-hover:bg-white/75"
-                } rounded-full`} />
+                  } rounded-full`} />
                 {index === currentIndex && (
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent animate-shimmer rounded-full" />
                 )}
@@ -541,12 +530,12 @@ const Header = () => {
             <div className="absolute top-0 left-1/4 w-32 h-32 bg-blue-400/10 rounded-full blur-2xl animate-pulse"></div>
             <div className="absolute bottom-0 right-1/4 w-24 h-24 bg-purple-400/10 rounded-full blur-xl animate-pulse delay-1000"></div>
           </div>
-          
+
           <div className="relative z-10 max-w-6xl mx-auto">
             <div className="flex justify-center items-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-16 flex-wrap">
               {highlights.map((item, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="group flex items-center gap-2 sm:gap-3 text-white hover:scale-105 transition-all duration-300 cursor-pointer"
                 >
                   {/* Icon container */}
@@ -558,7 +547,7 @@ const Header = () => {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Text */}
                   <span className="font-semibold text-xs sm:text-sm md:text-base bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent group-hover:from-blue-200 group-hover:to-white transition-all duration-300 whitespace-nowrap">
                     {item.title}
@@ -567,7 +556,7 @@ const Header = () => {
               ))}
             </div>
           </div>
-          
+
           {/* Top border effect */}
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"></div>
         </div>
@@ -604,35 +593,37 @@ const Header = () => {
         </button>
       )}
 
-      <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(-10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
+      <style>
+        {`
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        @keyframes shimmer {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(100%);
-          }
-        }
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
 
-        .animate-fadeIn {
-          animation: fadeIn 0.3s ease-out;
-        }
+    .animate-fadeIn {
+      animation: fadeIn 0.3s ease-out;
+    }
 
-        .animate-shimmer {
-          animation: shimmer 2s infinite;
-        }
-      `}</style>
+    .animate-shimmer {
+      animation: shimmer 2s infinite;
+    }
+  `}
+      </style>
     </div>
   );
 };
