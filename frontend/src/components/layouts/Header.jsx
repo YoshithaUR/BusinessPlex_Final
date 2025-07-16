@@ -31,10 +31,6 @@ const IMAGES = [
   images.image_five,
 ];
 
-const formlink = {
-  link: "./ApplicationForm",
-};
-
 const NAV_ITEMS = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
@@ -73,15 +69,18 @@ const Header = () => {
   const [isNotifOpen, setIsNotifOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [mobileActiveDropdown, setMobileActiveDropdown] = useState(null);
+  const [showApplyModal, setShowApplyModal] = useState(false);
+  const [hasManuallyClosed, setHasManuallyClosed] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
   const timeoutRef = useRef(null);
   const slideshowRef = useRef(null);
   const notifRef = useRef(null);
   const dropdownRef = useRef(null);
-  const [showApplyModal, setShowApplyModal] = useState(false);
-  const [hasManuallyClosed, setHasManuallyClosed] = useState(false);
-  const navigate = useNavigate();
   const applyTriggerRef = useRef(null);
+  const navigate = useNavigate();
 
+  // Slideshow autoplay
   useEffect(() => {
     timeoutRef.current = setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % IMAGES.length);
@@ -89,6 +88,7 @@ const Header = () => {
     return () => clearTimeout(timeoutRef.current);
   }, [currentIndex]);
 
+  // Intersection observers and scroll handlers
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => setShowContactButton(entry.isIntersecting),
@@ -108,30 +108,16 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Outside click handlers
   useEffect(() => {
     const handleOutsideClick = (e) => {
-      if (
-        isMenuOpen &&
-        !e.target.closest(".mobile-menu") &&
-        !e.target.closest(".hamburger-button")
-      ) {
+      if (isMenuOpen && !e.target.closest(".mobile-menu") && !e.target.closest(".hamburger-button")) {
         setIsMenuOpen(false);
       }
-
-      if (
-        isNotifOpen &&
-        notifRef.current &&
-        !notifRef.current.contains(e.target) &&
-        !e.target.closest(".notif-bell-icon")
-      ) {
+      if (isNotifOpen && notifRef.current && !notifRef.current.contains(e.target) && !e.target.closest(".notif-bell-icon")) {
         setIsNotifOpen(false);
       }
-
-      if (
-        activeDropdown &&
-        dropdownRef.current &&
-        !dropdownRef.current.contains(e.target)
-      ) {
+      if (activeDropdown && dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setActiveDropdown(null);
       }
     };
@@ -139,6 +125,7 @@ const Header = () => {
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, [isMenuOpen, isNotifOpen, activeDropdown]);
 
+  // Body scroll lock for mobile menu
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
     return () => {
@@ -146,6 +133,7 @@ const Header = () => {
     };
   }, [isMenuOpen]);
 
+  // Apply modal intersection observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -169,241 +157,295 @@ const Header = () => {
     };
   }, [hasManuallyClosed]);
 
+  // Event handlers
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
-
   const toggleNotif = () => setIsNotifOpen((prev) => !prev);
-
   const handleDropdownToggle = (index) => {
     setActiveDropdown(activeDropdown === index ? null : index);
   };
-
   const handleMobileDropdownToggle = (index) => {
     setMobileActiveDropdown(mobileActiveDropdown === index ? null : index);
   };
 
+  // Top Blue Navigation Bar
   const BlueNavBar = () => (
-    <div
-      className="w-full text-white text-sm py-2 px-4 flex justify-between items-center z-90 fixed top-0 left-0 "
-      style={{ backgroundColor: "rgba(26, 43, 60, 1)" }}
-    >
-      <div className="flex items-center gap-5">
-        <div className="flex gap-3">
+    <div className="w-full bg-slate-800 text-white text-sm py-2 px-4 fixed top-0 left-0 z-50 shadow-md">
+      <div className="max-w-7xl mx-auto flex justify-between items-center">
+        {/* Left side - Social links and phone */}
+        <div className="flex items-center space-x-4">
+          <div className="flex space-x-3">
+            <a
+              href="https://www.facebook.com/share/16yoXUzBX7/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-blue-400 transition-colors duration-200"
+              aria-label="Facebook"
+            >
+              <FaFacebookF size={14} />
+            </a>
+            <a
+              href="https://www.instagram.com/businessplex_rto?igsh=N2hlZWh6M2hnbXY4"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-pink-400 transition-colors duration-200"
+              aria-label="Instagram"
+            >
+              <FaInstagram size={14} />
+            </a>
+            <a
+              href="https://au.linkedin.com/company/businessplex"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-blue-400 transition-colors duration-200"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin size={14} />
+            </a>
+          </div>
+          <div className="hidden md:block h-4 w-px bg-white/30"></div>
           <a
-            href="https://www.facebook.com/share/16yoXUzBX7/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-gray-300"
+            href="tel:1300894480"
+            className="hidden md:flex items-center space-x-2 text-white hover:text-blue-200 transition-colors duration-200"
           >
-            <FaFacebookF />
-          </a>
-          <a
-            href="https://www.instagram.com/businessplex_rto?igsh=N2hlZWh6M2hnbXY4"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-gray-300"
-          >
-            <FaInstagram />
-          </a>
-          <a
-            href="https://au.linkedin.com/company/businessplex"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-gray-300"
-          >
-            <FaLinkedin />
+            <FaPhoneAlt size={12} />
+            <span className="font-medium">INQUIRIES? CALL: 1300 894 480</span>
           </a>
         </div>
-        <a
-          href="tel:1300894480"
-          className="font-medium hover:text-gray-200 hidden sm:block"
-        >
-          INQUIRIES? CALL: 1300 894 480
-        </a>
+
+        {/* Right side - Search and notifications */}
+        <div className="flex items-center space-x-3">
+          <div className="relative">
+            <div className="flex items-center bg-white rounded-lg px-3 py-1 min-w-0">
+              <input
+                type="text"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="bg-transparent text-gray-700 text-sm outline-none w-20 sm:w-24 md:w-32 lg:w-40"
+              />
+              <button
+                className="text-gray-500 hover:text-gray-700 transition-colors duration-200 ml-2"
+                aria-label="Search"
+              >
+                <FaSearch size={14} />
+              </button>
+            </div>
+          </div>
+
+          <div className="relative">
+            <button
+              onClick={toggleNotif}
+              className="notif-bell-icon text-white hover:text-yellow-400 transition-colors duration-200 p-1"
+              aria-label="Notifications"
+            >
+              <FaBell size={16} />
+            </button>
+
+            {isNotifOpen && (
+              <div
+                ref={notifRef}
+                className="absolute top-full right-0 mt-2 w-80 max-w-[90vw] bg-white text-gray-800 rounded-lg shadow-xl border border-gray-200 z-50 transform transition-all duration-200 origin-top-right"
+              >
+                <div className="p-4 border-b border-gray-200">
+                  <div className="flex items-center justify-between">
+                    <h4 className="flex items-center gap-2 font-semibold text-gray-800">
+                      <FaBell className="text-yellow-500" size={16} />
+                      News Alerts
+                    </h4>
+                    <button
+                      onClick={() => setIsNotifOpen(false)}
+                      className="text-gray-500 hover:text-red-500 transition-colors duration-200"
+                      aria-label="Close notifications"
+                    >
+                      <FaTimes size={14} />
+                    </button>
+                  </div>
+                </div>
+                <div className="max-h-64 overflow-y-auto">
+                  <ul className="p-4 space-y-3">
+                    <li className="text-sm text-gray-700 flex items-start gap-2">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <span>New course enrollment open now!</span>
+                    </li>
+                    <li className="text-sm text-gray-700 flex items-start gap-2">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Workshop scheduled for July 12.</span>
+                    </li>
+                    <li className="text-sm text-gray-700 flex items-start gap-2">
+                      <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Congrats to our recent graduates!</span>
+                    </li>
+                    <li className="text-sm text-gray-700 flex items-start gap-2">
+                      <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <span>System update on July 9 (12AM–2AM)</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
-      {showApplyModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-          <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full relative">
+    </div>
+  );
+
+  // Apply Modal
+  const ApplyModal = () => (
+    showApplyModal && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+        <div className="bg-white rounded-xl shadow-2xl max-w-md w-full transform transition-all duration-300 scale-100">
+          <div className="relative p-6">
             <button
               onClick={() => {
                 setShowApplyModal(false);
                 setHasManuallyClosed(true);
               }}
-              className="absolute top-2 right-2 text-gray-600 hover:text-red-500"
-              title="Close"
+              className="absolute top-4 right-4 text-gray-500 hover:text-red-500 transition-colors duration-200"
+              aria-label="Close modal"
             >
-              <FaTimes />
+              <FaTimes size={18} />
             </button>
-            <h2 className="text-xl font-bold mb-4 text-center text-green-700">
-              Ready to Enroll?
-            </h2>
-            <p className="text-sm mb-4 text-center text-gray-700">
-              Apply now to start your journey with us!
-            </p>
-            <div className="flex justify-center">
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <FaGraduationCap className="text-green-600" size={24} />
+              </div>
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">Ready to Enroll?</h2>
+              <p className="text-gray-600 mb-6">
+                Apply now to start your journey with us and unlock your potential!
+              </p>
               <button
                 onClick={() => navigate("/ApplicationForm")}
-                className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-semibold shadow-md transition"
+                className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
               >
                 Apply Now
               </button>
             </div>
           </div>
         </div>
-      )}
-
-      <div className="flex items-center gap-2 sm:gap-4 ml-auto relative">
-        <div className="relative flex items-center bg-white text-black rounded-md px-2 py-1 min-w-0">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="bg-transparent outline-none text-sm w-12 sm:w-16 md:w-24 lg:w-32 xl:w-40 pr-12 sm:pr-16 md:pr-20"
-          />
-          <button className="text-gray-700 hover:text-black transition px-1 sm:px-2 absolute right-4 sm:right-6"><FaSearch size={14} /></button>
-          <FaBell
-            onClick={toggleNotif}
-            className="notif-bell-icon text-gray-700 hover:text-yellow-400 cursor-pointer absolute right-1 sm:right-2"
-            size={16}
-          />
-
-          {isNotifOpen && (
-            <div
-              ref={notifRef}
-              className="absolute top-full right-0 mt-2 w-48 sm:w-56 md:w-64 max-h-48 overflow-y-auto bg-white text-black text-xs rounded shadow-xl px-3 sm:px-4 py-3 z-50 border border-gray-300"
-              style={{ minWidth: "240px" }}
-            >
-              <button
-                onClick={() => setIsNotifOpen(false)}
-                className="absolute top-2 right-2 text-black hover:text-red-500"
-                title="Close"
-              >
-                <FaTimes size={14} />
-              </button>
-
-              <h4 className="flex items-center gap-2 font-bold text-sm mb-2 text-blue-600">
-                <FaBell className="text-yellow-500" size={16} />
-                News Alerts
-              </h4>
-
-              <ul className="list-disc list-inside text-[10px] sm:text-[12px]">
-                <li>New course enrollment open now!</li>
-                <li>Workshop scheduled for July 12.</li>
-                <li>Congrats to our recent graduates!</li>
-                <li>System update on July 9 (12AM–2AM)</li>
-                <li>More notifications can be added here as needed.</li>
-                <li>Scroll to see more notifications if list grows.</li>
-              </ul>
-            </div>
-          )}
-        </div>
       </div>
-    </div>
+    )
   );
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full min-h-screen overflow-hidden">
       <BlueNavBar />
+      <ApplyModal />
 
-      {/* Main Navbar */}
-      <div className="fixed top-[40px] left-0 w-full z-99 bg-white/60 backdrop-blur-md shadow-md overflow-hidden">
-        <div className="max-w-screen-xl mx-auto flex justify-between items-center px-2 sm:px-4 py-2">
-          <div className="flex items-center gap-3">
-            <img src={logo} alt="Logo" className="h-6 sm:h-8 md:h-10" />
-            <span className="text-sm sm:text-lg md:text-xl font-bold text-blue-800 truncate">
-              BusinessPlex
-            </span>
-          </div>
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2 text-sm xl:text-base font-semibold text-gray-700">
-            {NAV_ITEMS.map((item, index) => (
-              <div key={item.to} className="relative" ref={item.hasDropdown ? dropdownRef : null}>
-                {item.hasDropdown ? (
-                  <>
-                    <button
-                      onClick={() => handleDropdownToggle(index)}
-                      className={`px-2 xl:px-3 py-2 rounded-full transition-all duration-300 whitespace-nowrap flex items-center gap-1 ${activeDropdown === index
-                          ? "bg-[rgb(26,43,60,1)] text-white shadow-md scale-105"
-                          : "hover:bg-[rgb(26,43,60,1)] hover:text-white hover:scale-105"
-                        }`}
+      {/* Main Navigation */}
+      <nav className="fixed top-[48px] left-0 w-full z-40 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-3">
+            {/* Logo */}
+            <div className="flex items-center space-x-3 flex-shrink-0">
+              <img src={logo} alt="BusinessPlex Logo" className="h-8 w-auto" />
+              <span className="text-xl font-bold text-slate-800 hidden sm:block">
+                BusinessPlex
+              </span>
+            </div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center space-x-1">
+              {NAV_ITEMS.map((item, index) => (
+                <div key={item.to} className="relative" ref={item.hasDropdown ? dropdownRef : null}>
+                  {item.hasDropdown ? (
+                    <>
+                      <button
+                        onClick={() => handleDropdownToggle(index)}
+                        className={`flex items-center space-x-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${activeDropdown === index
+                          ? "bg-slate-800 text-white shadow-lg"
+                          : "text-gray-700 hover:bg-slate-100 hover:text-slate-800"
+                          }`}
+                      >
+                        <span>{item.label}</span>
+                        <FaChevronDown
+                          className={`transition-transform duration-200 ${activeDropdown === index ? 'rotate-180' : ''
+                            }`}
+                          size={12}
+                        />
+                      </button>
+                      {activeDropdown === index && (
+                        <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50 animate-fadeIn">
+                          {item.dropdownItems.map((dropdownItem) => (
+                            <NavLink
+                              key={dropdownItem.to}
+                              to={dropdownItem.to}
+                              onClick={() => setActiveDropdown(null)}
+                              className="flex items-center space-x-3 px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 border-b border-gray-100 last:border-b-0"
+                            >
+                              <FaFileAlt size={14} className="text-blue-500 flex-shrink-0" />
+                              <span className="truncate">{dropdownItem.label}</span>
+                            </NavLink>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <NavLink
+                      to={item.to}
+                      className={({ isActive }) =>
+                        `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap ${isActive
+                          ? "bg-slate-800 text-white shadow-lg"
+                          : "text-gray-700 hover:bg-slate-100 hover:text-slate-800"
+                        }`
+                      }
                     >
                       {item.label}
-                      <FaChevronDown
-                        className={`transition-transform duration-200 ${activeDropdown === index ? 'rotate-180' : ''
-                          }`}
-                        size={12}
-                      />
-                    </button>
-                    {activeDropdown === index && (
-                      <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50 animate-fadeIn ">
-                        {item.dropdownItems.map((dropdownItem) => (
-                          <NavLink
-                            key={dropdownItem.to}
-                            to={dropdownItem.to}
-                            onClick={() => setActiveDropdown(null)}
-                            className="block px-4 py-3 text-sm text-black hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 border-b border-gray-100 last:border-b-0 "
-                          >
-                            <div className="flex items-center gap-2">
-                              <FaFileAlt size={14} className="text-blue-500" />
-                              {dropdownItem.label}
-                            </div>
-                          </NavLink>
-                        ))}
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <NavLink
-                    to={item.to}
-                    className={({ isActive }) =>
-                      `px-2 xl:px-3 py-2 rounded-full transition-all duration-300 whitespace-nowrap ${isActive
-                        ? "bg-[rgb(26,43,60,1)] text-white shadow-md scale-105"
-                        : "hover:bg-[rgb(26,43,60,1)] hover:text-white hover:scale-105"
-                      }`
-                    }
-                  >
-                    {item.label}
-                  </NavLink>
-                )}
-              </div>
-            ))}
-          </nav>
-          <button className="lg:hidden hamburger-button text-black" onClick={toggleMenu}>
-            {isMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
-          </button>
+                    </NavLink>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={toggleMenu}
+              className="lg:hidden hamburger-button p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200"
+              aria-label="Toggle mobile menu"
+            >
+              {isMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+            </button>
+          </div>
         </div>
-      </div>
+      </nav>
+
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 bg-black/50 z-40 lg:hidden" onClick={closeMenu} />
+      )}
 
       {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div
-          className="fixed inset-0 text-black/50 z-50 lg:hidden"
-          onClick={closeMenu}
-        >
-          <div className="absolute inset-0" />
-        </div>
-      )}
       <div
-        className={`mobile-menu fixed top-0 right-0 h-full w-72 sm:w-80 bg-white shadow-2xl z-50 transition-transform duration-300 overflow-y-auto ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+        className={`mobile-menu fixed top-0 right-0 h-full w-80 max-w-[90vw] bg-white shadow-2xl z-50 transform transition-transform duration-300 overflow-y-auto ${isMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
       >
-        <div className="flex justify-between items-center p-4 border-b">
-          <div className="flex items-center gap-2">
-            <img src={logo} alt="Logo" className="h-6 sm:h-8" />
-            <span className="text-base sm:text-lg font-bold text-blue-800">BusinessPlex</span>
+        {/* Mobile Menu Header */}
+        <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50">
+          <div className="flex items-center space-x-3">
+            <img src={logo} alt="BusinessPlex Logo" className="h-8 w-auto" />
+            <span className="text-lg font-bold text-slate-800">BusinessPlex</span>
           </div>
-          <button className="text-black hover:text-red-500" onClick={closeMenu}>
-            <FaTimes size={20} />
+          <button
+            onClick={closeMenu}
+            className="p-2 rounded-lg text-gray-500 hover:text-red-500 hover:bg-red-50 transition-colors duration-200"
+            aria-label="Close mobile menu"
+          >
+            <FaTimes size={18} />
           </button>
         </div>
-        <nav className="flex flex-col py-4">
+
+        {/* Mobile Navigation Items */}
+        <div className="py-4">
           {NAV_ITEMS.map((item, index) => (
             <div key={item.to}>
               {item.hasDropdown ? (
                 <>
                   <button
                     onClick={() => handleMobileDropdownToggle(index)}
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg font-medium border-l-4 text-gray-700 hover:bg-gray-50 hover:border-[rgb(26,43,60,1)] border-transparent flex items-center justify-between"
+                    className="w-full flex items-center justify-between px-6 py-4 text-gray-700 hover:bg-gray-50 hover:text-slate-800 transition-colors duration-200 border-l-4 border-transparent hover:border-slate-800"
                   >
-                    <span>{item.label}</span>
+                    <span className="font-medium">{item.label}</span>
                     <FaChevronDown
                       className={`transition-transform duration-200 ${mobileActiveDropdown === index ? 'rotate-180' : ''
                         }`}
@@ -417,12 +459,10 @@ const Header = () => {
                           key={dropdownItem.to}
                           to={dropdownItem.to}
                           onClick={closeMenu}
-                          className="block px-8 sm:px-10 py-2 sm:py-3 text-sm sm:text-base text-black hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200"
+                          className="flex items-center space-x-3 px-10 py-3 text-sm text-gray-600 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200"
                         >
-                          <div className="flex items-center gap-2">
-                            <FaFileAlt size={12} className="text-blue-500" />
-                            {dropdownItem.label}
-                          </div>
+                          <FaFileAlt size={12} className="text-blue-500 flex-shrink-0" />
+                          <span className="truncate">{dropdownItem.label}</span>
                         </NavLink>
                       ))}
                     </div>
@@ -433,9 +473,9 @@ const Header = () => {
                   to={item.to}
                   onClick={closeMenu}
                   className={({ isActive }) =>
-                    `px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg font-medium border-l-4 ${isActive
-                      ? "bg-[rgb(26,43,60,1)] text-white border-[rgb(26,43,60,1)]"
-                      : "text-gray-700 hover:bg-gray-50 hover:border-[rgb(26,43,60,1)] border-transparent"
+                    `block px-6 py-4 font-medium border-l-4 transition-colors duration-200 ${isActive
+                      ? "bg-slate-800 text-white border-slate-800"
+                      : "text-gray-700 hover:bg-gray-50 hover:text-slate-800 border-transparent hover:border-slate-800"
                     }`
                   }
                 >
@@ -444,154 +484,111 @@ const Header = () => {
               )}
             </div>
           ))}
-        </nav>
-        <div className="p-4 border-t bg-gray-50">
+        </div>
+
+        {/* Mobile Menu Footer */}
+        <div className="p-4 border-t border-gray-200 bg-gray-50">
           <a
             href="tel:1300894480"
-            className="block text-center bg-[rgb(26,43,60,1)] text-white py-2 rounded-lg text-sm sm:text-base font-semibold shadow-md"
+            className="flex items-center justify-center space-x-2 w-full bg-slate-800 text-white py-3 rounded-lg font-semibold hover:bg-slate-900 transition-colors duration-200"
           >
-            <span className="inline-flex items-center justify-center mr-2">
-              <FaPhoneAlt />
-            </span>
-            Call: 1300 894 480
+            <FaPhoneAlt size={16} />
+            <span>Call: 1300 894 480</span>
           </a>
         </div>
       </div>
 
-      {/* Slideshow Section with Full Image Display */}
-      <div className="flex flex-col h-full pt-[88px]">
-        <div ref={slideshowRef} className="relative w-full h-[75vh] sm:h-[80vh] md:h-[85vh] z-0 overflow-hidden bg-gray-900">
+      {/* Slideshow Section */}
+      <div className="relative pt-24">
+        <div ref={slideshowRef} className="relative w-full h-[70vh] sm:h-[75vh] md:h-[80vh] lg:h-[85vh] overflow-hidden bg-gray-900">
           {IMAGES.map((src, index) => (
             <div
               key={index}
-              className={`absolute inset-0 transition-all duration-[2000ms] ease-in-out ${index === currentIndex
-                  ? "opacity-100 scale-100 z-10 translate-x-0"
-                  : index === (currentIndex - 1 + IMAGES.length) % IMAGES.length
-                    ? "opacity-0 scale-110 z-0 -translate-x-full"
-                    : "opacity-0 scale-95 z-0 translate-x-full"
+              className={`absolute inset-0 transition-all duration-1000 ease-in-out ${index === currentIndex
+                ? "opacity-100 scale-100"
+                : "opacity-0 scale-105"
                 }`}
             >
-              <div className="relative w-full h-full overflow-hidden flex items-center justify-center">
-                <img
-                  src={src}
-                  alt={`slide-${index}`}
-                  className={`max-w-full max-h-full object-contain transition-transform duration-[8000ms] ease-out ${index === currentIndex ? "scale-105" : "scale-100"
-                    }`}
-                  loading="lazy"
-                />
-                {/* Subtle parallax overlay */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-purple-900/20 transition-opacity duration-[2000ms] ${index === currentIndex ? "opacity-100" : "opacity-0"
-                    }`}
-                />
-              </div>
+              <img
+                src={src}
+                alt={`Slide ${index + 1}`}
+                className="w-full h-full object-cover"
+                loading={index === 0 ? "eager" : "lazy"}
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
             </div>
           ))}
 
-          {/* Enhanced overlay with animated gradient */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/20 z-20">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-transparent to-purple-600/10 animate-pulse"></div>
-          </div>
-
-          {/* Enhanced slide indicators */}
-          <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex gap-1 sm:gap-2">
+          {/* Slide Indicators */}
+          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
             {IMAGES.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`relative transition-all duration-500 ${index === currentIndex
-                    ? "w-8 h-3 sm:w-10 sm:h-4"
-                    : "w-2 h-2 sm:w-3 sm:h-3"
-                  } rounded-full overflow-hidden group`}
+                className={`transition-all duration-300 rounded-full ${index === currentIndex
+                  ? "w-8 h-3 bg-white shadow-lg"
+                  : "w-3 h-3 bg-white/50 hover:bg-white/75"
+                  }`}
                 aria-label={`Go to slide ${index + 1}`}
-              >
-                <div className={`absolute inset-0 transition-all duration-500 ${index === currentIndex
-                    ? "bg-gradient-to-r from-white via-blue-200 to-white shadow-lg"
-                    : "bg-white/50 group-hover:bg-white/75"
-                  } rounded-full`} />
-                {index === currentIndex && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent animate-shimmer rounded-full" />
-                )}
-              </button>
+              />
             ))}
-          </div>
-
-          {/* Slide transition effects */}
-          <div className="absolute inset-0 pointer-events-none z-25">
-            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse" />
-            <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse delay-1000" />
           </div>
         </div>
 
         {/* Highlights Section */}
-        <div className="relative bg-gradient-to-r from-blue-900 via-slate-800 to-blue-900 py-3 sm:py-4 px-2 sm:px-4 z-20 overflow-hidden">
-          {/* Background effects */}
-          <div className="absolute inset-0">
-            <div className="absolute top-0 left-1/4 w-32 h-32 bg-blue-400/10 rounded-full blur-2xl animate-pulse"></div>
-            <div className="absolute bottom-0 right-1/4 w-24 h-24 bg-purple-400/10 rounded-full blur-xl animate-pulse delay-1000"></div>
-          </div>
-
-          <div className="relative z-10 max-w-6xl mx-auto">
-            <div className="flex justify-center items-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-16 flex-wrap">
+        <div className="relative bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 py-6">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10" />
+          <div className="relative max-w-7xl mx-auto px-4">
+            <div className="flex justify-center items-center space-x-8 md:space-x-16">
               {highlights.map((item, index) => (
                 <div
                   key={index}
-                  className="group flex items-center gap-2 sm:gap-3 text-white hover:scale-105 transition-all duration-300 cursor-pointer"
+                  className="group flex items-center space-x-3 text-white hover:scale-105 transition-transform duration-300"
                 >
-                  {/* Icon container */}
                   <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-md opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
-                    <div className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
-                      <div className="text-white text-sm sm:text-base md:text-xl group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                      <div className="text-white group-hover:scale-110 transition-transform duration-300">
                         {React.cloneElement(item.icon, { size: 20 })}
                       </div>
                     </div>
                   </div>
-
-                  {/* Text */}
-                  <span className="font-semibold text-xs sm:text-sm md:text-base bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent group-hover:from-blue-200 group-hover:to-white transition-all duration-300 whitespace-nowrap">
+                  <span className="font-semibold text-sm md:text-base text-white group-hover:text-blue-200 transition-colors duration-300">
                     {item.title}
                   </span>
                 </div>
               ))}
             </div>
           </div>
-
-          {/* Top border effect */}
-          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"></div>
         </div>
       </div>
 
       {/* Contact Button */}
       {showContactButton && (
-        <div className="fixed top-[90px] sm:top-[100px] right-2 sm:right-4 z-10 transition-all duration-500">
-          <div className="relative">
-            {/* Animated background */}
-            <div className="absolute inset-0 bg-[rgb(26,43,60)] rounded-md opacity-20 animate-ping"></div>
-            <button
-              onClick={() => (window.location.href = "tel:1300894480")}
-              className="relative w-[100px] sm:w-[120px] md:w-[140px] lg:w-[160px] bg-gradient-to-r from-[rgb(26,43,60)] to-[rgb(165,14,14)] text-white px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold rounded-md shadow-lg hover:shadow-2xl hover:scale-105 flex items-center justify-center gap-1 sm:gap-2 transition-all duration-300 border border-white/20"
-            >
-              <span className="inline-flex items-center animate-bounce">
-                <FaPhoneAlt size={12} className="sm:w-3.5 sm:h-3.5" />
-              </span>
-              <span className="hidden sm:inline">Contact Us</span>
-              <span className="sm:hidden">Call</span>
-            </button>
-          </div>
+        <div className="fixed top-32 right-4 z-30">
+          <button
+            onClick={() => window.location.href = "tel:1300894480"}
+            className="flex items-center space-x-2 bg-gradient-to-r from-slate-800 to-red-600 text-white px-4 py-2 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transform transition-all duration-300 border border-white/20"
+          >
+            <FaPhoneAlt size={14} className="animate-pulse" />
+            <span className="font-semibold text-sm hidden sm:inline">Contact Us</span>
+            <span className="font-semibold text-sm sm:hidden">Call</span>
+          </button>
         </div>
       )}
 
-      {/* Enhanced Scroll to Top Button */}
-      {showScrollTop && (
+      {/* Scroll to Top Button */}
+      {/* {showScrollTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-16 sm:bottom-20 right-4 sm:right-6 z-60 bg-[rgb(26,43,60,1)] text-white p-2 sm:p-3 rounded-full shadow-lg hover:bg-orange-600 outline-2 outline-white cursor-alias transition-all duration-300"
+          className="fixed bottom-8 right-6 bg-slate-800 text-white p-3 rounded-full shadow-lg hover:bg-slate-900 hover:scale-110 transform transition-all duration-300 z-30"
           aria-label="Scroll to top"
         >
-          <FaArrowUp size={16} className="sm:w-5 sm:h-5" />
+          <FaArrowUp size={18} />
         </button>
-      )}
+      )} */}
+
+      {/* Trigger element for apply modal */}
+      <div ref={applyTriggerRef} className="absolute bottom-0 left-0 w-full h-1" />
 
       <style>
         {`

@@ -39,7 +39,7 @@ const PolicyHeader = () => {
 
             {/* Sidebar Nav */}
             <nav
-                className={`fixed top-[96px] left-0 h-[calc(100vh-96px)] w-64 bg-white shadow-md p-6 z-40 transform transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+                className={`fixed top-[96px] left-0 h-[calc(100vh-96px)] w-64 bg-white shadow-md p-6 transform transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'
                     } pt-14 md:pt-0 md:translate-x-0 md:relative md:block md:border-r md:border-gray-200 md:bg-gray-50 md:top-0 md:h-full`}
             >
                 {/* Close button (only visible on mobile) */}

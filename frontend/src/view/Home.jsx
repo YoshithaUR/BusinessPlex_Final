@@ -15,7 +15,7 @@ import {
 import { MdEmail } from "react-icons/md";
 
 import images from "../assets/Images/images";
-import ApplyNow from "../components/Modal/ApplyNow";
+import ApplyNow from "../components/Modal/.ApplyNow";
 
 const Home = () => {
   // const [zoomActive, setZoomActive] = useState(false);
