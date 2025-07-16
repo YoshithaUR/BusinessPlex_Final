@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 const PolicyHeader = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const sidebarRef = useRef(null);
-    const overlayRef = useRef(null);
 
     // Close sidebar when clicking outside
     useEffect(() => {
@@ -12,7 +11,7 @@ const PolicyHeader = () => {
             if (sidebarOpen &&
                 sidebarRef.current &&
                 !sidebarRef.current.contains(event.target) &&
-                !event.target.closest('.hamburger-trigger')) {
+                !event.target.closest('.mobile-hamburger-btn')) {
                 setSidebarOpen(false);
             }
         };
@@ -76,11 +75,11 @@ const PolicyHeader = () => {
 
     return (
         <>
-            {/* Mobile Hamburger Button */}
-            <div className="md:hidden fixed top-[100px] left-4">
+            {/* Mobile Hamburger Button - Fixed positioning below main navbar */}
+            {!sidebarOpen && (
                 <button
                     onClick={() => setSidebarOpen(true)}
-                    className="hamburger-trigger bg-white border-2 border-gray-300 rounded-lg p-3 shadow-lg hover:shadow-xl hover:border-blue-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                    className="mobile-hamburger-btn fixed top-28 left-4 z-30 md:hidden bg-white border-2 border-gray-300 rounded-lg p-3 shadow-lg hover:shadow-xl hover:border-blue-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                     aria-label="Open navigation menu"
                 >
                     <svg
@@ -97,39 +96,41 @@ const PolicyHeader = () => {
                         />
                     </svg>
                 </button>
-            </div>
+            )}
 
-            {/* Overlay for mobile */}
-            <div
-                ref={overlayRef}
-                className={`fixed inset-0 bg-black transition-opacity duration-300 z-30 md:hidden ${sidebarOpen ? 'opacity-50 visible' : 'opacity-0 invisible'
-                    }`}
-                onClick={() => setSidebarOpen(false)}
-                aria-hidden="true"
-            />
+            {/* Mobile Overlay */}
+            {sidebarOpen && (
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-50 z-20 md:hidden"
+                    onClick={() => setSidebarOpen(false)}
+                    aria-hidden="true"
+                />
+            )}
 
             {/* Sidebar Navigation */}
             <nav
                 ref={sidebarRef}
                 className={`
                     fixed md:relative
-                    top-0 md:top-0
-                    left-0 md:left-0
+                    top-25 left-0 md:top-0 md:left-0
                     h-full md:h-auto
                     w-80 md:w-64
                     max-w-[85vw] md:max-w-none
                     bg-white md:bg-gray-50
                     shadow-2xl md:shadow-none
                     border-r-0 md:border-r md:border-gray-200
-                    z-40 md:z-auto
+                    z-20 md:z-auto
                     transform transition-transform duration-300 ease-in-out
                     ${sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
                     overflow-y-auto
                     pt-6 md:pt-8
                     pb-6 md:pb-8
                     px-6 md:px-6
-                    policy-header-nav
                 `}
+                style={{
+                    scrollbarWidth: 'thin',
+                    scrollbarColor: 'rgba(156, 163, 175, 0.5) transparent'
+                }}
                 aria-label="Policy navigation"
             >
                 {/* Mobile Header */}
@@ -201,35 +202,31 @@ const PolicyHeader = () => {
                 </div>
             </nav>
 
-            {/* Custom Styles - moved to regular CSS */}
+            {/* Custom Styles */}
             <style dangerouslySetInnerHTML={{
                 __html: `
+                    /* Mobile hamburger active state */
                     @media (max-width: 767px) {
-                        .hamburger-trigger:active {
+                        .mobile-hamburger-btn:active {
                             transform: scale(0.95);
                         }
                     }
                     
-                    /* Smooth scrolling for sidebar */
-                    .policy-header-nav {
-                        scrollbar-width: thin;
-                        scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
-                    }
-                    
-                    .policy-header-nav::-webkit-scrollbar {
+                    /* Custom scrollbar for sidebar */
+                    nav::-webkit-scrollbar {
                         width: 6px;
                     }
                     
-                    .policy-header-nav::-webkit-scrollbar-track {
+                    nav::-webkit-scrollbar-track {
                         background: transparent;
                     }
                     
-                    .policy-header-nav::-webkit-scrollbar-thumb {
+                    nav::-webkit-scrollbar-thumb {
                         background-color: rgba(156, 163, 175, 0.5);
                         border-radius: 3px;
                     }
                     
-                    .policy-header-nav::-webkit-scrollbar-thumb:hover {
+                    nav::-webkit-scrollbar-thumb:hover {
                         background-color: rgba(156, 163, 175, 0.8);
                     }
                 `
