@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -78,8 +78,64 @@ const Header = () => {
   const notifRef = useRef(null);
   const dropdownRef = useRef(null);
   const applyTriggerRef = useRef(null);
+  const headerEndRef = useRef(null); // New ref for header end
   const navigate = useNavigate();
+  const location = useLocation(); // Get current location for active state
 
+  // Check if current path matches nav item
+  const isActiveNavItem = (to) => {
+    if (to === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.startsWith(to);
+  };
+
+  const scrollToHeaderEnd = () => {
+    if (headerEndRef.current) {
+      headerEndRef.current.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
+  // Handle navigation click with scroll
+  const handleNavClick = (to, isDropdown = false) => {
+    if (!isDropdown) {
+      // Close mobile menu if open
+      setIsMenuOpen(false);
+      // Close dropdown if open
+      setActiveDropdown(null);
+      
+      // Navigate to the route
+      if (to.startsWith('http')) {
+        // External link
+        window.open(to, '_blank');
+      } else if (to !== '#') {
+        navigate(to);
+      }
+      
+      // Scroll to end of header after a short delay to allow navigation
+      setTimeout(() => {
+        scrollToHeaderEnd();
+      }, 100);
+    }
+  };
+
+  // Handle dropdown item click
+  const handleDropdownClick = (to) => {
+    setActiveDropdown(null);
+    setMobileActiveDropdown(null);
+    setIsMenuOpen(false);
+    
+    navigate(to);
+    
+    // Scroll to end of header after navigation
+    setTimeout(() => {
+      scrollToHeaderEnd();
+    }, 100);
+  };
+  
   // Slideshow autoplay
   useEffect(() => {
     timeoutRef.current = setTimeout(() => {
@@ -179,7 +235,7 @@ const Header = () => {
               href="https://www.facebook.com/share/16yoXUzBX7/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-blue-400 transition-colors duration-200"
+              className="text-white hover:text-blue-900 transition-colors duration-200 cursor-pointer"
               aria-label="Facebook"
             >
               <FaFacebookF size={14} />
@@ -188,7 +244,7 @@ const Header = () => {
               href="https://www.instagram.com/businessplex_rto?igsh=N2hlZWh6M2hnbXY4"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-pink-400 transition-colors duration-200"
+              className="text-white hover:text-pink-400 transition-colors duration-200 cursor-pointer"
               aria-label="Instagram"
             >
               <FaInstagram size={14} />
@@ -197,7 +253,7 @@ const Header = () => {
               href="https://au.linkedin.com/company/businessplex"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-blue-400 transition-colors duration-200"
+              className="text-white hover:text-blue-400 transition-colors duration-200 cursor-pointer"
               aria-label="LinkedIn"
             >
               <FaLinkedin size={14} />
@@ -206,7 +262,7 @@ const Header = () => {
           <div className="hidden md:block h-4 w-px bg-white/30"></div>
           <a
             href="tel:1300894480"
-            className="hidden md:flex items-center space-x-2 text-white hover:text-blue-200 transition-colors duration-200"
+            className="hidden md:flex items-center space-x-2 text-white hover:text-blue-200 transition-colors duration-200 cursor-pointer"
           >
             <FaPhoneAlt size={12} />
             <span className="font-medium">INQUIRIES? CALL: 1300 894 480</span>
@@ -225,7 +281,7 @@ const Header = () => {
                 className="bg-transparent text-gray-700 text-sm outline-none w-20 sm:w-24 md:w-32 lg:w-40"
               />
               <button
-                className="text-gray-500 hover:text-gray-700 transition-colors duration-200 ml-2"
+                className="text-gray-500 hover:text-gray-700 transition-colors duration-200 ml-2 cursor-pointer"
                 aria-label="Search"
               >
                 <FaSearch size={14} />
@@ -236,7 +292,7 @@ const Header = () => {
           <div className="relative">
             <button
               onClick={toggleNotif}
-              className="notif-bell-icon text-white hover:text-yellow-400 transition-colors duration-200 p-1"
+              className="notif-bell-icon text-white hover:text-yellow-400 transition-colors duration-200 p-1 cursor-pointer"
               aria-label="Notifications"
             >
               <FaBell size={16} />
@@ -255,7 +311,7 @@ const Header = () => {
                     </h4>
                     <button
                       onClick={() => setIsNotifOpen(false)}
-                      className="text-gray-500 hover:text-red-500 transition-colors duration-200"
+                      className="text-gray-500 hover:text-red-500 transition-colors duration-200 cursor-pointer"
                       aria-label="Close notifications"
                     >
                       <FaTimes size={14} />
@@ -290,55 +346,19 @@ const Header = () => {
     </div>
   );
 
-  // // Apply Modal
-  // const ApplyModal = () => (
-  //   showApplyModal && (
-  //     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-  //       <div className="bg-white rounded-xl shadow-2xl max-w-md w-full transform transition-all duration-300 scale-100">
-  //         <div className="relative p-6">
-  //           <button
-  //             onClick={() => {
-  //               setShowApplyModal(false);
-  //               setHasManuallyClosed(true);
-  //             }}
-  //             className="absolute top-4 right-4 text-gray-500 hover:text-red-500 transition-colors duration-200"
-  //             aria-label="Close modal"
-  //           >
-  //             <FaTimes size={18} />
-  //           </button>
-
-  //           <div className="text-center">
-  //             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-  //               <FaGraduationCap className="text-green-600" size={24} />
-  //             </div>
-  //             <h2 className="text-2xl font-bold text-gray-800 mb-2">Ready to Enroll?</h2>
-  //             <p className="text-gray-600 mb-6">
-  //               Apply now to start your journey with us and unlock your potential!
-  //             </p>
-  //             <button
-  //               onClick={() => navigate("/ApplicationForm")}
-  //               className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-  //             >
-  //               Apply Now
-  //             </button>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   )
-  // );
-
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
       <BlueNavBar />
-      {/* <ApplyModal /> */}
 
       {/* Main Navigation */}
       <nav className="fixed top-[48px] left-0 w-full z-40 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-3">
             {/* Logo */}
-            <div className="flex items-center space-x-3 flex-shrink-0">
+            <div 
+              className="flex items-center space-x-3 flex-shrink-0 cursor-pointer" 
+              onClick={() => handleNavClick('/')}
+            >
               <img src={logo} alt="BusinessPlex Logo" className="h-8 w-auto" />
               <span className="text-xl font-bold text-slate-800 hidden sm:block">
                 BusinessPlex
@@ -353,7 +373,7 @@ const Header = () => {
                     <>
                       <button
                         onClick={() => handleDropdownToggle(index)}
-                        className={`flex items-center space-x-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${activeDropdown === index
+                        className={`flex items-center space-x-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer ${activeDropdown === index
                           ? "bg-slate-800 text-white shadow-lg"
                           : "text-gray-700 hover:bg-slate-100 hover:text-slate-800"
                           }`}
@@ -368,31 +388,35 @@ const Header = () => {
                       {activeDropdown === index && (
                         <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50 animate-fadeIn">
                           {item.dropdownItems.map((dropdownItem) => (
-                            <NavLink
+                            <button
                               key={dropdownItem.to}
-                              to={dropdownItem.to}
-                              onClick={() => setActiveDropdown(null)}
-                              className="flex items-center space-x-3 px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 border-b border-gray-100 last:border-b-0"
+                              onClick={() => handleDropdownClick(dropdownItem.to)}
+                              className={`flex items-center space-x-3 px-4 py-3 text-sm transition-colors duration-200 border-b border-gray-100 last:border-b-0 w-full text-left cursor-pointer ${
+                                isActiveNavItem(dropdownItem.to)
+                                  ? "bg-slate-800 text-white"
+                                  : "text-gray-700 hover:bg-gray-50 hover:text-blue-600"
+                              }`}
                             >
-                              <FaFileAlt size={14} className="text-blue-500 flex-shrink-0" />
+                              <FaFileAlt size={14} className={`flex-shrink-0 ${
+                                isActiveNavItem(dropdownItem.to) ? "text-white" : "text-blue-500"
+                              }`} />
                               <span className="truncate">{dropdownItem.label}</span>
-                            </NavLink>
+                            </button>
                           ))}
                         </div>
                       )}
                     </>
                   ) : (
-                    <NavLink
-                      to={item.to}
-                      className={({ isActive }) =>
-                        `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap ${isActive
+                    <button
+                      onClick={() => handleNavClick(item.to)}
+                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap cursor-pointer ${
+                        isActiveNavItem(item.to)
                           ? "bg-slate-800 text-white shadow-lg"
                           : "text-gray-700 hover:bg-slate-100 hover:text-slate-800"
-                        }`
-                      }
+                      }`}
                     >
                       {item.label}
-                    </NavLink>
+                    </button>
                   )}
                 </div>
               ))}
@@ -401,7 +425,7 @@ const Header = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMenu}
-              className="lg:hidden hamburger-button p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200"
+              className="lg:hidden hamburger-button p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200 cursor-pointer"
               aria-label="Toggle mobile menu"
             >
               {isMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
@@ -428,7 +452,7 @@ const Header = () => {
           </div>
           <button
             onClick={closeMenu}
-            className="p-2 rounded-lg text-gray-500 hover:text-red-500 hover:bg-red-50 transition-colors duration-200"
+            className="p-2 rounded-lg text-gray-500 hover:text-red-500 hover:bg-red-50 transition-colors duration-200 cursor-pointer"
             aria-label="Close mobile menu"
           >
             <FaTimes size={18} />
@@ -443,7 +467,7 @@ const Header = () => {
                 <>
                   <button
                     onClick={() => handleMobileDropdownToggle(index)}
-                    className="w-full flex items-center justify-between px-6 py-4 text-gray-700 hover:bg-gray-50 hover:text-slate-800 transition-colors duration-200 border-l-4 border-transparent hover:border-slate-800"
+                    className="w-full flex items-center justify-between px-6 py-4 text-gray-700 hover:bg-gray-50 hover:text-slate-800 transition-colors duration-200 border-l-4 border-transparent hover:border-slate-800 cursor-pointer"
                   >
                     <span className="font-medium">{item.label}</span>
                     <FaChevronDown
@@ -455,32 +479,35 @@ const Header = () => {
                   {mobileActiveDropdown === index && (
                     <div className="bg-gray-50 border-l-4 border-blue-200">
                       {item.dropdownItems.map((dropdownItem) => (
-                        <NavLink
+                        <button
                           key={dropdownItem.to}
-                          to={dropdownItem.to}
-                          onClick={closeMenu}
-                          className="flex items-center space-x-3 px-10 py-3 text-sm text-gray-600 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200"
+                          onClick={() => handleDropdownClick(dropdownItem.to)}
+                          className={`flex items-center space-x-3 px-10 py-3 text-sm transition-colors duration-200 w-full text-left cursor-pointer ${
+                            isActiveNavItem(dropdownItem.to)
+                              ? "bg-slate-800 text-white"
+                              : "text-gray-600 hover:bg-gray-100 hover:text-blue-600"
+                          }`}
                         >
-                          <FaFileAlt size={12} className="text-blue-500 flex-shrink-0" />
+                          <FaFileAlt size={12} className={`flex-shrink-0 ${
+                            isActiveNavItem(dropdownItem.to) ? "text-white" : "text-blue-500"
+                          }`} />
                           <span className="truncate">{dropdownItem.label}</span>
-                        </NavLink>
+                        </button>
                       ))}
                     </div>
                   )}
                 </>
               ) : (
-                <NavLink
-                  to={item.to}
-                  onClick={closeMenu}
-                  className={({ isActive }) =>
-                    `block px-6 py-4 font-medium border-l-4 transition-colors duration-200 ${isActive
+                <button
+                  onClick={() => handleNavClick(item.to)}
+                  className={`block px-6 py-4 font-medium border-l-4 transition-colors duration-200 w-full text-left cursor-pointer ${
+                    isActiveNavItem(item.to)
                       ? "bg-slate-800 text-white border-slate-800"
                       : "text-gray-700 hover:bg-gray-50 hover:text-slate-800 border-transparent hover:border-slate-800"
-                    }`
-                  }
+                  }`}
                 >
                   {item.label}
-                </NavLink>
+                </button>
               )}
             </div>
           ))}
@@ -490,7 +517,7 @@ const Header = () => {
         <div className="p-4 border-t border-gray-200 bg-gray-50">
           <a
             href="tel:1300894480"
-            className="flex items-center justify-center space-x-2 w-full bg-slate-800 text-white py-3 rounded-lg font-semibold hover:bg-slate-900 transition-colors duration-200"
+            className="flex items-center justify-center space-x-2 w-full bg-slate-800 text-white py-3 rounded-lg font-semibold hover:bg-slate-900 transition-colors duration-200 cursor-pointer"
           >
             <FaPhoneAlt size={16} />
             <span>Call: 1300 894 480</span>
@@ -525,7 +552,7 @@ const Header = () => {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`transition-all duration-300 rounded-full ${index === currentIndex
+                className={`transition-all duration-300 rounded-full cursor-pointer ${index === currentIndex
                   ? "w-8 h-3 bg-white shadow-lg"
                   : "w-3 h-3 bg-white/50 hover:bg-white/75"
                   }`}
@@ -543,7 +570,7 @@ const Header = () => {
               {highlights.map((item, index) => (
                 <div
                   key={index}
-                  className="group flex items-center space-x-3 text-white hover:scale-105 transition-transform duration-300"
+                  className="group flex items-center space-x-3 text-white hover:scale-105 transition-transform duration-300 cursor-pointer"
                 >
                   <div className="relative">
                     <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
@@ -562,30 +589,33 @@ const Header = () => {
         </div>
       </div>
 
+      {/* Header End Reference Point */}
+      <div ref={headerEndRef} className="w-full h-1"></div>
+
       {/* Contact Button */}
       {showContactButton && (
         <div className="fixed top-32 right-4 z-10">
           <button
             onClick={() => window.location.href = "tel:1300894480"}
-            className="flex items-center space-x-2 bg-gradient-to-r from-slate-800 to-red-600 text-white px-4 py-2 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transform transition-all duration-300 border border-white/20"
+            className="flex items-center space-x-2 bg-gradient-to-r from-slate-800 to-red-600 text-white px-4 py-2 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transform transition-all duration-300 border border-white/20 cursor-pointer"
           >
             <FaPhoneAlt size={14} className="animate-pulse" />
             <span className="font-semibold text-sm hidden sm:inline">Contact Us</span>
-            <span className="font-semibold text-sm sm:hidden">Call</span>
+            <span className="font-semibold text-sm sm:inline">Call</span>
           </button>
         </div>
       )}
 
       {/* Scroll to Top Button */}
-      {/* {showScrollTop && (
+      {showScrollTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-8 right-6 bg-slate-800 text-white p-3 rounded-full shadow-lg hover:bg-slate-900 hover:scale-110 transform transition-all duration-300 z-30"
+          className="fixed bottom-8 right-6 bg-slate-800 text-white p-3 rounded-full shadow-lg hover:bg-slate-900 hover:scale-110 transform transition-all duration-300 z-30 cursor-pointer"
           aria-label="Scroll to top"
         >
           <FaArrowUp size={18} />
         </button>
-      )} */}
+      )}
 
       {/* Trigger element for apply modal */}
       <div ref={applyTriggerRef} className="absolute bottom-0 left-0 w-full h-1" />
