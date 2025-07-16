@@ -102,7 +102,7 @@ const PolicyHeader = () => {
             {/* Overlay for mobile */}
             <div
                 ref={overlayRef}
-                className={`fixed inset-0 bg-black transition-opacity duration-300 z-0 md:hidden ${sidebarOpen ? 'opacity-50 visible' : 'opacity-0 invisible'
+                className={`fixed inset-0 bg-black transition-opacity duration-300 z-30 md:hidden ${sidebarOpen ? 'opacity-50 visible' : 'opacity-0 invisible'
                     }`}
                 onClick={() => setSidebarOpen(false)}
                 aria-hidden="true"
@@ -121,13 +121,14 @@ const PolicyHeader = () => {
                     bg-white md:bg-gray-50
                     shadow-2xl md:shadow-none
                     border-r-0 md:border-r md:border-gray-200
-                    z-1 md:z-auto
+                    z-40 md:z-auto
                     transform transition-transform duration-300 ease-in-out
                     ${sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
                     overflow-y-auto
                     pt-6 md:pt-8
                     pb-6 md:pb-8
                     px-6 md:px-6
+                    policy-header-nav
                 `}
                 aria-label="Policy navigation"
             >
@@ -200,37 +201,39 @@ const PolicyHeader = () => {
                 </div>
             </nav>
 
-            {/* Custom Styles */}
-            <style jsx>{`
-                @media (max-width: 767px) {
-                    .hamburger-trigger:active {
-                        transform: scale(0.95);
+            {/* Custom Styles - moved to regular CSS */}
+            <style dangerouslySetInnerHTML={{
+                __html: `
+                    @media (max-width: 767px) {
+                        .hamburger-trigger:active {
+                            transform: scale(0.95);
+                        }
                     }
-                }
-                
-                /* Smooth scrolling for sidebar */
-                nav {
-                    scrollbar-width: thin;
-                    scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
-                }
-                
-                nav::-webkit-scrollbar {
-                    width: 6px;
-                }
-                
-                nav::-webkit-scrollbar-track {
-                    background: transparent;
-                }
-                
-                nav::-webkit-scrollbar-thumb {
-                    background-color: rgba(156, 163, 175, 0.5);
-                    border-radius: 3px;
-                }
-                
-                nav::-webkit-scrollbar-thumb:hover {
-                    background-color: rgba(156, 163, 175, 0.8);
-                }
-            `}</style>
+                    
+                    /* Smooth scrolling for sidebar */
+                    .policy-header-nav {
+                        scrollbar-width: thin;
+                        scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+                    }
+                    
+                    .policy-header-nav::-webkit-scrollbar {
+                        width: 6px;
+                    }
+                    
+                    .policy-header-nav::-webkit-scrollbar-track {
+                        background: transparent;
+                    }
+                    
+                    .policy-header-nav::-webkit-scrollbar-thumb {
+                        background-color: rgba(156, 163, 175, 0.5);
+                        border-radius: 3px;
+                    }
+                    
+                    .policy-header-nav::-webkit-scrollbar-thumb:hover {
+                        background-color: rgba(156, 163, 175, 0.8);
+                    }
+                `
+            }} />
         </>
     );
 };

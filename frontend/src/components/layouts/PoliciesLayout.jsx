@@ -5,8 +5,8 @@ import PolicyHeader from '../PolicyHeader';
 const PoliciesLayout = () => {
     return (
         <div className="flex min-h-screen pt-20 relative">
-            {/* Wrapper for PolicyHeader with higher z-index */}
-            <div className="relative z-50">
+            {/* Wrapper for PolicyHeader with lower z-index */}
+            <div className="relative z-10">
                 <PolicyHeader />
             </div>
 

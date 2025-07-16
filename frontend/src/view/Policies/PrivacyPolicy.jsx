@@ -235,7 +235,7 @@ const PrivacyPolicy = () => {
                     })}
                 </div>
 
-                <div className="mt-15 mb-10 mb-10 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200">
+                <div className="mt-15 mb-10 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200">
                     <div className="text-center">
                         <h3 className="text-xl font-semibold text-gray-800 mb-2">Questions about our Privacy Policy?</h3>
                         <p className="text-gray-600 mb-4">We're here to help you understand how we protect your data.</p>
