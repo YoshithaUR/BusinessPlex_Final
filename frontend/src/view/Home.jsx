@@ -15,6 +15,7 @@ import {
 import { MdEmail } from "react-icons/md";
 
 import images from "../assets/Images/images";
+import pdf from "../assets/Images/pdf";
 import ApplyNow from "../components/Modal/.ApplyNow";
 
 const Home = () => {
@@ -504,7 +505,7 @@ const Home = () => {
                 data-aos-delay="400"
                 className="w-full md:w-auto border-2 border-white text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-base md:text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105"
               >
-                <a href={images.pdf_StudentInformation}>
+                <a href={pdf.pdf_StudentInformation}>
                   Student Handbook
                 </a>
               </button>

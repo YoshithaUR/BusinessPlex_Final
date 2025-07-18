@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+
 import {
   FaFacebookF,
   FaLinkedin,
@@ -17,6 +18,7 @@ import {
 } from "react-icons/fa";
 
 import images from "../../assets/Images/images";
+import pdf from "../../assets/Images/pdf";
 import logo from "../../assets/Images/HomeSlideShow/logo.png";
 
 import { GiTennisBall } from "react-icons/gi";
@@ -31,6 +33,8 @@ const IMAGES = [
   images.image_five,
 ];
 
+
+
 const NAV_ITEMS = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
@@ -40,16 +44,17 @@ const NAV_ITEMS = [
     to: "#",
     label: "Forms",
     hasDropdown: true,
-    dropdownItems: [
-      { to: "/forms/expression-of-interest", label: "Expression of Interest Form" },
-      { to: "/forms/enrolment", label: "Enrolment Form" },
-      { to: "/forms/business-registration", label: "Business Registration Form" },
-      { to: "/forms/business-information", label: "Business Information Form" },
-      { to: "/forms/application-assessment", label: "Application Assessment Form" },
-      { to: "/forms/quarterly-income", label: "Quarterly Income Statement Form" },
-      { to: "/forms/monthly-feedback", label: "Monthly Feedback Form" },
-      { to: "/forms/change-of-circumstance", label: "Change of Circumstance Form" },
-    ]
+   dropdownItems: [
+  { to: "/applicationForm", label: "Application Form" },
+  { to: "/enrolment", label: "Enrolment Form" },
+  { to: pdf.pdf_businessRegistration, label: "Business Registration Form" },
+  { to: pdf.pdf_expression_pdf, label: "Expression of Interest Form" },
+  { to: pdf.pdf_feedback, label: "Monthly Feedback Form" },
+  { to: "/enrolment", label: "Enrolment" },
+  // { to: "/forms/monthly-feedback", label: "Monthly Feedback Form" },
+  // { to: "/forms/change-of-circumstance", label: "Change of Circumstance Form" },
+]
+
   },
   { to: "/policies", label: "Our Policies" },
   { to: "https://businessplex.e-learnme.com.au/login/index.php", label: "Student Login" },
