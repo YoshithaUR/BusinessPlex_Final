@@ -5,6 +5,13 @@ import image_three from "./HomeSlideShow/3.png";
 import image_four from "./HomeSlideShow/4.png";
 import image_five from "./HomeSlideShow/5.png";
 
+//mobile slides
+import mobile_image_one from "./HomeSlideShow/mobile/1.jpg";
+import mobile_image_two from "./HomeSlideShow/mobile/2.jpg";
+import mobile_image_three from "./HomeSlideShow/mobile/3.jpg";
+import mobile_image_four from "./HomeSlideShow/mobile/4.jpg";
+import mobile_image_five from "./HomeSlideShow/mobile/5.jpg";
+
 // Home Support Services
 import image_SuportService01 from "./Home/SuportServices1.jpg";
 import image_SuportService02 from "./Home/SuportServices.jpeg";
@@ -121,7 +128,18 @@ const images = {
   image_TeamBG,
   image_END01,
 
-  
+
+  // PDF
+  pdf_ExploringSelf,
+  pdf_SmallBusiness,
+  pdf_StudentInformation,
+
+  mobile_image_one,
+  mobile_image_two,
+  mobile_image_three,
+  mobile_image_four,
+  mobile_image_five
+
   
 };
 
