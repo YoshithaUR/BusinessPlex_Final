@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-
 import {
   FaFacebookF,
   FaLinkedin,
@@ -33,7 +32,6 @@ const DESKTOP_IMAGES = [
   images.image_five,
 ];
 
-
 const MOBILE_IMAGES = [
   images.mobile_image_one,
   images.mobile_image_two,
@@ -41,7 +39,6 @@ const MOBILE_IMAGES = [
   images.mobile_image_four,
   images.mobile_image_five
 ];
-
 
 const NAV_ITEMS = [
   { to: "/", label: "Home" },
@@ -52,17 +49,13 @@ const NAV_ITEMS = [
     to: "#",
     label: "Forms",
     hasDropdown: true,
-   dropdownItems: [
-  { to: "/applicationForm", label: "Application Form" },
-  { to: "/enrolment", label: "Enrolment Form" },
-  { to: pdf.pdf_businessRegistration, label: "Business Registration Form" },
-  { to: pdf.pdf_expression_pdf, label: "Expression of Interest Form" },
-  { to: pdf.pdf_feedback, label: "Monthly Feedback Form" },
-  { to: "/enrolment", label: "Enrolment" },
-  // { to: "/forms/monthly-feedback", label: "Monthly Feedback Form" },
-  // { to: "/forms/change-of-circumstance", label: "Change of Circumstance Form" },
-]
-
+    dropdownItems: [
+      { to: "/applicationForm", label: "Application Form", type: "route" },
+      { to: "/enrolment", label: "Enrolment Form", type: "route" },
+      { to: pdf.pdf_businessRegistration, label: "Business Registration Form", type: "pdf" },
+      { to: pdf.pdf_expression_pdf, label: "Expression of Interest Form", type: "pdf" },
+      { to: pdf.pdf_feedback, label: "Monthly Feedback Form", type: "pdf" },
+    ]
   },
   { to: "/policies", label: "Our Policies" },
   { to: "https://businessplex.e-learnme.com.au/login/index.php", label: "Student Login" },
@@ -92,9 +85,9 @@ const Header = () => {
   const notifRef = useRef(null);
   const dropdownRef = useRef(null);
   const applyTriggerRef = useRef(null);
-  const headerEndRef = useRef(null); // New ref for header end
+  const headerEndRef = useRef(null);
   const navigate = useNavigate();
-  const location = useLocation(); // Get current location for active state
+  const location = useLocation();
 
   // Check screen size for mobile/desktop images
   useEffect(() => {
@@ -153,18 +146,25 @@ const Header = () => {
     }
   };
 
-  // Handle dropdown item click
-  const handleDropdownClick = (to) => {
+  // Handle dropdown item click - CORRECTED VERSION
+  const handleDropdownClick = (dropdownItem) => {
     setActiveDropdown(null);
     setMobileActiveDropdown(null);
     setIsMenuOpen(false);
 
-    navigate(to);
-
-    // Scroll to end of header after navigation
-    setTimeout(() => {
-      scrollToHeaderEnd();
-    }, 100);
+    // Check if it's a PDF or regular route
+    if (dropdownItem.type === 'pdf') {
+      // Open PDF in new tab
+      window.open(dropdownItem.to, '_blank');
+    } else {
+      // Navigate to route
+      navigate(dropdownItem.to);
+      
+      // Scroll to end of header after navigation
+      setTimeout(() => {
+        scrollToHeaderEnd();
+      }, 100);
+    }
   };
 
   // Slideshow autoplay
@@ -419,16 +419,16 @@ const Header = () => {
                       </button>
                       {activeDropdown === index && (
                         <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50 animate-fadeIn">
-                          {item.dropdownItems.map((dropdownItem) => (
+                          {item.dropdownItems.map((dropdownItem, dropdownIndex) => (
                             <button
-                              key={dropdownItem.to}
-                              onClick={() => handleDropdownClick(dropdownItem.to)}
-                              className={`flex items-center space-x-3 px-4 py-3 text-sm transition-colors duration-200 border-b border-gray-100 last:border-b-0 w-full text-left cursor-pointer ${isActiveNavItem(dropdownItem.to)
+                              key={`${dropdownItem.to}-${dropdownIndex}`}
+                              onClick={() => handleDropdownClick(dropdownItem)}
+                              className={`flex items-center space-x-3 px-4 py-3 text-sm transition-colors duration-200 border-b border-gray-100 last:border-b-0 w-full text-left cursor-pointer ${dropdownItem.type !== 'pdf' && isActiveNavItem(dropdownItem.to)
                                 ? "bg-slate-800 text-white"
                                 : "text-gray-700 hover:bg-gray-50 hover:text-blue-600"
                                 }`}
                             >
-                              <FaFileAlt size={14} className={`flex-shrink-0 ${isActiveNavItem(dropdownItem.to) ? "text-white" : "text-blue-500"
+                              <FaFileAlt size={14} className={`flex-shrink-0 ${dropdownItem.type !== 'pdf' && isActiveNavItem(dropdownItem.to) ? "text-white" : "text-blue-500"
                                 }`} />
                               <span className="truncate">{dropdownItem.label}</span>
                             </button>
@@ -507,16 +507,16 @@ const Header = () => {
                   </button>
                   {mobileActiveDropdown === index && (
                     <div className="bg-gray-50 border-l-4 border-blue-200">
-                      {item.dropdownItems.map((dropdownItem) => (
+                      {item.dropdownItems.map((dropdownItem, dropdownIndex) => (
                         <button
-                          key={dropdownItem.to}
-                          onClick={() => handleDropdownClick(dropdownItem.to)}
-                          className={`flex items-center space-x-3 px-10 py-3 text-sm transition-colors duration-200 w-full text-left cursor-pointer ${isActiveNavItem(dropdownItem.to)
+                          key={`${dropdownItem.to}-${dropdownIndex}`}
+                          onClick={() => handleDropdownClick(dropdownItem)}
+                          className={`flex items-center space-x-3 px-10 py-3 text-sm transition-colors duration-200 w-full text-left cursor-pointer ${dropdownItem.type !== 'pdf' && isActiveNavItem(dropdownItem.to)
                             ? "bg-slate-800 text-white"
                             : "text-gray-600 hover:bg-gray-100 hover:text-blue-600"
                             }`}
                         >
-                          <FaFileAlt size={12} className={`flex-shrink-0 ${isActiveNavItem(dropdownItem.to) ? "text-white" : "text-blue-500"
+                          <FaFileAlt size={12} className={`flex-shrink-0 ${dropdownItem.type !== 'pdf' && isActiveNavItem(dropdownItem.to) ? "text-white" : "text-blue-500"
                             }`} />
                           <span className="truncate">{dropdownItem.label}</span>
                         </button>
