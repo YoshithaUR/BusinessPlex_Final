@@ -23,12 +23,20 @@ import { GiTennisBall } from "react-icons/gi";
 import { BsFlag } from "react-icons/bs";
 import { FaGraduationCap } from "react-icons/fa";
 
-const IMAGES = [
+const DESKTOP_IMAGES = [
   images.image_one,
   images.image_two,
   images.image_three,
   images.image_four,
   images.image_five,
+];
+
+const MOBILE_IMAGES = [
+  images.mobile_image_one,
+  images.mobile_image_two,
+  images.mobile_image_three,
+  images.mobile_image_four,
+  images.mobile_image_five
 ];
 
 const NAV_ITEMS = [
@@ -72,6 +80,7 @@ const Header = () => {
   const [showApplyModal, setShowApplyModal] = useState(false);
   const [hasManuallyClosed, setHasManuallyClosed] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
 
   const timeoutRef = useRef(null);
   const slideshowRef = useRef(null);
@@ -81,6 +90,23 @@ const Header = () => {
   const headerEndRef = useRef(null); // New ref for header end
   const navigate = useNavigate();
   const location = useLocation(); // Get current location for active state
+
+  // Check screen size for mobile/desktop images
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  // Get current images based on screen size
+  const getCurrentImages = () => {
+    return isMobile ? MOBILE_IMAGES : DESKTOP_IMAGES;
+  };
 
   // Check if current path matches nav item
   const isActiveNavItem = (to) => {
@@ -92,7 +118,7 @@ const Header = () => {
 
   const scrollToHeaderEnd = () => {
     if (headerEndRef.current) {
-      headerEndRef.current.scrollIntoView({ 
+      headerEndRef.current.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
@@ -106,7 +132,7 @@ const Header = () => {
       setIsMenuOpen(false);
       // Close dropdown if open
       setActiveDropdown(null);
-      
+
       // Navigate to the route
       if (to.startsWith('http')) {
         // External link
@@ -114,7 +140,7 @@ const Header = () => {
       } else if (to !== '#') {
         navigate(to);
       }
-      
+
       // Scroll to end of header after a short delay to allow navigation
       setTimeout(() => {
         scrollToHeaderEnd();
@@ -127,22 +153,23 @@ const Header = () => {
     setActiveDropdown(null);
     setMobileActiveDropdown(null);
     setIsMenuOpen(false);
-    
+
     navigate(to);
-    
+
     // Scroll to end of header after navigation
     setTimeout(() => {
       scrollToHeaderEnd();
     }, 100);
   };
-  
+
   // Slideshow autoplay
   useEffect(() => {
     timeoutRef.current = setTimeout(() => {
-      setCurrentIndex((prev) => (prev + 1) % IMAGES.length);
+      const currentImages = getCurrentImages();
+      setCurrentIndex((prev) => (prev + 1) % currentImages.length);
     }, 5000);
     return () => clearTimeout(timeoutRef.current);
-  }, [currentIndex]);
+  }, [currentIndex, isMobile]);
 
   // Intersection observers and scroll handlers
   useEffect(() => {
@@ -355,8 +382,8 @@ const Header = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-3">
             {/* Logo */}
-            <div 
-              className="flex items-center space-x-3 flex-shrink-0 cursor-pointer" 
+            <div
+              className="flex items-center space-x-3 flex-shrink-0 cursor-pointer"
               onClick={() => handleNavClick('/')}
             >
               <img src={logo} alt="BusinessPlex Logo" className="h-8 w-auto" />
@@ -391,15 +418,13 @@ const Header = () => {
                             <button
                               key={dropdownItem.to}
                               onClick={() => handleDropdownClick(dropdownItem.to)}
-                              className={`flex items-center space-x-3 px-4 py-3 text-sm transition-colors duration-200 border-b border-gray-100 last:border-b-0 w-full text-left cursor-pointer ${
-                                isActiveNavItem(dropdownItem.to)
-                                  ? "bg-slate-800 text-white"
-                                  : "text-gray-700 hover:bg-gray-50 hover:text-blue-600"
-                              }`}
+                              className={`flex items-center space-x-3 px-4 py-3 text-sm transition-colors duration-200 border-b border-gray-100 last:border-b-0 w-full text-left cursor-pointer ${isActiveNavItem(dropdownItem.to)
+                                ? "bg-slate-800 text-white"
+                                : "text-gray-700 hover:bg-gray-50 hover:text-blue-600"
+                                }`}
                             >
-                              <FaFileAlt size={14} className={`flex-shrink-0 ${
-                                isActiveNavItem(dropdownItem.to) ? "text-white" : "text-blue-500"
-                              }`} />
+                              <FaFileAlt size={14} className={`flex-shrink-0 ${isActiveNavItem(dropdownItem.to) ? "text-white" : "text-blue-500"
+                                }`} />
                               <span className="truncate">{dropdownItem.label}</span>
                             </button>
                           ))}
@@ -409,11 +434,10 @@ const Header = () => {
                   ) : (
                     <button
                       onClick={() => handleNavClick(item.to)}
-                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap cursor-pointer ${
-                        isActiveNavItem(item.to)
-                          ? "bg-slate-800 text-white shadow-lg"
-                          : "text-gray-700 hover:bg-slate-100 hover:text-slate-800"
-                      }`}
+                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap cursor-pointer ${isActiveNavItem(item.to)
+                        ? "bg-slate-800 text-white shadow-lg"
+                        : "text-gray-700 hover:bg-slate-100 hover:text-slate-800"
+                        }`}
                     >
                       {item.label}
                     </button>
@@ -482,15 +506,13 @@ const Header = () => {
                         <button
                           key={dropdownItem.to}
                           onClick={() => handleDropdownClick(dropdownItem.to)}
-                          className={`flex items-center space-x-3 px-10 py-3 text-sm transition-colors duration-200 w-full text-left cursor-pointer ${
-                            isActiveNavItem(dropdownItem.to)
-                              ? "bg-slate-800 text-white"
-                              : "text-gray-600 hover:bg-gray-100 hover:text-blue-600"
-                          }`}
+                          className={`flex items-center space-x-3 px-10 py-3 text-sm transition-colors duration-200 w-full text-left cursor-pointer ${isActiveNavItem(dropdownItem.to)
+                            ? "bg-slate-800 text-white"
+                            : "text-gray-600 hover:bg-gray-100 hover:text-blue-600"
+                            }`}
                         >
-                          <FaFileAlt size={12} className={`flex-shrink-0 ${
-                            isActiveNavItem(dropdownItem.to) ? "text-white" : "text-blue-500"
-                          }`} />
+                          <FaFileAlt size={12} className={`flex-shrink-0 ${isActiveNavItem(dropdownItem.to) ? "text-white" : "text-blue-500"
+                            }`} />
                           <span className="truncate">{dropdownItem.label}</span>
                         </button>
                       ))}
@@ -500,11 +522,10 @@ const Header = () => {
               ) : (
                 <button
                   onClick={() => handleNavClick(item.to)}
-                  className={`block px-6 py-4 font-medium border-l-4 transition-colors duration-200 w-full text-left cursor-pointer ${
-                    isActiveNavItem(item.to)
-                      ? "bg-slate-800 text-white border-slate-800"
-                      : "text-gray-700 hover:bg-gray-50 hover:text-slate-800 border-transparent hover:border-slate-800"
-                  }`}
+                  className={`block px-6 py-4 font-medium border-l-4 transition-colors duration-200 w-full text-left cursor-pointer ${isActiveNavItem(item.to)
+                    ? "bg-slate-800 text-white border-slate-800"
+                    : "text-gray-700 hover:bg-gray-50 hover:text-slate-800 border-transparent hover:border-slate-800"
+                    }`}
                 >
                   {item.label}
                 </button>
@@ -528,7 +549,7 @@ const Header = () => {
       {/* Slideshow Section */}
       <div className="relative pt-24">
         <div ref={slideshowRef} className="relative w-full h-[70vh] sm:h-[75vh] md:h-[80vh] lg:h-[85vh] overflow-hidden bg-gray-900">
-          {IMAGES.map((src, index) => (
+          {getCurrentImages().map((src, index) => (
             <div
               key={index}
               className={`absolute inset-0 transition-all duration-1000 ease-in-out ${index === currentIndex
@@ -548,7 +569,7 @@ const Header = () => {
 
           {/* Slide Indicators */}
           <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
-            {IMAGES.map((_, index) => (
+            {getCurrentImages().map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
