@@ -323,7 +323,9 @@ const AboutUs = () => {
             Let us help you turn your business dreams into reality.
           </p>
           <button className="bg-white text-green-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-xl">
+            <a href="tel:+08 6156 5820">
             Contact Us Today
+            </a>
           </button>
         </div>
       </section>
