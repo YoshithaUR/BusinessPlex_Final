@@ -129,10 +129,6 @@ const images = {
   image_END01,
 
 
-  // PDF
-  pdf_ExploringSelf,
-  pdf_SmallBusiness,
-  pdf_StudentInformation,
 
   mobile_image_one,
   mobile_image_two,
