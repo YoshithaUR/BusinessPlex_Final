@@ -128,7 +128,7 @@ const Home = () => {
   };
 
   return (
-    <div className="w-full overflow-x-hidden">
+    <div className="w-full">
       {/* Business Support Services Section */}
       <section className="relative bg-amber-50 py-12 md:py-16 lg:py-20 px-4 md:px-6 lg:px-8 font-[Poppins,Roboto,sans-serif] overflow-hidden">
         {/* Background Decorations */}

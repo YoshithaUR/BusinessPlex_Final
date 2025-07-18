@@ -145,7 +145,7 @@ const MainFooter = () => {
   ];
 
   return (
-    <footer className="relative z-20 text-white">
+    <footer className="relative z-20 text-white mt-10">
       {/* Scroll to Top Button */}
       <div className="relative z-30">
         <button
