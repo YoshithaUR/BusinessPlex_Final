@@ -224,9 +224,9 @@ const Qualifications = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
                 className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-bold hover:shadow-2xl hover:shadow-indigo-500/30 transition-all duration-300 hover:scale-105 transform">
-                  
+                  <a href="tel:+08 6156 5820">
                   Contact Now
-                
+                </a>
                 </button>
                 <button 
                 className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-2xl font-bold hover:border-indigo-300 hover:text-indigo-600 transition-all duration-300 hover:scale-105 transform bg-white/50">

@@ -829,7 +829,9 @@ function enrolment() {
 
         {/* Footer */}
         <div className="text-center mt-12 mb-12 text-gray-600">
-          <p className="mt-2">Need assistance? Contact our enrollment team at <a href="admin@businessplex.com.au" className="text-blue-600 hover:underline">admin@businessplex.com.au</a> or call <a href="tel: 1300 894 480" className="text-blue-600 hover:underline"> 1300 894 480</a></p>
+          <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 border border-amber-400">
+          <p className="text-sm text-gray-600 font-[Poppins,Roboto,sans-serif]">Need assistance? Contact our enrollment team at <span className="text-blue-700 font-semibold"><a href="admin@businessplex.com.au" className="text-blue-600 hover:underline">admin@businessplex.com.au</a></span> or call <span className="text-blue-700 font-semibold"><a href="tel: 1300 894 480" className="text-blue-600 hover:underline"> 1300 894 480</a></span></p>
+          </div>
         </div>
       </div>
     </div>

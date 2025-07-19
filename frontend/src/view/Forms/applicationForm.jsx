@@ -199,20 +199,20 @@ const ApplicationForm = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-black mb-2">
-            Phone Number *
-          </label>
-          <div className="relative text-black">
-            <Phone className="absolute left-3 top-3.5 w-5 h-5 text-black" />
-            <input
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleInputChange}
-              className={`w-full pl-12 pr-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200  text-black${
-                errors.phone ? 'border-red-500' : 'border-amber-400'
-              }`}
-              placeholder="0400 000 000"
+        <label className="block text-sm font-semibold text-black mb-2">
+          Phone Number *
+        </label>
+        <div className="relative text-black">
+          <Phone className="absolute left-3 top-3.5 w-5 h-5 text-black" />
+          <input
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            onChange={handleInputChange}
+            className={`w-full pl-12 pr-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-black ${
+              errors.phone ? 'border-red-500' : 'border-amber-400'
+            }`}
+            placeholder="0400 000 000"
             />
           </div>
           {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}

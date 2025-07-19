@@ -36,6 +36,8 @@ const AboutUs = () => {
     { name: "Amila Rathnayake", role: "IT Consultant" },
   ];
 
+  
+
   return (
     <div className="bg-white text-gray-800 font-sans select-none">
       {/* Hero Section */}
@@ -48,7 +50,6 @@ const AboutUs = () => {
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src={images.video_aboutVideo} type="video/mp4" />
-          {/* <source src="/path/to/your/video.webm" type="video/webm" /> */}
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-black/50" />
@@ -61,11 +62,24 @@ const AboutUs = () => {
           }}
         />
         <div className="relative z-10 text-center px-4 max-w-4xl">
-          <h1 className={`text-4xl md:text-6xl font-extrabold text-white mb-6 transition-all duration-1000 drop-shadow-lg ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h1
+            className={`text-4xl md:text-6xl font-extrabold text-white mb-6 transition-all duration-1000 drop-shadow-lg ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
             Welcome to <span className="text-blue-300">BUSINESSPLEX</span>
           </h1>
-          <p className={`text-lg md:text-xl text-white/90 max-w-xl mx-auto transition-all duration-1000 delay-300 drop-shadow-md ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Empowering growth through knowledge, innovation and quality learning.
+          <p
+            className={`text-lg md:text-xl text-white/90 max-w-xl mx-auto transition-all duration-1000 delay-300 drop-shadow-md ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            Empowering growth through knowledge, innovation and quality
+            learning.
           </p>
         </div>
       </section>
@@ -86,13 +100,22 @@ const AboutUs = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center animate-pulse">
                 <Megaphone className="text-white w-8 h-8" />
               </div>
-              <h3 className="text-4xl font-extrabold text-blue-600">About Us</h3>
+              <h3 className="text-4xl font-extrabold text-blue-600">
+                About Us
+              </h3>
             </div>
             <p className="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto">
-              Businessplex is an <span className="font-semibold bg-yellow-100 px-1 rounded">Australian-owned</span> Registered Training Organisation
+              Businessplex is an{" "}
+              <span className="font-semibold bg-yellow-100 px-1 rounded">
+                Australian-owned
+              </span>{" "}
+              Registered Training Organisation
               <span className="inline-flex items-center gap-1 bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm font-semibold ml-2">
                 (RTO ID: 45725)
-              </span>. Since 2022, we’ve been committed to helping individuals turn their business ideas into reality by delivering nationally accredited training and real-world support.
+              </span>
+              . Since 2022, we’ve been committed to helping individuals turn
+              their business ideas into reality by delivering nationally
+              accredited training and real-world support.
             </p>
 
             <div className="mt-6 inline-flex items-center justify-center gap-2 bg-green-100 text-green-800 px-4 py-1 rounded-full text-sm font-semibold w-fit mx-auto">
@@ -110,8 +133,14 @@ const AboutUs = () => {
                 Primary Qualifications
               </h4>
               <ul className="text-gray-700 space-y-2 pl-4">
-                <li className="list-disc"><strong>BSB30220</strong> – Certificate III in Entrepreneurship and New Business</li>
-                <li className="list-disc"><strong>BSB40220</strong> – Certificate IV in Entrepreneurship and New Business</li>
+                <li className="list-disc">
+                  <strong>BSB30220</strong> – Certificate III in
+                  Entrepreneurship and New Business
+                </li>
+                <li className="list-disc">
+                  <strong>BSB40220</strong> – Certificate IV in Entrepreneurship
+                  and New Business
+                </li>
               </ul>
             </div>
 
@@ -122,8 +151,12 @@ const AboutUs = () => {
                 Additional Qualifications
               </h4>
               <ul className="text-gray-700 space-y-2 pl-4">
-                <li className="list-disc"><strong>BSB30120</strong> – Certificate III in Business</li>
-                <li className="list-disc"><strong>BSB50920</strong> – Diploma of Quality Auditing</li>
+                <li className="list-disc">
+                  <strong>BSB30120</strong> – Certificate III in Business
+                </li>
+                <li className="list-disc">
+                  <strong>BSB50920</strong> – Diploma of Quality Auditing
+                </li>
               </ul>
             </div>
           </div>
@@ -131,12 +164,12 @@ const AboutUs = () => {
           {/* Call to Action */}
           <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-4 px-6 rounded-3xl shadow-xl text-center max-w-2xl mx-auto">
             <p className="text-lg font-semibold">
-              ✓ Government-Funded Programs Available — Start Your Business Journey with Confidence!
+              ✓ Government-Funded Programs Available — Start Your Business
+              Journey with Confidence!
             </p>
           </div>
         </div>
       </section>
-
 
       {/* Vision & Mission Section */}
       <section className="relative py-20 px-6 md:px-20 mb-20">
@@ -151,11 +184,14 @@ const AboutUs = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center animate-pulse">
                 <Lightbulb className="text-white w-8 h-8" />
               </div>
-              <h3 className="text-4xl font-extrabold text-green-600">Our Vision</h3>
+              <h3 className="text-4xl font-extrabold text-green-600">
+                Our Vision
+              </h3>
             </div>
             <p className="text-gray-700 text-lg leading-relaxed max-w-2xl mx-auto">
-              To provide top quality support and services to enable clients to grow their business dreams
-              and achieve sustainable success in today's competitive marketplace.
+              To provide top quality support and services to enable clients to
+              grow their business dreams and achieve sustainable success in
+              today's competitive marketplace.
             </p>
           </div>
 
@@ -164,11 +200,14 @@ const AboutUs = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center animate-pulse">
                 <Users className="text-white w-8 h-8" />
               </div>
-              <h3 className="text-4xl font-extrabold text-green-600">Our Mission</h3>
+              <h3 className="text-4xl font-extrabold text-green-600">
+                Our Mission
+              </h3>
             </div>
             <p className="text-gray-700 text-lg leading-relaxed max-w-2xl mx-auto">
-              To be the preferred Self-Employment Assistance Program provider, delivering exceptional
-              training, mentoring, and support services that empower individuals to build thriving businesses.
+              To be the preferred Self-Employment Assistance Program provider,
+              delivering exceptional training, mentoring, and support services
+              that empower individuals to build thriving businesses.
             </p>
           </div>
         </div>
@@ -242,18 +281,31 @@ const AboutUs = () => {
               </h2>
             </div>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Gish has worked in the NEIS and SEA programs for 9 years, bringing extensive experience
-              in business development, training, and mentoring. With a passion for empowering entrepreneurs
-              and a track record of successful business launches, Gish leads our team with vision and dedication.
+              Gish has worked in the NEIS and SEA programs for 9 years, bringing
+              extensive experience in business development, training, and
+              mentoring. With a passion for empowering entrepreneurs and a track
+              record of successful business launches, Gish leads our team with
+              vision and dedication.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
                 <Mail className="text-green-600 w-5 h-5" />
-                <span className="text-gray-700 font-medium">gish@businessplex.com.au</span>
+                <span className="text-gray-700 font-medium">
+                  <a
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=gish@businessplex.com.au"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-700">
+                    gish@businessplex.com.au
+                  </a>
+                </span>
               </div>
               <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
                 <Phone className="text-green-600 w-5 h-5" />
-                <span className="text-gray-700 font-medium">08 6156 5319</span>
+                <span className="text-gray-700 font-medium">
+                  <a href="tel:08 6156 5319"
+                   className="hover:text-blue-700">08 6156 5319</a>
+                </span>
               </div>
             </div>
           </div>
@@ -273,12 +325,16 @@ const AboutUs = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center animate-pulse">
                 <Users className="text-white w-8 h-8" />
               </div>
-              <h2 className="text-4xl font-bold text-green-600">Meet Our Team</h2>
+              <h2 className="text-4xl font-bold text-green-600">
+                Meet Our Team
+              </h2>
             </div>
             <p className="text-gray-700 text-lg max-w-2xl mx-auto">
-              Our team is made up of experienced professionals dedicated to helping individuals turn business
-              ideas into reality. With a focus on practical support, personalised mentoring, and nationally
-              recognised training, we’re here to guide you every step of the way toward business success
+              Our team is made up of experienced professionals dedicated to
+              helping individuals turn business ideas into reality. With a focus
+              on practical support, personalised mentoring, and nationally
+              recognised training, we’re here to guide you every step of the way
+              toward business success
             </p>
           </div>
 
@@ -319,11 +375,11 @@ const AboutUs = () => {
             Ready to Transform Your Future?
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Join the Businessplex community and take your skills to the next level.
-            Let us help you turn your business dreams into reality.
+            Join the Businessplex community and take your skills to the next
+            level. Let us help you turn your business dreams into reality.
           </p>
           <button className="bg-white text-green-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-xl">
-            Contact Us Today
+            <a href="tel:+08 6156 5820">Contact Us Today</a>
           </button>
         </div>
       </section>
