@@ -196,22 +196,22 @@ const Home = () => {
 
       <ApplyNow />
 
-      {/* Eligibility Criteria Section */}
+      {/* Eligibility Criteria Section
       <section className="relative bg-gradient-to-br from-amber-100 via-white to-amber-50 py-12 md:py-16 lg:py-20 px-4 md:px-6 lg:px-8 font-[Poppins,Roboto,sans-serif] overflow-hidden">
         {/* Background Decorations */}
-        <div
+        {/* <div
           className="absolute inset-0 opacity-10 z-0"
           style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.08) 1px, transparent 0)`,
             backgroundSize: "30px 30px",
           }}
-        ></div>
+        ></div> */}
 
         {/* Main Content Wrapper */}
-        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        {/* <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center"> */}
 
           {/* Image Column */}
-          <div
+          {/* <div
             className="relative w-full h-64 md:h-80 lg:h-[450px] overflow-hidden rounded-3xl shadow-2xl group order-2 lg:order-1"
             data-aos="zoom-in"
             data-aos-delay="300"
@@ -221,10 +221,10 @@ const Home = () => {
               alt="Performance Criteria"
               className="w-full h-full object-cover rounded-3xl transition-transform duration-700 ease-in-out group-hover:scale-105"
             />
-          </div>
+          </div> */}
 
           {/* Content Column */}
-          <div className="order-1 lg:order-2">
+          {/* <div className="order-1 lg:order-2">
             <h2
               className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-6 md:mb-8 lg:mb-10 tracking-tight text-center lg:text-left"
               data-aos="fade-right"
@@ -253,7 +253,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Hero Section */}
       <section className="py-12 md:py-16 lg:py-20 px-4 md:px-6 lg:px-8 bg-amber-50">

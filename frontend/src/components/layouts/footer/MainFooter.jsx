@@ -108,7 +108,7 @@ const MainFooter = () => {
       icon: <MdEmail className="flex-shrink-0 mt-1" size={16} />,
       content: (
         <a
-          href="mailto:admin@businessplex.com.au"
+         href="https://mail.google.com/mail/?view=cm&fs=1&to=admin@businessplex.com.au"
           className="hover:text-amber-400 transition-colors duration-200 break-words"
         >
           admin@businessplex.com.au
@@ -119,7 +119,7 @@ const MainFooter = () => {
 
   const socialLinks = [
     {
-      href: "https://wa.me/",
+      href: "https://wa.me/ ?text=Hello%20Businessplex%2C%20I%20am%20interested%20in%20your%20programs.%20Please%20send%20me%20details.",
       icon: <FaWhatsapp size={20} />,
       label: "WhatsApp",
       hoverColor: "hover:text-green-500"
