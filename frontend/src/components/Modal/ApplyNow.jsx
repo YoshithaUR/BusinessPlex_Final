@@ -62,7 +62,6 @@ const ApplyNow = () => {
               </a>
             </div>
           </div>
-          this is fixed
         </div>
       )}
     </>
