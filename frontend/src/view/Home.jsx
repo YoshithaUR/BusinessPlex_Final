@@ -200,28 +200,6 @@ const Home = () => {
 
       <ApplyNow />
 
-
-      {/* Eligibility Criteria Section */}
-      {/* <section className="relative bg-gradient-to-br from-amber-100 via-white to-amber-50 py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif] overflow-hidden"> */}
-
-        {/* Background Decorations */}
-        {/* <div
-          className="absolute inset-0 opacity-10 z-0"
-          style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.08) 1px, transparent 0)`,
-            backgroundSize: "30px 30px",
-          }}
-        ></div> */}
-
-        {/* Main Content Wrapper */}
-
-        {/* <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center"> */}
-
-          {/* Image Column */}
-          {/* <div
-            className="relative w-full h-64 md:h-80 lg:h-[450px] overflow-hidden rounded-3xl shadow-2xl group order-2 lg:order-1"
-        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
-
           {/* Image Column */}
           <div
             className="relative w-full h-48 sm:h-64 md:h-80 lg:h-[450px] overflow-hidden rounded-3xl shadow-2xl group order-2 lg:order-1"
@@ -233,38 +211,6 @@ const Home = () => {
               className="w-full h-full object-cover rounded-3xl transition-transform duration-700 ease-in-out group-hover:scale-105"
             />
           </div> 
-
-          {/* Content Column */}
-          {/* <div className="order-1 lg:order-2">
-            <h2
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-4 sm:mb-6 md:mb-8 lg:mb-10 tracking-tight text-center lg:text-left"
-              data-aos="fade-right"
-            >
-              Businessplex Eligibility Criteria
-            </h2>
-
-            <div className="space-y-3 sm:space-y-4 md:space-y-6">
-              {paragraphData2.map((text, index) => (
-                <div
-                  key={index}
-                  className="relative group cursor-pointer transition-all"
-                  data-aos="fade-up"
-                  data-aos-delay={index * 100}
-                >
-                  <div className="flex items-start gap-2 sm:gap-3 md:gap-4 p-2 sm:p-3 md:p-4 rounded-xl shadow-md bg-white/60 backdrop-blur-xl border border-gray-200 hover:shadow-xl transition-transform transform hover:scale-[1.02]">
-                    <div className="flex-shrink-0 mt-1">
-                      <span className="block w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 bg-yellow-400 rounded-full animate-ping shadow-md"></span>
-                    </div>
-                    <p className="text-gray-800 text-xs sm:text-sm md:text-base leading-relaxed">
-                      {text}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Hero Section */}
       <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 bg-amber-50">
@@ -718,7 +664,7 @@ const Home = () => {
               className="space-y-2 sm:space-y-3 text-white text-xs sm:text-sm md:text-[15px] leading-relaxed mb-6 sm:mb-7 md:mb-8"
               data-aos="fade-up"
               data-aos-delay="300"
-            >
+              >
               {services[serviceModalIndex].points.map((point, i) => (
                 <li
                   key={i}

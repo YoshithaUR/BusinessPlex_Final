@@ -37,7 +37,7 @@ const MOBILE_IMAGES = [
   images.mobile_image_two,
   images.mobile_image_three,
   images.mobile_image_four,
-  images.mobile_image_five
+  images.mobile_image_five,
 ];
 
 const NAV_ITEMS = [
@@ -52,13 +52,24 @@ const NAV_ITEMS = [
     dropdownItems: [
       { to: "/applicationForm", label: "Application Form", type: "route" },
       { to: "/enrolment", label: "Enrolment Form", type: "route" },
-      { to: pdf.pdf_businessRegistration, label: "Business Registration Form", type: "pdf" },
-      { to: pdf.pdf_expression_pdf, label: "Expression of Interest Form", type: "pdf" },
+      {
+        to: pdf.pdf_businessRegistration,
+        label: "Business Registration Form",
+        type: "pdf",
+      },
+      {
+        to: pdf.pdf_expression_pdf,
+        label: "Expression of Interest Form",
+        type: "pdf",
+      },
       { to: pdf.pdf_feedback, label: "Monthly Feedback Form", type: "pdf" },
-    ]
+    ],
   },
   { to: "/policies", label: "Our Policies" },
-  { to: "https://businessplex.e-learnme.com.au/login/index.php", label: "Student Login" },
+  {
+    to: "https://businessplex.e-learnme.com.au/login/index.php",
+    label: "Student Login",
+  },
 ];
 
 const highlights = [
@@ -96,9 +107,9 @@ const Header = () => {
     };
 
     checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
+    window.addEventListener("resize", checkScreenSize);
 
-    return () => window.removeEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
   // Get current images based on screen size
@@ -108,8 +119,8 @@ const Header = () => {
 
   // Check if current path matches nav item
   const isActiveNavItem = (to) => {
-    if (to === '/') {
-      return location.pathname === '/';
+    if (to === "/") {
+      return location.pathname === "/";
     }
     return location.pathname.startsWith(to);
   };
@@ -117,8 +128,8 @@ const Header = () => {
   const scrollToHeaderEnd = () => {
     if (headerEndRef.current) {
       headerEndRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
+        behavior: "smooth",
+        block: "start",
       });
     }
   };
@@ -132,10 +143,10 @@ const Header = () => {
       setActiveDropdown(null);
 
       // Navigate to the route
-      if (to.startsWith('http')) {
+      if (to.startsWith("http")) {
         // External link
-        window.open(to, '_blank');
-      } else if (to !== '#') {
+        window.open(to, "_blank");
+      } else if (to !== "#") {
         navigate(to);
       }
 
@@ -153,13 +164,13 @@ const Header = () => {
     setIsMenuOpen(false);
 
     // Check if it's a PDF or regular route
-    if (dropdownItem.type === 'pdf') {
+    if (dropdownItem.type === "pdf") {
       // Open PDF in new tab
-      window.open(dropdownItem.to, '_blank');
+      window.open(dropdownItem.to, "_blank");
     } else {
       // Navigate to route
       navigate(dropdownItem.to);
-      
+
       // Scroll to end of header after navigation
       setTimeout(() => {
         scrollToHeaderEnd();
@@ -183,7 +194,8 @@ const Header = () => {
       { threshold: 0.1 }
     );
     if (slideshowRef.current) observer.observe(slideshowRef.current);
-    return () => slideshowRef.current && observer.unobserve(slideshowRef.current);
+    return () =>
+      slideshowRef.current && observer.unobserve(slideshowRef.current);
   }, []);
 
   useEffect(() => {
@@ -199,13 +211,26 @@ const Header = () => {
   // Outside click handlers
   useEffect(() => {
     const handleOutsideClick = (e) => {
-      if (isMenuOpen && !e.target.closest(".mobile-menu") && !e.target.closest(".hamburger-button")) {
+      if (
+        isMenuOpen &&
+        !e.target.closest(".mobile-menu") &&
+        !e.target.closest(".hamburger-button")
+      ) {
         setIsMenuOpen(false);
       }
-      if (isNotifOpen && notifRef.current && !notifRef.current.contains(e.target) && !e.target.closest(".notif-bell-icon")) {
+      if (
+        isNotifOpen &&
+        notifRef.current &&
+        !notifRef.current.contains(e.target) &&
+        !e.target.closest(".notif-bell-icon")
+      ) {
         setIsNotifOpen(false);
       }
-      if (activeDropdown && dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      if (
+        activeDropdown &&
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target)
+      ) {
         setActiveDropdown(null);
       }
     };
@@ -379,7 +404,7 @@ const Header = () => {
   );
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden">
+    <div className="relative w-full min-h-screen overflow-hidden pt-10">
       <BlueNavBar />
 
       {/* Main Navigation */}
@@ -389,7 +414,7 @@ const Header = () => {
             {/* Logo */}
             <div
               className="flex items-center space-x-3 flex-shrink-0 cursor-pointer"
-              onClick={() => handleNavClick('/')}
+              onClick={() => handleNavClick("/")}
             >
               <img src={logo} alt="BusinessPlex Logo" className="h-8 w-auto" />
               <span className="text-xl font-bold text-slate-800 hidden sm:block">
@@ -400,49 +425,71 @@ const Header = () => {
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-1">
               {NAV_ITEMS.map((item, index) => (
-                <div key={item.to} className="relative" ref={item.hasDropdown ? dropdownRef : null}>
+                <div
+                  key={item.to}
+                  className="relative"
+                  ref={item.hasDropdown ? dropdownRef : null}
+                >
                   {item.hasDropdown ? (
                     <>
                       <button
                         onClick={() => handleDropdownToggle(index)}
-                        className={`flex items-center space-x-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer ${activeDropdown === index
-                          ? "bg-slate-800 text-white shadow-lg"
-                          : "text-gray-700 hover:bg-slate-100 hover:text-slate-800"
-                          }`}
+                        className={`flex items-center space-x-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer ${
+                          activeDropdown === index
+                            ? "bg-slate-800 text-white shadow-lg"
+                            : "text-gray-700 hover:bg-slate-100 hover:text-slate-800"
+                        }`}
                       >
                         <span>{item.label}</span>
                         <FaChevronDown
-                          className={`transition-transform duration-200 ${activeDropdown === index ? 'rotate-180' : ''
-                            }`}
+                          className={`transition-transform duration-200 ${
+                            activeDropdown === index ? "rotate-180" : ""
+                          }`}
                           size={12}
                         />
                       </button>
                       {activeDropdown === index && (
                         <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50 animate-fadeIn">
-                          {item.dropdownItems.map((dropdownItem, dropdownIndex) => (
-                            <button
-                              key={`${dropdownItem.to}-${dropdownIndex}`}
-                              onClick={() => handleDropdownClick(dropdownItem)}
-                              className={`flex items-center space-x-3 px-4 py-3 text-sm transition-colors duration-200 border-b border-gray-100 last:border-b-0 w-full text-left cursor-pointer ${dropdownItem.type !== 'pdf' && isActiveNavItem(dropdownItem.to)
-                                ? "bg-slate-800 text-white"
-                                : "text-gray-700 hover:bg-gray-50 hover:text-blue-600"
+                          {item.dropdownItems.map(
+                            (dropdownItem, dropdownIndex) => (
+                              <button
+                                key={`${dropdownItem.to}-${dropdownIndex}`}
+                                onClick={() =>
+                                  handleDropdownClick(dropdownItem)
+                                }
+                                className={`flex items-center space-x-3 px-4 py-3 text-sm transition-colors duration-200 border-b border-gray-100 last:border-b-0 w-full text-left cursor-pointer ${
+                                  dropdownItem.type !== "pdf" &&
+                                  isActiveNavItem(dropdownItem.to)
+                                    ? "bg-slate-800 text-white"
+                                    : "text-gray-700 hover:bg-gray-50 hover:text-blue-600"
                                 }`}
-                            >
-                              <FaFileAlt size={14} className={`flex-shrink-0 ${dropdownItem.type !== 'pdf' && isActiveNavItem(dropdownItem.to) ? "text-white" : "text-blue-500"
-                                }`} />
-                              <span className="truncate">{dropdownItem.label}</span>
-                            </button>
-                          ))}
+                              >
+                                <FaFileAlt
+                                  size={14}
+                                  className={`flex-shrink-0 ${
+                                    dropdownItem.type !== "pdf" &&
+                                    isActiveNavItem(dropdownItem.to)
+                                      ? "text-white"
+                                      : "text-blue-500"
+                                  }`}
+                                />
+                                <span className="truncate">
+                                  {dropdownItem.label}
+                                </span>
+                              </button>
+                            )
+                          )}
                         </div>
                       )}
                     </>
                   ) : (
                     <button
                       onClick={() => handleNavClick(item.to)}
-                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap cursor-pointer ${isActiveNavItem(item.to)
-                        ? "bg-slate-800 text-white shadow-lg"
-                        : "text-gray-700 hover:bg-slate-100 hover:text-slate-800"
-                        }`}
+                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap cursor-pointer ${
+                        isActiveNavItem(item.to)
+                          ? "bg-slate-800 text-white shadow-lg"
+                          : "text-gray-700 hover:bg-slate-100 hover:text-slate-800"
+                      }`}
                     >
                       {item.label}
                     </button>
@@ -465,19 +512,25 @@ const Header = () => {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-black/50 z-40 lg:hidden" onClick={closeMenu} />
+        <div
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={closeMenu}
+        />
       )}
 
       {/* Mobile Menu */}
       <div
-        className={`mobile-menu fixed top-0 right-0 h-full w-80 max-w-[90vw] bg-white shadow-2xl z-50 transform transition-transform duration-300 overflow-y-auto ${isMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`mobile-menu fixed top-0 right-0 h-full w-80 max-w-[90vw] bg-white shadow-2xl z-50 transform transition-transform duration-300 overflow-y-auto ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         {/* Mobile Menu Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50">
           <div className="flex items-center space-x-3">
             <img src={logo} alt="BusinessPlex Logo" className="h-8 w-auto" />
-            <span className="text-lg font-bold text-slate-800">BusinessPlex</span>
+            <span className="text-lg font-bold text-slate-800">
+              BusinessPlex
+            </span>
           </div>
           <button
             onClick={closeMenu}
@@ -500,8 +553,9 @@ const Header = () => {
                   >
                     <span className="font-medium">{item.label}</span>
                     <FaChevronDown
-                      className={`transition-transform duration-200 ${mobileActiveDropdown === index ? 'rotate-180' : ''
-                        }`}
+                      className={`transition-transform duration-200 ${
+                        mobileActiveDropdown === index ? "rotate-180" : ""
+                      }`}
                       size={14}
                     />
                   </button>
@@ -511,13 +565,22 @@ const Header = () => {
                         <button
                           key={`${dropdownItem.to}-${dropdownIndex}`}
                           onClick={() => handleDropdownClick(dropdownItem)}
-                          className={`flex items-center space-x-3 px-10 py-3 text-sm transition-colors duration-200 w-full text-left cursor-pointer ${dropdownItem.type !== 'pdf' && isActiveNavItem(dropdownItem.to)
-                            ? "bg-slate-800 text-white"
-                            : "text-gray-600 hover:bg-gray-100 hover:text-blue-600"
-                            }`}
+                          className={`flex items-center space-x-3 px-10 py-3 text-sm transition-colors duration-200 w-full text-left cursor-pointer ${
+                            dropdownItem.type !== "pdf" &&
+                            isActiveNavItem(dropdownItem.to)
+                              ? "bg-slate-800 text-white"
+                              : "text-gray-600 hover:bg-gray-100 hover:text-blue-600"
+                          }`}
                         >
-                          <FaFileAlt size={12} className={`flex-shrink-0 ${dropdownItem.type !== 'pdf' && isActiveNavItem(dropdownItem.to) ? "text-white" : "text-blue-500"
-                            }`} />
+                          <FaFileAlt
+                            size={12}
+                            className={`flex-shrink-0 ${
+                              dropdownItem.type !== "pdf" &&
+                              isActiveNavItem(dropdownItem.to)
+                                ? "text-white"
+                                : "text-blue-500"
+                            }`}
+                          />
                           <span className="truncate">{dropdownItem.label}</span>
                         </button>
                       ))}
@@ -527,10 +590,11 @@ const Header = () => {
               ) : (
                 <button
                   onClick={() => handleNavClick(item.to)}
-                  className={`block px-6 py-4 font-medium border-l-4 transition-colors duration-200 w-full text-left cursor-pointer ${isActiveNavItem(item.to)
-                    ? "bg-slate-800 text-white border-slate-800"
-                    : "text-gray-700 hover:bg-gray-50 hover:text-slate-800 border-transparent hover:border-slate-800"
-                    }`}
+                  className={`block px-6 py-4 font-medium border-l-4 transition-colors duration-200 w-full text-left cursor-pointer ${
+                    isActiveNavItem(item.to)
+                      ? "bg-slate-800 text-white border-slate-800"
+                      : "text-gray-700 hover:bg-gray-50 hover:text-slate-800 border-transparent hover:border-slate-800"
+                  }`}
                 >
                   {item.label}
                 </button>
@@ -553,14 +617,18 @@ const Header = () => {
 
       {/* Slideshow Section */}
       <div className="relative pt-24">
-        <div ref={slideshowRef} className="relative w-full h-[70vh] sm:h-[75vh] md:h-[80vh] lg:h-[85vh] overflow-hidden bg-gray-900">
+        <div
+          ref={slideshowRef}
+          className="relative w-full h-[70vh] sm:h-[75vh] md:h-[80vh] lg:h-[85vh] overflow-hidden bg-gray-900"
+        >
           {getCurrentImages().map((src, index) => (
             <div
               key={index}
-              className={`absolute inset-0 transition-all duration-1000 ease-in-out ${index === currentIndex
-                ? "opacity-100 scale-100"
-                : "opacity-0 scale-105"
-                }`}
+              className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                index === currentIndex
+                  ? "opacity-100 scale-100"
+                  : "opacity-0 scale-105"
+              }`}
             >
               <img
                 src={src}
@@ -578,10 +646,11 @@ const Header = () => {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`transition-all duration-300 rounded-full cursor-pointer ${index === currentIndex
-                  ? "w-8 h-3 bg-white shadow-lg"
-                  : "w-3 h-3 bg-white/50 hover:bg-white/75"
-                  }`}
+                className={`transition-all duration-300 rounded-full cursor-pointer ${
+                  index === currentIndex
+                    ? "w-8 h-3 bg-white shadow-lg"
+                    : "w-3 h-3 bg-white/50 hover:bg-white/75"
+                }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
@@ -593,23 +662,14 @@ const Header = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10" />
           <div className="relative max-w-7xl mx-auto px-4">
             <div className="flex justify-center items-center space-x-8 md:space-x-16">
-              {highlights.map((item, index) => (
-                <div
-                  key={index}
-                  className="group flex items-center space-x-3 text-white hover:scale-105 transition-transform duration-300 cursor-pointer"
-                >
-                  <div className="relative">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                      <div className="text-white group-hover:scale-110 transition-transform duration-300">
-                        {React.cloneElement(item.icon, { size: 20 })}
-                      </div>
-                    </div>
-                  </div>
-                  <span className="font-semibold text-sm md:text-base text-white group-hover:text-blue-200 transition-colors duration-300">
-                    {item.title}
-                  </span>
+              <div className="group flex items-center space-x-3 text-white hover:scale-105 transition-transform duration-300 cursor-pointer">
+                <div className="relative">
+                  {/* <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                    <div className="text-white group-hover:scale-110 transition-transform duration-300"></div>
+                  </div> */}
                 </div>
-              ))}
+                <span className="font-semibold text-sm md:text-base text-white group-hover:text-blue-200 transition-colors duration-300"></span>
+              </div>
             </div>
           </div>
         </div>
@@ -622,11 +682,13 @@ const Header = () => {
       {showContactButton && (
         <div className="fixed top-32 right-4 z-10">
           <button
-            onClick={() => window.location.href = "tel:1300894480"}
+            onClick={() => (window.location.href = "tel:1300894480")}
             className="flex items-center space-x-2 bg-gradient-to-r from-slate-800 to-red-600 text-white px-4 py-2 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transform transition-all duration-300 border border-white/20 cursor-pointer"
           >
             <FaPhoneAlt size={14} className="animate-pulse" />
-            <span className="font-semibold text-sm hidden sm:inline">Contact Us</span>
+            <span className="font-semibold text-sm hidden sm:inline">
+              Contact Us
+            </span>
             <span className="font-semibold text-sm sm:inline">Call</span>
           </button>
         </div>
@@ -644,7 +706,10 @@ const Header = () => {
       )} */}
 
       {/* Trigger element for apply modal */}
-      <div ref={applyTriggerRef} className="absolute bottom-0 left-0 w-full h-1" />
+      <div
+        ref={applyTriggerRef}
+        className="absolute bottom-0 left-0 w-full h-1"
+      />
 
       <style>
         {`

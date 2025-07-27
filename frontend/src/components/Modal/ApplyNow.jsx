@@ -32,9 +32,8 @@ const ApplyNow = () => {
 
   return (
     <>
-      {/* 👇 This is the scroll trigger div */}
       <div ref={applyTriggerRef}></div>
-      /* 👇 Modal */
+
       {showApplyModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
           <div className="bg-white p-4 rounded-lg shadow-lg w-72 relative">
