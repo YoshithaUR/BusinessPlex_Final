@@ -16,7 +16,7 @@ import { MdEmail } from "react-icons/md";
 
 import images from "../assets/Images/images";
 import pdf from "../assets/Images/pdf";
-import ApplyNow from "../components/Modal/.ApplyNow";
+import ApplyNow from "../components/Modal/ApplyNow"; 
 
 const Home = () => {
   const [serviceModalIndex, setServiceModalIndex] = useState(null);
