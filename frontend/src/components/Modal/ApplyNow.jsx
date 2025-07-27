@@ -42,7 +42,7 @@ const ApplyNow = () => {
                 setShowApplyModal(false);
                 setHasManuallyClosed(true);
               }}
-              className="absolute top-2 right-2 text-gray-600 hover:text-red-500"
+              className="absolute top-2 right-2 text-gray-600 hover:text-red-500 cursor-pointer focus:outline-none"
               title="Close"
             >
               <FaTimes />
