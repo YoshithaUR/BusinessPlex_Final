@@ -5,14 +5,14 @@ import "aos/dist/aos.css";
 import { FaStar, FaHandPointRight } from "react-icons/fa";
 import { TiTickOutline } from "react-icons/ti";
 import { CheckCircle, Users, Building2, Shield, AlertCircle, FileText, Award, Globe } from 'lucide-react';
-import {
-  FaPhoneAlt,
-  FaWhatsapp,
-  FaYoutube,
-  FaFacebook,
-  FaLinkedin,
-} from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
+// import {
+//   FaPhoneAlt,
+//   FaWhatsapp,
+//   FaYoutube,
+//   FaFacebook,
+//   FaLinkedin,
+// } from "react-icons/fa";
+// import { MdEmail } from "react-icons/md";
 
 import images from "../assets/Images/images";
 import pdf from "../assets/Images/pdf";
@@ -41,12 +41,12 @@ const Home = () => {
     "Business Advice.",
   ];
 
-  const paragraphData2 = [
-    "You must be at least 18 years of age for Small Business Training",
-    "You must not be prohibited by law from working in Australia",
-    "You must not be an overseas visitor on a working holiday visa or an overseas student studying in Australia",
-    "You cannot be an undischarged bankrupt.",
-  ];
+  // const paragraphData2 = [
+  //   "You must be at least 18 years of age for Small Business Training",
+  //   "You must not be prohibited by law from working in Australia",
+  //   "You must not be an overseas visitor on a working holiday visa or an overseas student studying in Australia",
+  //   "You cannot be an undischarged bankrupt.",
+  // ];
 
   const services = [
     {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -8,7 +8,7 @@ import {
   FaInstagram,
   FaSearch,
   FaPhoneAlt,
-  FaArrowUp,
+  // FaArrowUp,
   FaBars,
   FaTimes,
   FaBell,
@@ -20,9 +20,9 @@ import images from "../../assets/Images/images";
 import pdf from "../../assets/Images/pdf";
 import logo from "../../assets/Images/HomeSlideShow/logo.png";
 
-import { GiTennisBall } from "react-icons/gi";
-import { BsFlag } from "react-icons/bs";
-import { FaGraduationCap } from "react-icons/fa";
+// import { GiTennisBall } from "react-icons/gi";
+// import { BsFlag } from "react-icons/bs";
+// import { FaGraduationCap } from "react-icons/fa";
 
 const DESKTOP_IMAGES = [
   images.image_one,
@@ -72,11 +72,11 @@ const NAV_ITEMS = [
   },
 ];
 
-const highlights = [
-  { icon: <GiTennisBall size={24} />, title: "Perth Based" },
-  { icon: <BsFlag size={24} />, title: "Nationally Recognized" },
-  { icon: <FaGraduationCap size={24} />, title: "E-Skilled LMS" },
-];
+// const highlights = [
+//   { icon: <GiTennisBall size={24} />, title: "Perth Based" },
+//   { icon: <BsFlag size={24} />, title: "Nationally Recognized" },
+//   { icon: <FaGraduationCap size={24} />, title: "E-Skilled LMS" },
+// ];
 
 const Header = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -418,7 +418,7 @@ const Header = () => {
             >
               <img src={logo} alt="BusinessPlex Logo" className="h-8 w-auto" />
               <span className="text-xl font-bold text-slate-800 hidden sm:block">
-                BusinessPlex
+                Businessplex
               </span>
             </div>
 
@@ -629,6 +629,7 @@ const Header = () => {
                   ? "opacity-100 scale-100"
                   : "opacity-0 scale-105"
               }`}
+              style={{ pointerEvents: index === currentIndex ? "auto" : "none" }}
             >
               <img
                 src={src}
@@ -636,6 +637,25 @@ const Header = () => {
                 className="w-full h-full object-cover"
                 loading={index === 0 ? "eager" : "lazy"}
               />
+              {/* Overlay clickable area only on image_two */}
+              {src === images.image_two && index === currentIndex && (
+                <button
+                  onClick={() => console.log("clicked")}
+                  style={{
+                    position: "absolute",
+                    left: "690px",
+                    top: "470px",
+                    width: `${868 - 690}px`,
+                    height: `${506 - 470}px`,
+                    background: "rgba(0,0,0,0.1)", // Slightly visible for testing, set to 'transparent' for production
+                    border: "none",
+                    cursor: "pointer",
+                    zIndex: 10,
+                  }}
+                  aria-label="applyone_one"
+                  title="applyone_one"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
             </div>
           ))}

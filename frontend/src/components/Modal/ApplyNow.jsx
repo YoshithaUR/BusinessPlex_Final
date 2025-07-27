@@ -51,7 +51,7 @@ const ApplyNow = () => {
               Ready to Enroll?
             </h2>
             <p className="text-sm mb-4 text-center text-gray-700">
-              Apply now to start your journey with us and unlock your potential!
+              Ready to start your business journey?
             </p>
             <div className="flex justify-center">
               <a
