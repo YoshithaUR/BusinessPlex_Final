@@ -44,7 +44,7 @@ const NAV_ITEMS = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/qualifications", label: "Qualification" },
-  { to: "/trainingResources", label: "Training Resources" },
+  // { to: "/trainingResources", label: "Training Resources" },
   {
     to: "#",
     label: "Forms",
