@@ -125,9 +125,9 @@ const AboutUs = () => {
           </div>
 
           {/* Qualifications */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> */}
             {/* Primary */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-xl text-left space-y-4">
+            {/* <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-xl text-left space-y-4">
               <h4 className="text-xl font-bold text-green-700 flex items-center gap-2">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-ping" />
                 Primary Qualifications
@@ -142,10 +142,10 @@ const AboutUs = () => {
                   and New Business
                 </li>
               </ul>
-            </div>
+            </div> */}
 
             {/* Additional */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-xl text-left space-y-4">
+            {/* <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-xl text-left space-y-4">
               <h4 className="text-xl font-bold text-purple-700 flex items-center gap-2">
                 <div className="w-3 h-3 bg-purple-500 rounded-full animate-ping" />
                 Additional Qualifications
@@ -158,16 +158,16 @@ const AboutUs = () => {
                   <strong>BSB50920</strong> – Diploma of Quality Auditing
                 </li>
               </ul>
-            </div>
-          </div>
+            </div> */}
+          {/* </div> */}
 
           {/* Call to Action */}
-          <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-4 px-6 rounded-3xl shadow-xl text-center max-w-2xl mx-auto">
+          {/* <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-4 px-6 rounded-3xl shadow-xl text-center max-w-2xl mx-auto">
             <p className="text-lg font-semibold">
               ✓ Government-Funded Programs Available — Start Your Business
               Journey with Confidence!
             </p>
-          </div>
+          </div> */}
         </div>
       </section>
 
