@@ -616,7 +616,7 @@ const Header = () => {
       </div>
 
       {/* Slideshow Section */}
-      <div className="relative pt-24">
+      <div className="relative pt-15">
         <div
           ref={slideshowRef}
           className="relative w-full h-[70vh] sm:h-[75vh] md:h-[80vh] lg:h-[85vh] overflow-hidden bg-gray-900"
