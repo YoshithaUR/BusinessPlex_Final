@@ -18,13 +18,13 @@ import {
 
 const trainingData = [
   {
-    period: 'July/August 2025',
-    weeks: [
-      { week: 1, classroom: ['22nd July', '25th July'], online: ['23rd July', '24th July'] },
-      { week: 2, classroom: ['29th July', '01st Aug'], online: ['30th July', '31st July'] },
-      { week: 3, classroom: ['05th Aug', '08th Aug'], online: ['06th Aug', '07th Aug'] },
-      { week: 4, classroom: ['12th Aug', '15th Aug'], online: ['13th Aug', '14th Aug'] },
-    ],
+    // // period: 'July/August 2025',
+    // // weeks: [
+    // //   { week: 1, classroom: ['22nd July', '25th July'], online: ['23rd July', '24th July'] },
+    // //   { week: 2, classroom: ['29th July', '01st Aug'], online: ['30th July', '31st July'] },
+    // //   { week: 3, classroom: ['05th Aug', '08th Aug'], online: ['06th Aug', '07th Aug'] },
+    // //   { week: 4, classroom: ['12th Aug', '15th Aug'], online: ['13th Aug', '14th Aug'] },
+    // ],
   },
   {
     period: 'August/September 2025',
