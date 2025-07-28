@@ -66,23 +66,24 @@ const Home = () => {
       modalImage: images.image_Card01,
       backgroundImage: images.image_ServicePopup01,
     },
-    {
-      title: "Business Advice",
-      image: images.image_Card02,
-      gif: images.image_GIF02,
+     {
+      title: "Exploring Self-Employment Workshop",
+      image: images.image_Card04,
+      gif: images.image_GIF04,
       paragraph: [
-        "Our Business Advice Sessions are personalised, one-hour consultations with an experienced business advisor. Whether you're starting out or already running a business, these sessions are designed to provide practical guidance tailored to your unique needs.",
-        "You can use these sessions for:",
+        "Our Exploring Self-Employment Workshops are designed to help you understand the fundamentals of self-employment and assess if it's the right path for you. Workshops are delivered one day a week over four weeks, giving you time to reflect and apply what you learn. ",
+        "Through these sessions, you'll gain the skills to:",
       ],
       points: [
-        "Strategies to improve your business's commercial viability ",
-        "Support on a wide range of small business-related topics",
-        "Referrals to other relevant business support networks ",
-        "If you're eligible, you can access up to 2 free sessions every 12 months.",
+        "Understand what's involved in starting and managing a business",
+        "Develop or validate a business idea",
+        "Make an informed decision about pursuing self-employment",
+        "This is the ideal first step if you're unsure about where to begin or whether running a business suits your goals.",
       ],
-      modalImage: images.image_Card02,
-      backgroundImage: images.image_ServicePopup02,
+      modalImage: images.image_Card04,
+      backgroundImage: images.image_ServicePopup04,
     },
+    
     {
       title: "Business Health Check",
       image: images.image_Card03,
@@ -101,22 +102,23 @@ const Home = () => {
       backgroundImage: images.image_ServicePopup03,
     },
     {
-      title: "Exploring Self-Employment Workshop",
-      image: images.image_Card04,
-      gif: images.image_GIF04,
+      title: "Business Advice",
+      image: images.image_Card02,
+      gif: images.image_GIF02,
       paragraph: [
-        "Our Exploring Self-Employment Workshops are designed to help you understand the fundamentals of self-employment and assess if it's the right path for you. Workshops are delivered one day a week over four weeks, giving you time to reflect and apply what you learn. ",
-        "Through these sessions, you'll gain the skills to:",
+        "Our Business Advice Sessions are personalised, one-hour consultations with an experienced business advisor. Whether you're starting out or already running a business, these sessions are designed to provide practical guidance tailored to your unique needs.",
+        "You can use these sessions for:",
       ],
       points: [
-        "Understand what's involved in starting and managing a business",
-        "Develop or validate a business idea",
-        "Make an informed decision about pursuing self-employment",
-        "This is the ideal first step if you're unsure about where to begin or whether running a business suits your goals.",
+        "Strategies to improve your business's commercial viability ",
+        "Support on a wide range of small business-related topics",
+        "Referrals to other relevant business support networks ",
+        "If you're eligible, you can access up to 2 free sessions every 12 months.",
       ],
-      modalImage: images.image_Card04,
-      backgroundImage: images.image_ServicePopup04,
+      modalImage: images.image_Card02,
+      backgroundImage: images.image_ServicePopup02,
     },
+   
   ];
 
   const openServiceModal = (index) => {
