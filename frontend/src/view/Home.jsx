@@ -201,7 +201,7 @@ const Home = () => {
       <ApplyNow />
 
           {/* Image Column */}
-          <div
+          {/* <div
             className="relative w-full h-48 sm:h-64 md:h-80 lg:h-[450px] overflow-hidden rounded-3xl shadow-2xl group order-2 lg:order-1"
 
           >
@@ -210,7 +210,7 @@ const Home = () => {
               alt="Performance Criteria"
               className="w-full h-full object-cover rounded-3xl transition-transform duration-700 ease-in-out group-hover:scale-105"
             />
-          </div> 
+          </div>  */}
 
       {/* Hero Section */}
       <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 bg-amber-50">
