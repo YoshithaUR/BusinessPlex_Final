@@ -471,77 +471,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Self-Employment Program Section */}
-      <section
-        className="relative w-full min-h-[40vh] sm:min-h-[50vh] md:min-h-[70vh] lg:min-h-[80vh] overflow-hidden mb-4"
-        data-aos="fade-in"
-      >
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition duration-700"
-          style={{
-            backgroundImage: `url(${images.image_program})`,
-          }}
-          data-aos="fade-in"
-          data-aos-duration="1000"
-        >
-          <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black/70 to-transparent"></div>
-        </div>
-
-        <div className="absolute inset-0 bg-black/60 z-0" />
-
-        <div className="relative z-10 flex flex-col md:flex-row justify-center items-center h-full px-4 sm:px-6 md:px-8 text-white">
-          <div
-            className="w-full md:w-2/3 mb-4 sm:mb-6 md:mb-0 mt-6 sm:mt-8 md:mt-16 bg-white/10 backdrop-blur-md p-3 sm:p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"
-            data-aos="fade-right"
-            data-aos-duration="900"
-            data-aos-delay="150"
-          >
-            <h1
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-extrabold mb-3 sm:mb-4 md:mb-6 drop-shadow-md text-center md:text-left font-[Montserrat,Open_Sans,sans-serif]"
-              data-aos="fade-up"
-              data-aos-duration="900"
-              data-aos-delay="300"
-            >
-              Self-Employment Assistance Program
-            </h1>
-
-            <p
-              className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-relaxed text-center md:text-left md:text-justify max-w-2xl font-[Poppins,Roboto,sans-serif]"
-              data-aos="fade-up"
-              data-aos-duration="900"
-              data-aos-delay="450"
-            >
-              We offer a range of practical workshops across{" "}
-              <strong>Perth, Australia</strong>. They are{" "}
-              <strong>delivered</strong> by selected presenters who are
-              specialists in their subject matters and have a background in
-              small business. Self-Employment Assistance Program is{" "}
-              <strong>funded</strong> by the Australian Federal Government to
-              assist unemployed, under-employed and owners of existing
-              micro-businesses (with up to 4 employees) to explore opportunities
-              for self-employment.
-            </p>
-          </div>
-
-          <div
-            className="w-full md:w-1/3 flex justify-center md:justify-end mt-2 sm:mt-4 md:mt-0"
-            data-aos="fade-left"
-            data-aos-duration="900"
-            data-aos-delay="600"
-          >
-            <div className="text-center pt-4 sm:pt-6 md:pt-10" data-aos="zoom-in" data-aos-delay="600">
-              <button
-                onClick={() => navigate("/SelfEmployment")}
-                className="bg-white text-green-800 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full font-semibold flex items-center justify-center mx-auto hover:scale-105 hover:bg-gray-100 transition duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.2),0_0_10px_rgba(34,197,94,0.6)] text-xs sm:text-sm md:text-base"
-              >
-                Read More
-                <FaHandPointRight className="ml-2 text-sm sm:text-base md:text-lg lg:text-xl" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Services Section */}
       <section className="bg-amber-50 py-6 sm:py-8 md:py-12 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif]">
         <div className="max-w-7xl mx-auto">
@@ -706,7 +635,76 @@ const Home = () => {
           </div>
         </div>
       )}
+  {/* Self-Employment Program Section */}
+      <section
+        className="relative w-full min-h-[40vh] sm:min-h-[50vh] md:min-h-[70vh] lg:min-h-[80vh] overflow-hidden mb-4"
+        data-aos="fade-in"
+      >
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition duration-700"
+          style={{
+            backgroundImage: `url(${images.image_program})`,
+          }}
+          data-aos="fade-in"
+          data-aos-duration="1000"
+        >
+          <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black/70 to-transparent"></div>
+        </div>
 
+        <div className="absolute inset-0 bg-black/60 z-0" />
+
+        <div className="relative z-10 flex flex-col md:flex-row justify-center items-center h-full px-4 sm:px-6 md:px-8 text-white">
+          <div
+            className="w-full md:w-2/3 mb-4 sm:mb-6 md:mb-0 mt-6 sm:mt-8 md:mt-16 bg-white/10 backdrop-blur-md p-3 sm:p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"
+            data-aos="fade-right"
+            data-aos-duration="900"
+            data-aos-delay="150"
+          >
+            <h1
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-extrabold mb-3 sm:mb-4 md:mb-6 drop-shadow-md text-center md:text-left font-[Montserrat,Open_Sans,sans-serif]"
+              data-aos="fade-up"
+              data-aos-duration="900"
+              data-aos-delay="300"
+            >
+              Self-Employment Assistance Program
+            </h1>
+
+            <p
+              className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-relaxed text-center md:text-left md:text-justify max-w-2xl font-[Poppins,Roboto,sans-serif]"
+              data-aos="fade-up"
+              data-aos-duration="900"
+              data-aos-delay="450"
+            >
+              We offer a range of practical workshops across{" "}
+              <strong>Perth, Australia</strong>. They are{" "}
+              <strong>delivered</strong> by selected presenters who are
+              specialists in their subject matters and have a background in
+              small business. Self-Employment Assistance Program is{" "}
+              <strong>funded</strong> by the Australian Federal Government to
+              assist unemployed, under-employed and owners of existing
+              micro-businesses (with up to 4 employees) to explore opportunities
+              for self-employment.
+            </p>
+          </div>
+
+          <div
+            className="w-full md:w-1/3 flex justify-center md:justify-end mt-2 sm:mt-4 md:mt-0"
+            data-aos="fade-left"
+            data-aos-duration="900"
+            data-aos-delay="600"
+          >
+            <div className="text-center pt-4 sm:pt-6 md:pt-10" data-aos="zoom-in" data-aos-delay="600">
+              <button
+                onClick={() => navigate("/SelfEmployment")}
+                className="bg-white text-green-800 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full font-semibold flex items-center justify-center mx-auto hover:scale-105 hover:bg-gray-100 transition duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.2),0_0_10px_rgba(34,197,94,0.6)] text-xs sm:text-sm md:text-base"
+              >
+                Read More
+                <FaHandPointRight className="ml-2 text-sm sm:text-base md:text-lg lg:text-xl" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Contact Section */}
       <section
         className="w-full py-6 sm:py-8 md:py-12 bg-amber-50 flex items-center justify-center px-4"
