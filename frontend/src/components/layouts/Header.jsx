@@ -534,7 +534,7 @@ const Header = () => {
           </div>
           <button
             onClick={closeMenu}
-            className="p-2 rounded-lg text-gray-500 hover:text-red-500 hover:bg-red-50 transition-colors duration-200 cursor-pointer"
+            className="p-2 rounded-lg text-gray-500 hover:text--500 hover:bg-red-50 transition-colors duration-200 cursor-pointer"
             aria-label="Close mobile menu"
           >
             <FaTimes size={18} />
@@ -703,7 +703,7 @@ const Header = () => {
         <div className="fixed top-32 right-4 z-10">
           <button
             onClick={() => (window.location.href = "tel:1300894480")}
-            className="flex items-center space-x-2 bg-gradient-to-r from-slate-800 to-red-600 text-white px-4 py-2 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transform transition-all duration-300 border border-white/20 cursor-pointer"
+            className="flex items-center space-x-2 bg-gradient-to-r from-slate-800 to-blue-600 text-white px-4 py-2 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transform transition-all duration-300 border border-white/20 cursor-pointer"
           >
             <FaPhoneAlt size={14} className="animate-pulse" />
             <span className="font-semibold text-sm hidden sm:inline">

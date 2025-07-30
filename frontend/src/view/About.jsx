@@ -39,7 +39,7 @@ const AboutUs = () => {
   
 
   return (
-    <div className="bg-white text-gray-800 font-sans select-none">
+    <div className="bg-gradient-to-br from-white via-green-50 to-yellow-50 text-gray-800 font-sans select-none">
       {/* Hero Section */}
       <section className="relative h-[85vh] overflow-hidden flex items-center justify-center mb-20">
         <video
@@ -85,7 +85,7 @@ const AboutUs = () => {
       </section>
 
       {/* About Section */}
-      <section className="relative py-20 px-6 md:px-20 overflow-hidden">
+      <section className="relative py-20 px-6 md:px-20 overflow-hidden bg-gradient-to-br from-white via-green-50 to-yellow-50">
         {/* Soft gradient background */}
         <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-white to-purple-50" />
         <div className="absolute inset-0 opacity-10">
@@ -95,12 +95,12 @@ const AboutUs = () => {
         {/* Main content */}
         <div className="relative z-10 max-w-5xl mx-auto text-center space-y-16">
           {/* About Us Card */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl">
+          <div className="bg-gradient-to-br from-white via-green-50 to-yellow-50 backdrop-blur-sm rounded-3xl p-8 shadow-xl">
             <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center animate-pulse">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center animate-pulse">
                 <Megaphone className="text-white w-8 h-8" />
               </div>
-              <h3 className="text-4xl font-extrabold text-blue-600">
+              <h3 className="text-4xl font-extrabold text-dark">
                 About Us
               </h3>
             </div>
@@ -118,8 +118,8 @@ const AboutUs = () => {
               accredited training and real-world support.
             </p>
 
-            <div className="mt-6 inline-flex items-center justify-center gap-2 bg-green-100 text-green-800 px-4 py-1 rounded-full text-sm font-semibold w-fit mx-auto">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-ping" />
+            <div className="mt-6 inline-flex items-center justify-center gap-2 bg-blue-100 text-blue-800 px-4 py-1 rounded-full text-sm font-semibold w-fit mx-auto">
+              <div className="w-2 h-2 bg-blue-500 rounded-full animate-ping" />
               Government-Accredited Training Provider
             </div>
           </div>
@@ -173,18 +173,18 @@ const AboutUs = () => {
 
       {/* Vision & Mission Section */}
       <section className="relative py-20 px-6 md:px-20 mb-20">
-        <div className="absolute inset-0 bg-gradient-to-r from-green-50 via-blue-50 to-purple-50" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white via-green-50 to-yellow-50" />
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-green-400 via-blue-400 to-purple-400" />
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white via-green-50 to-yellow-50" />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto text-center space-y-16">
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl">
             <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center animate-pulse">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center animate-pulse">
                 <Lightbulb className="text-white w-8 h-8" />
               </div>
-              <h3 className="text-4xl font-extrabold text-green-600">
+              <h3 className="text-4xl font-extrabold text-black">
                 Our Vision
               </h3>
             </div>
@@ -197,10 +197,10 @@ const AboutUs = () => {
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl">
             <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center animate-pulse">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center animate-pulse">
                 <Users className="text-white w-8 h-8" />
               </div>
-              <h3 className="text-4xl font-extrabold text-green-600">
+              <h3 className="text-4xl font-extrabold text-black">
                 Our Mission
               </h3>
             </div>
@@ -254,8 +254,8 @@ const AboutUs = () => {
 
       {/* CEO Section */}
       <section className="relative py-20 px-6 md:px-20 mb-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-white to-blue-50" />
-        <div className="absolute top-20 right-10 w-80 h-80 bg-green-200 opacity-20 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white via-green-50 to-yellow-50" />
+        <div className="absolute top-20 right-10 w-80 h-80 bg-gradient-to-br from-white via-green-50 to-yellow-50 opacity-20 rounded-full blur-3xl" />
         <div className="absolute bottom-10 left-10 w-72 h-72 bg-blue-200 opacity-20 rounded-full blur-3xl" />
 
         <div className="relative z-10 flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
@@ -275,8 +275,8 @@ const AboutUs = () => {
 
           <div className="flex-1 text-center md:text-left space-y-6">
             <div className="flex items-center gap-4 justify-center md:justify-start">
-              <Award className="text-green-600 w-8 h-8" />
-              <h2 className="text-3xl font-bold text-green-700">
+              <Award className="text-blue-800 w-12 h-12" />
+              <h2 className="text-3xl font-bold text-black">
                 We will help you to start or grow your business
               </h2>
             </div>
@@ -289,7 +289,7 @@ const AboutUs = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
-                <Mail className="text-green-600 w-5 h-5" />
+                <Mail className="text-blue-800 w-5 h-5" />
                 <span className="text-gray-700 font-medium">
                   <a
                     href="https://mail.google.com/mail/?view=cm&fs=1&to=gish@businessplex.com.au"
@@ -301,7 +301,7 @@ const AboutUs = () => {
                 </span>
               </div>
               <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
-                <Phone className="text-green-600 w-5 h-5" />
+                <Phone className="text-blue-800 w-5 h-5" />
                 <span className="text-gray-700 font-medium">
                   <a href="tel:08 6156 5319"
                    className="hover:text-blue-700">08 6156 5319</a>
@@ -316,16 +316,16 @@ const AboutUs = () => {
       <section className="relative py-20 px-6 md:px-20 mb-20">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100" />
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-green-600" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-green-50 to-yellow-50" />
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center animate-pulse">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-700 to-blue-800 rounded-full flex items-center justify-center animate-pulse">
                 <Users className="text-white w-8 h-8" />
               </div>
-              <h2 className="text-4xl font-bold text-green-600">
+              <h2 className="text-4xl font-bold text-darck">
                 Meet Our Team
               </h2>
             </div>
@@ -342,9 +342,9 @@ const AboutUs = () => {
             {team.map((member, idx) => (
               <article
                 key={idx}
-                className="group bg-white rounded-tl-[50px] rounded-br-[50px] rounded-tr-lg rounded-bl-lg shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2"
+                className="group bg-gradient-to-br from-white via-green-50 to-yellow-50 rounded-tl-[50px] rounded-br-[50px] rounded-tr-lg rounded-bl-lg shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2"
               >
-                <div className="relative h-64 bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
+                <div className="relative h-64 bg-gradient-to-br from-blue-400 to-blue-800 flex items-center justify-center">
                   <div className="text-center text-white">
                     <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                       <Users className="w-10 h-10" />
@@ -353,7 +353,7 @@ const AboutUs = () => {
                   </div>
                 </div>
                 <div className="p-6 text-center">
-                  <span className="inline-block bg-gradient-to-r from-green-600 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium">
+                  <span className="inline-block bg-gradient-to-r from-blue-500 to-blue-800 text-white px-4 py-2 rounded-full text-sm font-medium">
                     {member.role}
                   </span>
                 </div>
@@ -367,7 +367,7 @@ const AboutUs = () => {
       <section className="relative py-20 px-6 md:px-20 mb-20">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900" />
         <div className="absolute inset-0 opacity-30">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-green-600" />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-600 to-green-600" />
         </div>
 
         <div className="relative z-10 text-center max-w-4xl mx-auto">
@@ -378,7 +378,7 @@ const AboutUs = () => {
             Join the Businessplex community and take your skills to the next
             level. Let us help you turn your business dreams into reality.
           </p>
-          <button className="bg-white text-green-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-xl">
+          <button className="bg-white text-blue-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-xl">
             <a href="tel:+08 6156 5820">Contact Us Today</a>
           </button>
         </div>

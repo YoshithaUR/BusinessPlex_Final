@@ -73,10 +73,10 @@ const LearnerSupportPolicy = () => {
     };
 
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-gradient-to-br from-white via-green-50 to-yellow-50">
             <div className="max-w-4xl mx-auto p-6">
                 <div className="text-center mb-12">
-                    <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-black to-blue-800 bg-clip-text text-transparent">
                         Learner Support Policy
                     </h1>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -105,7 +105,7 @@ const LearnerSupportPolicy = () => {
                                     className="w-full text-left px-6 py-5 flex justify-between items-center cursor-pointer transition-all duration-200 hover:bg-gray-50 rounded-t-xl"
                                 >
                                     <div className="flex items-center space-x-3">
-                                        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold ${isOpen ? 'bg-blue-500' : 'bg-gray-400'
+                                        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold ${isOpen ? 'bg-blue-800' : 'bg-blue-400'
                                             }`}>
                                             {index + 1}
                                         </div>

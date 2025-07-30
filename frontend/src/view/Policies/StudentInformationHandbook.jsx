@@ -47,8 +47,8 @@ const StudentInformationHandbook = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto p-6">
-            <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">Student Information Handbook</h1>
+        <div className="max-w-4xl mx-auto p-6 bg-gradient-to-br from-white via-green-50 to-yellow-50 ">
+            <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-black to-blue-800 bg-clip-text text-transparent">Student Information Handbook</h1>
             <div className="space-y-6">
                 {topics.map((topic, index) => {
                     const isOpen = openIndex === index;
@@ -63,7 +63,7 @@ const StudentInformationHandbook = () => {
                                 className="w-full text-left px-6 py-4 bg-white hover:bg-gray-200 text-lg font-medium flex justify-between items-center cursor-pointer"
                             >
                                 <span className="text-gray-800">{topic.title}</span>
-                                <span className="text-xl text-gray-800">{isOpen ? '−' : '+'}</span>
+                                <span className="text-xl text-blue-800">{isOpen ? '−' : '+'}</span>
                             </button>
 
                             <div

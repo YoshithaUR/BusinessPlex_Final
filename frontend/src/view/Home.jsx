@@ -216,7 +216,7 @@ const StarRating = ({ rating }) => {
   return (
     <div className="w-full overflow-x-hidden">
       {/* Business Support Services Section */}
-      <section className="relative bg-amber-50 py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif] overflow-hidden">
+      <section className="relative bg-gradient-to-br from-white via-green-50 to-yellow-50 py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif] overflow-hidden">
         {/* Background Decorations */}
         <div
           className="absolute inset-0 opacity-5 z-0"
@@ -238,7 +238,7 @@ const StarRating = ({ rating }) => {
               Business Support Services
             </h2>
 
-            <div className="relative border-l-4 border-yellow-400 pl-3 sm:pl-4 md:pl-6 space-y-4 sm:space-y-6 md:space-y-8">
+            <div className="relative border-l-4 border-blue-700 pl-3 sm:pl-4 md:pl-6 space-y-4 sm:space-y-6 md:space-y-8">
               {paragraphData.map((text, index) => (
                 <div
                   key={index}
@@ -247,12 +247,12 @@ const StarRating = ({ rating }) => {
                   data-aos-delay={index * 100}
                 >
                   {/* Ping Dot */}
-                  <div className="absolute -left-1.5 sm:-left-2 md:-left-3 top-1.5 w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 rounded-full bg-yellow-400 shadow-lg border-2 sm:border-2 md:border-4 border-white z-10 animate-ping-slow"></div>
+                  <div className="absolute -left-1.5 sm:-left-2 md:-left-3 top-1.5 w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 rounded-full bg-blue-700 shadow-lg border-2 sm:border-2 md:border-4 border-white z-10 animate-ping-slow"></div>
 
                   {/* Text Card */}
                   <div className="bg-white/80 p-2 sm:p-3 md:p-4 lg:p-5 rounded-xl shadow-md border border-gray-200 hover:shadow-xl transition duration-300 backdrop-blur-lg cursor-pointer group-hover:scale-[1.02] transform">
                     <div className="flex items-start gap-2 md:gap-3">
-                      <TiTickOutline className="text-yellow-500 text-base sm:text-lg md:text-xl animate-bounce flex-shrink-0 mt-0.5" />
+                      <TiTickOutline className="text-blue-500 text-base sm:text-lg md:text-xl animate-bounce flex-shrink-0 mt-0.5" />
                       <p className="text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed font-[Poppins,Roboto,sans-serif]">
                         {text}
                       </p>
@@ -297,7 +297,7 @@ const StarRating = ({ rating }) => {
      
 
       {/* Services Section */}
-      <section className="bg-amber-50 py-6 sm:py-8 md:py-12 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif]">
+      <section className="bg-gradient-to-br from-white via-green-50 to-yellow-50 py-6 sm:py-8 md:py-12 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif]">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
             {services.map((service, index) => (
@@ -322,7 +322,8 @@ const StarRating = ({ rating }) => {
 
                   {/* Content */}
                   <div className="relative z-10 text-white text-center px-2 md:px-4">
-                    <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold tracking-wider text-green-300 drop-shadow-lg animate-fade-in mb-4 font-[Montserrat,Open_Sans,sans-serif] leading-tight">
+                    <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold tracking-wider text-white  drop-shadow-lg animate-fade-in mb-4 font-[Montserrat,Open_Sans,sans-serif] leading-tight"
+                    style={{ WebkitTextStroke: "1px amber-700" }}>
                       {service.title}
                     </h3>
                   </div>
@@ -340,7 +341,7 @@ const StarRating = ({ rating }) => {
                   <div className="absolute inset-0 bg-black/60 z-0" />
                   <button
                     onClick={() => openServiceModal(index)}
-                    className="relative z-10 bg-transparent border border-orange-600 text-white font-semibold px-3 sm:px-4 md:px-6 py-2 md:py-3 rounded-full shadow-lg font-[Poppins,Roboto,sans-serif] text-xs sm:text-sm md:text-base hover:bg-orange-600/20 transition-all duration-300"
+                    className="relative z-10 bg-transparent border border-blue-800 text-white  font-semibold px-3 sm:px-4 md:px-6 py-2 md:py-3 rounded-full shadow-lg font-[Poppins,Roboto,sans-serif] text-xs sm:text-sm md:text-base hover:bg-blue-600/20 transition-all duration-300"
                   >
                     Read More
                   </button>
@@ -442,7 +443,7 @@ const StarRating = ({ rating }) => {
                 onClick={() =>
                   handleApplyNow(services[serviceModalIndex].title)
                 }
-                className="group bg-green-600 hover:bg-green-700 text-white font-bold px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full shadow-lg transition-colors duration-300 flex items-center gap-2 text-xs sm:text-sm md:text-base"
+                className="group bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full shadow-lg transition-colors duration-300 flex items-center gap-2 text-xs sm:text-sm md:text-base"
               >
                 Apply Now
                 <FaHandPointRight className="transition-transform duration-300 group-hover:translate-x-2" />
@@ -463,7 +464,7 @@ const StarRating = ({ rating }) => {
 
 
        {/* Hero Section */}
-      <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 bg-amber-50">
+      <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-white via-green-50 to-yellow-50">
         <div className="max-w-6xl mx-auto text-center">
           <div data-aos="fade-down" data-aos-duration="1200">
             <Award className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 text-blue-600 mx-auto mb-3 sm:mb-4 md:mb-6" />
@@ -478,10 +479,10 @@ const StarRating = ({ rating }) => {
       </section>
 
       {/* General Requirements Section */}
-      <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 bg-amber-50">
+      <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-white via-green-50 to-yellow-50">
         <div className="max-w-6xl mx-auto">
           <div data-aos="zoom-in" data-aos-duration="800" className="text-center mb-8 sm:mb-12 md:mb-16">
-            <CheckCircle className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-green-600 mx-auto mb-2 sm:mb-3 md:mb-4" />
+            <CheckCircle className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-blue-600 mx-auto mb-2 sm:mb-3 md:mb-4" />
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-2 sm:mb-3 md:mb-4">
               General Requirements
             </h2>
@@ -499,13 +500,13 @@ const StarRating = ({ rating }) => {
             >
               <div className="flex items-center mb-3 sm:mb-4 md:mb-6">
                 <div className="bg-blue-100 p-2 md:p-3 rounded-full mr-2 sm:mr-3 md:mr-4">
-                  <Users className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 text-blue-600" />
+                  <Users className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 text-blue-800" />
                 </div>
                 <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">Age Requirements</h3>
               </div>
               <div className="space-y-2 sm:space-y-3 md:space-y-4">
                 <div className="flex items-start space-x-2 sm:space-x-3">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-red-500 mt-1 flex-shrink-0" />
                   <div>
                     <p className="text-gray-700 font-medium text-xs sm:text-sm md:text-base">
                       Be at least 15 years of age
@@ -515,10 +516,10 @@ const StarRating = ({ rating }) => {
                     </p>
                   </div>
                 </div>
-                <div className="bg-amber-50 border-l-4 border-amber-400 p-2 sm:p-3 md:p-4 rounded-r-lg">
+                <div className="bg-amber-50 border-l-4 border-blue-400 p-2 sm:p-3 md:p-4 rounded-r-lg">
                   <div className="flex items-center">
-                    <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-amber-600 mr-2 flex-shrink-0" />
-                    <p className="text-amber-800 font-medium text-xs sm:text-xs md:text-sm">
+                    <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-red-600 mr-2 flex-shrink-0" />
+                    <p className="text-red-600 font-medium text-xs sm:text-xs md:text-sm">
                       Note: Must be 18+ for Small Business Coaching
                     </p>
                   </div>
@@ -530,11 +531,11 @@ const StarRating = ({ rating }) => {
             <div
               data-aos="fade-left"
               data-aos-delay="200"
-              className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-green-500"
+              className="bg-gradient-to-br from-white via-green-50 to-yellow-50 rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500"
             >
               <div className="flex items-center mb-3 sm:mb-4 md:mb-6">
-                <div className="bg-green-100 p-2 md:p-3 rounded-full mr-2 sm:mr-3 md:mr-4">
-                  <Globe className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 text-green-600" />
+                <div className="bg-blue-100 p-2 md:p-3 rounded-full mr-2 sm:mr-3 md:mr-4">
+                  <Globe className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 text-blue-800" />
                 </div>
                 <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">Citizenship & Visa Status</h3>
               </div>
@@ -547,7 +548,7 @@ const StarRating = ({ rating }) => {
                   "Safe Haven Visa",
                 ].map((text, index) => (
                   <div key={index} className="flex items-center space-x-2 sm:space-x-3">
-                    <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-green-500 flex-shrink-0" />
+                    <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-red-500 flex-shrink-0" />
                     <p className="text-gray-700 text-xs sm:text-sm md:text-base">{text}</p>
                   </div>
                 ))}
@@ -558,16 +559,16 @@ const StarRating = ({ rating }) => {
             <div
               data-aos="fade-right"
               data-aos-delay="300"
-              className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-purple-500"
+              className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500"
             >
               <div className="flex items-center mb-3 sm:mb-4 md:mb-6">
-                <div className="bg-purple-100 p-2 md:p-3 rounded-full mr-2 sm:mr-3 md:mr-4">
-                  <Shield className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 text-purple-600" />
+                <div className="bg-blue-100 p-2 md:p-3 rounded-full mr-2 sm:mr-3 md:mr-4">
+                  <Shield className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 text-blue-800" />
                 </div>
                 <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">Financial Standing</h3>
               </div>
               <div className="flex items-center space-x-2 sm:space-x-3">
-                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-green-500 flex-shrink-0" />
+                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-red-500 flex-shrink-0" />
                 <p className="text-gray-700 font-medium text-xs sm:text-sm md:text-base">
                   Not be an undischarged bankrupt
                 </p>
@@ -578,16 +579,16 @@ const StarRating = ({ rating }) => {
             <div
               data-aos="fade-left"
               data-aos-delay="400"
-              className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-indigo-500"
+              className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500"
             >
               <div className="flex items-center mb-3 sm:mb-4 md:mb-6">
-                <div className="bg-indigo-100 p-2 md:p-3 rounded-full mr-2 sm:mr-3 md:mr-4">
-                  <Building2 className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 text-indigo-600" />
+                <div className="bg-blue-100 p-2 md:p-3 rounded-full mr-2 sm:mr-3 md:mr-4">
+                  <Building2 className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 text-blue-800" />
                 </div>
                 <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">Business-Specific</h3>
               </div>
               <div className="flex items-center space-x-2 sm:space-x-3">
-                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-green-500 flex-shrink-0" />
+                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-red-500 flex-shrink-0" />
                 <p className="text-gray-700 font-medium text-xs sm:text-sm md:text-base">
                   Meet additional eligibility criteria specific to chosen business
                 </p>
@@ -600,12 +601,12 @@ const StarRating = ({ rating }) => {
      
 
       {/* Call to Action */}
-      <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8">
+      <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-white via-green-50 to-yellow-50">
         <div className="max-w-4xl mx-auto text-center">
           <div
             data-aos="fade-up"
             data-aos-duration="1200"
-            className="bg-gradient-to-r from-green-500 to-blue-600 rounded-3xl p-6 sm:p-8 md:p-12 text-white shadow-2xl"
+            className="bg-gradient-to-r from-blue-900 to-blue-500 rounded-3xl p-6 sm:p-8 md:p-12 text-white shadow-2xl"
           >
             <CheckCircle className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 mx-auto mb-3 sm:mb-4 md:mb-6" />
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 md:mb-6">
@@ -639,7 +640,7 @@ const StarRating = ({ rating }) => {
       </section>
   {/* Self-Employment Program Section */}
       <section
-        className="relative w-full min-h-[40vh] sm:min-h-[50vh] md:min-h-[70vh] lg:min-h-[80vh] overflow-hidden mb-4"
+        className="relative w-full min-h-[40vh] sm:min-h-[50vh] md:min-h-[70vh] lg:min-h-[80vh] overflow-hidden mb-4 bg-gradient-to-br from-white via-green-50 to-yellow-50"
         data-aos="fade-in"
       >
         <div
@@ -672,7 +673,7 @@ const StarRating = ({ rating }) => {
             </h1>
 
             <p
-              className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-relaxed text-center md:text-left md:text-justify max-w-2xl font-[Poppins,Roboto,sans-serif]"
+              className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-relaxed text-center  md:text-justify max-w-2xl font-[Poppins,Roboto,sans-serif]"
               data-aos="fade-up"
               data-aos-duration="900"
               data-aos-delay="450"
@@ -698,7 +699,7 @@ const StarRating = ({ rating }) => {
             <div className="text-center pt-4 sm:pt-6 md:pt-10" data-aos="zoom-in" data-aos-delay="600">
               <button
                 onClick={() => navigate("/SelfEmployment")}
-                className="bg-white text-green-800 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full font-semibold flex items-center justify-center mx-auto hover:scale-105 hover:bg-gray-100 transition duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.2),0_0_10px_rgba(34,197,94,0.6)] text-xs sm:text-sm md:text-base"
+                className="bg-white text-blue-800 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full font-semibold flex items-center justify-center mx-auto hover:scale-105 hover:bg-gray-100 transition duration-300 shadow-[0_8px_24px_rgba(0,59,122),0_0_10px_rgba(34,197,94,0.6)] text-xs sm:text-sm md:text-base"
               >
                 Read More
                 <FaHandPointRight className="ml-2 text-sm sm:text-base md:text-lg lg:text-xl" />
@@ -709,7 +710,7 @@ const StarRating = ({ rating }) => {
       </section>
       {/* Contact Section */}
       <section
-        className="w-full py-6 sm:py-8 md:py-12 bg-amber-50 flex items-center justify-center px-4"
+        className="w-full py-6 sm:py-8 md:py-12 bg-gradient-to-br from-white via-green-50 to-yellow-50 flex items-center justify-center px-4"
         data-aos="fade-up"
       >
         <div className="relative bg-black/80 rounded-3xl shadow-xl px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8 md:py-10 w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6 overflow-hidden">
@@ -747,7 +748,7 @@ const StarRating = ({ rating }) => {
                         : "text"
                   }
                   placeholder={placeholder}
-                  className="w-full px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-3 rounded-full border border-gray-300 outline-none focus:ring-2 focus:ring-green-400 placeholder-white text-white bg-transparent text-xs sm:text-sm md:text-base"
+                  className="w-full px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-3 rounded-full border border-blue-500 outline-none focus:ring-2 focus:ring-blue-400 placeholder-white text-white bg-transparent text-xs sm:text-sm md:text-base"
                 />
               )
             )}
@@ -761,9 +762,9 @@ const StarRating = ({ rating }) => {
           >
             <textarea
               placeholder="Type your message..."
-              className="w-full h-20 sm:h-24 md:h-32 lg:h-36 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-3 rounded-xl border border-gray-300 outline-none resize-none focus:ring-2 focus:ring-green-400 placeholder-white text-white bg-transparent text-xs sm:text-sm md:text-base"
+              className="w-full h-20 sm:h-24 md:h-32 lg:h-36 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-3 rounded-xl border border-blue-500 outline-none resize-none focus:ring-2 focus:ring-blue-400 placeholder-white text-white bg-transparent text-xs sm:text-sm md:text-base"
             />
-            <button className="bg-gradient-to-r from-green-400 to-green-300 text-black font-semibold px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 rounded-full shadow hover:scale-105 transition duration-300 w-full text-xs sm:text-sm md:text-base">
+            <button className="bg-gradient-to-r from-blue-600 to-blue-400 text-black font-semibold px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 rounded-full shadow hover:scale-105 transition duration-300 w-full text-xs sm:text-sm md:text-base">
               Submit
             </button>
           </div>
@@ -777,9 +778,9 @@ const StarRating = ({ rating }) => {
  <section className="bg-gradient-to-br from-white via-green-50 to-emerald-100 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
   
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-emerald-700 mb-6 relative inline-block">
+        <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 relative inline-block">
           <span className="relative z-10">Our Trusted Partners</span>
-          <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-28 h-1 bg-emerald-500 rounded-full"></span>
+          {/* <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-28 h-1 bg-blue-700 rounded-full"></span> */}
         </h2>
         <p className="text-gray-600 text-lg mb-14 max-w-2xl mx-auto">
           We proudly collaborate with these industry leaders to drive innovation and excellence.

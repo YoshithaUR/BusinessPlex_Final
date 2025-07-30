@@ -9,7 +9,8 @@ import {
   FaMapMarkerAlt,
   FaChevronUp,
   FaArrowRight,
-  FaCheck
+  FaCheck,
+  FaInstagram
 } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 
@@ -76,7 +77,7 @@ const MainFooter = () => {
           href="https://www.google.com/maps?q=1/3+Marchant+Way,+Morley+WA+6062"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-amber-400 transition-colors duration-200"
+          className="hover:text-blue-400 transition-colors duration-200"
         >
           1/3 Marchant Way, Morley WA 6062
         </a>
@@ -87,7 +88,7 @@ const MainFooter = () => {
       content: (
         <a
           href="tel:1300894480"
-          className="hover:text-amber-400 transition-colors duration-200"
+          className="hover:text-blue-400 transition-colors duration-200"
         >
           Free call: 1300 894 480
         </a>
@@ -98,7 +99,7 @@ const MainFooter = () => {
       content: (
         <a
           href="tel:0861565820"
-          className="hover:text-amber-400 transition-colors duration-200"
+          className="hover:text-blue-400 transition-colors duration-200"
         >
           08 6156 5820
         </a>
@@ -109,7 +110,7 @@ const MainFooter = () => {
       content: (
         <a
          href="https://mail.google.com/mail/?view=cm&fs=1&to=admin@businessplex.com.au"
-          className="hover:text-amber-400 transition-colors duration-200 break-words"
+          className="hover:text-blue-400 transition-colors duration-200 break-words"
         >
           admin@businessplex.com.au
         </a>
@@ -118,17 +119,23 @@ const MainFooter = () => {
   ];
 
   const socialLinks = [
+    // {
+    //   href: "https://wa.me/ ?text=Hello%20Businessplex%2C%20I%20am%20interested%20in%20your%20programs.%20Please%20send%20me%20details.",
+    //   icon: <FaWhatsapp size={20} />,
+    //   label: "WhatsApp",
+    //   hoverColor: "hover:text-green-500"
+    // },
+    // {
+    //   href: "https://www.youtube.com/",
+    //   icon: <FaYoutube size={20} />,
+    //   label: "YouTube",
+    //   hoverColor: "hover:text-red-500"
+    // },
     {
-      href: "https://wa.me/ ?text=Hello%20Businessplex%2C%20I%20am%20interested%20in%20your%20programs.%20Please%20send%20me%20details.",
-      icon: <FaWhatsapp size={20} />,
-      label: "WhatsApp",
-      hoverColor: "hover:text-green-500"
-    },
-    {
-      href: "https://www.youtube.com/",
-      icon: <FaYoutube size={20} />,
-      label: "YouTube",
-      hoverColor: "hover:text-red-500"
+      href: "https://www.linkedin.com/company/businessplex/",
+      icon: <FaLinkedin size={20} />,
+      label: "LinkedIn",
+      hoverColor: "hover:text-blue-400"
     },
     {
       href: "https://web.facebook.com/BusinessplexTrainingCentre",
@@ -136,21 +143,22 @@ const MainFooter = () => {
       label: "Facebook",
       hoverColor: "hover:text-blue-500"
     },
-    {
-      href: "https://www.linkedin.com/company/businessplex/",
-      icon: <FaLinkedin size={20} />,
-      label: "LinkedIn",
-      hoverColor: "hover:text-blue-400"
+    
+     {
+      href: "https://www.instagram.com/businessplex_rto?igsh=N2hlZWh6M2hnbXY4",
+      icon: <FaInstagram size={20} />,
+      label: "FaInstagram",
+      hoverColor: "hover:text-blue-500"
     }
   ];
 
   return (
-    <footer className="relative z-20 text-white mt-10">
+    <footer className="relative  z-20 text-white mt-10 ">
       {/* Scroll to Top Button */}
       <div className="relative z-30">
         <button
           onClick={scrollToTop}
-          className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-amber-400 text-gray-900 p-3 rounded-full shadow-lg hover:bg-amber-500 hover:scale-110 transition-all duration-300 group cursor-pointer"
+          className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-blue-400 text-gray-900 p-3 rounded-full shadow-lg hover:bg-blue-500 hover:scale-110 transition-all duration-300 group cursor-pointer"
           aria-label="Scroll to top"
         >
           <FaChevronUp size={16} className="group-hover:animate-bounce" />
@@ -158,7 +166,7 @@ const MainFooter = () => {
       </div>
 
       {/* Main Footer Content */}
-      <div className="bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900 px-4 sm:px-6 lg:px-8 py-12 lg:py-16 rounded-t-3xl -mt-6 shadow-2xl">
+      <div className="bg-gradient-to-br  from-gray-900 via-slate-900 to-gray-900 px-4 sm:px-6 lg:px-8 py-12 lg:py-16 rounded-t-3xl -mt-6 shadow-2xl">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             
@@ -179,7 +187,7 @@ const MainFooter = () => {
                 <div className="space-y-3">
                   {contactInfo.map((item, index) => (
                     <div key={index} className="flex items-start gap-3 justify-center md:justify-start">
-                      <div className="text-amber-400 mt-0.5">
+                      <div className="text-blue-400 mt-0.5">
                         {item.icon}
                       </div>
                       <div className="text-sm text-gray-300">
@@ -195,14 +203,14 @@ const MainFooter = () => {
             <div className="lg:col-span-1">
               <h3 className="text-xl font-bold mb-6 text-center md:text-left text-white relative">
                 Quick Links
-                <div className="absolute -bottom-2 left-0 md:left-0 right-0 md:right-auto w-16 h-0.5 bg-amber-400 mx-auto md:mx-0"></div>
+                <div className="absolute -bottom-2 left-0 md:left-0 right-0 md:right-auto w-16 h-0.5 bg-blue-400 mx-auto md:mx-0"></div>
               </h3>
               <ul className="space-y-3 text-center md:text-left">
                 {quickLinks.map((link, idx) => (
                   <li key={idx}>
                     <a
                       href={link.href}
-                      className="group flex items-center justify-center md:justify-start text-gray-300 hover:text-amber-400 transition-colors duration-200 text-sm"
+                      className="group flex items-center justify-center md:justify-start text-gray-300 hover:text-blue-400 transition-colors duration-200 text-sm"
                     >
                       <FaArrowRight size={10} className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                       <span>{link.label}</span>
@@ -216,14 +224,14 @@ const MainFooter = () => {
             <div className="lg:col-span-1">
               <h3 className="text-xl font-bold mb-6 text-center md:text-left text-white relative">
                 Services
-                <div className="absolute -bottom-2 left-0 md:left-0 right-0 md:right-auto w-16 h-0.5 bg-amber-400 mx-auto md:mx-0"></div>
+                <div className="absolute -bottom-2 left-0 md:left-0 right-0 md:right-auto w-16 h-0.5 bg-blue-400 mx-auto md:mx-0"></div>
               </h3>
               <ul className="space-y-3 text-center md:text-left">
                 {services.map((service, idx) => (
                   <li key={idx}>
                     <a
                       href={service.href}
-                      className="group flex items-center justify-center md:justify-start text-gray-300 hover:text-amber-400 transition-colors duration-200 text-sm"
+                      className="group flex items-center justify-center md:justify-start text-gray-300 hover:text-blue-400 transition-colors duration-200 text-sm"
                     >
                       <FaArrowRight size={10} className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                       <span>{service.label}</span>
@@ -237,14 +245,14 @@ const MainFooter = () => {
             <div className="lg:col-span-1">
               <h3 className="text-xl font-bold mb-6 text-center md:text-left text-white relative">
                 Newsletter
-                <div className="absolute -bottom-2 left-0 md:left-0 right-0 md:right-auto w-16 h-0.5 bg-amber-400 mx-auto md:mx-0"></div>
+                <div className="absolute -bottom-2 left-0 md:left-0 right-0 md:right-auto w-16 h-0.5 bg-blue-400 mx-auto md:mx-0"></div>
               </h3>
               <p className="text-gray-300 text-sm mb-6 text-center md:text-left">
                 Stay updated with our latest courses, workshops, and business insights.
               </p>
               
               {submitSuccess ? (
-                <div className="bg-green-600 text-white p-4 rounded-lg text-center">
+                <div className="bg-blue-600 text-white p-4 rounded-lg text-center">
                   <FaCheck className="mx-auto mb-2" size={20} />
                   <p className="text-sm font-semibold">Successfully subscribed!</p>
                 </div>
@@ -260,7 +268,7 @@ const MainFooter = () => {
                       placeholder="Your Name"
                       value={newsletterData.name}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-200"
                       required
                     />
                   </div>
@@ -271,14 +279,14 @@ const MainFooter = () => {
                       placeholder="Your Email"
                       value={newsletterData.email}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-200"
                       required
                     />
                   </div>
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-amber-400 to-amber-500 text-gray-900 font-semibold py-3 px-6 rounded-lg hover:from-amber-500 hover:to-amber-600 transition-all duration-200 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                    className="w-full bg-gradient-to-r from-blue-400 to-blue-500 text-gray-900 font-semibold py-3 px-6 rounded-lg hover:from-blue-500 hover:to-blue-600 transition-all duration-200 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
                     {isSubmitting ? (
                       <span className="flex items-center justify-center">
@@ -317,11 +325,11 @@ const MainFooter = () => {
 
             {/* Copyright */}
             <div className="text-center">
-              <p className="text-gray-400 text-sm">
-                Copyright 2025 © <span className="text-amber-400 font-semibold">Businessplex</span>. All Rights Reserved.
+              <p className="text-white text-sm">
+                Copyright 2025 © <span className="text-blue-400 font-semibold">Businessplex</span>. All Rights Reserved.
               </p>
-              <p className="text-gray-500 text-xs mt-1">
-                Development by <span className="text-amber-400">A4Technologies</span>
+              <p className="text-white text-xs mt-1">
+                Development by <span className="text-blue-400">A4Technologies</span>
               </p>
             </div>
 

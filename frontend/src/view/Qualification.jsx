@@ -16,7 +16,7 @@ const qualificationsData = [
     image: images.image_ServicePopup01,
     link: "./ApplicationForm",
     icon: FaBusinessTime,
-    gradient: "from-blue-500 to-purple-600",
+    gradient: "from-blue-500 to-blue-800",
     accentColor: "blue"
   },
   {
@@ -32,7 +32,7 @@ const qualificationsData = [
     image: images.image_abouteHome01,
     link: "./ApplicationForm",
     icon: FaCertificate,
-    gradient: "from-emerald-500 to-teal-600",
+    gradient: "from-blue-500 to-blue-800",
     accentColor: "blue"
   },
   {
@@ -48,7 +48,7 @@ const qualificationsData = [
     image: images.image_Card02,
     link: "./ApplicationForm",
     icon: FaGraduationCap,
-    gradient: "from-amber-500 to-orange-600",
+    gradient: "from-blue-500 to-blue-800",
      accentColor: "blue"
   },
   {
@@ -64,7 +64,7 @@ const qualificationsData = [
     image: images.image_abouteHome01,
     link: "./ApplicationForm",
     icon: FaBusinessTime,
-    gradient: "from-rose-500 to-pink-600",
+    gradient: "from-blue-500 to-blue-800",
      accentColor: "blue"
   },
 ];
@@ -75,11 +75,11 @@ const Qualifications = () => {
   }, []);
 
   return (
-    <section className="relative bg-amber-50 py-24 px-6 sm:px-10 lg:px-20 font-[Poppins,Roboto,sans-serif] overflow-hidden">
+    <section className="relative bg-gradient-to-br from-white via-green-50 to-yellow-50 py-24 px-6 sm:px-10 lg:px-20 font-[Poppins,Roboto,sans-serif] overflow-hidden">
    
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-600/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-emerald-400/20 to-teal-600/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-amber-400/10 to-orange-600/10 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
 
@@ -87,7 +87,7 @@ const Qualifications = () => {
         {/* Header Section */}
         <div className="text-center mb-20" data-aos="fade-down">
           <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg mb-6 border border-white/20">
-            <FaGraduationCap className="text-2xl text-indigo-600" />
+            <FaGraduationCap className="text-2xl text-indigo-8  00" />
             <span className="text-indigo-700 font-semibold text-sm uppercase tracking-wider">Professional Development</span>
           </div>
           
@@ -169,7 +169,7 @@ const Qualifications = () => {
                       <ul className="space-y-3">
                         {qual.skills.map((skill, i) => (
                           <li key={i} className="flex items-start gap-3 text-sm text-black leading-relaxed">
-                            <FaCheckCircle className="text-emerald-500 mt-1 flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
+                            <FaCheckCircle className="text-blue-500 mt-1 flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
                             <span className="group-hover:text-gray-700 transition-colors font-medium">{skill}</span>
                           </li>
                         ))}
@@ -223,7 +223,7 @@ const Qualifications = () => {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
-                className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-bold hover:shadow-2xl hover:shadow-indigo-500/30 transition-all duration-300 hover:scale-105 transform">
+                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-bold hover:shadow-2xl hover:shadow-indigo-500/30 transition-all duration-300 hover:scale-105 transform">
                   <a href="tel:+08 6156 5820">
                   Contact Now
                 </a>
