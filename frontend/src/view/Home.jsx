@@ -217,12 +217,12 @@ const StarRating = ({ rating }) => {
     <div className="w-full overflow-x-hidden">
       {/* Business Support Services Section */}
 
-      <section className="relative bg-gradient-to-br from-green-50 via-white to-emerald-100 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
+      <section className="relative bg-gradient-to-br from-white via-green-50 to-yellow-50 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
       <div className="max-w-6xl mx-auto text-center">
         {/* Tagline */}
         <h1
           data-aos="fade-up"
-          className="text-4xl md:text-5xl font-extrabold text-emerald-700 mb-4"
+          className="text-4xl md:text-5xl font-extrabold text-black mb-4"
         >
           “Best place to your own business’’
         </h1>
@@ -261,7 +261,7 @@ const StarRating = ({ rating }) => {
           data-aos-delay="500"
           className="mt-6 text-base md:text-lg text-gray-700 font-medium"
         >
-          🚀 The only program in Australia focused on helping individuals launch their small business from scratch!
+           The only program in Australia focused on helping individuals launch their small business from scratch!
         </p>
 
         {/* Feature Icons */}
@@ -270,7 +270,7 @@ const StarRating = ({ rating }) => {
             data-aos="zoom-in"
             className="bg-white/70 backdrop-blur-md shadow-lg rounded-2xl p-6 flex flex-col items-center hover:shadow-2xl transition-transform hover:scale-105"
           >
-            <FaRocket className="text-4xl text-emerald-600 mb-4" />
+            <FaRocket className="text-4xl text-blue-800 mb-4" />
             <h4 className="text-xl font-semibold text-gray-800 mb-2">Launch Your Idea</h4>
             <p className="text-sm text-gray-600">
               Start your dream business from scratch with full support & guidance.
@@ -282,7 +282,7 @@ const StarRating = ({ rating }) => {
             data-aos-delay="100"
             className="bg-white/70 backdrop-blur-md shadow-lg rounded-2xl p-6 flex flex-col items-center hover:shadow-2xl transition-transform hover:scale-105"
           >
-            <FaLightbulb className="text-4xl text-yellow-500 mb-4" />
+            <FaLightbulb className="text-4xl text-blue-800 mb-4" />
             <h4 className="text-xl font-semibold text-gray-800 mb-2">Smart Mentoring</h4>
             <p className="text-sm text-gray-600">
               Business coaching tailored to help you grow faster and smarter.
@@ -294,7 +294,7 @@ const StarRating = ({ rating }) => {
             data-aos-delay="200"
             className="bg-white/70 backdrop-blur-md shadow-lg rounded-2xl p-6 flex flex-col items-center hover:shadow-2xl transition-transform hover:scale-105"
           >
-            <FaHandshake className="text-4xl text-blue-600 mb-4" />
+            <FaHandshake className="text-4xl text-blue-800 mb-4" />
             <h4 className="text-xl font-semibold text-gray-800 mb-2">Government Support</h4>
             <p className="text-sm text-gray-600">
               Fully funded program by DEWR under Workforce Australia.
@@ -303,8 +303,11 @@ const StarRating = ({ rating }) => {
         </div>
       </div>
     </section>
+
+
+    {/* Business Support Services */}
       <section className="relative bg-gradient-to-br from-white via-green-50 to-yellow-50 py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif] overflow-hidden">
-        {/* Background Decorations */}
+       
         <div
           className="absolute inset-0 opacity-5 z-0"
           style={{
@@ -860,9 +863,7 @@ const StarRating = ({ rating }) => {
         </div>
       </section>
 
-{/* Custom Review  */}
-
-
+            
 {/* Partnes */}
  <section className="bg-gradient-to-br from-white via-green-50 to-emerald-100 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
   <div className="max-w-6xl mx-auto text-center">
