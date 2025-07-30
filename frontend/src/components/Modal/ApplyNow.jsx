@@ -48,7 +48,7 @@ const ApplyNow = () => {
               <FaTimes />
             </button>
             <h2 className="text-xl font-bold mb-4 text-center text-green-700">
-              Ready to Enroll?
+              {/* Ready to Enroll? */}
             </h2>
             <p className="text-sm mb-4 text-center text-gray-700">
               Ready to start your business journey?

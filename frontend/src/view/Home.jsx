@@ -294,7 +294,175 @@ const StarRating = ({ rating }) => {
             />
           </div>  */}
 
-      {/* Hero Section */}
+     
+
+      {/* Services Section */}
+      <section className="bg-amber-50 py-6 sm:py-8 md:py-12 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif]">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                onMouseEnter={() => setHoveredCard(index)}
+                onMouseLeave={() => setHoveredCard(null)}
+                className="relative h-[300px] sm:h-[350px] md:h-[400px] lg:h-[480px] xl:h-[520px] bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-500 group cursor-pointer"
+                data-aos="zoom-in"
+                data-aos-delay={index * 100}
+              >
+                {/* Default Image + Overlay */}
+                <div
+                  className={`absolute inset-0 z-20 p-3 sm:p-4 md:p-6 transition-all duration-700 ease-in-out bg-cover bg-top flex flex-col justify-center items-center rounded-3xl shadow-xl 
+                  ${hoveredCard === index
+                      ? "-translate-x-full opacity-0"
+                      : "translate-x-0 opacity-100"
+                    }`}
+                  style={{ backgroundImage: `url(${service.image})` }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-black/30 z-0" />
+
+                  {/* Content */}
+                  <div className="relative z-10 text-white text-center px-2 md:px-4">
+                    <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold tracking-wider text-green-300 drop-shadow-lg animate-fade-in mb-4 font-[Montserrat,Open_Sans,sans-serif] leading-tight">
+                      {service.title}
+                    </h3>
+                  </div>
+                </div>
+
+                {/* Hover GIF + Button */}
+                <div
+                  className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover transition-all duration-500 ease-in-out 
+                  ${hoveredCard === index
+                      ? "translate-x-0 opacity-100"
+                      : "translate-x-full opacity-0"
+                    }`}
+                  style={{ backgroundImage: `url(${service.gif})` }}
+                >
+                  <div className="absolute inset-0 bg-black/60 z-0" />
+                  <button
+                    onClick={() => openServiceModal(index)}
+                    className="relative z-10 bg-transparent border border-orange-600 text-white font-semibold px-3 sm:px-4 md:px-6 py-2 md:py-3 rounded-full shadow-lg font-[Poppins,Roboto,sans-serif] text-xs sm:text-sm md:text-base hover:bg-orange-600/20 transition-all duration-300"
+                  >
+                    Read More
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Service Modal */}
+      {serviceModalIndex !== null && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
+          onClick={closeServiceModal}
+        >
+          {/* Background Image Overlay */}
+          <div
+            className="absolute inset-0 bg-black/80"
+            aria-hidden="true"
+          />
+
+          {/* Blurred Background Image */}
+          <div
+            className="absolute inset-0 bg-center bg-cover filter blur-sm scale-105"
+            style={{
+              backgroundImage: `url(${services[serviceModalIndex].backgroundImage})`,
+            }}
+            aria-hidden="true"
+          />
+
+          {/* Content Modal */}
+          <div
+            className="relative bg-black/70 backdrop-blur-md rounded-xl p-3 sm:p-4 md:p-6 max-w-full sm:max-w-lg md:max-w-2xl lg:max-w-3xl w-full shadow-2xl overflow-y-auto max-h-[90vh] sm:max-h-[85vh] md:max-h-[80vh] border border-white/20"
+            onClick={(e) => e.stopPropagation()}
+            data-aos="zoom-in"
+            data-aos-duration="800"
+          >
+            {/* Top Section */}
+            <div
+              className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 md:gap-6 mb-4 sm:mb-5 md:mb-6"
+              data-aos="fade-up"
+              data-aos-duration="700"
+            >
+              <img
+                src={services[serviceModalIndex].modalImage}
+                alt={services[serviceModalIndex].title}
+                className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-lg shadow-lg object-cover flex-shrink-0"
+                data-aos="zoom-in"
+                data-aos-duration="800"
+              />
+              <div
+                className="flex-1"
+                data-aos="fade-left"
+                data-aos-duration="700"
+              >
+                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 sm:mb-3 md:mb-4 text-center sm:text-left">
+                  {services[serviceModalIndex].title}
+                </h2>
+                {services[serviceModalIndex].paragraph.map((para, idx) => (
+                  <p
+                    key={idx}
+                    className="text-white/90 mb-2 sm:mb-3 text-xs sm:text-sm md:text-[15px] lg:text-[16px] leading-relaxed text-center sm:text-left"
+                    data-aos="fade-up"
+                    data-aos-delay={idx * 100}
+                  >
+                    {para}
+                  </p>
+                ))}
+              </div>
+            </div>
+
+            {/* Points */}
+            <ul
+              className="space-y-2 sm:space-y-3 text-white text-xs sm:text-sm md:text-[15px] leading-relaxed mb-6 sm:mb-7 md:mb-8"
+              data-aos="fade-up"
+              data-aos-delay="300"
+              >
+              {services[serviceModalIndex].points.map((point, i) => (
+                <li
+                  key={i}
+                  className="flex items-start gap-2 sm:gap-3"
+                  data-aos="fade-right"
+                  data-aos-delay={i * 100}
+                >
+                  <span className="mt-1 w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full flex-shrink-0" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* CTA */}
+            <div
+              className="flex justify-center"
+              data-aos="zoom-in"
+              data-aos-delay="600"
+            >
+              <button
+                onClick={() =>
+                  handleApplyNow(services[serviceModalIndex].title)
+                }
+                className="group bg-green-600 hover:bg-green-700 text-white font-bold px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full shadow-lg transition-colors duration-300 flex items-center gap-2 text-xs sm:text-sm md:text-base"
+              >
+                Apply Now
+                <FaHandPointRight className="transition-transform duration-300 group-hover:translate-x-2" />
+              </button>
+            </div>
+
+            {/* Close Button */}
+            <button
+              onClick={closeServiceModal}
+              className="absolute top-2 sm:top-3 right-3 sm:right-4 text-white hover:text-red-500 font-bold text-xl sm:text-2xl md:text-3xl"
+              aria-label="Close modal"
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
+
+
+       {/* Hero Section */}
       <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 bg-amber-50">
         <div className="max-w-6xl mx-auto text-center">
           <div data-aos="fade-down" data-aos-duration="1200">
@@ -469,171 +637,6 @@ const StarRating = ({ rating }) => {
           </div>
         </div>
       </section>
-
-      {/* Services Section */}
-      <section className="bg-amber-50 py-6 sm:py-8 md:py-12 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                onMouseEnter={() => setHoveredCard(index)}
-                onMouseLeave={() => setHoveredCard(null)}
-                className="relative h-[300px] sm:h-[350px] md:h-[400px] lg:h-[480px] xl:h-[520px] bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-500 group cursor-pointer"
-                data-aos="zoom-in"
-                data-aos-delay={index * 100}
-              >
-                {/* Default Image + Overlay */}
-                <div
-                  className={`absolute inset-0 z-20 p-3 sm:p-4 md:p-6 transition-all duration-700 ease-in-out bg-cover bg-top flex flex-col justify-center items-center rounded-3xl shadow-xl 
-                  ${hoveredCard === index
-                      ? "-translate-x-full opacity-0"
-                      : "translate-x-0 opacity-100"
-                    }`}
-                  style={{ backgroundImage: `url(${service.image})` }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-black/30 z-0" />
-
-                  {/* Content */}
-                  <div className="relative z-10 text-white text-center px-2 md:px-4">
-                    <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold tracking-wider text-green-300 drop-shadow-lg animate-fade-in mb-4 font-[Montserrat,Open_Sans,sans-serif] leading-tight">
-                      {service.title}
-                    </h3>
-                  </div>
-                </div>
-
-                {/* Hover GIF + Button */}
-                <div
-                  className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover transition-all duration-500 ease-in-out 
-                  ${hoveredCard === index
-                      ? "translate-x-0 opacity-100"
-                      : "translate-x-full opacity-0"
-                    }`}
-                  style={{ backgroundImage: `url(${service.gif})` }}
-                >
-                  <div className="absolute inset-0 bg-black/60 z-0" />
-                  <button
-                    onClick={() => openServiceModal(index)}
-                    className="relative z-10 bg-transparent border border-orange-600 text-white font-semibold px-3 sm:px-4 md:px-6 py-2 md:py-3 rounded-full shadow-lg font-[Poppins,Roboto,sans-serif] text-xs sm:text-sm md:text-base hover:bg-orange-600/20 transition-all duration-300"
-                  >
-                    Read More
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Service Modal */}
-      {serviceModalIndex !== null && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
-          onClick={closeServiceModal}
-        >
-          {/* Background Image Overlay */}
-          <div
-            className="absolute inset-0 bg-black/80"
-            aria-hidden="true"
-          />
-
-          {/* Blurred Background Image */}
-          <div
-            className="absolute inset-0 bg-center bg-cover filter blur-sm scale-105"
-            style={{
-              backgroundImage: `url(${services[serviceModalIndex].backgroundImage})`,
-            }}
-            aria-hidden="true"
-          />
-
-          {/* Content Modal */}
-          <div
-            className="relative bg-black/70 backdrop-blur-md rounded-xl p-3 sm:p-4 md:p-6 max-w-full sm:max-w-lg md:max-w-2xl lg:max-w-3xl w-full shadow-2xl overflow-y-auto max-h-[90vh] sm:max-h-[85vh] md:max-h-[80vh] border border-white/20"
-            onClick={(e) => e.stopPropagation()}
-            data-aos="zoom-in"
-            data-aos-duration="800"
-          >
-            {/* Top Section */}
-            <div
-              className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 md:gap-6 mb-4 sm:mb-5 md:mb-6"
-              data-aos="fade-up"
-              data-aos-duration="700"
-            >
-              <img
-                src={services[serviceModalIndex].modalImage}
-                alt={services[serviceModalIndex].title}
-                className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-lg shadow-lg object-cover flex-shrink-0"
-                data-aos="zoom-in"
-                data-aos-duration="800"
-              />
-              <div
-                className="flex-1"
-                data-aos="fade-left"
-                data-aos-duration="700"
-              >
-                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 sm:mb-3 md:mb-4 text-center sm:text-left">
-                  {services[serviceModalIndex].title}
-                </h2>
-                {services[serviceModalIndex].paragraph.map((para, idx) => (
-                  <p
-                    key={idx}
-                    className="text-white/90 mb-2 sm:mb-3 text-xs sm:text-sm md:text-[15px] lg:text-[16px] leading-relaxed text-center sm:text-left"
-                    data-aos="fade-up"
-                    data-aos-delay={idx * 100}
-                  >
-                    {para}
-                  </p>
-                ))}
-              </div>
-            </div>
-
-            {/* Points */}
-            <ul
-              className="space-y-2 sm:space-y-3 text-white text-xs sm:text-sm md:text-[15px] leading-relaxed mb-6 sm:mb-7 md:mb-8"
-              data-aos="fade-up"
-              data-aos-delay="300"
-              >
-              {services[serviceModalIndex].points.map((point, i) => (
-                <li
-                  key={i}
-                  className="flex items-start gap-2 sm:gap-3"
-                  data-aos="fade-right"
-                  data-aos-delay={i * 100}
-                >
-                  <span className="mt-1 w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full flex-shrink-0" />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-
-            {/* CTA */}
-            <div
-              className="flex justify-center"
-              data-aos="zoom-in"
-              data-aos-delay="600"
-            >
-              <button
-                onClick={() =>
-                  handleApplyNow(services[serviceModalIndex].title)
-                }
-                className="group bg-green-600 hover:bg-green-700 text-white font-bold px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full shadow-lg transition-colors duration-300 flex items-center gap-2 text-xs sm:text-sm md:text-base"
-              >
-                Apply Now
-                <FaHandPointRight className="transition-transform duration-300 group-hover:translate-x-2" />
-              </button>
-            </div>
-
-            {/* Close Button */}
-            <button
-              onClick={closeServiceModal}
-              className="absolute top-2 sm:top-3 right-3 sm:right-4 text-white hover:text-red-500 font-bold text-xl sm:text-2xl md:text-3xl"
-              aria-label="Close modal"
-            >
-              &times;
-            </button>
-          </div>
-        </div>
-      )}
   {/* Self-Employment Program Section */}
       <section
         className="relative w-full min-h-[40vh] sm:min-h-[50vh] md:min-h-[70vh] lg:min-h-[80vh] overflow-hidden mb-4"
