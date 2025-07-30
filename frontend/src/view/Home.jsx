@@ -5,6 +5,7 @@ import "aos/dist/aos.css";
 import { FaStar, FaHandPointRight } from "react-icons/fa";
 import { TiTickOutline } from "react-icons/ti";
 import { CheckCircle, Users, Building2, Shield, AlertCircle, FileText, Award, Globe } from 'lucide-react';
+import { FaRocket, FaLightbulb, FaHandshake } from 'react-icons/fa';
 // import {
 //   FaPhoneAlt,
 //   FaWhatsapp,
@@ -215,6 +216,93 @@ const StarRating = ({ rating }) => {
   return (
     <div className="w-full overflow-x-hidden">
       {/* Business Support Services Section */}
+
+      <section className="relative bg-gradient-to-br from-green-50 via-white to-emerald-100 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
+      <div className="max-w-6xl mx-auto text-center">
+        {/* Tagline */}
+        <h1
+          data-aos="fade-up"
+          className="text-4xl md:text-5xl font-extrabold text-emerald-700 mb-4"
+        >
+          “Best place to your own business’’
+        </h1>
+        <p
+          data-aos="fade-up"
+          data-aos-delay="200"
+          className="text-lg md:text-xl text-gray-700 mb-10 max-w-3xl mx-auto"
+        >
+          Thinking of starting a business or taking the existing business to the next level?
+        </p>
+
+        {/* Description */}
+        <p
+          data-aos="fade-up"
+          data-aos-delay="300"
+          className="text-base md:text-lg text-gray-600 max-w-4xl mx-auto mb-8"
+        >
+          Businessplex offers small business training & mentoring that are designed to help you establish, grow,
+          and succeed in your business journey. Whether you're starting a new venture or looking to grow your
+          existing business, we're here to guide you every step of the way!
+        </p>
+
+        {/* Program Highlight */}
+        <p
+          data-aos="fade-up"
+          data-aos-delay="400"
+          className="text-base md:text-lg text-gray-600 max-w-4xl mx-auto"
+        >
+          We deliver the <strong>Self-Employment Assistance Program</strong> (formerly NEIS), fully funded by the
+          Department of Employment and Workplace Relations (DEWR) under Workforce Australia for eligible start-ups and
+          established businesses in the Perth-North area.
+        </p>
+
+        <p
+          data-aos="fade-up"
+          data-aos-delay="500"
+          className="mt-6 text-base md:text-lg text-gray-700 font-medium"
+        >
+          🚀 The only program in Australia focused on helping individuals launch their small business from scratch!
+        </p>
+
+        {/* Feature Icons */}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div
+            data-aos="zoom-in"
+            className="bg-white/70 backdrop-blur-md shadow-lg rounded-2xl p-6 flex flex-col items-center hover:shadow-2xl transition-transform hover:scale-105"
+          >
+            <FaRocket className="text-4xl text-emerald-600 mb-4" />
+            <h4 className="text-xl font-semibold text-gray-800 mb-2">Launch Your Idea</h4>
+            <p className="text-sm text-gray-600">
+              Start your dream business from scratch with full support & guidance.
+            </p>
+          </div>
+
+          <div
+            data-aos="zoom-in"
+            data-aos-delay="100"
+            className="bg-white/70 backdrop-blur-md shadow-lg rounded-2xl p-6 flex flex-col items-center hover:shadow-2xl transition-transform hover:scale-105"
+          >
+            <FaLightbulb className="text-4xl text-yellow-500 mb-4" />
+            <h4 className="text-xl font-semibold text-gray-800 mb-2">Smart Mentoring</h4>
+            <p className="text-sm text-gray-600">
+              Business coaching tailored to help you grow faster and smarter.
+            </p>
+          </div>
+
+          <div
+            data-aos="zoom-in"
+            data-aos-delay="200"
+            className="bg-white/70 backdrop-blur-md shadow-lg rounded-2xl p-6 flex flex-col items-center hover:shadow-2xl transition-transform hover:scale-105"
+          >
+            <FaHandshake className="text-4xl text-blue-600 mb-4" />
+            <h4 className="text-xl font-semibold text-gray-800 mb-2">Government Support</h4>
+            <p className="text-sm text-gray-600">
+              Fully funded program by DEWR under Workforce Australia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
       <section className="relative bg-gradient-to-br from-white via-green-50 to-yellow-50 py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif] overflow-hidden">
         {/* Background Decorations */}
         <div
