@@ -6,6 +6,9 @@ import { FaStar, FaHandPointRight } from "react-icons/fa";
 import { TiTickOutline } from "react-icons/ti";
 import { CheckCircle, Users, Building2, Shield, AlertCircle, FileText, Award, Globe } from 'lucide-react';
 import { FaRocket, FaLightbulb, FaHandshake } from 'react-icons/fa';
+import CountUp from "react-countup";
+import { Star, User, Calendar, ThumbsUp, MessageCircle, Image, X, ChevronLeft, ChevronRight, Camera } from 'lucide-react';
+
 // import {
 //   FaPhoneAlt,
 //   FaWhatsapp,
@@ -384,8 +387,28 @@ const StarRating = ({ rating }) => {
             />
           </div>  */}
 
-     
+     {/* Counter */}
+ <section className="bg-gradient-to-br from-white via-green-50 to-yellow-50 py-20 px-6 sm:px-12">
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-black mb-6 drop-shadow-md">
+          Satisfaction Rate
+        </h2>
+        <p className="text-lg sm:text-xl text-blue-700 mb-10">
+          We strive for perfection — and our clients agree.
+        </p>
 
+        <div className="flex justify-center">
+          <div className="bg-white p-10 sm:p-14 rounded-3xl shadow-2xl hover:shadow-green-200 transition-shadow duration-300">
+            <p className="text-6xl sm:text-7xl font-bold text-blue-800  drop-shadow-md">
+              <CountUp start={0} end={100} duration={3} suffix="%" />
+            </p>
+            <p className="mt-2 text-gray-700 text-lg font-medium">
+              Customer Satisfaction
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
       {/* Services Section */}
       <section className="bg-gradient-to-br from-white via-green-50 to-yellow-50 py-6 sm:py-8 md:py-12 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif]">
         <div className="max-w-7xl mx-auto">
@@ -863,7 +886,7 @@ const StarRating = ({ rating }) => {
         </div>
       </section>
 
-            
+
 {/* Partnes */}
  <section className="bg-gradient-to-br from-white via-green-50 to-emerald-100 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
   <div className="max-w-6xl mx-auto text-center">
