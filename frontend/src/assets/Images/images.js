@@ -50,6 +50,12 @@ import image_Question01 from "./Home/Question.jpg";
 // Footer
 import image_Footer1 from "./AllLogos/AQF.png";
 import image_Footer2 from "./AllLogos/workforec.png";
+import image_Footer3 from "./AllLogos/Australian_Qualifications_Framework_(logo).png";
+import image_Footer4 from "./AllLogos/AUS.png";
+import image_Footer5 from "./AllLogos/NRT-LOGO-low-res-transparent-300x246.png";
+import image_Footer6 from "./AllLogos/Screenshot 2024-08-20 094957.png"
+import image_Footer7 from "./AllLogos/Workforce_Australia_Businessplex_Quality_Logo-transformed.png"
+
 import image_logo from "./HomeSlideShow/logo.png";
 
 // About
@@ -115,6 +121,11 @@ const images = {
   image_Footer1,
   image_Footer2,
   image_logo,
+  image_Footer3,
+  image_Footer4,
+  image_Footer5,
+  image_Footer6,
+  image_Footer7,
 
   // About
   image_abouteHome01,

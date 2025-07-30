@@ -31,7 +31,15 @@ const Home = () => {
       offset: 120,
     });
   }, []);
-
+ const logos = [
+  images. image_Footer1,
+  images.image_Footer4,
+  images.image_Footer3,
+  images.image_Footer5,
+  images.image_Footer6,
+  images.image_Footer7,
+  
+];
   const paragraphData = [
     "Small Business Training. ",
     "Business Plan Development.",
@@ -120,7 +128,79 @@ const Home = () => {
     },
    
   ];
+const reviews = [
+  {
+    id: 1,
+    name: "Sarah Johnson",
+    role: "Marketing Director",
+    company: "TechFlow Inc",
+    rating: 5,
+    review: "Absolutely fantastic service! The team exceeded our expectations in every way. Their attention to detail and commitment to quality is unmatched.",
+    image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
+  },
+  {
+    id: 2,
+    name: "Michael Chen",
+    role: "CEO",
+    company: "Innovation Labs",
+    rating: 5,
+    review: "Working with this team has been a game-changer for our business. Professional, reliable, and incredibly talented. Highly recommended!",
+    image: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
+  },
+  {
+    id: 3,
+    name: "Emily Rodriguez",
+    role: "Product Manager",
+    company: "Digital Solutions",
+    rating: 5,
+    review: "The results speak for themselves. Our project was delivered on time, within budget, and exceeded all our quality expectations. Simply amazing!",
+    image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
+  },
+  {
+    id: 4,
+    name: "David Thompson",
+    role: "Operations Manager",
+    company: "Global Enterprises",
+    rating: 4,
+    review: "Great experience from start to finish. The communication was excellent and the final product was exactly what we envisioned.",
+    image: "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
+  },
+  {
+    id: 5,
+    name: "Lisa Wang",
+    role: "Creative Director",
+    company: "Design Studio Pro",
+    rating: 5,
+    review: "Outstanding creativity and technical expertise. They transformed our vision into reality with incredible precision and style.",
+    image: "https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
+  },
+  {
+    id: 6,
+    name: "James Miller",
+    role: "Founder",
+    company: "StartupX",
+    rating: 5,
+    review: "As a startup, we needed a partner we could trust. They delivered exceptional results and helped us achieve our goals faster than expected.",
+    image: "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
+  }
+];
 
+const StarRating = ({ rating }) => {
+  return (
+    <div className="flex space-x-1">
+      {[1, 2, 3, 4, 5].map((star) => (
+        <Star
+          key={star}
+          className={`w-5 h-5 ${
+            star <= rating
+              ? 'text-yellow-400 fill-yellow-400'
+              : 'text-gray-300'
+          } transition-colors duration-200`}
+        />
+      ))}
+    </div>
+  );
+};
   const openServiceModal = (index) => {
     setServiceModalIndex(index);
   };
@@ -686,6 +766,39 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+{/* Custom Review  */}
+
+
+{/* Logo */}
+ <section className="bg-gradient-to-br from-white via-green-50 to-emerald-100 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
+  
+      <div className="max-w-7xl mx-auto text-center">
+        <h2 className="text-4xl md:text-5xl font-bold text-emerald-700 mb-6 relative inline-block">
+          <span className="relative z-10">Our Trusted Partners</span>
+          <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-28 h-1 bg-emerald-500 rounded-full"></span>
+        </h2>
+        <p className="text-gray-600 text-lg mb-14 max-w-2xl mx-auto">
+          We proudly collaborate with these industry leaders to drive innovation and excellence.
+        </p>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          {logos.map((logo, index) => (
+            <div
+              key={index}
+              className="bg-white/40 backdrop-blur-md border border-white/30 shadow-lg hover:shadow-2xl rounded-2xl p-6 flex items-center justify-center transition-transform hover:scale-105 duration-300"
+            >
+              <img
+                src={logo}
+                alt={`Logo ${index + 1}`}
+                className="h-14 w-auto object-contain transition duration-300"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
 
       <style>
         {`
