@@ -32,12 +32,11 @@ const Home = () => {
     });
   }, []);
  const logos = [
-  images. image_Footer1,
-  images.image_Footer4,
-  images.image_Footer3,
-  images.image_Footer5,
-  images.image_Footer6,
-  images.image_Footer7,
+  images.image_partnes01,
+  images.image_partnes02,
+  images.image_partnes03,
+  images.image_partnes04,
+  images.image_partnes05,
   
 ];
   const paragraphData = [
@@ -509,7 +508,7 @@ const StarRating = ({ rating }) => {
                   <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-red-500 mt-1 flex-shrink-0" />
                   <div>
                     <p className="text-gray-700 font-medium text-xs sm:text-sm md:text-base">
-                      Be at least 15 years of age
+                      Be at least 15 years of age to access Exploring Self-Employment Workshop
                     </p>
                     <p className="text-xs sm:text-xs md:text-sm text-blue-600 mt-1">
                       Eligible for Exploring Self-Employment Workshop
@@ -520,7 +519,7 @@ const StarRating = ({ rating }) => {
                   <div className="flex items-center">
                     <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-red-600 mr-2 flex-shrink-0" />
                     <p className="text-red-600 font-medium text-xs sm:text-xs md:text-sm">
-                      Note: Must be 18+ for Small Business Coaching
+                      Note:  Be at least 18 years of age to access Small Business Coaching
                     </p>
                   </div>
                 </div>
@@ -541,11 +540,11 @@ const StarRating = ({ rating }) => {
               </div>
               <div className="space-y-1 sm:space-y-2 md:space-y-3">
                 {[
-                  "Australian citizen",
-                  "Permanent visa holder",
-                  "New Zealand Special Category Visa",
-                  "Temporary Protection Visa",
-                  "Safe Haven Visa",
+                  "You must not be prohibited by law from working in Australia",
+                  "You must not be an overseas visitor on a working holiday visa or an overseas student studying in Australia",
+                  // "New Zealand Special Category Visa",
+                  // "Temporary Protection Visa",
+                  // "Safe Haven Visa",
                 ].map((text, index) => (
                   <div key={index} className="flex items-center space-x-2 sm:space-x-3">
                     <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-red-500 flex-shrink-0" />
@@ -570,7 +569,9 @@ const StarRating = ({ rating }) => {
               <div className="flex items-center space-x-2 sm:space-x-3">
                 <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-red-500 flex-shrink-0" />
                 <p className="text-gray-700 font-medium text-xs sm:text-sm md:text-base">
-                  Not be an undischarged bankrupt
+                 You cannot be an undischarged bankrupt
+
+
                 </p>
               </div>
             </div>
@@ -590,7 +591,7 @@ const StarRating = ({ rating }) => {
               <div className="flex items-center space-x-2 sm:space-x-3">
                 <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-red-500 flex-shrink-0" />
                 <p className="text-gray-700 font-medium text-xs sm:text-sm md:text-base">
-                  Meet additional eligibility criteria specific to chosen business
+                 Meet additional eligibility criteria specific to chosen business
                 </p>
               </div>
             </div>
@@ -774,34 +775,33 @@ const StarRating = ({ rating }) => {
 {/* Custom Review  */}
 
 
-{/* Logo */}
+{/* Partnes */}
  <section className="bg-gradient-to-br from-white via-green-50 to-emerald-100 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
-  
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 relative inline-block">
-          <span className="relative z-10">Our Trusted Partners</span>
-          {/* <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-28 h-1 bg-blue-700 rounded-full"></span> */}
-        </h2>
-        <p className="text-gray-600 text-lg mb-14 max-w-2xl mx-auto">
-          We proudly collaborate with these industry leaders to drive innovation and excellence.
-        </p>
+  <div className="max-w-6xl mx-auto text-center">
+    <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 relative inline-block">
+      <span className="relative z-10">Our Trusted Partners</span>
+    </h2>
+    <p className="text-gray-600 text-lg mb-14 max-w-2xl mx-auto">
+      We proudly collaborate with these industry leaders to drive innovation and excellence.
+    </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-          {logos.map((logo, index) => (
-            <div
-              key={index}
-              className="bg-white/40 backdrop-blur-md border border-white/30 shadow-lg hover:shadow-2xl rounded-2xl p-6 flex items-center justify-center transition-transform hover:scale-105 duration-300"
-            >
-              <img
-                src={logo}
-                alt={`Logo ${index + 1}`}
-                className="h-14 w-auto object-contain transition duration-300"
-              />
-            </div>
-          ))}
+    {/* Center the 5 logos */}
+    <div className="flex flex-wrap justify-center gap-6">
+      {logos.slice(0, 5).map((logo, index) => (
+        <div
+          key={index}
+          className="bg-white/40 backdrop-blur-md border border-white/30 shadow-lg hover:shadow-2xl rounded-2xl p-6 flex items-center justify-center transition-transform hover:scale-105 duration-300 w-40 h-24"
+        >
+          <img
+            src={logo}
+            alt={`Logo ${index + 1}`}
+            className="h-14 w-auto object-contain transition duration-300"
+          />
         </div>
-      </div>
-    </section>
+      ))}
+    </div>
+  </div>
+</section>
 
 
       <style>

@@ -70,8 +70,12 @@ import image_Criteria01 from "./Aboute/Criteria.jpg"
 import image_TeamBG from "./Aboute/Team.jpg";
 import image_END01 from "./Aboute/End.jpg"
 
-
-
+// Partnes
+import image_partnes01 from "./Partners/AtWork Australia.jpg" ;
+import image_partnes02 from "./Partners/Impact Services Australia.jpg";
+import image_partnes03 from "./Partners/Mutlicultural Services Australia.png";
+import image_partnes04 from "./Partners/NSEA Australia.jpg";
+import image_partnes05 from "./Partners/Workskil-Australia.jpg";
 
 
 const images = {
@@ -145,7 +149,15 @@ const images = {
   mobile_image_two,
   mobile_image_three,
   mobile_image_four,
-  mobile_image_five
+  mobile_image_five,
+
+
+  // Partnes
+  image_partnes01,
+  image_partnes02,
+  image_partnes03,
+  image_partnes04,
+  image_partnes05,
 
   
 };
