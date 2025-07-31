@@ -254,7 +254,7 @@ const Home = () => {
             className="bg-white/70 backdrop-blur-md shadow-lg rounded-2xl p-6 flex flex-col items-center hover:shadow-2xl transition-transform hover:scale-105"
           >
             <FaLightbulb className="text-4xl text-blue-800 mb-4" />
-            <h4 className="text-xl font-semibold text-gray-800 mb-2">Smart Mentoring</h4>
+            <h4 className="text-xl font-semibold text-gray-800 mb-2"> Mentoring</h4>
             <p className="text-sm text-gray-600">
               Business coaching tailored to help you grow faster and smarter.
             </p>
