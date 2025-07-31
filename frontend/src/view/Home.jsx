@@ -1156,7 +1156,7 @@ const Home = () => {
 </section>
 
 {/* Branding */}
-<section className="bg-gradient-to-br from-white via-green-50 to-yellow-50 py-12">
+{/* <section className="bg-gradient-to-br from-white via-green-50 to-yellow-50 py-12">
   <div className="max-w-6xl mx-auto px-4">
     <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">Our Branding</h2>
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 justify-items-center">
@@ -1197,7 +1197,7 @@ const Home = () => {
       </div>
     </div>
   </div>
-</section>
+</section> */}
  
       <style>
         {`
