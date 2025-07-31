@@ -4,10 +4,32 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { FaStar, FaHandPointRight } from "react-icons/fa";
 import { TiTickOutline } from "react-icons/ti";
-import { CheckCircle, Users, Building2, Shield, AlertCircle, FileText, Award, Globe } from 'lucide-react';
-import { FaRocket, FaLightbulb, FaHandshake } from 'react-icons/fa';
+import { FaRocket, FaLightbulb, FaHandshake, FaFacebook } from "react-icons/fa";
 import CountUp from "react-countup";
-import { Star, User, Calendar, ThumbsUp, MessageCircle, Image, X, ChevronLeft, ChevronRight, Camera } from 'lucide-react';
+
+import {
+  CheckCircle,
+  Users,
+  Building2,
+  Shield,
+  AlertCircle,
+  FileText,
+  Award,
+  Globe,
+  Star,
+  User,
+  Calendar,
+  ThumbsUp,
+  MessageCircle,
+  Image,
+  X,
+  ChevronLeft,
+  ChevronRight,
+  Camera,
+  Share2,
+  Heart,
+} from "lucide-react";
+
 
 // import {
 //   FaPhoneAlt,
@@ -21,6 +43,21 @@ import { Star, User, Calendar, ThumbsUp, MessageCircle, Image, X, ChevronLeft, C
 import images from "../assets/Images/images";
 import pdf from "../assets/Images/pdf";
 import ApplyNow from "../components/Modal/ApplyNow"; 
+const handleShare = () => {
+  if (navigator.share) {
+    navigator.share({
+      title: "Check out this Facebook page!",
+      text: "Follow us on Facebook",
+      url: "https://www.facebook.com/share/16yoXUzBX7/",
+    }).then(() => {
+      console.log("Successful share");
+    }).catch((error) => {
+      console.log("Error sharing:", error);
+    });
+  } else {
+    alert("Web Share API is not supported in your browser. Please copy the link manually.");
+  }
+};
 
 const Home = () => {
   const [serviceModalIndex, setServiceModalIndex] = useState(null);
@@ -131,79 +168,7 @@ const Home = () => {
     },
    
   ];
-const reviews = [
-  {
-    id: 1,
-    name: "Sarah Johnson",
-    role: "Marketing Director",
-    company: "TechFlow Inc",
-    rating: 5,
-    review: "Absolutely fantastic service! The team exceeded our expectations in every way. Their attention to detail and commitment to quality is unmatched.",
-    image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
-  },
-  {
-    id: 2,
-    name: "Michael Chen",
-    role: "CEO",
-    company: "Innovation Labs",
-    rating: 5,
-    review: "Working with this team has been a game-changer for our business. Professional, reliable, and incredibly talented. Highly recommended!",
-    image: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
-  },
-  {
-    id: 3,
-    name: "Emily Rodriguez",
-    role: "Product Manager",
-    company: "Digital Solutions",
-    rating: 5,
-    review: "The results speak for themselves. Our project was delivered on time, within budget, and exceeded all our quality expectations. Simply amazing!",
-    image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
-  },
-  {
-    id: 4,
-    name: "David Thompson",
-    role: "Operations Manager",
-    company: "Global Enterprises",
-    rating: 4,
-    review: "Great experience from start to finish. The communication was excellent and the final product was exactly what we envisioned.",
-    image: "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
-  },
-  {
-    id: 5,
-    name: "Lisa Wang",
-    role: "Creative Director",
-    company: "Design Studio Pro",
-    rating: 5,
-    review: "Outstanding creativity and technical expertise. They transformed our vision into reality with incredible precision and style.",
-    image: "https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
-  },
-  {
-    id: 6,
-    name: "James Miller",
-    role: "Founder",
-    company: "StartupX",
-    rating: 5,
-    review: "As a startup, we needed a partner we could trust. They delivered exceptional results and helped us achieve our goals faster than expected.",
-    image: "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
-  }
-];
 
-const StarRating = ({ rating }) => {
-  return (
-    <div className="flex space-x-1">
-      {[1, 2, 3, 4, 5].map((star) => (
-        <Star
-          key={star}
-          className={`w-5 h-5 ${
-            star <= rating
-              ? 'text-yellow-400 fill-yellow-400'
-              : 'text-gray-300'
-          } transition-colors duration-200`}
-        />
-      ))}
-    </div>
-  );
-};
   const openServiceModal = (index) => {
     setServiceModalIndex(index);
   };
@@ -388,27 +353,113 @@ const StarRating = ({ rating }) => {
           </div>  */}
 
      {/* Counter */}
- <section className="bg-gradient-to-br from-white via-green-50 to-yellow-50 py-20 px-6 sm:px-12">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-black mb-6 drop-shadow-md">
-          Satisfaction Rate
-        </h2>
-        <p className="text-lg sm:text-xl text-blue-700 mb-10">
-          We strive for perfection — and our clients agree.
-        </p>
+ {/* <span ref={countRef} className="tabular-nums">
+      {prefix}{count}{suffix}
+    </span> */}
+    <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-24 px-6 sm:px-12 overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-200/30 to-indigo-200/30 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-green-200/30 to-teal-200/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
 
-        <div className="flex justify-center">
-          <div className="bg-white p-10 sm:p-14 rounded-3xl shadow-2xl hover:shadow-green-200 transition-shadow duration-300">
-            <p className="text-6xl sm:text-7xl font-bold text-blue-800  drop-shadow-md">
-              <CountUp start={0} end={100} duration={3} suffix="%" />
-            </p>
-            <p className="mt-2 text-gray-700 text-lg font-medium">
-              Customer Satisfaction
-            </p>
+      <div className="relative max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg mb-8">
+            <Award className="w-5 h-5 text-blue-800" />
+            <span className="text-sm font-semibold text-slate-700 tracking-wide uppercase">
+              Client Satisfaction
+            </span>
+          </div>
+          
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-slate-800 via-blue-800 to-indigo-800 mb-6 leading-tight">
+            Satisfaction Rate
+          </h2>
+          
+          <p className="text-xl sm:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            We strive for perfection — and our clients agree. Every project is a testament to our commitment to excellence.
+          </p>
+        </div>
+
+        {/* Main Content */}
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20">
+          {/* Left Image with enhanced effects */}
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-3xl blur-lg opacity-25 group-hover:opacity-40 transition-opacity duration-500"></div>
+            <div className="relative w-80 h-80 sm:w-96 sm:h-96 transform transition-all duration-700 group-hover:rotate-2 group-hover:scale-105">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-3xl "></div>
+              <img
+                src={images.image_Criteria01}
+                alt="Satisfied client working with our team"
+                className="w-full h-full object-cover rounded-3xl shadow-2xl"
+              />
+              
+              {/* Floating icons */}
+              <div className="absolute -top-4 -right-4 bg-blue-700 p-3 rounded-full shadow-lg animate-bounce delay-300">
+                <ThumbsUp className="w-6 h-6 text-white" />
+              </div>
+              <div className="absolute -bottom-4 -left-4 bg-blue-500 p-3 rounded-full shadow-lg animate-bounce delay-700">
+                <Star className="w-6 h-6 text-white" />
+              </div>
+            </div>
+          </div>
+
+          {/* Right Counter Box with glass morphism */}
+          <div className="relative">
+            {/* Background glow */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 rounded-3xl blur-xl"></div>
+            
+            <div className="relative bg-white/90 backdrop-blur-xl p-12 sm:p-16 rounded-3xl shadow-2xl border border-white/20 hover:shadow-blue-200/50 transition-all duration-500 text-center group">
+              {/* Decorative elements */}
+              <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
+                <Users className="w-12 h-12 text-blue-600" />
+              </div>
+              
+              <div className="relative z-10">
+                <div className="text-8xl sm:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 mb-4 leading-none drop-shadow-sm">
+                  <CountUp start={0} end={100} duration={3} suffix="%" />
+                </div>
+                
+                <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mx-auto mb-6"></div>
+                
+                <p className="text-xl font-bold text-slate-700 mb-2">
+                  Customer Satisfaction
+                </p>
+                <p className="text-sm text-slate-500 max-w-xs mx-auto leading-relaxed">
+                  Based on over 500+ completed projects and client testimonials
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Stats */}
+        <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+          <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="text-3xl font-bold text-blue-600 mb-2">
+              <CountUp start={0} end={500} duration={2.5} suffix="+" />
+            </div>
+            <p className="text-slate-600 font-medium">Projects Completed</p>
+          </div>
+          
+          <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="text-3xl font-bold text-blue-600 mb-2">
+              <CountUp start={0} end={98} duration={2.5} suffix="%" />
+            </div>
+            <p className="text-slate-600 font-medium">On-Time Delivery</p>
+          </div>
+          
+          <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="text-3xl font-bold text-blue-600 mb-2">
+              <CountUp start={0} end={250} duration={2.5} suffix="+" />
+            </div>
+            <p className="text-slate-600 font-medium">Happy Clients</p>
           </div>
         </div>
       </div>
     </section>
+ 
       {/* Services Section */}
       <section className="bg-gradient-to-br from-white via-green-50 to-yellow-50 py-6 sm:py-8 md:py-12 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif]">
         <div className="max-w-7xl mx-auto">
@@ -886,6 +937,189 @@ const StarRating = ({ rating }) => {
         </div>
       </section>
 
+      
+{/* FB Update */}
+
+<section className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-24 px-6 sm:px-12 overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-200/20 to-indigo-200/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-purple-200/20 to-pink-200/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-blue-100/10 to-indigo-100/10 rounded-full blur-3xl animate-pulse delay-500"></div>
+      </div>
+
+      <div className="relative max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm px-8 py-4 rounded-full shadow-lg mb-8 hover:shadow-xl transition-shadow duration-300">
+            <div className="p-2 bg-blue-600 rounded-full">
+              <FaFacebook className="w-5 h-5 text-white" />
+            </div>
+            <span className="text-sm font-semibold text-slate-700 tracking-wide uppercase">
+              Social Connection
+            </span>
+          </div>
+
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-800 via-indigo-800 to-purple-800 mb-6 leading-tight">
+            Stay Connected
+          </h2>
+
+          <p className="text-xl sm:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-4">
+            Follow our journey and get the latest updates from our community
+          </p>
+
+          <div className="flex items-center justify-center gap-6 text-sm text-slate-500">
+            <div className="flex items-center gap-2">
+              <Users className="w-4 h-4" />
+              <span>Join our community</span>
+            </div>
+            <div className="w-1 h-1 bg-slate-300 rounded-full"></div>
+            <div className="flex items-center gap-2">
+              <MessageCircle className="w-4 h-4" />
+              <span>Latest updates</span>
+            </div>
+            <div className="w-1 h-1 bg-slate-300 rounded-full"></div>
+            <div className="flex items-center gap-2">
+              <Heart className="w-4 h-4" />
+              <span>Behind the scenes</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Content */}
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20">
+          {/* Left Content */}
+          <div className="flex-1 max-w-lg">
+            <div className="space-y-8">
+              {/* Feature Cards */}
+              <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="p-3 bg-blue-100 rounded-full group-hover:bg-blue-200 transition-colors duration-300">
+                    <MessageCircle className="w-6 h-6 text-blue-800" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-800">Latest Updates</h3>
+                </div>
+                <p className="text-slate-600 leading-relaxed">
+                  Get real-time updates about our projects, achievements, and company news directly from our Facebook page.
+                </p>
+              </div>
+
+              <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="p-3 bg-blue-100 rounded-full group-hover:bg-blue-200 transition-colors duration-300">
+                    <Users className="w-6 h-6 text-blue-800" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-800">Community</h3>
+                </div>
+                <p className="text-slate-600 leading-relaxed">
+                  Join thousands of followers who are part of our growing community and engage with our content.
+                </p>
+              </div>
+
+              <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="p-3 bg-blue-100 rounded-full group-hover:bg-blue-200 transition-colors duration-300">
+                    <Share2 className="w-6 h-6 text-blue-800" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-800">Share & Connect</h3>
+                </div>
+                <p className="text-slate-600 leading-relaxed">
+                  Share our posts with your network and help us spread the word about our mission and values.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Facebook Embed */}
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+
+            <div className="relative bg-white/90 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white/20 hover:shadow-blue-200/50 transition-all duration-500">
+              <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
+                <FaFacebook className="w-8 h-8 text-blue-600" />
+              </div>
+
+              <div className="relative z-10">
+                <div className="mb-6 text-center">
+                  <div className="inline-flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-sm font-medium text-blue-700">Live Feed</span>
+                  </div>
+                </div>
+
+                <div className="w-full max-w-md mx-auto shadow-lg rounded-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: `
+                      <iframe 
+                        src="https://www.facebook.com/share/16yoXUzBX7/"
+                        width="340"
+                        height="500"
+                        style="border:none;overflow:hidden;border-radius:12px;"
+                        scrolling="no"
+                        frameborder="0"
+                        allowfullscreen="true"
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                      ></iframe>
+                      `,
+                    }}
+                  />
+                </div>
+
+                <div className="mt-6 text-center">
+                  <p className="text-sm text-slate-500 mb-4">
+                    Follow us for more updates and behind-the-scenes content
+                  </p>
+                  <div className="flex items-center justify-center gap-4">
+                    <div className="flex items-center gap-2 text-xs text-slate-400">
+                      <Heart className="w-3 h-3" />
+                      <span>1.2k likes</span>
+                    </div>
+                    <div className="w-1 h-1 bg-slate-300 rounded-full"></div>
+                    <div className="flex items-center gap-2 text-xs text-slate-400">
+                      <MessageCircle className="w-3 h-3" />
+                      <span>89 comments</span>
+                    </div>
+                    <div className="w-1 h-1 bg-slate-300 rounded-full"></div>
+                    <div className="flex items-center gap-2 text-xs text-slate-400">
+                      <Share2 className="w-3 h-3" />
+                      <span>45 shares</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="mt-20 text-center">
+          <div className="bg-white/60 backdrop-blur-sm p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-slate-800 mb-4">
+              Don't miss out on our updates!
+            </h3>
+            <p className="text-slate-600 mb-6">
+              Like our page and turn on notifications to stay in the loop with all our latest news and announcements.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+                <FaFacebook className="w-5 h-5" />
+                <a href="https://www.facebook.com/share/16yoXUzBX7/">
+                Follow on Facebook</a>
+              </button>
+             <button
+  onClick={handleShare}
+  className="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-slate-700 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border border-gray-200"
+>
+  <Share2 className="w-5 h-5" />
+  Share with Friends
+</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 {/* Partnes */}
  <section className="bg-gradient-to-br from-white via-green-50 to-emerald-100 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
