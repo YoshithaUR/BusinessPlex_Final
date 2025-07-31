@@ -1154,49 +1154,50 @@ const Home = () => {
   </div>
 </section>
 
-{/* Branding  */}
-   <section className="bg-gradient-to-br from-white via-green-50 to-yellow-50 py-10">
+{/* Branding */}
+<section className="bg-gradient-to-br from-white via-green-50 to-yellow-50 py-12">
   <div className="max-w-6xl mx-auto px-4">
-    <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Our Branding</h2>
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 items-center justify-center">
-      <div className="flex justify-center items-center">
+    <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">Our Branding</h2>
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 justify-items-center">
+      <div>
         <img
           src={images.image_Footer1}
           alt="Logo 1"
-          className="w-24 h-auto transition-transform duration-300 hover:scale-110"
+          className="w-32 h-auto transition-transform duration-300 hover:scale-110"
         />
       </div>
-      <div className="flex justify-center items-center">
+      <div>
         <img
           src={images.image_Footer2}
           alt="Logo 2"
-          className="w-24 h-auto transition-transform duration-300 hover:scale-110"
+          className="w-32 h-auto transition-transform duration-300 hover:scale-110"
         />
       </div>
-      <div className="flex justify-center items-center">
+      <div>
         <img
           src={images.image_Footer3}
           alt="Logo 3"
-          className="w-24 h-auto transition-transform duration-300 hover:scale-110"
+          className="w-32 h-auto transition-transform duration-300 hover:scale-110"
         />
       </div>
-      <div className="flex justify-center items-center">
+      <div>
         <img
-          src={images.image_Footer4}
+          src={images.image_Footer7}
           alt="Logo 4"
-          className="w-24 h-auto transition-transform duration-300 hover:scale-110"
+          className="w-32 h-auto transition-transform duration-300 hover:scale-110"
         />
       </div>
-      <div className="flex justify-center items-center">
+      <div>
         <img
           src={images.image_Footer5}
           alt="Logo 5"
-          className="w-24 h-auto transition-transform duration-300 hover:scale-110"
+          className="w-32 h-auto transition-transform duration-300 hover:scale-110"
         />
       </div>
     </div>
   </div>
 </section>
+
 
       <style>
         {`
