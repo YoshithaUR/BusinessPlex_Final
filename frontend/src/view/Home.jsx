@@ -6,6 +6,8 @@ import { FaStar, FaHandPointRight } from "react-icons/fa";
 import { TiTickOutline } from "react-icons/ti";
 import { FaRocket, FaLightbulb, FaHandshake, FaFacebook } from "react-icons/fa";
 import CountUp from "react-countup";
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+
 
 import {
   CheckCircle,
@@ -43,6 +45,7 @@ import {
 import images from "../assets/Images/images";
 import pdf from "../assets/Images/pdf";
 import ApplyNow from "../components/Modal/ApplyNow"; 
+
 
 const FacebookPagePlugin = ({ pageUrl = 'https://www.facebook.com/YourPageName' }) => {
   const encodedUrl = encodeURIComponent(pageUrl);
@@ -93,12 +96,7 @@ const Home = () => {
     "Business Advice.",
   ];
 
-  // const paragraphData2 = [
-  //   "You must be at least 18 years of age for Small Business Training",
-  //   "You must not be prohibited by law from working in Australia",
-  //   "You must not be an overseas visitor on a working holiday visa or an overseas student studying in Australia",
-  //   "You cannot be an undischarged bankrupt.",
-  // ];
+  
 
   const services = [
     {
@@ -185,6 +183,7 @@ const Home = () => {
     navigate("/ApplicationForm", { state: { selectedService: serviceTitle } });
   };
 
+  
   return (
     <div className="w-full overflow-x-hidden">
       {/* Business Support Services Section */}
@@ -941,7 +940,9 @@ const Home = () => {
         </div>
       </section>
 
-      
+
+
+
 {/* FB Update */}
 
 <section className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-24 px-6 sm:px-12 overflow-hidden">
@@ -1197,8 +1198,7 @@ const Home = () => {
     </div>
   </div>
 </section>
-
-
+ 
       <style>
         {`
         @keyframes ping-slow {
