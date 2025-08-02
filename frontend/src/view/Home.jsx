@@ -6,8 +6,7 @@ import { FaStar, FaHandPointRight } from "react-icons/fa";
 import { TiTickOutline } from "react-icons/ti";
 import { FaRocket, FaLightbulb, FaHandshake, FaFacebook } from "react-icons/fa";
 import CountUp from "react-countup";
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import {
   CheckCircle,
@@ -32,7 +31,6 @@ import {
   Heart,
 } from "lucide-react";
 
-
 // import {
 //   FaPhoneAlt,
 //   FaWhatsapp,
@@ -44,25 +42,32 @@ import {
 
 import images from "../assets/Images/images";
 import pdf from "../assets/Images/pdf";
-import ApplyNow from "../components/Modal/ApplyNow"; 
+import ApplyNow from "../components/Modal/ApplyNow";
+import GoogleReviewSection from "./Google Reviews/googleReviws";
 
-
-const FacebookPagePlugin = ({ pageUrl = 'https://www.facebook.com/YourPageName' }) => {
+const FacebookPagePlugin = ({
+  pageUrl = "https://www.facebook.com/YourPageName",
+}) => {
   const encodedUrl = encodeURIComponent(pageUrl);
 };
 const handleShare = () => {
   if (navigator.share) {
-    navigator.share({
-      title: "Check out this Facebook page!",
-      text: "Follow us on Facebook",
-      url: "https://www.facebook.com/share/16yoXUzBX7/",
-    }).then(() => {
-      console.log("Successful share");
-    }).catch((error) => {
-      console.log("Error sharing:", error);
-    });
+    navigator
+      .share({
+        title: "Check out this Facebook page!",
+        text: "Follow us on Facebook",
+        url: "https://www.facebook.com/share/16yoXUzBX7/",
+      })
+      .then(() => {
+        console.log("Successful share");
+      })
+      .catch((error) => {
+        console.log("Error sharing:", error);
+      });
   } else {
-    alert("Web Share API is not supported in your browser. Please copy the link manually.");
+    alert(
+      "Web Share API is not supported in your browser. Please copy the link manually."
+    );
   }
 };
 
@@ -79,14 +84,13 @@ const Home = () => {
       offset: 120,
     });
   }, []);
- const logos = [
-  images.image_partnes01,
-  images.image_partnes02,
-  images.image_partnes03,
-  images.image_partnes04,
-  images.image_partnes05,
-  
-];
+  const logos = [
+    images.image_partnes01,
+    images.image_partnes02,
+    images.image_partnes03,
+    images.image_partnes04,
+    images.image_partnes05,
+  ];
   const paragraphData = [
     "Small Business Training. ",
     "Business Plan Development.",
@@ -95,8 +99,6 @@ const Home = () => {
     "Business Health Check .",
     "Business Advice.",
   ];
-
-  
 
   const services = [
     {
@@ -116,7 +118,7 @@ const Home = () => {
       modalImage: images.image_Card01,
       backgroundImage: images.image_ServicePopup01,
     },
-     {
+    {
       title: "Exploring Self-Employment Workshop",
       image: images.image_Card04,
       gif: images.image_GIF04,
@@ -133,7 +135,7 @@ const Home = () => {
       modalImage: images.image_Card04,
       backgroundImage: images.image_ServicePopup04,
     },
-    
+
     {
       title: "Business Health Check",
       image: images.image_Card03,
@@ -168,7 +170,6 @@ const Home = () => {
       modalImage: images.image_Card02,
       backgroundImage: images.image_ServicePopup02,
     },
-   
   ];
 
   const openServiceModal = (index) => {
@@ -183,102 +184,112 @@ const Home = () => {
     navigate("/ApplicationForm", { state: { selectedService: serviceTitle } });
   };
 
-  
   return (
     <div className="w-full overflow-x-hidden">
       {/* Business Support Services Section */}
 
       <section className="relative bg-gradient-to-br from-white via-green-50 to-yellow-50 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
-      <div className="max-w-6xl mx-auto text-center">
-        {/* Tagline */}
-        <h1
-          data-aos="fade-up"
-          className="text-4xl md:text-5xl font-extrabold text-black mb-4"
-        >
-          “Best place to your own business’’
-        </h1>
-        <p
-          data-aos="fade-up"
-          data-aos-delay="200"
-          className="text-lg md:text-xl text-gray-700 mb-10 max-w-3xl mx-auto"
-        >
-          Thinking of starting a business or taking the existing business to the next level?
-        </p>
-
-        {/* Description */}
-        <p
-          data-aos="fade-up"
-          data-aos-delay="300"
-          className="text-base md:text-lg text-gray-600 max-w-4xl mx-auto mb-8"
-        >
-          Businessplex offers small business training & mentoring that are designed to help you establish, grow,
-          and succeed in your business journey. Whether you're starting a new venture or looking to grow your
-          existing business, we're here to guide you every step of the way!
-        </p>
-
-        {/* Program Highlight */}
-        <p
-          data-aos="fade-up"
-          data-aos-delay="400"
-          className="text-base md:text-lg text-gray-600 max-w-4xl mx-auto"
-        >
-          We deliver the <strong>Self-Employment Assistance Program</strong> (formerly NEIS), fully funded by the
-          Department of Employment and Workplace Relations (DEWR) under Workforce Australia for eligible start-ups and
-          established businesses in the Perth-North area.
-        </p>
-
-        <p
-          data-aos="fade-up"
-          data-aos-delay="500"
-          className="mt-6 text-base md:text-lg text-gray-700 font-medium"
-        >
-           The only program in Australia focused on helping individuals launch their small business from scratch!
-        </p>
-
-        {/* Feature Icons */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div
-            data-aos="zoom-in"
-            className="bg-white/70 backdrop-blur-md shadow-lg rounded-2xl p-6 flex flex-col items-center hover:shadow-2xl transition-transform hover:scale-105"
+        <div className="max-w-6xl mx-auto text-center">
+          {/* Tagline */}
+          <h1
+            data-aos="fade-up"
+            className="text-4xl md:text-5xl font-extrabold text-black mb-4"
           >
-            <FaRocket className="text-4xl text-blue-800 mb-4" />
-            <h4 className="text-xl font-semibold text-gray-800 mb-2">Launch Your Idea</h4>
-            <p className="text-sm text-gray-600">
-              Start your dream business from scratch with full support & guidance.
-            </p>
-          </div>
-
-          <div
-            data-aos="zoom-in"
-            data-aos-delay="100"
-            className="bg-white/70 backdrop-blur-md shadow-lg rounded-2xl p-6 flex flex-col items-center hover:shadow-2xl transition-transform hover:scale-105"
-          >
-            <FaLightbulb className="text-4xl text-blue-800 mb-4" />
-            <h4 className="text-xl font-semibold text-gray-800 mb-2"> Mentoring</h4>
-            <p className="text-sm text-gray-600">
-              Business coaching tailored to help you grow faster and smarter.
-            </p>
-          </div>
-
-          <div
-            data-aos="zoom-in"
+            “Best place to your own business’’
+          </h1>
+          <p
+            data-aos="fade-up"
             data-aos-delay="200"
-            className="bg-white/70 backdrop-blur-md shadow-lg rounded-2xl p-6 flex flex-col items-center hover:shadow-2xl transition-transform hover:scale-105"
+            className="text-lg md:text-xl text-gray-700 mb-10 max-w-3xl mx-auto"
           >
-            <FaHandshake className="text-4xl text-blue-800 mb-4" />
-            <h4 className="text-xl font-semibold text-gray-800 mb-2">Government Support</h4>
-            <p className="text-sm text-gray-600">
-              Fully funded program by DEWR under Workforce Australia.
-            </p>
+            Thinking of starting a business or taking the existing business to
+            the next level?
+          </p>
+
+          {/* Description */}
+          <p
+            data-aos="fade-up"
+            data-aos-delay="300"
+            className="text-base md:text-lg text-gray-600 max-w-4xl mx-auto mb-8"
+          >
+            Businessplex offers small business training & mentoring that are
+            designed to help you establish, grow, and succeed in your business
+            journey. Whether you're starting a new venture or looking to grow
+            your existing business, we're here to guide you every step of the
+            way!
+          </p>
+
+          {/* Program Highlight */}
+          <p
+            data-aos="fade-up"
+            data-aos-delay="400"
+            className="text-base md:text-lg text-gray-600 max-w-4xl mx-auto"
+          >
+            We deliver the <strong>Self-Employment Assistance Program</strong>{" "}
+            (formerly NEIS), fully funded by the Department of Employment and
+            Workplace Relations (DEWR) under Workforce Australia for eligible
+            start-ups and established businesses in the Perth-North area.
+          </p>
+
+          <p
+            data-aos="fade-up"
+            data-aos-delay="500"
+            className="mt-6 text-base md:text-lg text-gray-700 font-medium"
+          >
+            The only program in Australia focused on helping individuals launch
+            their small business from scratch!
+          </p>
+
+          {/* Feature Icons */}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div
+              data-aos="zoom-in"
+              className="bg-white/70 backdrop-blur-md shadow-lg rounded-2xl p-6 flex flex-col items-center hover:shadow-2xl transition-transform hover:scale-105"
+            >
+              <FaRocket className="text-4xl text-blue-800 mb-4" />
+              <h4 className="text-xl font-semibold text-gray-800 mb-2">
+                Launch Your Idea
+              </h4>
+              <p className="text-sm text-gray-600">
+                Start your dream business from scratch with full support &
+                guidance.
+              </p>
+            </div>
+
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="100"
+              className="bg-white/70 backdrop-blur-md shadow-lg rounded-2xl p-6 flex flex-col items-center hover:shadow-2xl transition-transform hover:scale-105"
+            >
+              <FaLightbulb className="text-4xl text-blue-800 mb-4" />
+              <h4 className="text-xl font-semibold text-gray-800 mb-2">
+                {" "}
+                Mentoring
+              </h4>
+              <p className="text-sm text-gray-600">
+                Business coaching tailored to help you grow faster and smarter.
+              </p>
+            </div>
+
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="200"
+              className="bg-white/70 backdrop-blur-md shadow-lg rounded-2xl p-6 flex flex-col items-center hover:shadow-2xl transition-transform hover:scale-105"
+            >
+              <FaHandshake className="text-4xl text-blue-800 mb-4" />
+              <h4 className="text-xl font-semibold text-gray-800 mb-2">
+                Government Support
+              </h4>
+              <p className="text-sm text-gray-600">
+                Fully funded program by DEWR under Workforce Australia.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-
-    {/* Business Support Services */}
+      {/* Business Support Services */}
       <section className="relative bg-gradient-to-br from-white via-green-50 to-yellow-50 py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif] overflow-hidden">
-       
         <div
           className="absolute inset-0 opacity-5 z-0"
           style={{
@@ -343,8 +354,8 @@ const Home = () => {
 
       <ApplyNow />
 
-          {/* Image Column */}
-          {/* <div
+      {/* Image Column */}
+      {/* <div
             className="relative w-full h-48 sm:h-64 md:h-80 lg:h-[450px] overflow-hidden rounded-3xl shadow-2xl group order-2 lg:order-1"
 
           >
@@ -355,114 +366,116 @@ const Home = () => {
             />
           </div>  */}
 
-     {/* Counter */}
- {/* <span ref={countRef} className="tabular-nums">
+      {/* Counter */}
+      {/* <span ref={countRef} className="tabular-nums">
       {prefix}{count}{suffix}
     </span> */}
-    <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-24 px-6 sm:px-12 overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-200/30 to-indigo-200/30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-green-200/30 to-teal-200/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      </div>
-
-      <div className="relative max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg mb-8">
-            <Award className="w-5 h-5 text-blue-800" />
-            <span className="text-sm font-semibold text-slate-700 tracking-wide uppercase">
-              Client Satisfaction
-            </span>
-          </div>
-          
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-slate-800 via-blue-800 to-indigo-800 mb-6 leading-tight">
-            Satisfaction Rate
-          </h2>
-          
-          <p className="text-xl sm:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            We strive for perfection — and our clients agree. Every project is a testament to our commitment to excellence.
-          </p>
+      <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-24 px-6 sm:px-12 overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-200/30 to-indigo-200/30 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-green-200/30 to-teal-200/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
 
-        {/* Main Content */}
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20">
-          {/* Left Image with enhanced effects */}
-          <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-3xl blur-lg opacity-25 group-hover:opacity-40 transition-opacity duration-500"></div>
-            <div className="relative w-80 h-80 sm:w-96 sm:h-96 transform transition-all duration-700 group-hover:rotate-2 group-hover:scale-105">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-3xl "></div>
-              <img
-                src={images.image_Criteria01}
-                alt="Satisfied client working with our team"
-                className="w-full h-full object-cover rounded-3xl shadow-2xl"
-              />
-              
-              {/* Floating icons */}
-              <div className="absolute -top-4 -right-4 bg-blue-700 p-3 rounded-full shadow-lg animate-bounce delay-300">
-                <ThumbsUp className="w-6 h-6 text-white" />
-              </div>
-              <div className="absolute -bottom-4 -left-4 bg-blue-500 p-3 rounded-full shadow-lg animate-bounce delay-700">
-                <Star className="w-6 h-6 text-white" />
-              </div>
+        <div className="relative max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg mb-8">
+              <Award className="w-5 h-5 text-blue-800" />
+              <span className="text-sm font-semibold text-slate-700 tracking-wide uppercase">
+                Client Satisfaction
+              </span>
             </div>
+
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-slate-800 via-blue-800 to-indigo-800 mb-6 leading-tight">
+              Satisfaction Rate
+            </h2>
+
+            <p className="text-xl sm:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              We strive for perfection — and our clients agree. Every project is
+              a testament to our commitment to excellence.
+            </p>
           </div>
 
-          {/* Right Counter Box with glass morphism */}
-          <div className="relative">
-            {/* Background glow */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 rounded-3xl blur-xl"></div>
-            
-            <div className="relative bg-white/90 backdrop-blur-xl p-12 sm:p-16 rounded-3xl shadow-2xl border border-white/20 hover:shadow-blue-200/50 transition-all duration-500 text-center group">
-              {/* Decorative elements */}
-              <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                <Users className="w-12 h-12 text-blue-600" />
-              </div>
-              
-              <div className="relative z-10">
-                <div className="text-8xl sm:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 mb-4 leading-none drop-shadow-sm">
-                  <CountUp start={0} end={100} duration={3} suffix="%" />
+          {/* Main Content */}
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20">
+            {/* Left Image with enhanced effects */}
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-3xl blur-lg opacity-25 group-hover:opacity-40 transition-opacity duration-500"></div>
+              <div className="relative w-80 h-80 sm:w-96 sm:h-96 transform transition-all duration-700 group-hover:rotate-2 group-hover:scale-105">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-3xl "></div>
+                <img
+                  src={images.image_Criteria01}
+                  alt="Satisfied client working with our team"
+                  className="w-full h-full object-cover rounded-3xl shadow-2xl"
+                />
+
+                {/* Floating icons */}
+                <div className="absolute -top-4 -right-4 bg-blue-700 p-3 rounded-full shadow-lg animate-bounce delay-300">
+                  <ThumbsUp className="w-6 h-6 text-white" />
                 </div>
-                
-                <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mx-auto mb-6"></div>
-                
-                <p className="text-xl font-bold text-slate-700 mb-2">
-                  Customer Satisfaction
-                </p>
-                <p className="text-sm text-slate-500 max-w-xs mx-auto leading-relaxed">
-                  Based on over 500+ completed projects and client testimonials
-                </p>
+                <div className="absolute -bottom-4 -left-4 bg-blue-500 p-3 rounded-full shadow-lg animate-bounce delay-700">
+                  <Star className="w-6 h-6 text-white" />
+                </div>
+              </div>
+            </div>
+
+            {/* Right Counter Box with glass morphism */}
+            <div className="relative">
+              {/* Background glow */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 rounded-3xl blur-xl"></div>
+
+              <div className="relative bg-white/90 backdrop-blur-xl p-12 sm:p-16 rounded-3xl shadow-2xl border border-white/20 hover:shadow-blue-200/50 transition-all duration-500 text-center group">
+                {/* Decorative elements */}
+                <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
+                  <Users className="w-12 h-12 text-blue-600" />
+                </div>
+
+                <div className="relative z-10">
+                  <div className="text-8xl sm:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 mb-4 leading-none drop-shadow-sm">
+                    <CountUp start={0} end={100} duration={3} suffix="%" />
+                  </div>
+
+                  <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mx-auto mb-6"></div>
+
+                  <p className="text-xl font-bold text-slate-700 mb-2">
+                    Customer Satisfaction
+                  </p>
+                  <p className="text-sm text-slate-500 max-w-xs mx-auto leading-relaxed">
+                    Based on over 500+ completed projects and client
+                    testimonials
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Bottom Stats */}
-        <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-          <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="text-3xl font-bold text-blue-600 mb-2">
-              <CountUp start={0} end={500} duration={2.5} suffix="+" />
+          {/* Bottom Stats */}
+          <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+            <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="text-3xl font-bold text-blue-600 mb-2">
+                <CountUp start={0} end={500} duration={2.5} suffix="+" />
+              </div>
+              <p className="text-slate-600 font-medium">Projects Completed</p>
             </div>
-            <p className="text-slate-600 font-medium">Projects Completed</p>
-          </div>
-          
-          <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="text-3xl font-bold text-blue-600 mb-2">
-              <CountUp start={0} end={98} duration={2.5} suffix="%" />
+
+            <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="text-3xl font-bold text-blue-600 mb-2">
+                <CountUp start={0} end={98} duration={2.5} suffix="%" />
+              </div>
+              <p className="text-slate-600 font-medium">On-Time Delivery</p>
             </div>
-            <p className="text-slate-600 font-medium">On-Time Delivery</p>
-          </div>
-          
-          <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="text-3xl font-bold text-blue-600 mb-2">
-              <CountUp start={0} end={250} duration={2.5} suffix="+" />
+
+            <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="text-3xl font-bold text-blue-600 mb-2">
+                <CountUp start={0} end={250} duration={2.5} suffix="+" />
+              </div>
+              <p className="text-slate-600 font-medium">Happy Clients</p>
             </div>
-            <p className="text-slate-600 font-medium">Happy Clients</p>
           </div>
         </div>
-      </div>
-    </section>
- 
+      </section>
+
       {/* Services Section */}
       <section className="bg-gradient-to-br from-white via-green-50 to-yellow-50 py-6 sm:py-8 md:py-12 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif]">
         <div className="max-w-7xl mx-auto">
@@ -479,18 +492,21 @@ const Home = () => {
                 {/* Default Image + Overlay */}
                 <div
                   className={`absolute inset-0 z-20 p-3 sm:p-4 md:p-6 transition-all duration-700 ease-in-out bg-cover bg-top flex flex-col justify-center items-center rounded-3xl shadow-xl 
-                  ${hoveredCard === index
+                  ${
+                    hoveredCard === index
                       ? "-translate-x-full opacity-0"
                       : "translate-x-0 opacity-100"
-                    }`}
+                  }`}
                   style={{ backgroundImage: `url(${service.image})` }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-black/30 z-0" />
 
                   {/* Content */}
                   <div className="relative z-10 text-white text-center px-2 md:px-4">
-                    <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold tracking-wider text-white  drop-shadow-lg animate-fade-in mb-4 font-[Montserrat,Open_Sans,sans-serif] leading-tight"
-                    style={{ WebkitTextStroke: "1px amber-700" }}>
+                    <h3
+                      className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold tracking-wider text-white  drop-shadow-lg animate-fade-in mb-4 font-[Montserrat,Open_Sans,sans-serif] leading-tight"
+                      style={{ WebkitTextStroke: "1px amber-700" }}
+                    >
                       {service.title}
                     </h3>
                   </div>
@@ -499,10 +515,11 @@ const Home = () => {
                 {/* Hover GIF + Button */}
                 <div
                   className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover transition-all duration-500 ease-in-out 
-                  ${hoveredCard === index
+                  ${
+                    hoveredCard === index
                       ? "translate-x-0 opacity-100"
                       : "translate-x-full opacity-0"
-                    }`}
+                  }`}
                   style={{ backgroundImage: `url(${service.gif})` }}
                 >
                   <div className="absolute inset-0 bg-black/60 z-0" />
@@ -526,10 +543,7 @@ const Home = () => {
           onClick={closeServiceModal}
         >
           {/* Background Image Overlay */}
-          <div
-            className="absolute inset-0 bg-black/80"
-            aria-hidden="true"
-          />
+          <div className="absolute inset-0 bg-black/80" aria-hidden="true" />
 
           {/* Blurred Background Image */}
           <div
@@ -586,7 +600,7 @@ const Home = () => {
               className="space-y-2 sm:space-y-3 text-white text-xs sm:text-sm md:text-[15px] leading-relaxed mb-6 sm:mb-7 md:mb-8"
               data-aos="fade-up"
               data-aos-delay="300"
-              >
+            >
               {services[serviceModalIndex].points.map((point, i) => (
                 <li
                   key={i}
@@ -629,8 +643,7 @@ const Home = () => {
         </div>
       )}
 
-
-       {/* Hero Section */}
+      {/* Hero Section */}
       <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-white via-green-50 to-yellow-50">
         <div className="max-w-6xl mx-auto text-center">
           <div data-aos="fade-down" data-aos-duration="1200">
@@ -648,7 +661,11 @@ const Home = () => {
       {/* General Requirements Section */}
       <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-white via-green-50 to-yellow-50">
         <div className="max-w-6xl mx-auto">
-          <div data-aos="zoom-in" data-aos-duration="800" className="text-center mb-8 sm:mb-12 md:mb-16">
+          <div
+            data-aos="zoom-in"
+            data-aos-duration="800"
+            className="text-center mb-8 sm:mb-12 md:mb-16"
+          >
             <CheckCircle className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-blue-600 mx-auto mb-2 sm:mb-3 md:mb-4" />
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-2 sm:mb-3 md:mb-4">
               General Requirements
@@ -669,14 +686,17 @@ const Home = () => {
                 <div className="bg-blue-100 p-2 md:p-3 rounded-full mr-2 sm:mr-3 md:mr-4">
                   <Users className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 text-blue-800" />
                 </div>
-                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">Age Requirements</h3>
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">
+                  Age Requirements
+                </h3>
               </div>
               <div className="space-y-2 sm:space-y-3 md:space-y-4">
                 <div className="flex items-start space-x-2 sm:space-x-3">
                   <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-red-500 mt-1 flex-shrink-0" />
                   <div>
                     <p className="text-gray-700 font-medium text-xs sm:text-sm md:text-base">
-                      Be at least 15 years of age to access Exploring Self-Employment Workshop
+                      Be at least 15 years of age to access Exploring
+                      Self-Employment Workshop
                     </p>
                     <p className="text-xs sm:text-xs md:text-sm text-blue-600 mt-1">
                       Eligible for Exploring Self-Employment Workshop
@@ -687,7 +707,8 @@ const Home = () => {
                   <div className="flex items-center">
                     <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-red-600 mr-2 flex-shrink-0" />
                     <p className="text-red-600 font-medium text-xs sm:text-xs md:text-sm">
-                      Note:  Be at least 18 years of age to access Small Business Coaching
+                      Note: Be at least 18 years of age to access Small Business
+                      Coaching
                     </p>
                   </div>
                 </div>
@@ -704,7 +725,9 @@ const Home = () => {
                 <div className="bg-blue-100 p-2 md:p-3 rounded-full mr-2 sm:mr-3 md:mr-4">
                   <Globe className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 text-blue-800" />
                 </div>
-                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">Citizenship & Visa Status</h3>
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">
+                  Citizenship & Visa Status
+                </h3>
               </div>
               <div className="space-y-1 sm:space-y-2 md:space-y-3">
                 {[
@@ -714,9 +737,14 @@ const Home = () => {
                   // "Temporary Protection Visa",
                   // "Safe Haven Visa",
                 ].map((text, index) => (
-                  <div key={index} className="flex items-center space-x-2 sm:space-x-3">
+                  <div
+                    key={index}
+                    className="flex items-center space-x-2 sm:space-x-3"
+                  >
                     <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-red-500 flex-shrink-0" />
-                    <p className="text-gray-700 text-xs sm:text-sm md:text-base">{text}</p>
+                    <p className="text-gray-700 text-xs sm:text-sm md:text-base">
+                      {text}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -732,14 +760,14 @@ const Home = () => {
                 <div className="bg-blue-100 p-2 md:p-3 rounded-full mr-2 sm:mr-3 md:mr-4">
                   <Shield className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 text-blue-800" />
                 </div>
-                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">Financial Standing</h3>
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">
+                  Financial Standing
+                </h3>
               </div>
               <div className="flex items-center space-x-2 sm:space-x-3">
                 <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-red-500 flex-shrink-0" />
                 <p className="text-gray-700 font-medium text-xs sm:text-sm md:text-base">
-                 You cannot be an undischarged bankrupt
-
-
+                  You cannot be an undischarged bankrupt
                 </p>
               </div>
             </div>
@@ -754,20 +782,21 @@ const Home = () => {
                 <div className="bg-blue-100 p-2 md:p-3 rounded-full mr-2 sm:mr-3 md:mr-4">
                   <Building2 className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 text-blue-800" />
                 </div>
-                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">Business-Specific</h3>
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">
+                  Business-Specific
+                </h3>
               </div>
               <div className="flex items-center space-x-2 sm:space-x-3">
                 <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-red-500 flex-shrink-0" />
                 <p className="text-gray-700 font-medium text-xs sm:text-sm md:text-base">
-                 Meet additional eligibility criteria specific to chosen business
+                  Meet additional eligibility criteria specific to chosen
+                  business
                 </p>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-     
 
       {/* Call to Action */}
       <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-white via-green-50 to-yellow-50">
@@ -799,15 +828,13 @@ const Home = () => {
                 data-aos-delay="400"
                 className="w-full sm:w-auto border-2 border-white text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105"
               >
-                <a href={pdf.pdf_StudentInformation}>
-                  Student Handbook
-                </a>
+                <a href={pdf.pdf_StudentInformation}>Student Handbook</a>
               </button>
             </div>
           </div>
         </div>
       </section>
-  {/* Self-Employment Program Section */}
+      {/* Self-Employment Program Section */}
       <section
         className="relative w-full min-h-[40vh] sm:min-h-[50vh] md:min-h-[70vh] lg:min-h-[80vh] overflow-hidden mb-4 bg-gradient-to-br from-white via-green-50 to-yellow-50"
         data-aos="fade-in"
@@ -865,7 +892,11 @@ const Home = () => {
             data-aos-duration="900"
             data-aos-delay="600"
           >
-            <div className="text-center pt-4 sm:pt-6 md:pt-10" data-aos="zoom-in" data-aos-delay="600">
+            <div
+              className="text-center pt-4 sm:pt-6 md:pt-10"
+              data-aos="zoom-in"
+              data-aos-delay="600"
+            >
               <button
                 onClick={() => navigate("/SelfEmployment")}
                 className="bg-white text-blue-800 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full font-semibold flex items-center justify-center mx-auto hover:scale-105 hover:bg-gray-100 transition duration-300 shadow-[0_8px_24px_rgba(0,59,122),0_0_10px_rgba(34,197,94,0.6)] text-xs sm:text-sm md:text-base"
@@ -913,8 +944,8 @@ const Home = () => {
                     placeholder === "E-Mail"
                       ? "email"
                       : placeholder === "Age"
-                        ? "number"
-                        : "text"
+                      ? "number"
+                      : "text"
                   }
                   placeholder={placeholder}
                   className="w-full px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-3 rounded-full border border-blue-500 outline-none focus:ring-2 focus:ring-blue-400 placeholder-white text-white bg-transparent text-xs sm:text-sm md:text-base"
@@ -939,123 +970,132 @@ const Home = () => {
           </div>
         </div>
       </section>
+{/* Google Review */}
+      <GoogleReviewSection />
+      {/* FB Update */}
 
-
-
-
-{/* FB Update */}
-
-<section className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-24 px-6 sm:px-12 overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-200/20 to-indigo-200/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-purple-200/20 to-pink-200/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-blue-100/10 to-indigo-100/10 rounded-full blur-3xl animate-pulse delay-500"></div>
-      </div>
-
-      <div className="relative max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm px-8 py-4 rounded-full shadow-lg mb-8 hover:shadow-xl transition-shadow duration-300">
-            <div className="p-2 bg-blue-600 rounded-full">
-              <FaFacebook className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-sm font-semibold text-slate-700 tracking-wide uppercase">
-              Social Connection
-            </span>
-          </div>
-
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-800 via-indigo-800 to-purple-800 mb-6 leading-tight">
-            Stay Connected
-          </h2>
-
-          <p className="text-xl sm:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-4">
-            Follow our journey and get the latest updates from our community
-          </p>
-
-          <div className="flex items-center justify-center gap-6 text-sm text-slate-500">
-            <div className="flex items-center gap-2">
-              <Users className="w-4 h-4" />
-              <span>Join our community</span>
-            </div>
-            <div className="w-1 h-1 bg-slate-300 rounded-full"></div>
-            <div className="flex items-center gap-2">
-              <MessageCircle className="w-4 h-4" />
-              <span>Latest updates</span>
-            </div>
-            <div className="w-1 h-1 bg-slate-300 rounded-full"></div>
-            <div className="flex items-center gap-2">
-              <Heart className="w-4 h-4" />
-              <span>Behind the scenes</span>
-            </div>
-          </div>
+      <section className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-24 px-6 sm:px-12 overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-200/20 to-indigo-200/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-purple-200/20 to-pink-200/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-blue-100/10 to-indigo-100/10 rounded-full blur-3xl animate-pulse delay-500"></div>
         </div>
 
-        {/* Main Content */}
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20">
-          {/* Left Content */}
-          <div className="flex-1 max-w-lg">
-            <div className="space-y-8">
-              {/* Feature Cards */}
-              <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-blue-100 rounded-full group-hover:bg-blue-200 transition-colors duration-300">
-                    <MessageCircle className="w-6 h-6 text-blue-800" />
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-800">Latest Updates</h3>
-                </div>
-                <p className="text-slate-600 leading-relaxed">
-                  Get real-time updates about our projects, achievements, and company news directly from our Facebook page.
-                </p>
+        <div className="relative max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm px-8 py-4 rounded-full shadow-lg mb-8 hover:shadow-xl transition-shadow duration-300">
+              <div className="p-2 bg-blue-600 rounded-full">
+                <FaFacebook className="w-5 h-5 text-white" />
               </div>
+              <span className="text-sm font-semibold text-slate-700 tracking-wide uppercase">
+                Social Connection
+              </span>
+            </div>
 
-              <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-blue-100 rounded-full group-hover:bg-blue-200 transition-colors duration-300">
-                    <Users className="w-6 h-6 text-blue-800" />
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-800">Community</h3>
-                </div>
-                <p className="text-slate-600 leading-relaxed">
-                  Join thousands of followers who are part of our growing community and engage with our content.
-                </p>
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-800 via-indigo-800 to-purple-800 mb-6 leading-tight">
+              Stay Connected
+            </h2>
+
+            <p className="text-xl sm:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-4">
+              Follow our journey and get the latest updates from our community
+            </p>
+
+            <div className="flex items-center justify-center gap-6 text-sm text-slate-500">
+              <div className="flex items-center gap-2">
+                <Users className="w-4 h-4" />
+                <span>Join our community</span>
               </div>
-
-              <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-blue-100 rounded-full group-hover:bg-blue-200 transition-colors duration-300">
-                    <Share2 className="w-6 h-6 text-blue-800" />
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-800">Share & Connect</h3>
-                </div>
-                <p className="text-slate-600 leading-relaxed">
-                  Share our posts with your network and help us spread the word about our mission and values.
-                </p>
+              <div className="w-1 h-1 bg-slate-300 rounded-full"></div>
+              <div className="flex items-center gap-2">
+                <MessageCircle className="w-4 h-4" />
+                <span>Latest updates</span>
+              </div>
+              <div className="w-1 h-1 bg-slate-300 rounded-full"></div>
+              <div className="flex items-center gap-2">
+                <Heart className="w-4 h-4" />
+                <span>Behind the scenes</span>
               </div>
             </div>
           </div>
 
-          {/* Right Facebook Embed */}
-          <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-
-            <div className="relative bg-white/90 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white/20 hover:shadow-blue-200/50 transition-all duration-500">
-              <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                <FaFacebook className="w-8 h-8 text-blue-600" />
-              </div>
-
-              <div className="relative z-10">
-                <div className="mb-6 text-center">
-                  <div className="inline-flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium text-blue-700">Live Feed</span>
+          {/* Main Content */}
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20">
+            {/* Left Content */}
+            <div className="flex-1 max-w-lg">
+              <div className="space-y-8">
+                {/* Feature Cards */}
+                <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="p-3 bg-blue-100 rounded-full group-hover:bg-blue-200 transition-colors duration-300">
+                      <MessageCircle className="w-6 h-6 text-blue-800" />
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-800">
+                      Latest Updates
+                    </h3>
                   </div>
+                  <p className="text-slate-600 leading-relaxed">
+                    Get real-time updates about our projects, achievements, and
+                    company news directly from our Facebook page.
+                  </p>
                 </div>
 
-                <div className="w-full max-w-md mx-auto shadow-lg rounded-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                  <div
-                   dangerouslySetInnerHTML={{
-    __html: `
+                <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="p-3 bg-blue-100 rounded-full group-hover:bg-blue-200 transition-colors duration-300">
+                      <Users className="w-6 h-6 text-blue-800" />
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-800">
+                      Community
+                    </h3>
+                  </div>
+                  <p className="text-slate-600 leading-relaxed">
+                    Join thousands of followers who are part of our growing
+                    community and engage with our content.
+                  </p>
+                </div>
+
+                <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="p-3 bg-blue-100 rounded-full group-hover:bg-blue-200 transition-colors duration-300">
+                      <Share2 className="w-6 h-6 text-blue-800" />
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-800">
+                      Share & Connect
+                    </h3>
+                  </div>
+                  <p className="text-slate-600 leading-relaxed">
+                    Share our posts with your network and help us spread the
+                    word about our mission and values.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Facebook Embed */}
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+
+              <div className="relative bg-white/90 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white/20 hover:shadow-blue-200/50 transition-all duration-500">
+                <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
+                  <FaFacebook className="w-8 h-8 text-blue-600" />
+                </div>
+
+                <div className="relative z-10">
+                  <div className="mb-6 text-center">
+                    <div className="inline-flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full">
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                      <span className="text-sm font-medium text-blue-700">
+                        Live Feed
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="w-full max-w-md mx-auto shadow-lg rounded-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: `
       <iframe 
         src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F16yoXUzBX7&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
         width="340"
@@ -1067,96 +1107,97 @@ const Home = () => {
         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
       ></iframe>
     `,
+                      }}
+                    />
+                  </div>
 
-                    }}
-                  />
-                </div>
-
-                <div className="mt-6 text-center">
-                  <p className="text-sm text-slate-500 mb-4">
-                    Follow us for more updates and behind-the-scenes content
-                  </p>
-                  <div className="flex items-center justify-center gap-4">
-                    <div className="flex items-center gap-2 text-xs text-slate-400">
-                      <Heart className="w-3 h-3" />
-                      <span>1.2k likes</span>
-                    </div>
-                    <div className="w-1 h-1 bg-slate-300 rounded-full"></div>
-                    <div className="flex items-center gap-2 text-xs text-slate-400">
-                      <MessageCircle className="w-3 h-3" />
-                      <span>89 comments</span>
-                    </div>
-                    <div className="w-1 h-1 bg-slate-300 rounded-full"></div>
-                    <div className="flex items-center gap-2 text-xs text-slate-400">
-                      <Share2 className="w-3 h-3" />
-                      <span>45 shares</span>
+                  <div className="mt-6 text-center">
+                    <p className="text-sm text-slate-500 mb-4">
+                      Follow us for more updates and behind-the-scenes content
+                    </p>
+                    <div className="flex items-center justify-center gap-4">
+                      <div className="flex items-center gap-2 text-xs text-slate-400">
+                        <Heart className="w-3 h-3" />
+                        <span>1.2k likes</span>
+                      </div>
+                      <div className="w-1 h-1 bg-slate-300 rounded-full"></div>
+                      <div className="flex items-center gap-2 text-xs text-slate-400">
+                        <MessageCircle className="w-3 h-3" />
+                        <span>89 comments</span>
+                      </div>
+                      <div className="w-1 h-1 bg-slate-300 rounded-full"></div>
+                      <div className="flex items-center gap-2 text-xs text-slate-400">
+                        <Share2 className="w-3 h-3" />
+                        <span>45 shares</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-20 text-center">
-          <div className="bg-white/60 backdrop-blur-sm p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-slate-800 mb-4">
-              Don't miss out on our updates!
-            </h3>
-            <p className="text-slate-600 mb-6">
-              Like our page and turn on notifications to stay in the loop with all our latest news and announcements.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
-                <FaFacebook className="w-5 h-5" />
-                <a href="https://www.facebook.com/share/16yoXUzBX7/">
-                Follow on Facebook</a>
-              </button>
-             <button
-  onClick={handleShare}
-  className="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-slate-700 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border border-gray-200"
->
-  <Share2 className="w-5 h-5" />
-  Share with Friends
-</button>
-
+          {/* Bottom CTA */}
+          <div className="mt-20 text-center">
+            <div className="bg-white/60 backdrop-blur-sm p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold text-slate-800 mb-4">
+                Don't miss out on our updates!
+              </h3>
+              <p className="text-slate-600 mb-6">
+                Like our page and turn on notifications to stay in the loop with
+                all our latest news and announcements.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+                  <FaFacebook className="w-5 h-5" />
+                  <a href="https://www.facebook.com/share/16yoXUzBX7/">
+                    Follow on Facebook
+                  </a>
+                </button>
+                <button
+                  onClick={handleShare}
+                  className="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-slate-700 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border border-gray-200"
+                >
+                  <Share2 className="w-5 h-5" />
+                  Share with Friends
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-{/* Partnes */}
- <section className="bg-gradient-to-br from-white via-green-50 to-emerald-100 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
-  <div className="max-w-6xl mx-auto text-center">
-    <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 relative inline-block">
-      <span className="relative z-10">Our Trusted Partners</span>
-    </h2>
-    <p className="text-gray-600 text-lg mb-14 max-w-2xl mx-auto">
-      We proudly collaborate with these industry leaders to drive innovation and excellence.
-    </p>
+      {/* Partnes */}
+      <section className="bg-gradient-to-br from-white via-green-50 to-emerald-100 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 relative inline-block">
+            <span className="relative z-10">Our Trusted Partners</span>
+          </h2>
+          <p className="text-gray-600 text-lg mb-14 max-w-2xl mx-auto">
+            We proudly collaborate with these industry leaders to drive
+            innovation and excellence.
+          </p>
 
-    {/* Center the 5 logos */}
-    <div className="flex flex-wrap justify-center gap-6">
-      {logos.slice(0, 5).map((logo, index) => (
-        <div
-          key={index}
-          className="bg-white/40 backdrop-blur-md border border-white/30 shadow-lg hover:shadow-2xl rounded-2xl p-6 flex items-center justify-center transition-transform hover:scale-105 duration-300 w-40 h-24"
-        >
-          <img
-            src={logo}
-            alt={`Logo ${index + 1}`}
-            className="h-14 w-auto object-contain transition duration-300"
-          />
+          {/* Center the 5 logos */}
+          <div className="flex flex-wrap justify-center gap-6">
+            {logos.slice(0, 5).map((logo, index) => (
+              <div
+                key={index}
+                className="bg-white/40 backdrop-blur-md border border-white/30 shadow-lg hover:shadow-2xl rounded-2xl p-6 flex items-center justify-center transition-transform hover:scale-105 duration-300 w-40 h-24"
+              >
+                <img
+                  src={logo}
+                  alt={`Logo ${index + 1}`}
+                  className="h-14 w-auto object-contain transition duration-300"
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
-{/* Branding */}
-{/* <section className="bg-gradient-to-br from-white via-green-50 to-yellow-50 py-12">
+      {/* Branding */}
+      {/* <section className="bg-gradient-to-br from-white via-green-50 to-yellow-50 py-12">
   <div className="max-w-6xl mx-auto px-4">
     <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">Our Branding</h2>
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 justify-items-center">
@@ -1198,7 +1239,7 @@ const Home = () => {
     </div>
   </div>
 </section> */}
- 
+
       <style>
         {`
         @keyframes ping-slow {

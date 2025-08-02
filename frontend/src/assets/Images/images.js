@@ -78,6 +78,23 @@ import image_partnes04 from "./Partners/NSEA Australia.jpg";
 import image_partnes05 from "./Partners/Workskil-Australia.jpg";
 
 
+//-----------------------Google Reviews--------------------
+
+// Alex
+import images_alex01 from "./GoogleReviews/Alex-Agra Farming-Success Story-1..png";
+import images_alex02 from "./GoogleReviews/Alex-Agra Farming-Success Story-2..png";
+import images_alex03 from "./GoogleReviews/Alex-Agra Farming-Success Story-3..jpg";
+import images_CyndyMoody01 from "./GoogleReviews/Cyndy Moody-1.png";
+import images_CyndyMoody02 from "./GoogleReviews/Cyndy Moody-2.png";
+import images_EricLee01 from "./GoogleReviews/Eric Lee-1.jpg";
+import images_EricLee03 from "./GoogleReviews/Eric Lee-2.jpg";
+import images_EricLee04 from "./GoogleReviews/Eric Lee-3.jpg";
+import images_PaulNieman01 from "./GoogleReviews/Paul Nieman-1.png";
+import images_PaulNieman02 from "./GoogleReviews/Paul Nieman-2.png";
+import images_PaulNieman03 from "./GoogleReviews/Paul Nieman-3..png";
+import images_BraeKunzli01 from './GoogleReviews/Brae Kunzli-1.jpg';
+import images_BraeKunzli02 from './GoogleReviews/Brae Kunzli-2.jpg';
+
 const images = {
   // Slide Show
   image_one,
@@ -159,7 +176,30 @@ const images = {
   image_partnes04,
   image_partnes05,
 
-  
+
+  // ----------------------Google Reviews
+
+  // Alex
+  images_alex01,
+  images_alex02,
+  images_alex03,
+  images_EricLee03,
+
+// dyMoody
+  images_CyndyMoody01,
+  images_CyndyMoody02,
+
+  // Eric Lee
+  images_EricLee01,
+  images_EricLee03,
+  images_EricLee04,
+
+  // Paul Nieman
+  images_PaulNieman01,
+  images_PaulNieman02,
+  images_PaulNieman03,
+  images_BraeKunzli01,
+  images_BraeKunzli02,
 };
 
 export default images;

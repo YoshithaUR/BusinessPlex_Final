@@ -1,84 +1,89 @@
 import React, { useState } from 'react';
 import { Star, ChevronLeft, ChevronRight, X, User } from 'lucide-react';
+import images from "../../assets/Images/images";
 
 const mockReviews = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop&crop=face",
+    name: "Alex-Agra",
+    avatar: images.images_alex01,
     rating: 5,
     date: "2 days ago",
     text: "Absolutely amazing experience! The service was exceptional and exceeded all my expectations. The attention to detail was remarkable.",
     images: [
-      "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=400",
-      "https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=400"
+      images.images_alex01,
+      images.images_alex02,
+      images.images_alex03,
     ]
   },
   {
     id: 2,
-    name: "Michael Chen",
-    avatar: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop&crop=face",
+    name: "Cyndy Moody",
+    avatar: images.images_CyndyMoody01,
     rating: 5,
     date: "1 week ago",
     text: "Outstanding quality and professional service. I've been a customer for years and they never disappoint. Highly recommended!",
     images: [
-      "https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=400",
-      "https://images.pexels.com/photos/1640770/pexels-photo-1640770.jpeg?auto=compress&cs=tinysrgb&w=400"
+      images.images_CyndyMoody01,
+      images.images_CyndyMoody02
     ]
   },
   {
     id: 3,
-    name: "Emma Williams",
-    avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop&crop=face",
+    name: "Eric Lee",
+    avatar: images.images_EricLee01,  
     rating: 4,
     date: "2 weeks ago",
     text: "Great experience overall. The team was very helpful and the results were exactly what I was looking for. Will definitely return!",
     images: [
-      "https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=400"
+      images.images_EricLee01,
+      images.images_EricLee03,
+      images.images_EricLee04
     ]
   },
   {
     id: 4,
-    name: "David Rodriguez",
-    avatar: "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop&crop=face",
+    name: "Paul Nieman",
+    avatar: images.images_PaulNieman01,
     rating: 5,
     date: "3 weeks ago",
     text: "Incredible attention to detail and customer service. They went above and beyond to make sure everything was perfect.",
     images: [
-      "https://images.pexels.com/photos/1640771/pexels-photo-1640771.jpeg?auto=compress&cs=tinysrgb&w=400",
-      "https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&w=400",
-      "https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=400"
+      images.images_PaulNieman01,
+     images.images_PaulNieman02,
+      images.images_PaulNieman03
     ]
   },
   {
     id: 5,
-    name: "Lisa Thompson",
-    avatar: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop&crop=face",
+    name: "Brae Kunzli Rix",
+    avatar: images.images_BraeKunzli01,
     rating: 5,
     date: "1 month ago",
     text: "Fantastic service from start to finish. The team was professional, friendly, and delivered exceptional results. Five stars!",
     images: [
-      "https://images.pexels.com/photos/1640775/pexels-photo-1640775.jpeg?auto=compress&cs=tinysrgb&w=400"
+      images.images_BraeKunzli01,
+      images.images_BraeKunzli02,
     ]
   },
-  {
-    id: 6,
-    name: "James Wilson",
-    avatar: "https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop&crop=face",
-    rating: 4,
-    date: "1 month ago",
-    text: "Very satisfied with the service. Professional team and great results. Would recommend to friends and family.",
-    images: [
-      "https://images.pexels.com/photos/1640776/pexels-photo-1640776.jpeg?auto=compress&cs=tinysrgb&w=400",
-      "https://images.pexels.com/photos/1267337/pexels-photo-1267337.jpeg?auto=compress&cs=tinysrgb&w=400"
-    ]
-  }
+  // {
+  //   id: 6,
+  //   name: "James Wilson",
+  //   avatar: "https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop&crop=face",
+  //   rating: 4,
+  //   date: "1 month ago",
+  //   text: "Very satisfied with the service. Professional team and great results. Would recommend to friends and family.",
+  //   images: [
+  //     "https://images.pexels.com/photos/1640776/pexels-photo-1640776.jpeg?auto=compress&cs=tinysrgb&w=400",
+  //     "https://images.pexels.com/photos/1267337/pexels-photo-1267337.jpeg?auto=compress&cs=tinysrgb&w=400"
+  //   ]
+  // }
 ];
 
 const ReviewCard = ({ review, onClick }) => {
   return (
     <div 
-      className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1 p-6 min-w-[320px] max-w-[320px] flex-shrink-0"
+      className="bg-gradient-to-br from-white via-green-50 to-yellow-50 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1 p-6 min-w-[320px] max-w-[320px] flex-shrink-0"
       onClick={onClick}
     >
       <div className="flex items-center mb-4">
