@@ -5,8 +5,8 @@ import "aos/dist/aos.css";
 import { FaStar, FaHandPointRight } from "react-icons/fa";
 import { TiTickOutline } from "react-icons/ti";
 import { FaRocket, FaLightbulb, FaHandshake, FaFacebook } from "react-icons/fa";
-import CountUp from "react-countup";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+// import CountUp from "react-countup";
+// import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import {
   CheckCircle,
@@ -14,19 +14,12 @@ import {
   Building2,
   Shield,
   AlertCircle,
-  FileText,
+  
   Award,
   Globe,
-  Star,
-  User,
-  Calendar,
-  ThumbsUp,
+  
   MessageCircle,
-  Image,
-  X,
-  ChevronLeft,
-  ChevronRight,
-  Camera,
+ 
   Share2,
   Heart,
 } from "lucide-react";
@@ -44,6 +37,7 @@ import images from "../assets/Images/images";
 import pdf from "../assets/Images/pdf";
 import ApplyNow from "../components/Modal/ApplyNow";
 import GoogleReviewSection from "./Google Reviews/googleReviws";
+import Rationg from "./rating";
 
 const FacebookPagePlugin = ({
   pageUrl = "https://www.facebook.com/YourPageName",
@@ -195,7 +189,7 @@ const Home = () => {
             data-aos="fade-up"
             className="text-4xl md:text-5xl font-extrabold text-black mb-4"
           >
-            “Best place to your own business’’
+            “Best place to start your own business’’
           </h1>
           <p
             data-aos="fade-up"
@@ -370,16 +364,16 @@ const Home = () => {
       {/* <span ref={countRef} className="tabular-nums">
       {prefix}{count}{suffix}
     </span> */}
-      <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-24 px-6 sm:px-12 overflow-hidden">
+      {/* <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-24 px-6 sm:px-12 overflow-hidden"> */}
         {/* Background decorative elements */}
-        <div className="absolute inset-0 overflow-hidden">
+        {/* <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-200/30 to-indigo-200/30 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-green-200/30 to-teal-200/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
+        </div> */}
 
-        <div className="relative max-w-7xl mx-auto">
+        {/* <div className="relative max-w-7xl mx-auto"> */}
           {/* Header */}
-          <div className="text-center mb-20">
+          {/* <div className="text-center mb-20">
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg mb-8">
               <Award className="w-5 h-5 text-blue-800" />
               <span className="text-sm font-semibold text-slate-700 tracking-wide uppercase">
@@ -395,12 +389,12 @@ const Home = () => {
               We strive for perfection — and our clients agree. Every project is
               a testament to our commitment to excellence.
             </p>
-          </div>
+          </div> */}
 
           {/* Main Content */}
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20">
+          {/* <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20"> */}
             {/* Left Image with enhanced effects */}
-            <div className="relative group">
+            {/* <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-3xl blur-lg opacity-25 group-hover:opacity-40 transition-opacity duration-500"></div>
               <div className="relative w-80 h-80 sm:w-96 sm:h-96 transform transition-all duration-700 group-hover:rotate-2 group-hover:scale-105">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-3xl "></div>
@@ -408,26 +402,26 @@ const Home = () => {
                   src={images.image_Criteria01}
                   alt="Satisfied client working with our team"
                   className="w-full h-full object-cover rounded-3xl shadow-2xl"
-                />
+                /> */}
 
                 {/* Floating icons */}
-                <div className="absolute -top-4 -right-4 bg-blue-700 p-3 rounded-full shadow-lg animate-bounce delay-300">
+                {/* <div className="absolute -top-4 -right-4 bg-blue-700 p-3 rounded-full shadow-lg animate-bounce delay-300">
                   <ThumbsUp className="w-6 h-6 text-white" />
                 </div>
                 <div className="absolute -bottom-4 -left-4 bg-blue-500 p-3 rounded-full shadow-lg animate-bounce delay-700">
                   <Star className="w-6 h-6 text-white" />
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Right Counter Box with glass morphism */}
-            <div className="relative">
+            {/* <div className="relative"> */}
               {/* Background glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 rounded-3xl blur-xl"></div>
+              {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 rounded-3xl blur-xl"></div>
 
-              <div className="relative bg-white/90 backdrop-blur-xl p-12 sm:p-16 rounded-3xl shadow-2xl border border-white/20 hover:shadow-blue-200/50 transition-all duration-500 text-center group">
+              <div className="relative bg-white/90 backdrop-blur-xl p-12 sm:p-16 rounded-3xl shadow-2xl border border-white/20 hover:shadow-blue-200/50 transition-all duration-500 text-center group"> */}
                 {/* Decorative elements */}
-                <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
+                {/* <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
                   <Users className="w-12 h-12 text-blue-600" />
                 </div>
 
@@ -448,10 +442,10 @@ const Home = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Bottom Stats */}
-          <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+          {/* <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
             <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="text-3xl font-bold text-blue-600 mb-2">
                 <CountUp start={0} end={500} duration={2.5} suffix="+" />
@@ -474,8 +468,8 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
-
+      </section> */}
+             <Rationg/>
       {/* Services Section */}
       <section className="bg-gradient-to-br from-white via-green-50 to-yellow-50 py-6 sm:py-8 md:py-12 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif]">
         <div className="max-w-7xl mx-auto">
