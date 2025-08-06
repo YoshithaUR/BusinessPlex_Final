@@ -1166,34 +1166,36 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Partnes */}
-      <section className="bg-gradient-to-br from-white via-green-50 to-emerald-100 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 relative inline-block">
-            <span className="relative z-10">Our Trusted Partners</span>
-          </h2>
-          <p className="text-gray-600 text-lg mb-14 max-w-2xl mx-auto">
-            We proudly collaborate with these industry leaders to drive
-            innovation and excellence.
-          </p>
+     {/* Partners */}
+<section className="bg-gradient-to-br from-white via-green-50 to-emerald-100 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
+  <div className="max-w-6xl mx-auto text-center">
+    <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 relative inline-block">
+      <span className="relative z-10">Our Trusted Partners</span>
+    </h2>
+    <p className="text-gray-600 text-lg mb-14 max-w-2xl mx-auto">
+      We proudly collaborate with these industry leaders to drive
+      innovation and excellence.
+    </p>
 
-          {/* Center the 5 logos */}
-          <div className="flex flex-wrap justify-center gap-6">
-            {logos.slice(0, 5).map((logo, index) => (
-              <div
-                key={index}
-                className="bg-white/40 backdrop-blur-md border border-white/30 shadow-lg hover:shadow-2xl rounded-2xl p-6 flex items-center justify-center transition-transform hover:scale-105 duration-300 w-40 h-24"
-              >
-                <img
-                  src={logo}
-                  alt={`Logo ${index + 1}`}
-                  className="h-14 w-auto object-contain transition duration-300"
-                />
-              </div>
-            ))}
-          </div>
+    {/* Logos in one line on large screens, wrap on small */}
+    <div className="flex flex-wrap justify-center gap-8">
+      {logos.slice(0, 5).map((logo, index) => (
+        <div
+          key={index}
+          className="bg-white/40 backdrop-blur-md border border-white/30 shadow-lg hover:shadow-2xl rounded-2xl p-6 flex items-center justify-center transition-transform hover:scale-105 duration-300 w-48 h-28"
+        >
+          <img
+            src={logo}
+            alt={`Logo ${index + 1}`}
+            className="h-50 w-auto object-contain transition duration-300"
+          />
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+
 
       {/* Branding */}
       {/* <section className="bg-gradient-to-br from-white via-green-50 to-yellow-50 py-12">

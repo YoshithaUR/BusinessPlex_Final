@@ -314,12 +314,12 @@
                     <img
                       src={images.image_Footer1}
                       alt="Australian Qualification Framework"
-                      className="h-20 sm:h-20 w-auto filter brightness-110 hover:brightness-125 transition-all duration-200"
+                      className="h-30 sm:h-30 w-auto filter brightness-110 hover:brightness-125 transition-all duration-200"
                     />
                     <img
                       src={images.image_Footer2}
                       alt="Workforce Australia"
-                      className="h-20 sm:h-20 w-auto filter brightness-110 hover:brightness-125 transition-all duration-200"
+                      className="h-30 sm:h-30 w-auto filter brightness-110 hover:brightness-125 transition-all duration-200"
                     />
                     
                   </div>

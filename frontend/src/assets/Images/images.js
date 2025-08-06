@@ -71,11 +71,11 @@ import image_TeamBG from "./Aboute/Team.jpg";
 import image_END01 from "./Aboute/End.jpg"
 
 // Partnes
-import image_partnes01 from "./Partners/AtWork Australia.jpg" ;
-import image_partnes02 from "./Partners/Impact Services Australia.jpg";
+import image_partnes01 from "./Partners/AtWork Australia.png" ;
+import image_partnes02 from "./Partners/Impact Services Australia.png";
 import image_partnes03 from "./Partners/Mutlicultural Services Australia.png";
-import image_partnes04 from "./Partners/NSEA Australia.jpg";
-import image_partnes05 from "./Partners/Workskil-Australia.jpg";
+import image_partnes04 from "./Partners/NSEA Australia.png";
+import image_partnes05 from "./Partners/Workskil-Australia.png";
 
 
 //-----------------------Google Reviews--------------------
