@@ -86,10 +86,10 @@ const Qualifications = () => {
       <div className="relative z-10">
         {/* Header Section */}
         <div className="text-center mb-20" data-aos="fade-down">
-          <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg mb-6 border border-white/20">
+          {/* <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg mb-6 border border-white/20">
             <FaGraduationCap className="text-2xl text-indigo-8  00" />
             <span className="text-indigo-700 font-semibold text-sm uppercase tracking-wider">Professional Development</span>
-          </div>
+          </div> */}
           
           <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
             <span className="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 bg-clip-text text-transparent">
@@ -161,7 +161,7 @@ const Qualifications = () => {
                     </div>
                     
                     
-                    <div className="space-y-4">
+                    {/* <div className="space-y-4">
                       <h4 className="text-sm font-bold text-gray-700 uppercase tracking-wider flex items-center gap-2">
                         <div className={`w-2 h-2 bg-${qual.accentColor}-500 rounded-full`}></div>
                         Key Skills
@@ -174,7 +174,7 @@ const Qualifications = () => {
                           </li>
                         ))}
                       </ul>
-                    </div>
+                    </div> */}
                   </div>
 
                  
