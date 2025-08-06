@@ -47,13 +47,13 @@ const story= () => {
       clientName: "ALEX MONTANARI",
       industry: "AGRA FARMING TECHNOLOGIES",
       logo: images.images_alex01,
-      challenge: "Struggling with project delivery timelines and team coordination across multiple locations",
-      solution: "Implemented agile project management system with real-time collaboration tools",
-      results: [
-        "40% faster project delivery",
-        "95% client satisfaction rate",
-        "300% increase in team productivity"
-      ],
+    //   challenge: "Struggling with project delivery timelines and team coordination across multiple locations",
+    //   solution: "Implemented agile project management system with real-time collaboration tools",
+    //   results: [
+    //     "40% faster project delivery",
+    //     "95% client satisfaction rate",
+    //     "300% increase in team productivity"
+    //   ],
       testimonial: "The Self-Employment Assistance program delivered by Businessplex has provided me with the financial support to focus on my company full-time, and the mentoring has been invaluable.",
     //   clientRole: "CEO & Founder",
       clientPhoto: images.images_alex01,
@@ -73,13 +73,13 @@ const story= () => {
       clientName: "CYNDY MOODY",
       industry: "DJOONYART CREATIVES",
       logo: images.images_CyndyMoody01,
-      challenge: "Low online presence and declining sales due to lack of digital marketing strategy",
-      solution: "Comprehensive digital transformation including e-commerce platform and social media marketing",
-      results: [
-        "500% increase in online sales",
-        "200% growth in social media engagement",
-        "150% expansion in customer base"
-      ],
+    //   challenge: "Low online presence and declining sales due to lack of digital marketing strategy",
+    //   solution: "Comprehensive digital transformation including e-commerce platform and social media marketing",
+    //   results: [
+    //     "500% increase in online sales",
+    //     "200% growth in social media engagement",
+    //     "150% expansion in customer base"
+    //   ],
       testimonial: "The Self-Employment Assistance Program delivered by Businessplex have been a great support throughout the year and helped me with getting my business website up and running",
     //   clientRole: "Marketing Director",
       clientPhoto: images.images_CyndyMoody01,
@@ -98,13 +98,13 @@ const story= () => {
       clientName: "ERIC LEE",
       industry: "HAND PULLED NOODLE BAR",
       logo: images.images_EricLee01,
-      challenge: "Patient scheduling inefficiencies and poor communication systems",
-      solution: "Custom patient management system with automated scheduling and communication tools",
-      results: [
-        "60% reduction in scheduling conflicts",
-        "90% patient satisfaction score",
-        "35% increase in appointment efficiency"
-      ],
+    //   challenge: "Patient scheduling inefficiencies and poor communication systems",
+    //   solution: "Custom patient management system with automated scheduling and communication tools",
+    //   results: [
+    //     "60% reduction in scheduling conflicts",
+    //     "90% patient satisfaction score",
+    //     "35% increase in appointment efficiency"
+    //   ],
       testimonial: "The Self-Employment Assistance Program delivered by Businessplex provided the structure, mentorship, and business knowledge I needed to launch Pulled Noodle Bar.",
     //   clientRole: "Chief Administrator",
       clientPhoto: images.images_EricLee01,
@@ -124,13 +124,13 @@ const story= () => {
       clientName: "BRAE KUNZLI RIX",
       industry: "TRUEFIX MAINTENANCE & PROPERTY SOLUTIONS",
       logo: images.images_BraeKunzli01,
-      challenge: "Outdated learning management system affecting student engagement and performance",
-      solution: "Modern LMS with interactive features, analytics, and mobile accessibility",
-      results: [
-        "80% improvement in student engagement",
-        "45% increase in course completion rates",
-        "99% system uptime achieved"
-      ],
+    //   challenge: "Outdated learning management system affecting student engagement and performance",
+    //   solution: "Modern LMS with interactive features, analytics, and mobile accessibility",
+    //   results: [
+    //     "80% improvement in student engagement",
+    //     "45% increase in course completion rates",
+    //     "99% system uptime achieved"
+    //   ],
       testimonial: "The friendliness & approachability of the staff at Businessplex has helped me to ask `silly questions` without feeling silly.",
     //   clientRole: "Academic Director",
       clientPhoto: images.images_BraeKunzli01,
@@ -149,13 +149,13 @@ const story= () => {
       clientName: "PAUL NIEMAN",
       industry: "SUMMER'S HOME MAINTENANCE",
       logo: images.images_PaulNieman01,
-      challenge: "Patient scheduling inefficiencies and poor communication systems",
-      solution: "Custom patient management system with automated scheduling and communication tools",
-      results: [
-        "60% reduction in scheduling conflicts",
-        "90% patient satisfaction score",
-        "35% increase in appointment efficiency"
-      ],
+    //   challenge: "Patient scheduling inefficiencies and poor communication systems",
+    //   solution: "Custom patient management system with automated scheduling and communication tools",
+    //   results: [
+    //     "60% reduction in scheduling conflicts",
+    //     "90% patient satisfaction score",
+    //     "35% increase in appointment efficiency"
+    //   ],
       testimonial: "Joining the BusinessPlex mentoring program has been one of the best decisions I've made as a business owner. When I started TrueFix Maintenance in July 2024, I had the skills and passion but not the roadmap. Through the support and guidance of my mentor, Gish, I gained clarity, confidence, and the tools to build something sustainable and successful.",
     //   clientRole: "Chief Administrator",
       clientPhoto: images.images_PaulNieman01,
@@ -210,26 +210,6 @@ const story= () => {
             </button>
           ))}
         </div>
-
-       
-        <div className="flex justify-center space-x-4" data-aos="fade-up" data-aos-delay="800">
-          <button
-            onClick={() => setSelectedStory(selectedStory === 0 ? successStories.length - 1 : selectedStory - 1)}
-            className="p-3 bg-blue rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-blue-50"
-            data-aos="slide-right"
-            data-aos-delay="900"
-          >
-            <ChevronLeft className="w-6 h-6 text-gray-600" />
-          </button>
-          <button
-            onClick={() => setSelectedStory((selectedStory + 1) % successStories.length)}
-            className="p-3 bg-blue rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-blue-50"
-            data-aos="slide-left"
-            data-aos-delay="900"
-          >
-            <ChevronRight className="w-6 h-6 text-gray-600" />
-          </button>
-        </div>
       </div>
 
      
@@ -268,7 +248,7 @@ const story= () => {
 
           <div className="p-8 md:p-12">
            
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {/* <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="text-center" data-aos="fade-up" data-aos-delay="200">
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mx-auto mb-4" data-aos="bounce" data-aos-delay="300">
                   <Building className="w-8 h-8 text-blue-800" />
@@ -299,7 +279,7 @@ const story= () => {
                   ))}
                 </ul>
               </div>
-            </div>
+            </div> */}
 
             
             <div className="mb-12">
@@ -321,7 +301,7 @@ const story= () => {
                 ))}
               </div>
             </div>
-
+ 
             {/* Testimonial */}
             <div className="bg-gray-50 rounded-2xl p-8" data-aos="fade-up" data-aos-delay="500">
               <div className="flex flex-col md:flex-row items-center">
@@ -339,15 +319,37 @@ const story= () => {
                     data-aos="zoom-in"
                     data-aos-delay="700"
                   />
+                  
                   <div className="font-semibold text-gray-900" data-aos="fade-up" data-aos-delay="800">{currentStory.clientRole}</div>
                   <div className="text-gray-600" data-aos="fade-up" data-aos-delay="900">{currentStory.clientName}</div>
                 </div>
+                
               </div>
             </div>
+            <br/>
+            <div className="flex justify-center space-x-4" data-aos="fade-up" data-aos-delay="800">
+          <button
+            onClick={() => setSelectedStory(selectedStory === 0 ? successStories.length - 1 : selectedStory - 1)}
+            className="p-3 bg-blue rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-blue-50"
+            data-aos="slide-right"
+            data-aos-delay="900"
+          >
+            <ChevronLeft className="w-6 h-6 text-gray-600" />
+          </button>
+          <button
+            onClick={() => setSelectedStory((selectedStory + 1) % successStories.length)}
+            className="p-3 bg-blue rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-blue-50"
+            data-aos="slide-left"
+            data-aos-delay="900"
+          >
+            <ChevronRight className="w-6 h-6 text-gray-600" />
+          </button>
+        </div>
           </div>
         </div>
       </div>
     </div>
+    
   );
 };
 
