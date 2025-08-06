@@ -79,7 +79,7 @@
                 rel="noopener noreferrer"
                 className="hover:text-blue-400 transition-colors duration-200"
               >
-                1/3 Marchant Way, Morley WA 6062
+                16/30, Hasler Road, Osborne Park, WA 6017
               </a>
             )
           },
@@ -328,10 +328,10 @@
                   {/* Copyright */}
                   <div className="text-center">
                     <p className="text-white text-sm">
-                      Copyright 2025 © <span className="text-blue-400 font-semibold">Businessplex</span>. All Rights Reserved.
+                      Copyright 2025 © <span className="text-blue-400 font-semibold">Businessplex</span>. All Rights Reserved.Development by <span className="text-blue-400">A4Technologies</span>
                     </p>
                     <p className="text-white text-xs mt-1">
-                      Development by <span className="text-blue-400">A4Technologies</span>
+                      
                     </p>
                   </div>
 

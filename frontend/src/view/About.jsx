@@ -26,14 +26,16 @@ const AboutUs = () => {
   ];
 
   const team = [
-    { name: "Thinu Jayasinghe", role: "Operation Manager" },
-    { name: "Joel Legaspi", role: "Business Trainer/Assessor/Mentor" },
-    { name: "Jeeva Padayachee", role: "Business Trainer/Assessor/Mentor" },
-    { name: "Rachmat Abader", role: "Business Trainer/Assessor/Mentor" },
-    { name: "Moni Nair", role: "Administrator & Student Support" },
+    { name: "Moni Nair", role: "RTO Manager" },
+    { name: "Joel Legaspi", role: "Trainer & Assessor" },
+    { name: "Rachma Abader", role: "Trainer & Assessor & Mentor" },
+    { name: "Lyndon Jansen", role: "Trainer & Assessor & Mentor" },
+    { name: "Belle Illegami", role: "Trainer & Mentor" },
     { name: "Erika Legaspi", role: "Administrator & Student Support" },
-    { name: "Sharmin Sultana", role: "RTO Compliance Consultant" },
-    { name: "Amila Rathnayake", role: "IT Consultant" },
+    { name: "Denise Mario", role: "Administrator & Student Support" },
+    { name: "Aliyah Cohen", role: "Administrator & Student Support" },
+    { name: "Amila Rathnayake", role: "IT Consultant" },  
+     { name: "Sharmin Sultana", role: "RTO Compliance Consultant" },  
   ];
 
   
