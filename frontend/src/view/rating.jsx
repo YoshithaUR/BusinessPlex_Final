@@ -60,7 +60,8 @@ const Rating = () => {
       color: "blue"
     },
     selfEmploymentWorkshop: {
-      value: 120,
+      value: 120 ,
+     
       label: "Exploring Self Employment Workshop", 
       icon: BookOpen,
       color: "green"
@@ -218,7 +219,7 @@ const Rating = () => {
                     start={0} 
                     end={service.value} 
                     duration={2.5} 
-                    suffix="" 
+                    suffix="+" 
                     delay={800 + (index * 200)} 
                   />
                 </div>
