@@ -552,7 +552,7 @@ const Home = () => {
 
           {/* Content Modal */}
           <div
-            className="relative bg-black/70 backdrop-blur-md rounded-xl p-3 sm:p-4 md:p-6 max-w-full sm:max-w-lg md:max-w-2xl lg:max-w-3xl w-full shadow-2xl overflow-y-auto max-h-[90vh] sm:max-h-[85vh] md:max-h-[80vh] border border-white/20"
+            className="relative bg-white/60 backdrop-blur-md rounded-xl p-3 sm:p-4 md:p-6 max-w-full sm:max-w-lg md:max-w-2xl lg:max-w-3xl w-full shadow-2xl overflow-y-auto max-h-[90vh] sm:max-h-[85vh] md:max-h-[80vh] border border-white/20"
             onClick={(e) => e.stopPropagation()}
             data-aos="zoom-in"
             data-aos-duration="800"
@@ -575,13 +575,13 @@ const Home = () => {
                 data-aos="fade-left"
                 data-aos-duration="700"
               >
-                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 sm:mb-3 md:mb-4 text-center sm:text-left">
+                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-black mb-2 sm:mb-3 md:mb-4 text-center sm:text-left">
                   {services[serviceModalIndex].title}
                 </h2>
                 {services[serviceModalIndex].paragraph.map((para, idx) => (
                   <p
                     key={idx}
-                    className="text-white/90 mb-2 sm:mb-3 text-xs sm:text-sm md:text-[15px] lg:text-[16px] leading-relaxed text-center sm:text-left"
+                    className="text-blue-800 mb-2 sm:mb-3 text-xs sm:text-sm md:text-[15px] lg:text-[16px] leading-relaxed text-center font-bold sm:text-left font-poppins"
                     data-aos="fade-up"
                     data-aos-delay={idx * 100}
                   >
@@ -593,7 +593,7 @@ const Home = () => {
 
             {/* Points */}
             <ul
-              className="space-y-2 sm:space-y-3 text-white text-xs sm:text-sm md:text-[15px] leading-relaxed mb-6 sm:mb-7 md:mb-8"
+              className="space-y-2 sm:space-y-3 text-blue-800 text-xs sm:text-sm md:text-[15px] leading-relaxed mb-6 sm:mb-7 md:mb-8 font-bold sm:text-left font-poppins"
               data-aos="fade-up"
               data-aos-delay="300"
             >
