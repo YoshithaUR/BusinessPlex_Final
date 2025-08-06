@@ -55,25 +55,25 @@ const Rating = () => {
   const serviceStats = {
     smallBusinessCoaching: {
       value: 45,
-      label: "Businesses Coached",
+      label: "Small Business Coaching",
       icon: Briefcase,
       color: "blue"
     },
     selfEmploymentWorkshop: {
       value: 120,
-      label: "Workshop Participants", 
+      label: "Exploring Self Employment Workshop", 
       icon: BookOpen,
       color: "green"
     },
     businessHealthCheck: {
       value: 78,
-      label: "Assessments Completed",
+      label: "Business Health Check",
       icon: Activity, 
       color: "purple"
     },
     businessAdvice: {
       value: 200,
-      label: "Advisory Sessions",
+      label: "Business Advice",
       icon: MessageSquare,
       color: "orange"
     }
@@ -222,7 +222,7 @@ const Rating = () => {
                     delay={800 + (index * 200)} 
                   />
                 </div>
-                <p className="text-slate-600 font-medium text-sm">{service.label}</p>
+                {/* <p className="text-slate-600 font-medium text-sm">{service.label}</p>    */}
               </div>
             );
           })}
