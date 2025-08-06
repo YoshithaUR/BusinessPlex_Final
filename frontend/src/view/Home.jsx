@@ -37,6 +37,7 @@ import images from "../assets/Images/images";
 import pdf from "../assets/Images/pdf";
 import ApplyNow from "../components/Modal/ApplyNow";
 import GoogleReviewSection from "./Google Reviews/googleReviws";
+import Story from "./Google Reviews/story";
 import Rationg from "./rating";
 
 const FacebookPagePlugin = ({
@@ -469,6 +470,7 @@ const Home = () => {
           </div>
         </div>
       </section> */}
+      
              <Rationg/>
       {/* Services Section */}
       <section className="bg-gradient-to-br from-white via-green-50 to-yellow-50 py-6 sm:py-8 md:py-12 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif]">
@@ -964,8 +966,11 @@ const Home = () => {
           </div>
         </div>
       </section>
+{/* Story */}
+      <Story/>
 {/* Google Review */}
       <GoogleReviewSection />
+
       {/* FB Update */}
 
       <section className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-24 px-6 sm:px-12 overflow-hidden">
