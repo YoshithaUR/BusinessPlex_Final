@@ -49,7 +49,7 @@ const CountUp = ({ start, end, duration, suffix = "", delay = 0 }) => {
 };
 
 const Rating = () => {
-  // Manual statistics - easily editable
+  
   const mainSatisfactionRate = 100; 
 
   const serviceStats = {
@@ -144,9 +144,9 @@ const Rating = () => {
           </p>
         </div>
 
-        {/* Main Content */}
+       
         <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20">
-          {/* Image Section */}
+        
           <div className="relative group transform opacity-0 animate-[fadeInLeft_1s_ease-out_0.8s_both]">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-3xl blur-lg opacity-25 group-hover:opacity-40 transition-opacity duration-500"></div>
             <div className="relative w-80 h-80 sm:w-96 sm:h-96 transform transition-all duration-700 group-hover:rotate-2 group-hover:scale-105">
@@ -166,7 +166,7 @@ const Rating = () => {
             </div>
           </div>
 
-          {/* Satisfaction Rate Card */}
+         
           <div className="relative transform opacity-0 animate-[fadeInRight_1s_ease-out_1s_both]">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 rounded-3xl blur-xl"></div>
             <div className="relative bg-white/90 backdrop-blur-xl p-12 sm:p-16 rounded-3xl shadow-2xl border border-white/20 hover:shadow-blue-200/50 transition-all duration-500 text-center group">
@@ -193,7 +193,7 @@ const Rating = () => {
           </div>
         </div>
 
-        {/* Services Statistics */}
+        {/* Services  */}
         <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {Object.entries(serviceStats).map(([key, service], index) => {
             const Icon = service.icon;
@@ -228,7 +228,7 @@ const Rating = () => {
           })}
         </div>
 
-        {/* Additional Statistics */}
+     
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
           {additionalStats.map((stat, index) => {
             const colors = colorMap[stat.color];
