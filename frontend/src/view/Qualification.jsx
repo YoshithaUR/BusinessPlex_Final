@@ -8,10 +8,9 @@ const qualificationsData = [
   {
     title: "Certificate III in Entrepreneurship",
     code: "BSB30220",
-    subtitle: "Self-Employment Assistance Program",
+    // subtitle: "Self-Employment Assistance Program",
     skills: [
-      "New Business Ventures Skill Set",
-      "Small Business Management Skill Set",
+      "Learn the fundamentals of launching a micro-business, including planning, financials, marketing, and operations.t",
     ],
     image: images.image_ServicePopup01,
     link: "./ApplicationForm",
@@ -19,31 +18,25 @@ const qualificationsData = [
     gradient: "from-blue-500 to-blue-800",
     accentColor: "blue"
   },
-  {
-    title: "Diploma of Quality Auditing",
-    code: "BSB50920",
-    subtitle: "Work with Audit Professionals",
+   {
+    title: "Certificate IV in Entrepreneurship and New Business",
+    code: "BSB40320",
+    // subtitle: "Advanced Business Development",
     skills: [
-      "Monitor quality of product/services",
-      "Team auditing environment",
-      "Client-focused approach",
-      "Stakeholder collaboration",
+      "Designed for those ready to expand their business knowledge with advanced skills in business planning, risk management, and financial strategy.",
     ],
     image: images.image_abouteHome01,
     link: "./ApplicationForm",
-    icon: FaCertificate,
+    icon: FaBusinessTime,
     gradient: "from-blue-500 to-blue-800",
-    accentColor: "blue"
+     accentColor: "blue"
   },
-  {
+   {
     title: "Certificate III in Business",
     code: "BSB30120",
-    subtitle: "Core Business Operations",
+    // subtitle: "Core Business Operations",
     skills: [
-      "Bookkeeping & Scheduling",
-      "Sales and Marketing",
-      "Social media strategy",
-      "Business Intelligence (BI)",
+      "Build a solid foundation in business operations with a focus on customer service, communication, and workplace technologies.",
     ],
     image: images.image_Card02,
     link: "./ApplicationForm",
@@ -52,21 +45,20 @@ const qualificationsData = [
      accentColor: "blue"
   },
   {
-    title: "Certificate IV in Entrepreneurship and New Business",
-    code: "BSB40320",
-    subtitle: "Advanced Business Development",
+    title: "Diploma of Quality Auditing",
+    code: "BSB50920",
+    // subtitle: "Work with Audit Professionals",
     skills: [
-      "Business planning",
-      "Risk management",
-      "Financial strategy",
-      "Advanced entrepreneurship skills",
+      "Gain the skills to plan, lead, and report on quality audits ideal for professionals working in compliance, auditing, or quality management roles.",
     ],
     image: images.image_abouteHome01,
     link: "./ApplicationForm",
-    icon: FaBusinessTime,
+    icon: FaCertificate,
     gradient: "from-blue-500 to-blue-800",
-     accentColor: "blue"
+    accentColor: "blue"
   },
+ 
+ 
 ];
 
 const Qualifications = () => {
@@ -155,16 +147,15 @@ const Qualifications = () => {
                       <h3 className="text-lg font-bold text-gray-800 mb-3 leading-tight group-hover:text-gray-900 transition-colors">
                         {qual.title}
                       </h3>
-                      <div className={`inline-block px-4 py-2 bg-${qual.accentColor}-50 text-${qual.accentColor}-700 rounded-full text-sm font-medium border border-${qual.accentColor}-100`}>
+                      {/* <div className={`inline-block px-4 py-2 bg-${qual.accentColor}-50 text-${qual.accentColor}-700 rounded-full text-sm font-medium border border-${qual.accentColor}-100`}>
                         {qual.subtitle}
-                      </div>
+                      </div> */}
                     </div>
                     
                     
-                    {/* <div className="space-y-4">
+                    <div className="space-y-4">
                       <h4 className="text-sm font-bold text-gray-700 uppercase tracking-wider flex items-center gap-2">
-                        <div className={`w-2 h-2 bg-${qual.accentColor}-500 rounded-full`}></div>
-                        Key Skills
+                       
                       </h4>
                       <ul className="space-y-3">
                         {qual.skills.map((skill, i) => (
@@ -174,7 +165,7 @@ const Qualifications = () => {
                           </li>
                         ))}
                       </ul>
-                    </div> */}
+                    </div>
                   </div>
 
                  
