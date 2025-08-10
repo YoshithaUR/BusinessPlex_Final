@@ -45,6 +45,25 @@ export const contactValidation = [
     .escape()
 ];
 
+// Validation rules for newsletter subscription
+export const newsletterValidation = [
+  body('name')
+    .trim()
+    .isLength({ min: 1, max: 100 })
+    .withMessage('Name is required and must be between 1 and 100 characters')
+    .matches(/^[a-zA-Z\s'-]+$/)
+    .withMessage('Name can only contain letters, spaces, hyphens, and apostrophes')
+    .escape(),
+  
+  body('email')
+    .trim()
+    .isEmail()
+    .withMessage('Please provide a valid email address')
+    .normalizeEmail()
+    .isLength({ max: 100 })
+    .withMessage('Email must be less than 100 characters')
+];
+
 // Example: Simple email-only validation
 export const emailOnlyValidation = [
   body('email')
