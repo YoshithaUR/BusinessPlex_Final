@@ -103,9 +103,7 @@ const ApplicationForm = () => {
         
         // Send application to backend
        const response = await axiosInstance.post('/application', formData);
-       console.log(response);
         
-        console.log('=== APPLICATION SUBMITTED SUCCESSFULLY ===');
         
         // Reset form
         setFormData({

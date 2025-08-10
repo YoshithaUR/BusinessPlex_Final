@@ -347,6 +347,302 @@ export const applicationValidation = [
     })
 ];
 
+// Validation rules for enrolment form
+export const enrolmentValidation = [
+  // Personal Information validation
+  body('personalInfo.firstName')
+    .trim()
+    .isLength({ min: 1, max: 50 })
+    .withMessage('First name is required and must be between 1 and 50 characters')
+    .matches(/^[a-zA-Z\s'-]+$/)
+    .withMessage('First name can only contain letters, spaces, hyphens, and apostrophes')
+    .escape(),
+  
+  body('personalInfo.lastName')
+    .trim()
+    .isLength({ min: 1, max: 50 })
+    .withMessage('Last name is required and must be between 1 and 50 characters')
+    .matches(/^[a-zA-Z\s'-]+$/)
+    .withMessage('Last name can only contain letters, spaces, hyphens, and apostrophes')
+    .escape(),
+  
+  body('personalInfo.email')
+    .trim()
+    .isEmail()
+    .withMessage('Please provide a valid email address')
+    .normalizeEmail()
+    .isLength({ max: 100 })
+    .withMessage('Email must be less than 100 characters'),
+  
+  body('personalInfo.phone')
+    .trim()
+    .matches(/^[\+]?[0-9\s\-\(\)]{8,15}$/)
+    .withMessage('Please provide a valid phone number (8-15 digits, can include spaces, hyphens, parentheses, and +)')
+    .escape(),
+  
+  body('personalInfo.dateOfBirth')
+    .trim()
+    .custom((value) => {
+      // Handle different date formats
+      let birthDate;
+      
+      // Try parsing as ISO date first
+      if (value.match(/^\d{4}-\d{2}-\d{2}$/)) {
+        birthDate = new Date(value + 'T00:00:00');
+      } else {
+        birthDate = new Date(value);
+      }
+      
+      // Check if date is valid
+      if (isNaN(birthDate.getTime())) {
+        throw new Error('Please provide a valid date of birth');
+      }
+      
+      // Check age range
+      const today = new Date();
+      const age = today.getFullYear() - birthDate.getFullYear();
+      const monthDiff = today.getMonth() - birthDate.getMonth();
+      
+      // Adjust age if birthday hasn't occurred this year
+      const actualAge = monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate()) 
+        ? age - 1 
+        : age;
+      
+      if (actualAge < 15 || actualAge > 100) {
+        throw new Error('Age must be between 15 and 100 years');
+      }
+      
+      return true;
+    }),
+  
+  body('personalInfo.gender')
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage('Gender is required')
+    .isIn(['male', 'female', 'other', 'prefer-not-to-say'])
+    .withMessage('Please select a valid gender')
+    .escape(),
+  
+  body('personalInfo.address')
+    .trim()
+    .isLength({ min: 5, max: 200 })
+    .withMessage('Address is required and must be between 5 and 200 characters')
+    .escape(),
+  
+  body('personalInfo.city')
+    .trim()
+    .isLength({ min: 1, max: 100 })
+    .withMessage('City is required and must be less than 100 characters')
+    .escape(),
+  
+  body('personalInfo.state')
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage('State is required')
+    .isIn(['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'ACT', 'NT'])
+    .withMessage('Please select a valid state')
+    .escape(),
+  
+  body('personalInfo.postalCode')
+    .trim()
+    .isLength({ min: 1, max: 10 })
+    .withMessage('Postal code is required and must be less than 10 characters')
+    .escape(),
+  
+  body('personalInfo.country')
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage('Country is required')
+    .escape(),
+  
+  body('personalInfo.nationality')
+    .trim()
+    .isLength({ min: 1, max: 100 })
+    .withMessage('Nationality is required and must be less than 100 characters')
+    .escape(),
+  
+  body('personalInfo.passportNumber')
+    .optional()
+    .trim()
+    .isLength({ max: 50 })
+    .withMessage('Passport number must be less than 50 characters')
+    .escape(),
+  
+  // Course Information validation
+  body('courseInfo.courseType')
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage('Course type is required')
+    .isIn(['certificate-iv', 'diploma', 'advanced-diploma', 'bachelor', 'master', 'short-course'])
+    .withMessage('Please select a valid course type')
+    .escape(),
+  
+  body('courseInfo.courseName')
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage('Course name is required')
+    .isIn([
+      'business-administration', 'accounting', 'marketing-communication', 'project-management',
+      'human-resources', 'leadership-management', 'entrepreneurship', 'digital-marketing',
+      'international-business'
+    ])
+    .withMessage('Please select a valid course')
+    .escape(),
+  
+  body('courseInfo.startDate')
+    .trim()
+    .custom((value) => {
+      if (value && value !== '') {
+        // Try parsing as ISO date first
+        if (value.match(/^\d{4}-\d{2}-\d{2}$/)) {
+          const date = new Date(value + 'T00:00:00');
+          if (isNaN(date.getTime())) {
+            throw new Error('Please provide a valid start date');
+          }
+        } else {
+          const date = new Date(value);
+          if (isNaN(date.getTime())) {
+            throw new Error('Please provide a valid start date');
+          }
+        }
+      }
+      return true;
+    }),
+  
+  body('courseInfo.studyMode')
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage('Study mode is required')
+    .isIn(['full-time', 'part-time', 'online', 'blended', 'evening', 'weekend'])
+    .withMessage('Please select a valid study mode')
+    .escape(),
+  
+  body('courseInfo.duration')
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage('Duration is required')
+    .isIn(['6-months', '12-months', '18-months', '2-years', '3-years'])
+    .withMessage('Please select a valid duration')
+    .escape(),
+  
+  body('courseInfo.campus')
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage('Campus is required')
+    .isIn(['sydney-cbd', 'melbourne-city', 'brisbane-central', 'perth-city', 'online-campus'])
+    .withMessage('Please select a valid campus')
+    .escape(),
+  
+  body('courseInfo.previousEducation')
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage('Previous education is required')
+    .isIn(['year-12', 'certificate', 'diploma', 'bachelor', 'master', 'phd'])
+    .withMessage('Please select a valid previous education level')
+    .escape(),
+  
+  body('courseInfo.englishProficiency')
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage('English proficiency is required')
+    .isIn(['native', 'ielts-7', 'ielts-6.5', 'ielts-6', 'toefl', 'pte', 'other'])
+    .withMessage('Please select a valid English proficiency level')
+    .escape(),
+  
+  body('courseInfo.workExperience')
+    .optional()
+    .trim()
+    .isLength({ max: 2000 })
+    .withMessage('Work experience must be less than 2000 characters')
+    .escape(),
+  
+  body('courseInfo.motivationLetter')
+    .optional()
+    .trim()
+    .isLength({ max: 2000 })
+    .withMessage('Motivation letter must be less than 2000 characters')
+    .escape(),
+  
+  // Final Details validation
+  body('finalDetails.paymentMethod')
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage('Payment method is required')
+    .isIn(['upfront', 'installments', 'vet-student-loan', 'company-sponsored', 'scholarship'])
+    .withMessage('Please select a valid payment method')
+    .escape(),
+  
+  body('finalDetails.emergencyContactName')
+    .trim()
+    .isLength({ min: 1, max: 100 })
+    .withMessage('Emergency contact name is required and must be less than 100 characters')
+    .escape(),
+  
+  body('finalDetails.emergencyContactPhone')
+    .trim()
+    .matches(/^[\+]?[0-9\s\-\(\)]{8,15}$/)
+    .withMessage('Please provide a valid emergency contact phone number')
+    .escape(),
+  
+  body('finalDetails.emergencyContactRelation')
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage('Emergency contact relationship is required')
+    .isIn(['parent', 'spouse', 'sibling', 'friend', 'guardian', 'other'])
+    .withMessage('Please select a valid relationship')
+    .escape(),
+  
+  body('finalDetails.healthConditions')
+    .optional()
+    .trim()
+    .isLength({ max: 1000 })
+    .withMessage('Health conditions must be less than 1000 characters')
+    .escape(),
+  
+  body('finalDetails.specialRequirements')
+    .optional()
+    .trim()
+    .isLength({ max: 1000 })
+    .withMessage('Special requirements must be less than 1000 characters')
+    .escape(),
+  
+  body('finalDetails.termsAccepted')
+    .custom((value) => {
+      // Handle both boolean and string values
+      const boolValue = typeof value === 'boolean' ? value : value === 'true' || value === true;
+      if (!boolValue) {
+        throw new Error('You must accept the terms and conditions');
+      }
+      return true;
+    }),
+  
+  body('finalDetails.accuracyDeclaration')
+    .custom((value) => {
+      // Handle both boolean and string values
+      const boolValue = typeof value === 'boolean' ? value : value === 'true' || value === true;
+      if (!boolValue) {
+        throw new Error('You must declare that all information is accurate');
+      }
+      return true;
+    }),
+  
+  body('finalDetails.marketingConsent')
+    .optional()
+    .custom((value) => {
+      // Handle both boolean and string values
+      const boolValue = typeof value === 'boolean' ? value : value === 'true' || value === true;
+      return true; // This is optional, so always return true
+    }),
+  
+  body('finalDetails.scholarshipApplied')
+    .optional()
+    .custom((value) => {
+      // Handle both boolean and string values
+      const boolValue = typeof value === 'boolean' ? value : value === 'true' || value === true;
+      return true; // This is optional, so always return true
+    })
+];
+
 // Middleware to check for validation errors
 export const handleValidationErrors = (req, res, next) => {
   const errors = validationResult(req);

@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { withDefaultMiddleware, newsletterValidation, applicationValidation } from "../middleware/validation.middleware.js";
+import { withDefaultMiddleware, newsletterValidation, applicationValidation, enrolmentValidation } from "../middleware/validation.middleware.js";
 import questionController from "../controller/question.controller.js";
 import newsletterController from "../controller/newsletter.controller.js";
 import applicationController from "../controller/application.controller.js";
+import enrolmentController from "../controller/enrolment.controller.js";
 
 const mainRouter = Router();
 
@@ -19,5 +20,8 @@ mainRouter.post("/newsletter", ...withDefaultMiddleware(newsletterController, ne
 
 // Apply validation middleware to application route using the new wrapper
 mainRouter.post("/application", ...withDefaultMiddleware(applicationController, applicationValidation));
+
+// Apply validation middleware to enrolment route using the new wrapper
+mainRouter.post("/enrolment", ...withDefaultMiddleware(enrolmentController, enrolmentValidation));
 
 export default mainRouter;
