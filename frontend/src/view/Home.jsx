@@ -5,6 +5,8 @@ import "aos/dist/aos.css";
 import { FaStar, FaHandPointRight } from "react-icons/fa";
 import { TiTickOutline } from "react-icons/ti";
 import { FaRocket, FaLightbulb, FaHandshake, FaFacebook } from "react-icons/fa";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 // import CountUp from "react-countup";
 // import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
@@ -14,12 +16,9 @@ import {
   Building2,
   Shield,
   AlertCircle,
-  
   Award,
   Globe,
-  
   MessageCircle,
- 
   Share2,
   Heart,
 } from "lucide-react";
@@ -69,6 +68,7 @@ const handleShare = () => {
 const Home = () => {
   const [serviceModalIndex, setServiceModalIndex] = useState(null);
   const [hoveredCard, setHoveredCard] = useState(null);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -366,15 +366,15 @@ const Home = () => {
       {prefix}{count}{suffix}
     </span> */}
       {/* <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-24 px-6 sm:px-12 overflow-hidden"> */}
-        {/* Background decorative elements */}
-        {/* <div className="absolute inset-0 overflow-hidden">
+      {/* Background decorative elements */}
+      {/* <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-200/30 to-indigo-200/30 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-green-200/30 to-teal-200/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div> */}
 
-        {/* <div className="relative max-w-7xl mx-auto"> */}
-          {/* Header */}
-          {/* <div className="text-center mb-20">
+      {/* <div className="relative max-w-7xl mx-auto"> */}
+      {/* Header */}
+      {/* <div className="text-center mb-20">
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg mb-8">
               <Award className="w-5 h-5 text-blue-800" />
               <span className="text-sm font-semibold text-slate-700 tracking-wide uppercase">
@@ -392,10 +392,10 @@ const Home = () => {
             </p>
           </div> */}
 
-          {/* Main Content */}
-          {/* <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20"> */}
-            {/* Left Image with enhanced effects */}
-            {/* <div className="relative group">
+      {/* Main Content */}
+      {/* <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20"> */}
+      {/* Left Image with enhanced effects */}
+      {/* <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-3xl blur-lg opacity-25 group-hover:opacity-40 transition-opacity duration-500"></div>
               <div className="relative w-80 h-80 sm:w-96 sm:h-96 transform transition-all duration-700 group-hover:rotate-2 group-hover:scale-105">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-3xl "></div>
@@ -405,8 +405,8 @@ const Home = () => {
                   className="w-full h-full object-cover rounded-3xl shadow-2xl"
                 /> */}
 
-                {/* Floating icons */}
-                {/* <div className="absolute -top-4 -right-4 bg-blue-700 p-3 rounded-full shadow-lg animate-bounce delay-300">
+      {/* Floating icons */}
+      {/* <div className="absolute -top-4 -right-4 bg-blue-700 p-3 rounded-full shadow-lg animate-bounce delay-300">
                   <ThumbsUp className="w-6 h-6 text-white" />
                 </div>
                 <div className="absolute -bottom-4 -left-4 bg-blue-500 p-3 rounded-full shadow-lg animate-bounce delay-700">
@@ -415,14 +415,14 @@ const Home = () => {
               </div>
             </div> */}
 
-            {/* Right Counter Box with glass morphism */}
-            {/* <div className="relative"> */}
-              {/* Background glow */}
-              {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 rounded-3xl blur-xl"></div>
+      {/* Right Counter Box with glass morphism */}
+      {/* <div className="relative"> */}
+      {/* Background glow */}
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 rounded-3xl blur-xl"></div>
 
               <div className="relative bg-white/90 backdrop-blur-xl p-12 sm:p-16 rounded-3xl shadow-2xl border border-white/20 hover:shadow-blue-200/50 transition-all duration-500 text-center group"> */}
-                {/* Decorative elements */}
-                {/* <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
+      {/* Decorative elements */}
+      {/* <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
                   <Users className="w-12 h-12 text-blue-600" />
                 </div>
 
@@ -445,8 +445,8 @@ const Home = () => {
             </div>
           </div> */}
 
-          {/* Bottom Stats */}
-          {/* <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+      {/* Bottom Stats */}
+      {/* <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
             <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="text-3xl font-bold text-blue-600 mb-2">
                 <CountUp start={0} end={500} duration={2.5} suffix="+" />
@@ -470,8 +470,8 @@ const Home = () => {
           </div>
         </div>
       </section> */}
-      
-             <Rationg/>
+
+      <Rationg />
       {/* Services Section */}
       <section className="bg-gradient-to-br from-white via-green-50 to-yellow-50 py-6 sm:py-8 md:py-12 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif]">
         <div className="max-w-7xl mx-auto">
@@ -909,66 +909,183 @@ const Home = () => {
         className="w-full py-6 sm:py-8 md:py-12 bg-gradient-to-br from-white via-green-50 to-yellow-50 flex items-center justify-center px-4"
         data-aos="fade-up"
       >
-        <div className="relative bg-black/80 rounded-3xl shadow-xl px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8 md:py-10 w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6 overflow-hidden">
-          {/* Background Overlay */}
-          <div className="absolute inset-0 rounded-3xl z-0">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${images.image_Question01})` }}
-            />
-            <div className="absolute inset-0 bg-black/80" />
-          </div>
-
-          {/* Header */}
-          <div className="absolute top-2 sm:top-3 md:top-4 w-full text-center z-10">
-            <h2 className="text-base sm:text-lg md:text-2xl lg:text-3xl font-bold text-white drop-shadow px-4">
-              Have any Question?
-            </h2>
-          </div>
-
-          {/* Left Column - Inputs */}
-          <div
-            className="z-10 flex flex-col justify-center space-y-2 sm:space-y-3 md:space-y-4 mt-6 sm:mt-8 md:mt-12 px-1 sm:px-2 md:px-4"
-            data-aos="fade-right"
-            data-aos-delay="200"
-          >
-            {["First Name", "Last Name", "E-Mail", "Age", "Contact Number"].map(
-              (placeholder, i) => (
-                <input
-                  key={i}
-                  type={
-                    placeholder === "E-Mail"
-                      ? "email"
-                      : placeholder === "Age"
-                      ? "number"
-                      : "text"
-                  }
-                  placeholder={placeholder}
-                  className="w-full px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-3 rounded-full border border-blue-500 outline-none focus:ring-2 focus:ring-blue-400 placeholder-white text-white bg-transparent text-xs sm:text-sm md:text-base"
-                />
+        <Formik
+          initialValues={{
+            firstName: "",
+            lastName: "",
+            email: "",
+            age: "",
+            contactNumber: "",
+            message: "",
+          }}
+          validationSchema={Yup.object({
+            firstName: Yup.string()
+              .min(2, "First name must be at least 2 characters")
+              .max(50, "First name cannot exceed 50 characters")
+              .required("Please enter your first name"),
+            lastName: Yup.string()
+              .min(2, "Last name must be at least 2 characters")
+              .max(50, "Last name cannot exceed 50 characters")
+              .required("Please enter your last name"),
+            email: Yup.string()
+              .email("Please enter a valid email address")
+              .required("Please enter your email address"),
+            age: Yup.number()
+              .min(15, "You must be at least 15 years old")
+              .max(100, "Please enter a valid age")
+              .required("Please enter your age"),
+            contactNumber: Yup.string()
+              .matches(
+                /^(\+?61|0)[\s-]?(\d{4,5})[\s-]?(\d{4})$/,
+                "Please enter a valid Australian phone number (e.g., +61 412 345 678 or 0412 345 678)"
               )
-            )}
-          </div>
+              .required("Please enter your contact number"),
+            message: Yup.string()
+              .min(10, "Message must be at least 10 characters")
+              .required("Please enter your message"),
+          })}
+          onSubmit={(values, { setSubmitting, resetForm }) => {
+            console.log("Contact Form Data:", values);
+            setSubmitting(false);
+            resetForm();
+          }}
+        >
+          {({ errors, touched }) => (
+            <Form className="relative bg-black/80 rounded-3xl shadow-xl px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8 md:py-10 w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6 overflow-hidden">
+              {/* Background Overlay */}
+              <div className="absolute inset-0 rounded-3xl z-0">
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${images.image_Question01})` }}
+                />
+                <div className="absolute inset-0 bg-black/80" />
+              </div>
 
-          {/* Right Column - Textarea + Button */}
-          <div
-            className="z-10 flex flex-col justify-center gap-2 sm:gap-3 md:gap-4 mt-3 sm:mt-4 md:mt-12 px-1 sm:px-2 md:px-4"
-            data-aos="fade-left"
-            data-aos-delay="400"
-          >
-            <textarea
-              placeholder="Type your message..."
-              className="w-full h-20 sm:h-24 md:h-32 lg:h-36 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-3 rounded-xl border border-blue-500 outline-none resize-none focus:ring-2 focus:ring-blue-400 placeholder-white text-white bg-transparent text-xs sm:text-sm md:text-base"
-            />
-            <button className="bg-gradient-to-r from-blue-600 to-blue-400 text-black font-semibold px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 rounded-full shadow hover:scale-105 transition duration-300 w-full text-xs sm:text-sm md:text-base">
-              Submit
-            </button>
-          </div>
-        </div>
+              {/* Header */}
+              <div className="absolute top-2 sm:top-3 md:top-4 w-full text-center z-10">
+                <h2 className="text-base sm:text-lg md:text-2xl lg:text-3xl font-bold text-white drop-shadow px-4">
+                  Have any Question?
+                </h2>
+              </div>
+
+              {/* Left Column - Inputs */}
+              <div
+                className="z-10 flex flex-col justify-center space-y-2 sm:space-y-3 md:space-y-4 mt-6 sm:mt-8 md:mt-12 px-1 sm:px-2 md:px-4"
+                data-aos="fade-right"
+                data-aos-delay="200"
+              >
+                <Field
+                  type="text"
+                  name="firstName"
+                  placeholder="First Name"
+                  className={`w-full px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-3 rounded-full border outline-none focus:ring-2 placeholder-white text-white bg-transparent text-xs sm:text-sm md:text-base ${
+                    errors.firstName && touched.firstName
+                      ? "border-red-500 focus:ring-red-400"
+                      : "border-blue-500 focus:ring-blue-400"
+                  }`}
+                />
+                <ErrorMessage
+                  name="firstName"
+                  component="div"
+                  className="text-red-400 text-xs mt-1"
+                />
+                <Field
+                  type="text"
+                  name="lastName"
+                  placeholder="Last Name"
+                  className={`w-full px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-3 rounded-full border outline-none focus:ring-2 placeholder-white text-white bg-transparent text-xs sm:text-sm md:text-base ${
+                    errors.lastName && touched.lastName
+                      ? "border-red-500 focus:ring-red-400"
+                      : "border-blue-500 focus:ring-blue-400"
+                  }`}
+                />
+                <ErrorMessage
+                  name="lastName"
+                  component="div"
+                  className="text-red-400 text-xs mt-1"
+                />
+                <Field
+                  type="email"
+                  name="email"
+                  placeholder="E-Mail"
+                  className={`w-full px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-3 rounded-full border outline-none focus:ring-2 placeholder-white text-white bg-transparent text-xs sm:text-sm md:text-base ${
+                    errors.email && touched.email
+                      ? "border-red-500 focus:ring-red-400"
+                      : "border-blue-500 focus:ring-blue-400"
+                  }`}
+                />
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className="text-red-400 text-xs mt-1"
+                />
+                <Field
+                  type="number"
+                  name="age"
+                  placeholder="Age"
+                  className={`w-full px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-3 rounded-full border outline-none focus:ring-2 placeholder-white text-white bg-transparent text-xs sm:text-sm md:text-base ${
+                    errors.age && touched.age
+                      ? "border-red-500 focus:ring-red-400"
+                      : "border-blue-500 focus:ring-blue-400"
+                  }`}
+                />
+                <ErrorMessage
+                  name="age"
+                  component="div"
+                  className="text-red-400 text-xs mt-1"
+                />
+                <Field
+                  type="text"
+                  name="contactNumber"
+                  placeholder="Contact Number"
+                  className={`w-full px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-3 rounded-full border outline-none focus:ring-2 placeholder-white text-white bg-transparent text-xs sm:text-sm md:text-base ${
+                    errors.contactNumber && touched.contactNumber
+                      ? "border-red-500 focus:ring-red-400"
+                      : "border-blue-500 focus:ring-blue-400"
+                  }`}
+                />
+                <ErrorMessage
+                  name="contactNumber"
+                  component="div"
+                  className="text-red-400 text-xs mt-1"
+                />
+              </div>
+
+              {/* Right Column - Textarea + Button */}
+              <div
+                className="z-10 flex flex-col justify-center gap-2 sm:gap-3 md:gap-4 mt-3 sm:mt-4 md:mt-12 px-1 sm:px-2 md:px-4"
+                data-aos="fade-left"
+                data-aos-delay="400"
+              >
+                <Field
+                  as="textarea"
+                  name="message"
+                  placeholder="Type your message..."
+                  className={`w-full h-20 sm:h-24 md:h-32 lg:h-36 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-3 rounded-xl border outline-none resize-none focus:ring-2 placeholder-white text-white bg-transparent text-xs sm:text-sm md:text-base ${
+                    errors.message && touched.message
+                      ? "border-red-500 focus:ring-red-400"
+                      : "border-blue-500 focus:ring-blue-400"
+                  }`}
+                />
+                <ErrorMessage
+                  name="message"
+                  component="div"
+                  className="text-red-400 text-xs mt-1"
+                />
+                <button
+                  type="submit"
+                  className="bg-gradient-to-r from-blue-600 to-blue-400 text-black font-semibold px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 rounded-full shadow hover:scale-105 transition duration-300 w-full text-xs sm:text-sm md:text-base cursor-pointer"
+                >
+                  Submit
+                </button>
+              </div>
+            </Form>
+          )}
+        </Formik>
       </section>
-{/* Story */}
-      <Story/>
-{/* Google Review */}
+      {/* Story */}
+      <Story />
+      {/* Google Review */}
       <GoogleReviewSection />
 
       {/* FB Update */}
@@ -1166,36 +1283,34 @@ const Home = () => {
         </div>
       </section>
 
-     {/* Partners */}
-<section className="bg-gradient-to-br from-white via-green-50 to-emerald-100 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
-  <div className="max-w-6xl mx-auto text-center">
-    <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 relative inline-block">
-      <span className="relative z-10">Our Trusted Partners</span>
-    </h2>
-    <p className="text-gray-600 text-lg mb-14 max-w-2xl mx-auto">
-      We proudly collaborate with these industry leaders to drive
-      innovation and excellence.
-    </p>
+      {/* Partners */}
+      <section className="bg-gradient-to-br from-white via-green-50 to-emerald-100 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 relative inline-block">
+            <span className="relative z-10">Our Trusted Partners</span>
+          </h2>
+          <p className="text-gray-600 text-lg mb-14 max-w-2xl mx-auto">
+            We proudly collaborate with these industry leaders to drive
+            innovation and excellence.
+          </p>
 
-    {/* Logos in one line on large screens, wrap on small */}
-    <div className="flex flex-wrap justify-center gap-8">
-      {logos.slice(0, 5).map((logo, index) => (
-        <div
-          key={index}
-          className="bg-white/40 backdrop-blur-md border border-white/30 shadow-lg hover:shadow-2xl rounded-2xl p-6 flex items-center justify-center transition-transform hover:scale-105 duration-300 w-48 h-28"
-        >
-          <img
-            src={logo}
-            alt={`Logo ${index + 1}`}
-            className="h-50 w-auto object-contain transition duration-300"
-          />
+          {/* Logos in one line on large screens, wrap on small */}
+          <div className="flex flex-wrap justify-center gap-8">
+            {logos.slice(0, 5).map((logo, index) => (
+              <div
+                key={index}
+                className="bg-white/40 backdrop-blur-md border border-white/30 shadow-lg hover:shadow-2xl rounded-2xl p-6 flex items-center justify-center transition-transform hover:scale-105 duration-300 w-48 h-28"
+              >
+                <img
+                  src={logo}
+                  alt={`Logo ${index + 1}`}
+                  className="h-50 w-auto object-contain transition duration-300"
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-
+      </section>
 
       {/* Branding */}
       {/* <section className="bg-gradient-to-br from-white via-green-50 to-yellow-50 py-12">
