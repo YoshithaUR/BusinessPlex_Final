@@ -45,6 +45,40 @@ export const contactValidation = [
     .escape()
 ];
 
+// Example: Simple email-only validation
+export const emailOnlyValidation = [
+  body('email')
+    .trim()
+    .isEmail()
+    .withMessage('Please provide a valid email address')
+    .normalizeEmail()
+    .isLength({ max: 100 })
+    .withMessage('Email must be less than 100 characters')
+];
+
+// Example: User registration validation
+export const userRegistrationValidation = [
+  body('username')
+    .trim()
+    .isLength({ min: 3, max: 30 })
+    .withMessage('Username must be between 3 and 30 characters')
+    .matches(/^[a-zA-Z0-9_]+$/)
+    .withMessage('Username can only contain letters, numbers, and underscores')
+    .escape(),
+  
+  body('email')
+    .trim()
+    .isEmail()
+    .withMessage('Please provide a valid email address')
+    .normalizeEmail(),
+  
+  body('password')
+    .isLength({ min: 8 })
+    .withMessage('Password must be at least 8 characters long')
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/)
+    .withMessage('Password must contain at least one lowercase letter, one uppercase letter, and one number')
+];
+
 // Middleware to check for validation errors
 export const handleValidationErrors = (req, res, next) => {
   const errors = validationResult(req);
@@ -83,4 +117,37 @@ export const sanitizeInput = (req, res, next) => {
   });
 
   next();
+};
+
+// Higher-order function to automatically apply default middleware chain
+export const withDefaultMiddleware = (controller, customValidation = null) => {
+  const middlewareChain = [sanitizeInput];
+  
+  // Add custom validation if provided, otherwise use default contact validation
+  if (customValidation) {
+    middlewareChain.push(customValidation);
+  } else {
+    middlewareChain.push(contactValidation);
+  }
+  
+  middlewareChain.push(handleValidationErrors, controller);
+  
+  return middlewareChain;
+};
+
+// Alternative: Create a route wrapper that automatically applies middleware
+export const createValidatedRoute = (validationRules = null) => {
+  return (controller) => {
+    const middlewareChain = [sanitizeInput];
+    
+    if (validationRules) {
+      middlewareChain.push(validationRules);
+    } else {
+      middlewareChain.push(contactValidation);
+    }
+    
+    middlewareChain.push(handleValidationErrors, controller);
+    
+    return middlewareChain;
+  };
 };

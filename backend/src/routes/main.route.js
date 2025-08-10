@@ -1,10 +1,10 @@
 import { Router } from "express";
-import mainController from "../controller/main.controller.js";
-import { contactValidation, handleValidationErrors, sanitizeInput } from "../middleware/validation.middleware.js";
+import { withDefaultMiddleware } from "../middleware/validation.middleware.js";
+import questionController from "../controller/question.controller.js";
 
 const mainRouter = Router();
 
-// Apply validation middleware to contact route
-mainRouter.post("/contact", sanitizeInput, contactValidation, handleValidationErrors, mainController);
+// Apply validation middleware to contact route using the new wrapper
+mainRouter.post("/contact", ...withDefaultMiddleware(questionController));
 
 export default mainRouter;

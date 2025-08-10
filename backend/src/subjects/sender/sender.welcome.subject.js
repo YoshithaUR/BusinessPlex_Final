@@ -1,4 +1,4 @@
-import questionTemplate from "../templates/question.template.js";
+import questionTemplate from "../../templates/sender/question.sender.template.js";
 
 const welcomeSubject = (email) => {
     const mail = {
