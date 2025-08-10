@@ -98,11 +98,263 @@ export const userRegistrationValidation = [
     .withMessage('Password must contain at least one lowercase letter, one uppercase letter, and one number')
 ];
 
+// Validation rules for application form
+export const applicationValidation = [
+  body('firstName')
+    .trim()
+    .isLength({ min: 1, max: 50 })
+    .withMessage('First name is required and must be between 1 and 50 characters')
+    .matches(/^[a-zA-Z\s'-]+$/)
+    .withMessage('First name can only contain letters, spaces, hyphens, and apostrophes')
+    .escape(),
+  
+  body('lastName')
+    .trim()
+    .isLength({ min: 1, max: 50 })
+    .withMessage('Last name is required and must be between 1 and 50 characters')
+    .matches(/^[a-zA-Z\s'-]+$/)
+    .withMessage('Last name can only contain letters, spaces, hyphens, and apostrophes')
+    .escape(),
+  
+  body('email')
+    .trim()
+    .isEmail()
+    .withMessage('Please provide a valid email address')
+    .normalizeEmail()
+    .isLength({ max: 100 })
+    .withMessage('Email must be less than 100 characters'),
+  
+  body('phone')
+    .trim()
+    .matches(/^[\+]?[0-9\s\-\(\)]{8,15}$/)
+    .withMessage('Please provide a valid phone number (8-15 digits, can include spaces, hyphens, parentheses, and +)')
+    .escape(),
+  
+  body('address')
+    .trim()
+    .isLength({ min: 5, max: 200 })
+    .withMessage('Address is required and must be between 5 and 200 characters')
+    .escape(),
+  
+  body('suburb')
+    .optional()
+    .trim()
+    .isLength({ max: 100 })
+    .withMessage('Suburb must be less than 100 characters')
+    .escape(),
+  
+  body('postcode')
+    .optional()
+    .trim()
+    .custom((value) => {
+      if (value && value !== '') {
+        if (!/^[0-9]{4}$/.test(value)) {
+          throw new Error('Postcode must be exactly 4 digits');
+        }
+      }
+      return true;
+    })
+    .escape(),
+  
+  body('state')
+    .optional()
+    .trim()
+    .isIn(['WA', 'NSW', 'VIC', 'QLD', 'SA', 'TAS', 'NT', 'ACT'])
+    .withMessage('Please select a valid state')
+    .escape(),
+  
+  body('dateOfBirth')
+    .trim()
+    .custom((value) => {
+      // Handle different date formats
+      let birthDate;
+      
+      // Try parsing as ISO date first
+      if (value.match(/^\d{4}-\d{2}-\d{2}$/)) {
+        birthDate = new Date(value + 'T00:00:00');
+      } else {
+        birthDate = new Date(value);
+      }
+      
+      // Check if date is valid
+      if (isNaN(birthDate.getTime())) {
+        throw new Error('Please provide a valid date of birth');
+      }
+      
+      // Check age range
+      const today = new Date();
+      const age = today.getFullYear() - birthDate.getFullYear();
+      const monthDiff = today.getMonth() - birthDate.getMonth();
+      
+      // Adjust age if birthday hasn't occurred this year
+      const actualAge = monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate()) 
+        ? age - 1 
+        : age;
+      
+      if (actualAge < 15 || actualAge > 100) {
+        throw new Error('Age must be between 15 and 100 years');
+      }
+      
+      return true;
+    }),
+  
+  body('programType')
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage('Program type is required')
+    .isIn([
+      'Small Business Training - Certificate III',
+      'Small Business Training - Certificate IV',
+      'Exploring Self-Employment Workshop',
+      'Business Advice Session',
+      'Business Health Check'
+    ])
+    .withMessage('Please select a valid program type')
+    .escape(),
+  
+  body('preferredStartDate')
+    .optional()
+    .trim()
+    .custom((value) => {
+      if (value && value !== '') {
+        // Try parsing as ISO date first
+        if (value.match(/^\d{4}-\d{2}-\d{2}$/)) {
+          const date = new Date(value + 'T00:00:00');
+          if (isNaN(date.getTime())) {
+            throw new Error('Please provide a valid preferred start date');
+          }
+        } else {
+          const date = new Date(value);
+          if (isNaN(date.getTime())) {
+            throw new Error('Please provide a valid preferred start date');
+          }
+        }
+      }
+      return true;
+    }),
+  
+  body('deliveryMode')
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage('Delivery mode is required')
+    .isIn(['face-to-face', 'online', 'blended'])
+    .withMessage('Please select a valid delivery mode')
+    .escape(),
+  
+  body('employmentStatus')
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage('Employment status is required')
+    .isIn(['unemployed', 'underemployed', 'employed', 'self-employed', 'student', 'retired'])
+    .withMessage('Please select a valid employment status')
+    .escape(),
+  
+  body('centrelinkCustomer')
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage('Centrelink customer status is required')
+    .isIn(['yes', 'no'])
+    .withMessage('Please select yes or no')
+    .escape(),
+  
+  body('centrelinkNumber')
+    .optional()
+    .trim()
+    .isLength({ max: 50 })
+    .withMessage('Centrelink number must be less than 50 characters')
+    .escape(),
+  
+  body('businessIdea')
+    .trim()
+    .isLength({ min: 10, max: 2000 })
+    .withMessage('Business idea description is required and must be between 10 and 2000 characters')
+    .escape(),
+  
+  body('businessExperience')
+    .optional()
+    .trim()
+    .isLength({ max: 2000 })
+    .withMessage('Business experience must be less than 2000 characters')
+    .escape(),
+  
+  body('industryType')
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage('Industry type is required')
+    .isIn([
+      'retail', 'hospitality', 'technology', 'healthcare', 'education',
+      'construction', 'professional-services', 'manufacturing', 'agriculture', 'other'
+    ])
+    .withMessage('Please select a valid industry type')
+    .escape(),
+  
+  body('businessStage')
+    .optional()
+    .trim()
+    .isIn(['idea', 'planning', 'startup', 'existing'])
+    .withMessage('Please select a valid business stage')
+    .escape(),
+  
+  body('previousTraining')
+    .optional()
+    .trim()
+    .isLength({ max: 2000 })
+    .withMessage('Previous training must be less than 2000 characters')
+    .escape(),
+  
+  body('specialRequirements')
+    .optional()
+    .trim()
+    .isLength({ max: 1000 })
+    .withMessage('Special requirements must be less than 1000 characters')
+    .escape(),
+  
+  body('hearAboutUs')
+    .optional()
+    .trim()
+    .isIn(['google', 'social-media', 'referral', 'centrelink', 'advertisement', 'other'])
+    .withMessage('Please select a valid option')
+    .escape(),
+  
+  body('eligibilityDeclaration')
+    .custom((value) => {
+      // Handle both boolean and string values
+      const boolValue = typeof value === 'boolean' ? value : value === 'true' || value === true;
+      if (!boolValue) {
+        throw new Error('You must confirm that you meet the eligibility criteria');
+      }
+      return true;
+    }),
+  
+  body('accuracyDeclaration')
+    .custom((value) => {
+      // Handle both boolean and string values
+      const boolValue = typeof value === 'boolean' ? value : value === 'true' || value === true;
+      if (!boolValue) {
+        throw new Error('You must confirm that all information is accurate');
+      }
+      return true;
+    }),
+  
+  body('privacyConsent')
+    .custom((value) => {
+      // Handle both boolean and string values
+      const boolValue = typeof value === 'boolean' ? value : value === 'true' || value === true;
+      if (!boolValue) {
+        throw new Error('You must consent to the privacy policy');
+      }
+      return true;
+    })
+];
+
 // Middleware to check for validation errors
 export const handleValidationErrors = (req, res, next) => {
   const errors = validationResult(req);
   
   if (!errors.isEmpty()) {
+    console.log('=== VALIDATION ERRORS DEBUG ===');
+    console.log('Validation errors:', JSON.stringify(errors.array(), null, 2));
+    
     return res.status(400).json({
       message: 'Validation failed',
       errors: errors.array().map(error => ({

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Building2, Send } from 'lucide-react';
+import axiosInstance from '../../api/api';
 
 const ApplicationForm = () => {
   const [formData, setFormData] = useState({
@@ -30,6 +31,7 @@ const ApplicationForm = () => {
     privacyConsent: false,
   });
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -42,6 +44,8 @@ const ApplicationForm = () => {
 
   const validate = () => {
     const newErrors = {};
+    
+    // Basic required field validation
     if (!formData.firstName) newErrors.firstName = 'Required';
     if (!formData.lastName) newErrors.lastName = 'Required';
     if (!formData.email) newErrors.email = 'Required';
@@ -57,14 +61,98 @@ const ApplicationForm = () => {
     if (!formData.eligibilityDeclaration) newErrors.eligibilityDeclaration = 'Required';
     if (!formData.accuracyDeclaration) newErrors.accuracyDeclaration = 'Required';
     if (!formData.privacyConsent) newErrors.privacyConsent = 'Required';
+    
+    // Postcode validation (if provided)
+    if (formData.postcode && formData.postcode.trim() !== '') {
+      if (!/^[0-9]{4}$/.test(formData.postcode.trim())) {
+        newErrors.postcode = 'Postcode must be exactly 4 digits';
+      }
+    }
+    
+    // Date validation
+    if (formData.dateOfBirth) {
+      const birthDate = new Date(formData.dateOfBirth);
+      if (isNaN(birthDate.getTime())) {
+        newErrors.dateOfBirth = 'Please enter a valid date';
+      } else {
+        const today = new Date();
+        const age = today.getFullYear() - birthDate.getFullYear();
+        if (age < 15 || age > 100) {
+          newErrors.dateOfBirth = 'Age must be between 15 and 100 years';
+        }
+      }
+    }
+    
+    // Preferred start date validation (if provided)
+    if (formData.preferredStartDate && formData.preferredStartDate.trim() !== '') {
+      const startDate = new Date(formData.preferredStartDate);
+      if (isNaN(startDate.getTime())) {
+        newErrors.preferredStartDate = 'Please enter a valid date';
+      }
+    }
+    
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
-      alert('Application submitted!');
+      setIsSubmitting(true);
+      try {
+        
+        // Send application to backend
+       const response = await axiosInstance.post('/application', formData);
+       console.log(response);
+        
+        console.log('=== APPLICATION SUBMITTED SUCCESSFULLY ===');
+        
+        // Reset form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          address: '',
+          suburb: '',
+          postcode: '',
+          state: '',
+          dateOfBirth: '',
+          programType: '',
+          preferredStartDate: '',
+          deliveryMode: '',
+          employmentStatus: '',
+          centrelinkCustomer: '',
+          centrelinkNumber: '',
+          businessIdea: '',
+          businessExperience: '',
+          industryType: '',
+          businessStage: '',
+          previousTraining: '',
+          specialRequirements: '',
+          hearAboutUs: '',
+          eligibilityDeclaration: false,
+          accuracyDeclaration: false,
+          privacyConsent: false,
+        });
+        setErrors({});
+      } catch (error) {
+        console.error('Application submission error:', error);
+        
+        if (error.response && error.response.data && error.response.data.errors) {
+          // Handle validation errors from backend
+          const backendErrors = {};
+          error.response.data.errors.forEach(err => {
+            backendErrors[err.field] = err.message;
+          });
+          setErrors(backendErrors);
+          alert('Please correct the errors in the form and try again.');
+        } else {
+          alert('An error occurred while submitting your application. Please try again later.');
+        }
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -186,6 +274,7 @@ const ApplicationForm = () => {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder-gray-500"
                 />
+                {errors.postcode && <span className="text-red-500 text-sm mt-1 block">{errors.postcode}</span>}
               </div>
 
               <div>
@@ -263,6 +352,7 @@ const ApplicationForm = () => {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white border border-yellow-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-gray-900"
                 />
+                {errors.preferredStartDate && <span className="text-red-500 text-sm mt-1 block">{errors.preferredStartDate}</span>}
               </div>
 
               <div>
@@ -543,10 +633,20 @@ const ApplicationForm = () => {
           <div className="pt-6">
             <button 
               onClick={handleSubmit}
-              className="w-full bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-800 hover:to-blue-900 text-white font-semibold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center text-lg"
+              disabled={isSubmitting}
+              className={`w-full bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-800 hover:to-blue-900 text-white font-semibold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center text-lg ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
-              <Send className="w-6 h-6 mr-3" />
-              Submit Application
+              {isSubmitting ? (
+                <>
+                  <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white mr-3"></div>
+                  Submitting...
+                </>
+              ) : (
+                <>
+                  <Send className="w-6 h-6 mr-3" />
+                  Submit Application
+                </>
+              )}
             </button>
           </div>
         </div>
