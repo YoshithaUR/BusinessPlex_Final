@@ -40,6 +40,7 @@ import GoogleReviewSection from "./Google Reviews/googleReviws";
 import Story from "./Google Reviews/story";
 import Rationg from "./rating";
 import axiosInstance from "../api/api";
+import { ToastContainer, toast } from "react-toastify";
 
 const FacebookPagePlugin = ({
   pageUrl = "https://www.facebook.com/YourPageName",
@@ -192,14 +193,33 @@ const Home = () => {
   const fetchData = async (formJson) => {
     try {
       const response = await axiosInstance.post("/contact", formJson);
-      console.log(response);
+      const { message, success } = response.data;
+      if (success) {
+        toast.success(message);
+      } else {
+        toast.error(message);
+      }
     } catch (error) {
-      console.log(error);
+      const errorMessage = error.response?.data?.error || error.message || 'An error occurred';
+      console.log(errorMessage);
+      toast.error(errorMessage);
     }
   };
 
   return (
     <div className="w-full overflow-x-hidden">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       {/* Business Support Services Section */}
 
       <section className="relative bg-gradient-to-br from-white via-green-50 to-yellow-50 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
