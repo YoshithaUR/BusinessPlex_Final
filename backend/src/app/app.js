@@ -16,7 +16,7 @@ app.use(helmet());
 app.use(requestLogger);
 app.use(securityLogger);
 
-// Rate limiting
+// Rate limiting - only apply in production
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 100, // limit each IP to 100 requests per windowMs
@@ -27,9 +27,6 @@ const limiter = rateLimit({
   standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 });
-
-// Apply rate limiting to all requests
-app.use(limiter);
 
 // Specific rate limit for contact form (more restrictive)
 const contactLimiter = rateLimit({
@@ -42,14 +39,29 @@ const contactLimiter = rateLimit({
   skipSuccessfulRequests: false,
 });
 
-// Request size limits
-app.use(express.json({ limit: '10kb' })); // Limit JSON payload size
-app.use(express.urlencoded({ extended: true, limit: '10kb' })); // Limit URL-encoded payload size
+// Apply rate limiting only in production
+if (process.env.NODE_ENV === 'production') {
+  console.log('🔒 Rate limiting enabled (production mode)');
+  app.use(limiter);
+  app.use("/api/contact", contactLimiter);
+} else {
+  console.log('🚀 Rate limiting disabled (development mode)');
+}
+
+// Request size limits - more lenient in development
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.json({ limit: '10kb' })); // Limit JSON payload size
+  app.use(express.urlencoded({ extended: true, limit: '10kb' })); // Limit URL-encoded payload size
+  console.log('📏 Request size limits: 10kb (production mode)');
+} else {
+  app.use(express.json({ limit: '50mb' })); // Larger limit for development
+  app.use(express.urlencoded({ extended: true, limit: '50mb' })); // Larger limit for development
+  console.log('📏 Request size limits: 50mb (development mode)');
+}
 
 app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 
-// Apply contact-specific rate limiting to the contact route
-app.use("/api/contact", contactLimiter);
+// Contact-specific rate limiting is now applied conditionally above
 app.use("/api", mainRouter);
 
 // Error handling middleware (must be last)
