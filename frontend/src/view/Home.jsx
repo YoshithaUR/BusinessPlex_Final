@@ -42,11 +42,7 @@ import Rationg from "./rating";
 import axiosInstance from "../api/api";
 import { ToastContainer, toast } from "react-toastify";
 
-const FacebookPagePlugin = ({
-  pageUrl = "https://www.facebook.com/YourPageName",
-}) => {
-  const encodedUrl = encodeURIComponent(pageUrl);
-};
+
 const handleShare = () => {
   if (navigator.share) {
     navigator
@@ -182,20 +178,14 @@ const Home = () => {
     navigate("/ApplicationForm", { state: { selectedService: serviceTitle } });
   };
 
-  const handleContactFormSubmit = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
-    const formJson = Object.fromEntries(formData.entries());
-    fetchData(formJson);
-  };
-
-  const fetchData = async (formJson) => {
+  const fetchData = async (formJson, resetForm) => {
     try {
       const response = await axiosInstance.post("/contact", formJson);
       const { message, success } = response.data;
       if (success) {
         toast.success(message);
+        // Reset the form when submission is successful
+        resetForm();
       } else {
         toast.error(message);
       }
@@ -983,11 +973,14 @@ const Home = () => {
               .min(10, "Message must be at least 10 characters")
               .required("Please enter your message"),
           })}
+          onSubmit={(values, { resetForm }) => {
+            fetchData(values, resetForm);
+          }}
         >
-          {({ errors, touched }) => (
+          {({ errors, touched, handleSubmit }) => (
             <Form
               className="relative bg-black/80 rounded-3xl shadow-xl px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8 md:py-10 w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6 overflow-hidden"
-              onSubmit={handleContactFormSubmit}
+              onSubmit={handleSubmit}
             >
               {/* Background Overlay */}
               <div className="absolute inset-0 rounded-3xl z-0">
