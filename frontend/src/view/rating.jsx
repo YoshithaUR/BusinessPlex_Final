@@ -54,52 +54,31 @@ const Rating = () => {
 
   const serviceStats = {
     smallBusinessCoaching: {
-      value: 45,
+      value: 327,
       label: "Small Business Coaching",
       icon: Briefcase,
       color: "blue"
     },
     selfEmploymentWorkshop: {
-      value: 120 ,
+      value: 67 ,
      
       label: "Exploring Self Employment Workshop", 
       icon: BookOpen,
       color: "green"
     },
     businessHealthCheck: {
-      value: 78,
+      value: 42,
       label: "Business Health Check",
       icon: Activity, 
       color: "purple"
     },
     businessAdvice: {
-      value: 200,
+      value: 41,
       label: "Business Advice",
       icon: MessageSquare,
       color: "orange"
     }
   };
-
-  const additionalStats = [
-    {
-      value: 98,
-      suffix: "%",
-      label: "Client Success Rate",
-      color: "blue"
-    },
-    {
-      value: 95,
-      suffix: "%", 
-      label: "Client Retention",
-      color: "green"
-    },
-    {
-      value: 4.9,
-      suffix: "/5",
-      label: "Average Rating", 
-      color: "purple"
-    }
-  ];
 
   const colorMap = {
     blue: {
@@ -223,35 +202,6 @@ const Rating = () => {
                     delay={800 + (index * 200)} 
                   />
                 </div>
-                {/* <p className="text-slate-600 font-medium text-sm">{service.label}</p>    */}
-              </div>
-            );
-          })}
-        </div>
-
-     
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-          {additionalStats.map((stat, index) => {
-            const colors = colorMap[stat.color];
-            
-            return (
-              <div 
-                key={index}
-                className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform opacity-0"
-                style={{ 
-                  animation: `fadeInUp 0.8s ease-out ${2 + (index * 0.2)}s both` 
-                }}
-              >
-                <div className={`text-3xl font-bold ${colors.text} mb-2`}>
-                  <CountUp 
-                    start={0} 
-                    end={stat.value} 
-                    duration={2.5} 
-                    suffix={stat.suffix} 
-                    delay={1600 + (index * 200)} 
-                  />
-                </div>
-                <p className="text-slate-600 font-medium">{stat.label}</p>
               </div>
             );
           })}
