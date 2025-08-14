@@ -71,6 +71,46 @@ const Home = () => {
 
   const navigate = useNavigate();
 
+  // Email validation functions
+  const isValidSyntax = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const isValidGmail = (email) => {
+    if (!email) return true;
+    const emailLower = email.toLowerCase();
+    
+    // Check if it's a Gmail address
+    if (emailLower.includes('@gmail.com')) {
+      // Gmail-specific validations
+      const localPart = emailLower.split('@')[0];
+      
+      // Gmail username rules
+      if (localPart.length < 6 || localPart.length > 30) {
+        return false;
+      }
+      
+      // Gmail username can only contain letters, numbers, dots, and underscores
+      if (!/^[a-z0-9._]+$/.test(localPart)) {
+        return false;
+      }
+      
+      // Gmail username cannot start or end with a dot
+      if (localPart.startsWith('.') || localPart.endsWith('.')) {
+        return false;
+      }
+      
+      // Gmail username cannot have consecutive dots
+      if (localPart.includes('..')) {
+        return false;
+      }
+      
+      return true;
+    }
+    
+    return true; // Not a Gmail address, let other validations handle it
+  };
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -823,7 +863,14 @@ const Home = () => {
               .max(50, "Last name cannot exceed 50 characters")
               .required("Please enter your last name"),
             email: Yup.string()
-              .email("Please enter a valid email address")
+              .test("syntax", "Please enter a valid email address", function(value) {
+                if (!value) return true; // Let required validation handle empty values
+                return isValidSyntax(value);
+              })
+              .test("gmail-validation", "Invalid Gmail address format", function(value) {
+                if (!value) return true;
+                return isValidGmail(value);
+              })
               .test("no-typos", "Please check your email address for typos", function(value) {
                 if (!value) return true; // Let required validation handle empty values
                 
@@ -844,7 +891,9 @@ const Home = () => {
                 // Check for common typos
                 for (const typo of commonTypos) {
                   if (email.includes(typo)) {
-                    return false;
+                    return this.createError({
+                      message: `Did you mean "${typo.replace('gnail.com', 'gmail.com').replace('gmial.com', 'gmail.com').replace('gamil.com', 'gmail.com').replace('gmal.com', 'gmail.com').replace('gmai.com', 'gmail.com').replace('gmeil.com', 'gmail.com')}"?`
+                    });
                   }
                 }
                 
