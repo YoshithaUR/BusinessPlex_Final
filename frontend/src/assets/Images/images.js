@@ -119,12 +119,7 @@ import images_mainBraeKunzli02 from "./story/Brae Kunzli-1.png";
 import images_mainBraeKunzli01 from "./story/Brae Kunzli-2.png";
 
 
-//-----------------------Google Reviews mobile--------------------
-// Alex
-import images_mobilealex01 from"./story/Mobile/Alex01.png"
 
-// paul
-import images_mobilepaul01 from"./story/Mobile/paul01.png"
 // Story logo
 import images_logo01 from "./story/logo/1.png"
 import images_logo02 from "./story/logo/2.png"
@@ -228,7 +223,7 @@ const images = {
   images_mainalex02,
   images_mainalex03,
 
-  images_mobilealex01,
+
   // dyMoody
   images_CyndyMoody01,
   images_CyndyMoody02,
@@ -254,7 +249,7 @@ const images = {
   images_mainPaulNieman02,
   images_mainPaulNieman03,
 
-  images_mobilepaul01,
+
 
   // Breakunzli
   images_BraeKunzli01,
