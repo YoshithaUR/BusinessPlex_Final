@@ -1,7 +1,74 @@
 import { body, validationResult } from 'express-validator';
 
+// Environment check
+const isProduction = process.env.NODE_ENV === 'production';
+const isDevelopment = process.env.NODE_ENV === 'development';
+
+// Email validation functions
+const isValidSyntax = (email) => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+};
+
+const isValidGmail = (email) => {
+  if (!email) return true;
+  const emailLower = email.toLowerCase();
+  
+  // Check if it's a Gmail address
+  if (emailLower.includes('@gmail.com')) {
+    // Gmail-specific validations
+    const localPart = emailLower.split('@')[0];
+    
+    // Gmail username rules
+    if (localPart.length < 6 || localPart.length > 30) {
+      return false;
+    }
+    
+    // Gmail username can only contain letters, numbers, dots, and underscores
+    if (!/^[a-z0-9._]+$/.test(localPart)) {
+      return false;
+    }
+    
+    // Gmail username cannot start or end with a dot
+    if (localPart.startsWith('.') || localPart.endsWith('.')) {
+      return false;
+    }
+    
+    // Gmail username cannot have consecutive dots
+    if (localPart.includes('..')) {
+      return false;
+    }
+    
+    return true;
+  }
+  
+  return true; // Not a Gmail address, let other validations handle it
+};
+
+// Development-friendly validation wrapper
+const devFriendlyValidation = (validationRules) => {
+  if (isDevelopment) {
+    // In development, make validation more lenient
+    return validationRules.map(rule => {
+      // Make optional fields truly optional in development
+      if (rule.optional) {
+        return rule.optional();
+      }
+      // Relax length requirements in development
+      if (rule.isLength) {
+        const originalLength = rule.isLength;
+        return rule.isLength({ 
+          min: Math.floor(originalLength.min * 0.5), // 50% of production min
+          max: originalLength.max * 2 // Double the production max
+        });
+      }
+      return rule;
+    });
+  }
+  return validationRules;
+};
+
 // Validation rules for contact form
-export const contactValidation = [
+export const contactValidation = devFriendlyValidation([
   body('firstName')
     .trim()
     .isLength({ min: 1, max: 50 })
@@ -20,8 +87,59 @@ export const contactValidation = [
   
   body('email')
     .trim()
-    .isEmail()
-    .withMessage('Please provide a valid email address')
+    .custom((value) => {
+      if (!value) return true; // Let required validation handle empty values
+      
+      // Check basic syntax
+      if (!isValidSyntax(value)) {
+        throw new Error('Please provide a valid email address');
+      }
+      
+      // Check Gmail-specific validation
+      if (!isValidGmail(value)) {
+        throw new Error('Invalid Gmail address format');
+      }
+      
+      // Check for common typos
+      const email = value.toLowerCase();
+      const commonTypos = [
+        "gnail.com", "gmial.com", "gamil.com", "gmal.com", "gmai.com", "gmeil.com",
+        "hotmai.com", "hotmial.com", "hotmeil.com", "hotmal.com",
+        "outlok.com", "outloook.com", "outlokc.com", "outloock.com",
+        "yahooo.com", "yaho.com", "yahooo.com", "yaho.com",
+        "icloud.com", "iclod.com", "icloude.com",
+        "protonmai.com", "protonmial.com",
+        "yandex.ru", "yandex.com", "yandex.ru",
+        "zoho.com", "zohoo.com", "zoh.com"
+      ];
+      
+      for (const typo of commonTypos) {
+        if (email.includes(typo)) {
+          const suggestion = typo.replace('gnail.com', 'gmail.com')
+                                .replace('gmial.com', 'gmail.com')
+                                .replace('gamil.com', 'gmail.com')
+                                .replace('gmal.com', 'gmail.com')
+                                .replace('gmai.com', 'gmail.com')
+                                .replace('gmeil.com', 'gmail.com');
+          throw new Error(`Did you mean "${suggestion}"?`);
+        }
+      }
+      
+      // Check for valid email providers
+      const validProviders = [
+        "gmail.com", "hotmail.com", "outlook.com", "yahoo.com", "icloud.com",
+        "protonmail.com", "yandex.ru", "zoho.com", "aol.com", "live.com",
+        "msn.com", "me.com", "mac.com", "gmx.com", "mail.com", "fastmail.com",
+        "tutanota.com", "startmail.com", "posteo.de", "kolabnow.com"
+      ];
+      
+      const domain = email.split('@')[1];
+      if (domain && !validProviders.includes(domain)) {
+        throw new Error('Please use a valid email provider (Gmail, Hotmail, Outlook, Yahoo, etc.)');
+      }
+      
+      return true;
+    })
     .normalizeEmail()
     .isLength({ max: 100 })
     .withMessage('Email must be less than 100 characters'),
@@ -43,7 +161,7 @@ export const contactValidation = [
     .isLength({ min: 10, max: 1000 })
     .withMessage('Message must be between 10 and 1000 characters')
     .escape()
-];
+]);
 
 // Validation rules for newsletter subscription
 export const newsletterValidation = [
@@ -57,8 +175,59 @@ export const newsletterValidation = [
   
   body('email')
     .trim()
-    .isEmail()
-    .withMessage('Please provide a valid email address')
+    .custom((value) => {
+      if (!value) return true; // Let required validation handle empty values
+      
+      // Check basic syntax
+      if (!isValidSyntax(value)) {
+        throw new Error('Please provide a valid email address');
+      }
+      
+      // Check Gmail-specific validation
+      if (!isValidGmail(value)) {
+        throw new Error('Invalid Gmail address format');
+      }
+      
+      // Check for common typos
+      const email = value.toLowerCase();
+      const commonTypos = [
+        "gnail.com", "gmial.com", "gamil.com", "gmal.com", "gmai.com", "gmeil.com",
+        "hotmai.com", "hotmial.com", "hotmeil.com", "hotmal.com",
+        "outlok.com", "outloook.com", "outlokc.com", "outloock.com",
+        "yahooo.com", "yaho.com", "yahooo.com", "yaho.com",
+        "icloud.com", "iclod.com", "icloude.com",
+        "protonmai.com", "protonmial.com",
+        "yandex.ru", "yandex.com", "yandex.ru",
+        "zoho.com", "zohoo.com", "zoh.com"
+      ];
+      
+      for (const typo of commonTypos) {
+        if (email.includes(typo)) {
+          const suggestion = typo.replace('gnail.com', 'gmail.com')
+                                .replace('gmial.com', 'gmail.com')
+                                .replace('gamil.com', 'gmail.com')
+                                .replace('gmal.com', 'gmail.com')
+                                .replace('gmai.com', 'gmail.com')
+                                .replace('gmeil.com', 'gmail.com');
+          throw new Error(`Did you mean "${suggestion}"?`);
+        }
+      }
+      
+      // Check for valid email providers
+      const validProviders = [
+        "gmail.com", "hotmail.com", "outlook.com", "yahoo.com", "icloud.com",
+        "protonmail.com", "yandex.ru", "zoho.com", "aol.com", "live.com",
+        "msn.com", "me.com", "mac.com", "gmx.com", "mail.com", "fastmail.com",
+        "tutanota.com", "startmail.com", "posteo.de", "kolabnow.com"
+      ];
+      
+      const domain = email.split('@')[1];
+      if (domain && !validProviders.includes(domain)) {
+        throw new Error('Please use a valid email provider (Gmail, Hotmail, Outlook, Yahoo, etc.)');
+      }
+      
+      return true;
+    })
     .normalizeEmail()
     .isLength({ max: 100 })
     .withMessage('Email must be less than 100 characters')
@@ -646,10 +815,14 @@ export const enrolmentValidation = [
 // Middleware to check for validation errors
 export const handleValidationErrors = (req, res, next) => {
   const errors = validationResult(req);
+  const isDevelopment = process.env.NODE_ENV === 'development';
   
   if (!errors.isEmpty()) {
-    console.log('=== VALIDATION ERRORS DEBUG ===');
-    console.log('Validation errors:', JSON.stringify(errors.array(), null, 2));
+    if (isDevelopment) {
+      console.log('=== VALIDATION ERRORS DEBUG ===');
+      console.log('Validation errors:', JSON.stringify(errors.array(), null, 2));
+      console.log('Request body:', req.body);
+    }
     
     return res.status(400).json({
       message: 'Validation failed',
@@ -657,7 +830,14 @@ export const handleValidationErrors = (req, res, next) => {
         field: error.path,
         message: error.msg,
         value: error.value
-      }))
+      })),
+      ...(isDevelopment && {
+        debug: {
+          totalErrors: errors.array().length,
+          requestBody: req.body,
+          timestamp: new Date().toISOString()
+        }
+      })
     });
   }
   
@@ -666,14 +846,25 @@ export const handleValidationErrors = (req, res, next) => {
 
 // Sanitize and validate all input fields
 export const sanitizeInput = (req, res, next) => {
+  const isProduction = process.env.NODE_ENV === 'production';
+  
   // Remove any potential XSS or injection attempts
   const sanitizeString = (str) => {
     if (typeof str !== 'string') return str;
-    return str
-      .replace(/[<>]/g, '') // Remove potential HTML tags
-      .replace(/javascript:/gi, '') // Remove javascript: protocol
-      .replace(/on\w+=/gi, '') // Remove event handlers
-      .trim();
+    
+    if (isProduction) {
+      // Strict sanitization in production
+      return str
+        .replace(/[<>]/g, '') // Remove potential HTML tags
+        .replace(/javascript:/gi, '') // Remove javascript: protocol
+        .replace(/on\w+=/gi, '') // Remove event handlers
+        .trim();
+    } else {
+      // Lenient sanitization in development
+      return str
+        .replace(/javascript:/gi, '') // Only remove javascript: protocol
+        .trim();
+    }
   };
 
   // Sanitize all string fields in req.body

@@ -9,12 +9,38 @@ import { requestLogger, securityLogger } from "../middleware/logging.middleware.
 
 const app = express();
 
-// Security middleware
-app.use(helmet());
+// Environment-based security configuration
+const isProduction = process.env.NODE_ENV === 'production';
+const isDevelopment = process.env.NODE_ENV === 'development';
 
-// Logging middleware
-app.use(requestLogger);
-app.use(securityLogger);
+// Security middleware - more lenient in development
+if (isProduction) {
+  // Full security headers in production
+  app.use(helmet());
+  console.log('🔒 Full security headers enabled (production mode)');
+} else {
+  // Relaxed security headers in development
+  app.use(helmet({
+    contentSecurityPolicy: false, // Disable CSP in development
+    crossOriginEmbedderPolicy: false, // Disable COEP in development
+    crossOriginResourcePolicy: false, // Disable CORP in development
+  }));
+  console.log('🚀 Relaxed security headers enabled (development mode)');
+}
+
+// Logging middleware - verbose in development, minimal in production
+if (isProduction) {
+  app.use(requestLogger); // Full logging in production
+  app.use(securityLogger); // Security monitoring in production
+  console.log('📝 Full logging enabled (production mode)');
+} else {
+  // Minimal logging in development
+  app.use((req, res, next) => {
+    console.log(`[DEV] ${req.method} ${req.originalUrl}`);
+    next();
+  });
+  console.log('📝 Minimal logging enabled (development mode)');
+}
 
 // Rate limiting - only apply in production
 const limiter = rateLimit({
@@ -24,11 +50,10 @@ const limiter = rateLimit({
     error: "Too many requests from this IP, please try again later.",
     retryAfter: "15 minutes"
   },
-  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+  standardHeaders: true,
+  legacyHeaders: false,
 });
 
-// Specific rate limit for contact form (more restrictive)
 const contactLimiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 1 hour
   max: 5, // limit each IP to 5 contact form submissions per hour
@@ -39,8 +64,7 @@ const contactLimiter = rateLimit({
   skipSuccessfulRequests: false,
 });
 
-// Apply rate limiting only in production
-if (process.env.NODE_ENV === 'production') {
+if (isProduction) {
   console.log('🔒 Rate limiting enabled (production mode)');
   app.use(limiter);
   app.use("/api/contact", contactLimiter);
@@ -49,19 +73,37 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Request size limits - more lenient in development
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.json({ limit: '10kb' })); // Limit JSON payload size
-  app.use(express.urlencoded({ extended: true, limit: '10kb' })); // Limit URL-encoded payload size
+if (isProduction) {
+  app.use(express.json({ limit: '10kb' }));
+  app.use(express.urlencoded({ extended: true, limit: '10kb' }));
   console.log('📏 Request size limits: 10kb (production mode)');
 } else {
-  app.use(express.json({ limit: '50mb' })); // Larger limit for development
-  app.use(express.urlencoded({ extended: true, limit: '50mb' })); // Larger limit for development
+  app.use(express.json({ limit: '50mb' }));
+  app.use(express.urlencoded({ extended: true, limit: '50mb' }));
   console.log('📏 Request size limits: 50mb (development mode)');
 }
 
-app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+// CORS configuration - more permissive in development
+if (isProduction) {
+  // Strict CORS in production
+  app.use(cors({ 
+    origin: process.env.CLIENT_URL, 
+    credentials: true,
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+  }));
+  console.log('🌐 Strict CORS enabled (production mode)');
+} else {
+  // Permissive CORS in development
+  app.use(cors({ 
+    origin: true, // Allow all origins in development
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+  }));
+  console.log('🌐 Permissive CORS enabled (development mode)');
+}
 
-// Contact-specific rate limiting is now applied conditionally above
 app.use("/api", mainRouter);
 
 // Error handling middleware (must be last)
