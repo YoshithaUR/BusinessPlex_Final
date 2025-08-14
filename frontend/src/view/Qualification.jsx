@@ -3,14 +3,14 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { FaArrowRight, FaCheckCircle, FaGraduationCap, FaCertificate, FaBusinessTime } from "react-icons/fa";
 import images from "../assets/Images/images";
-
+import pdf from "../assets/Images/pdf";
 const qualificationsData = [
   {
-    title: "Certificate III in Entrepreneurship",
+    title: "Certificate III in Entrepreneurship and New Business",
     code: "BSB30220",
     // subtitle: "Self-Employment Assistance Program",
     skills: [
-      "Learn the fundamentals of launching a micro-business, including planning, financials, marketing, and operations.t",
+      "Reflects the role of individuals establishing or carrying on business as a sole trader or contractor, as well as those supporting the establishment of a new venture as part of a larger organisation. ",
     ],
     image: images.image_ServicePopup01,
     link: "./ApplicationForm",
@@ -23,7 +23,7 @@ const qualificationsData = [
     code: "BSB40320",
     // subtitle: "Advanced Business Development",
     skills: [
-      "Designed for those ready to expand their business knowledge with advanced skills in business planning, risk management, and financial strategy.",
+      "Reflects the role of individuals establishing or operating a business providing selfemployment, as well as those establishing a new venture as part of a larger organisation.",
     ],
     image: images.image_abouteHome01,
     link: "./ApplicationForm",
@@ -32,11 +32,11 @@ const qualificationsData = [
      accentColor: "blue"
   },
    {
-    title: "Certificate III in Business",
+    title: "Certificate III in Business (Customer Engagement)",
     code: "BSB30120",
     // subtitle: "Core Business Operations",
     skills: [
-      "Build a solid foundation in business operations with a focus on customer service, communication, and workplace technologies.",
+      "Reflects the role of individuals in a variety of Business Services job roles. It is likely that these individuals are establishing their own work performance.",
     ],
     image: images.image_Card02,
     link: "./ApplicationForm",
@@ -49,7 +49,7 @@ const qualificationsData = [
     code: "BSB50920",
     // subtitle: "Work with Audit Professionals",
     skills: [
-      "Gain the skills to plan, lead, and report on quality audits ideal for professionals working in compliance, auditing, or quality management roles.",
+      "Reflects the role of individuals who possess a sound theoretical knowledge base in quality auditing and use a range of specialised, technical or managerial competencies to plan, carry out and evaluate their own work or the work of an audit team.",
     ],
     image: images.image_abouteHome01,
     link: "./ApplicationForm",
@@ -196,35 +196,75 @@ const Qualifications = () => {
         </div>
 
       
-        <div className="text-center mt-24" data-aos="fade-up" data-aos-delay="800">
-          <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-10 shadow-2xl max-w-3xl mx-auto border border-white/30 overflow-hidden">
+        <div className="mt-24" data-aos="fade-up" data-aos-delay="800">
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
             
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 to-purple-50/50"></div>
-            
-            <div className="relative z-10">
-              <div className="inline-flex items-center gap-3 bg-indigo-100 px-6 py-3 rounded-full mb-6">
-                <FaGraduationCap className="text-indigo-600" />
-                <span className="text-indigo-700 font-semibold text-sm uppercase tracking-wide">Ready to Begin?</span>
-              </div>
+            {/* Left Side - Content */}
+            <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-10 shadow-2xl border border-white/30 overflow-hidden">
               
-              <h3 className="text-3xl font-bold text-gray-800 mb-4">Start Your Professional Journey Today</h3>
-              <p className="text-gray-600 mb-8 text-lg leading-relaxed">
-                Join thousands of professionals who have advanced their careers with our industry-recognized certification programs.
-              </p>
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 to-purple-50/50"></div>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button 
-                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-bold hover:shadow-2xl hover:shadow-indigo-500/30 transition-all duration-300 hover:scale-105 transform">
-                  <a href="tel:+08 6156 5820">
-                  Contact Now
-                </a>
-                </button>
-                <button 
-                className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-2xl font-bold hover:border-indigo-300 hover:text-indigo-600 transition-all duration-300 hover:scale-105 transform bg-white/50">
-                 Student Handbook
-                </button>
+              <div className="relative z-10">
+                {/* Logo Section - Added above existing content */}
+                <div className="mb-8 flex justify-center lg:justify-start">
+                  <div className="w-24 h-24 bg-white rounded-3xl shadow-2xl flex items-center justify-center border border-white/50 transform transition-all duration-500 hover:scale-110 hover:rotate-3">
+                    <FaGraduationCap className="text-blue-600 text-6xl drop-shadow-lg" />
+                  </div>
+                </div>
+                
+                <div className="inline-flex items-center gap-3 bg-indigo-100 px-6 py-3 rounded-full mb-6">
+                  <FaGraduationCap className="text-indigo-600" />
+                  <span className="text-indigo-700 font-semibold text-sm uppercase tracking-wide">Ready to Begin?</span>
+                </div>
+                
+                <h3 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4 text-center lg:text-left">Start Your Professional Journey Today</h3>
+                <p className="text-gray-600 mb-8 text-lg leading-relaxed text-center lg:text-left">
+                  Join thousands of professionals who have advanced their careers with our industry-recognized certification programs.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <button 
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-bold hover:shadow-2xl hover:shadow-indigo-500/30 transition-all duration-300 hover:scale-105 transform">
+                    <a href="tel:+08 6156 5820">
+                    Contact Now
+                  </a>
+                  </button>
+                  <button 
+                  className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-2xl font-bold hover:border-indigo-300 hover:text-indigo-600 transition-all duration-300 hover:scale-105 transform bg-white/50">
+                  <a href={pdf.pdf_StudentInformation}> Student Handbook</a>
+                  </button>
+                </div>
               </div>
             </div>
+
+            {/* Right Side - Image */}
+            <div className="relative" data-aos="fade-left" data-aos-delay="1000">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
+                <img
+                  src={images.image_Footer1} 
+                  alt="Professional Development"
+                  className="w-full h-96 lg:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-105"
+                />
+                
+                {/* Overlay with gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-purple-600/10 to-indigo-600/20 opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
+                
+                {/* Floating decorative elements */}
+                <div className="absolute top-6 right-6 w-16 h-16 bg-white/90 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl">
+                  <FaGraduationCap className="text-2xl text-indigo-600" />
+                </div>
+                
+                {/* Bottom overlay with text */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-8">
+                  <h4 className="text-white text-xl font-bold mb-2">Excellence in Education</h4>
+                  <p className="text-white/90 text-sm">Empowering careers through quality training and certification</p>
+                </div>
+              </div>
+              
+              {/* Background decoration */}
+              <div className="absolute -top-4 -right-4 w-full h-full bg-gradient-to-br from-blue-400/10 to-purple-600/10 rounded-3xl -z-10"></div>
+            </div>
+
           </div>
         </div>
       </div>

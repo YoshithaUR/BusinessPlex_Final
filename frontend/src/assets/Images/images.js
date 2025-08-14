@@ -27,7 +27,7 @@ import image_GIF01 from "./Video/GIF01.gif";
 import image_GIF02 from "./Video/GIF02.gif";
 import image_GIF03 from "./Video/GIF03.gif";
 import image_GIF04 from "./Video/GIF04.gif";
-import video_video2 from "./Video/suport.mp4"; 
+import video_video2 from "./Video/suport.mp4";
 
 // ServicePopup
 import image_ServicePopup01 from "./ServicePopup/1.jpg";
@@ -53,8 +53,8 @@ import image_Footer2 from "./AllLogos/workforec.png";
 import image_Footer3 from "./AllLogos/Australian_Qualifications_Framework_(logo).png";
 import image_Footer4 from "./AllLogos/AUS.png";
 import image_Footer5 from "./AllLogos/NRT-LOGO-low-res-transparent-300x246.png";
-import image_Footer6 from "./AllLogos/Screenshot 2024-08-20 094957.png"
-import image_Footer7 from "./AllLogos/Workforce_Australia_Businessplex_Quality_Logo-transformed.png"
+import image_Footer6 from "./AllLogos/Screenshot 2024-08-20 094957.png";
+import image_Footer7 from "./AllLogos/Workforce_Australia_Businessplex_Quality_Logo-transformed.png";
 
 import image_logo from "./HomeSlideShow/logo.png";
 
@@ -66,34 +66,64 @@ import image_abouteBG03l from "./Aboute/abouteBG03.jpg";
 import image_aboutBG04 from "./Aboute/aboutBG04.jpg";
 import image_Founder01 from "./Aboute/Team/Founder.jpg";
 import video_aboutVideo from "./Video/aboutVideo.mp4";
-import image_Criteria01 from "./Aboute/Criteria.jpg"
+import image_Criteria01 from "./Aboute/Criteria.jpg";
 import image_TeamBG from "./Aboute/Team.jpg";
-import image_END01 from "./Aboute/End.jpg"
+import image_END01 from "./Aboute/End.jpg";
 
 // Partnes
-import image_partnes01 from "./Partners/AtWork Australia.png" ;
+import image_partnes01 from "./Partners/AtWork Australia.png";
 import image_partnes02 from "./Partners/Impact Services Australia.png";
 import image_partnes03 from "./Partners/Mutlicultural Services Australia.png";
 import image_partnes04 from "./Partners/NSEA Australia.png";
 import image_partnes05 from "./Partners/Workskil-Australia.png";
 
-
 //-----------------------Google Reviews--------------------
 
 // Alex
-import images_alex01 from "./GoogleReviews/Alex-Agra Farming-Success Story-1..png";
-import images_alex02 from "./GoogleReviews/Alex-Agra Farming-Success Story-2..png";
-import images_alex03 from "./GoogleReviews/Alex-Agra Farming-Success Story-3..jpg";
-import images_CyndyMoody01 from "./GoogleReviews/Cyndy Moody-1.png";
-import images_CyndyMoody02 from "./GoogleReviews/Cyndy Moody-2.png";
-import images_EricLee01 from "./GoogleReviews/Eric Lee-1.jpg";
-import images_EricLee03 from "./GoogleReviews/Eric Lee-2.jpg";
-import images_EricLee04 from "./GoogleReviews/Eric Lee-3.jpg";
-import images_PaulNieman01 from "./GoogleReviews/Paul Nieman-1.png";
-import images_PaulNieman02 from "./GoogleReviews/Paul Nieman-2.png";
-import images_PaulNieman03 from "./GoogleReviews/Paul Nieman-3..png";
-import images_BraeKunzli01 from './GoogleReviews/Brae Kunzli-1.jpg';
-import images_BraeKunzli02 from './GoogleReviews/Brae Kunzli-2.jpg';
+import images_alex01 from "./story/Popup/Alex-Agra Farming-Success Story-1..png";
+import images_alex02 from "./story/Popup/Alex-Agra Farming-Success Story-2..png";
+import images_alex03 from "./story/Popup/Alex-Agra Farming-Success Story-3..jpg";
+
+import images_CyndyMoody01 from "./story/Popup/Cyndy Moody-1.png";
+import images_CyndyMoody02 from "./story/Popup/Cyndy Moody-2.png";
+
+import images_EricLee01 from "./story/Popup/Eric Lee-1.jpg";
+import images_EricLee03 from "./story/Popup/Eric Lee-2.jpg";
+import images_EricLee04 from "./story/Popup/Eric Lee-3.jpg";
+
+import images_PaulNieman01 from "./story/Popup/Paul Nieman-1.png";
+import images_PaulNieman02 from "./story/Popup/Paul Nieman-2.png";
+import images_PaulNieman03 from "./story/Popup/Paul Nieman-3..png";
+
+import images_BraeKunzli01 from "./story/Popup/Brae Kunzli-1.jpg";
+import images_BraeKunzli02 from "./story/Popup/Brae Kunzli-2.jpg";
+
+//-----------------------Google Reviews Main--------------------
+
+import images_mainalex01 from "./story/Alex-Agra Farming-Success Story-1..png";
+import images_mainalex02 from "./story/Alex-Agra Farming-Success Story-2.png";
+import images_mainalex03 from "./story/Alex-Agra Farming-Success Story-3..jpg";
+
+import images_mainCyndyMoody01 from "./story/Cyndy Moody-1.png";
+import images_mainCyndyMoody02 from "./story/Cyndy Moody-2.png.png";
+
+import images_mainEricLee01 from "./story/Eric Lee-1.png";
+import images_mainEricLee02 from "./story/Eric Lee-2.png";
+import images_mainEricLee03 from "./story/Eric Lee-3.png";
+
+import images_mainPaulNieman01 from "./story/Paul Nieman-1.png";
+import images_mainPaulNieman02 from "./story/Paul Nieman-2.png";
+import images_mainPaulNieman03 from "./story/Paul Nieman-3..png";
+
+import images_mainBraeKunzli02 from "./story/Brae Kunzli-1.png";
+import images_mainBraeKunzli01 from "./story/Brae Kunzli-2.png";
+
+// Story logo
+import images_logo01 from "./story/logo/1.png"
+import images_logo02 from "./story/logo/2.png"
+import images_logo03 from "./story/logo/3.png"
+import images_logo04 from "./story/logo/4.png"
+import images_logo05 from "./story/logo/5.png"
 
 const images = {
   // Slide Show
@@ -160,14 +190,11 @@ const images = {
   image_TeamBG,
   image_END01,
 
-
-
   mobile_image_one,
   mobile_image_two,
   mobile_image_three,
   mobile_image_four,
   mobile_image_five,
-
 
   // Partnes
   image_partnes01,
@@ -175,7 +202,6 @@ const images = {
   image_partnes03,
   image_partnes04,
   image_partnes05,
-
 
   // ----------------------Google Reviews
 
@@ -185,21 +211,47 @@ const images = {
   images_alex03,
   images_EricLee03,
 
-// dyMoody
+  images_mainalex01,
+  images_mainalex02,
+  images_mainalex03,
+  // dyMoody
   images_CyndyMoody01,
   images_CyndyMoody02,
+
+  images_mainCyndyMoody01,
+  images_mainCyndyMoody02,
 
   // Eric Lee
   images_EricLee01,
   images_EricLee03,
   images_EricLee04,
 
+  images_mainEricLee01,
+  images_mainEricLee02,
+  images_mainEricLee03,
+
   // Paul Nieman
   images_PaulNieman01,
   images_PaulNieman02,
   images_PaulNieman03,
+
+  images_mainPaulNieman01,
+  images_mainPaulNieman02,
+  images_mainPaulNieman03,
+
+  // Breakunzli
   images_BraeKunzli01,
   images_BraeKunzli02,
+
+  images_mainBraeKunzli02,
+  images_mainBraeKunzli01,
+
+  // Story logo
+  images_logo01,
+  images_logo02,
+  images_logo03,
+  images_logo04,
+  images_logo05,
 };
 
 export default images;
