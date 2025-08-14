@@ -163,10 +163,10 @@ const Rating = () => {
                 <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mx-auto mb-6"></div>
 
                 <p className="text-xl font-bold text-slate-700 mb-2">
-                  Customer Satisfaction
+                   Helping Small  Businesses Since 2022 with 
                 </p>
                 <p className="text-sm text-slate-500 max-w-xs mx-auto leading-relaxed">
-                  Based on over 500+ completed projects and client testimonials
+                  {/* Based on over 500+ completed projects and client testimonials */}
                 </p>
               </div>
             </div>

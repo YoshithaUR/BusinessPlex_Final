@@ -329,21 +329,21 @@ const Header = () => {
         {/* Right side - Search and notifications */}
         <div className="flex items-center space-x-3">
           <div className="relative">
-            <div className="flex items-center bg-white rounded-lg px-3 py-1 min-w-0">
+            {/* <div className="flex items-center bg-white rounded-lg px-3 py-1 min-w-0">
               <input
                 type="text"
                 placeholder="Search..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="bg-transparent text-gray-700 text-sm outline-none w-20 sm:w-24 md:w-32 lg:w-40"
-              />
-              <button
+              /> */}
+              {/* <button
                 className="text-gray-500 hover:text-gray-700 transition-colors duration-200 ml-2 cursor-pointer"
                 aria-label="Search"
               >
                 <FaSearch size={14} />
-              </button>
-            </div>
+              </button> */}
+            {/* </div> */}
           </div>
 
           <div className="relative">
