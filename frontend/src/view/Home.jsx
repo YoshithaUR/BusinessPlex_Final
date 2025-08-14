@@ -964,6 +964,47 @@ const Home = () => {
               .required("Please enter your last name"),
             email: Yup.string()
               .email("Please enter a valid email address")
+              .test("no-typos", "Please check your email address for typos", function(value) {
+                if (!value) return true; // Let required validation handle empty values
+                
+                const email = value.toLowerCase();
+                
+                // Common typos to check for
+                const commonTypos = [
+                  "gnail.com", "gmial.com", "gamil.com", "gmal.com", "gmai.com", "gmeil.com",
+                  "hotmai.com", "hotmial.com", "hotmeil.com", "hotmal.com",
+                  "outlok.com", "outloook.com", "outlokc.com", "outloock.com",
+                  "yahooo.com", "yaho.com", "yahooo.com", "yaho.com",
+                  "icloud.com", "iclod.com", "icloude.com",
+                  "protonmai.com", "protonmial.com",
+                  "yandex.ru", "yandex.com", "yandex.ru",
+                  "zoho.com", "zohoo.com", "zoh.com"
+                ];
+                
+                // Check for common typos
+                for (const typo of commonTypos) {
+                  if (email.includes(typo)) {
+                    return false;
+                  }
+                }
+                
+                // Check for valid email providers (whitelist approach)
+                const validProviders = [
+                  "gmail.com", "hotmail.com", "outlook.com", "yahoo.com", "icloud.com",
+                  "protonmail.com", "yandex.ru", "zoho.com", "aol.com", "live.com",
+                  "msn.com", "me.com", "mac.com", "gmx.com", "mail.com", "fastmail.com",
+                  "tutanota.com", "startmail.com", "posteo.de", "kolabnow.com"
+                ];
+                
+                const domain = email.split('@')[1];
+                if (domain && !validProviders.includes(domain)) {
+                  return this.createError({
+                    message: "Please use a valid email provider (Gmail, Hotmail, Outlook, Yahoo, etc.)"
+                  });
+                }
+                
+                return true;
+              })
               .required("Please enter your email address"),
             age: Yup.number()
               .min(15, "You must be at least 15 years old")
