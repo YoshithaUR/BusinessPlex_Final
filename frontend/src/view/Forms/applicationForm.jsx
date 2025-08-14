@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Building2, Send } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Building2, Send, Calendar, X } from 'lucide-react';
 import axiosInstance from '../../api/api';
 
 const ApplicationForm = () => {
@@ -32,6 +32,71 @@ const ApplicationForm = () => {
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [currentMonth, setCurrentMonth] = useState(new Date());
+  const [isScrolling, setIsScrolling] = useState(false);
+  const calendarRef = useRef(null);
+  const inputRef = useRef(null);
+
+  // Close calendar when clicking outside and handle keyboard navigation
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showCalendar && 
+          calendarRef.current && 
+          !calendarRef.current.contains(event.target) &&
+          inputRef.current && 
+          !inputRef.current.contains(event.target)) {
+        setShowCalendar(false);
+      }
+    };
+
+    const handleKeyDown = (event) => {
+      if (showCalendar) {
+        switch (event.key) {
+          case 'ArrowLeft':
+            event.preventDefault();
+            prevMonth();
+            break;
+          case 'ArrowRight':
+            event.preventDefault();
+            nextMonth();
+            break;
+          case 'Escape':
+            event.preventDefault();
+            setShowCalendar(false);
+            break;
+        }
+      }
+    };
+
+    const handleWheel = (event) => {
+      if (showCalendar && calendarRef.current && calendarRef.current.contains(event.target)) {
+        event.preventDefault();
+        setIsScrolling(true);
+        
+        if (event.deltaY > 0) {
+          // Scroll down/right = next month
+          nextMonth();
+        } else {
+          // Scroll up/left = previous month
+          prevMonth();
+        }
+        
+        // Reset scrolling indicator after a short delay
+        setTimeout(() => setIsScrolling(false), 300);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('wheel', handleWheel, { passive: false });
+    
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('wheel', handleWheel);
+    };
+  }, [showCalendar]);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -40,6 +105,70 @@ const ApplicationForm = () => {
       [name]: type === 'checkbox' ? checked : value
     }));
     if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }));
+  };
+
+
+
+
+
+
+
+  const nextMonth = () => {
+    setCurrentMonth(prevMonth => {
+      const newDate = new Date(prevMonth);
+      newDate.setMonth(newDate.getMonth() + 1);
+      console.log('Next month:', newDate.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' }));
+      return newDate;
+    });
+  };
+
+  const prevMonth = () => {
+    setCurrentMonth(prevMonth => {
+      const newDate = new Date(prevMonth);
+      newDate.setMonth(newDate.getMonth() - 1);
+      console.log('Previous month:', newDate.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' }));
+      return newDate;
+    });
+  };
+
+  const handleDateSelect = (date) => {
+    const formattedDate = date.toISOString().split('T')[0];
+    setFormData(prev => ({
+      ...prev,
+      preferredStartDate: formattedDate
+    }));
+    setShowCalendar(false);
+    if (errors.preferredStartDate) setErrors(prev => ({ ...prev, preferredStartDate: '' }));
+  };
+
+  const generateCalendarDays = () => {
+    const year = currentMonth.getFullYear();
+    const month = currentMonth.getMonth();
+    const firstDay = new Date(year, month, 1);
+    const startDate = new Date(firstDay);
+    startDate.setDate(startDate.getDate() - firstDay.getDay());
+    
+    const days = [];
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    for (let i = 0; i < 42; i++) {
+      const date = new Date(startDate);
+      date.setDate(startDate.getDate() + i);
+      
+      const isCurrentMonth = date.getMonth() === month;
+      const isPastDate = date < today;
+      const isSelected = formData.preferredStartDate === date.toISOString().split('T')[0];
+      
+      days.push({
+        date,
+        isCurrentMonth,
+        isPastDate,
+        isSelected
+      });
+    }
+    
+    return days;
   };
 
   const validate = () => {
@@ -88,6 +217,12 @@ const ApplicationForm = () => {
       const startDate = new Date(formData.preferredStartDate);
       if (isNaN(startDate.getTime())) {
         newErrors.preferredStartDate = 'Please enter a valid date';
+      } else {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Reset time to start of day for comparison
+        if (startDate < today) {
+          newErrors.preferredStartDate = 'Start date cannot be in the past';
+        }
       }
     }
     
@@ -102,7 +237,7 @@ const ApplicationForm = () => {
       try {
         
         // Send application to backend
-       const response = await axiosInstance.post('/application', formData);
+       await axiosInstance.post('/application', formData);
         
         
         // Reset form
@@ -153,6 +288,8 @@ const ApplicationForm = () => {
       }
     }
   };
+
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-100 to-blue-50 py-8 px-4">
@@ -339,17 +476,134 @@ const ApplicationForm = () => {
                 {errors.programType && <span className="text-red-500 text-sm mt-1 block">{errors.programType}</span>}
               </div>
 
-              <div>
+              <div className="relative">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Preferred Start Date
                 </label>
-                <input
-                  type="date"
-                  name="preferredStartDate"
-                  value={formData.preferredStartDate}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-white border border-yellow-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-gray-900"
-                />
+                <div className="relative" ref={inputRef}>
+                  <input
+                    type="date"
+                    name="preferredStartDate"
+                    min={new Date().toISOString().split('T')[0]}
+                    value={formData.preferredStartDate}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 pr-12 bg-white border border-yellow-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-gray-900"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowCalendar(!showCalendar)}
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 p-1 hover:bg-gray-100 rounded-lg transition-colors"
+                  >
+                    <Calendar className="w-5 h-5 text-gray-400" />
+                  </button>
+                </div>
+                
+                                                   {/* Calendar Popup */}
+                  {showCalendar && (
+                    <div ref={calendarRef} className="absolute z-50 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg p-4 w-80">
+                      {/* Scroll indicator */}
+                      <div className="text-center mb-2">
+                        <div className="inline-flex items-center px-3 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded-full">
+                          <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+                          </svg>
+                          Scroll to navigate months
+                        </div>
+                      </div>
+                      
+                                             {/* Quick navigation buttons */}
+                       <div className="flex justify-center mb-3 space-x-2">
+                         <button
+                           onClick={() => {
+                             const august = new Date(new Date().getFullYear(), 7, 1); // August is month 7 (0-indexed)
+                             setCurrentMonth(august);
+                           }}
+                           className="px-2 py-1 text-xs bg-blue-100 text-blue-600 rounded hover:bg-blue-200"
+                         >
+                           August
+                         </button>
+                         <button
+                           onClick={() => {
+                             const september = new Date(new Date().getFullYear(), 8, 1); // September is month 8
+                             setCurrentMonth(september);
+                           }}
+                           className="px-2 py-1 text-xs bg-blue-100 text-blue-600 rounded hover:bg-blue-200"
+                         >
+                           September
+                         </button>
+                       </div>
+                      
+                      <div className="flex items-center justify-between mb-4">
+                        <button
+                          onClick={prevMonth}
+                          className="p-2 hover:bg-gray-100 rounded-lg transition-colors group"
+                          title="Previous month"
+                        >
+                          <svg className="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                          </svg>
+                        </button>
+                        <div className="text-center">
+                          <h3 className={`text-lg font-semibold text-gray-800 transition-all duration-200 ${isScrolling ? 'scale-110 text-blue-600' : ''}`}>
+                            {currentMonth.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' })}
+                          </h3>
+                          <div className="text-xs text-gray-500 mt-1">
+                            Current: {new Date().toLocaleDateString('en-AU', { month: 'long', year: 'numeric' })}
+                          </div>
+                        </div>
+                        <button
+                          onClick={nextMonth}
+                          className="p-2 hover:bg-gray-100 rounded-lg transition-colors group"
+                          title="Next month"
+                        >
+                          <svg className="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </button>
+                      </div>
+                     
+                     <div className="grid grid-cols-7 gap-1 mb-2">
+                       {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
+                         <div key={day} className="text-center text-sm font-medium text-gray-500 py-2">
+                           {day}
+                         </div>
+                       ))}
+                     </div>
+                     
+                     <div className="grid grid-cols-7 gap-1">
+                       {generateCalendarDays().map((day, index) => (
+                         <button
+                           key={index}
+                           onClick={() => !day.isPastDate && handleDateSelect(day.date)}
+                           disabled={day.isPastDate}
+                           className={`
+                             p-2 text-sm rounded-lg transition-colors
+                             ${day.isSelected 
+                               ? 'bg-blue-600 text-white' 
+                               : day.isPastDate
+                                 ? 'text-gray-300 cursor-not-allowed'
+                                 : !day.isCurrentMonth
+                                   ? 'text-gray-400 hover:bg-gray-50'
+                                   : 'hover:bg-gray-100 text-gray-700'
+                             }
+                           `}
+                         >
+                           {day.date.getDate()}
+                         </button>
+                       ))}
+                     </div>
+                     
+                     <div className="flex justify-center mt-4 pt-4 border-t border-gray-200">
+                       <button
+                         onClick={() => setShowCalendar(false)}
+                         className="px-4 py-2 text-sm bg-gray-600 text-white rounded-lg hover:bg-gray-700"
+                       >
+                         Close
+                       </button>
+                     </div>
+                   </div>
+                 )}
+                
                 {errors.preferredStartDate && <span className="text-red-500 text-sm mt-1 block">{errors.preferredStartDate}</span>}
               </div>
 
