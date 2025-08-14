@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Star, Quote, Users, TrendingUp, Award, Building, X, Eye } from 'lucide-react';
 import images from "../../assets/Images/images";
+
 const Story = () => {
   const [selectedStory, setSelectedStory] = useState(0);
   const [showImagePopup, setShowImagePopup] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  
+  const [mobileGalleryIndex, setMobileGalleryIndex] = useState(0);
 
   useEffect(() => {
     const aosCSS = document.createElement('link');
@@ -28,12 +28,12 @@ const Story = () => {
     document.body.appendChild(aosJS);
 
     return () => {
-      document.head.removeChild(aosCSS);
-      document.body.removeChild(aosJS);
+      if (document.head.contains(aosCSS)) document.head.removeChild(aosCSS);
+      if (document.body.contains(aosJS)) document.body.removeChild(aosJS);
     };
   }, []);
 
-  // Refresh AOS when story changes
+  // Refresh AOS 
   useEffect(() => {
     if (window.AOS) {
       setTimeout(() => {
@@ -42,7 +42,11 @@ const Story = () => {
     }
   }, [selectedStory]);
 
-  // Handle keyboard navigation for popup
+  // Reset mobile gallery 
+  useEffect(() => {
+    setMobileGalleryIndex(0);
+  }, [selectedStory]);
+
   useEffect(() => {
     const handleKeyPress = (e) => {
       if (!showImagePopup) return;
@@ -68,11 +72,19 @@ const Story = () => {
       logo: images.images_logo01,
       testimonial: "The Self-Employment Assistance program delivered by Businessplex has provided me with the financial support to focus on my company full-time, and the mentoring has been invaluable.",
       clientPhoto: images.images_logo01,
-      images: [
+      // Mobile images 
+      mobileImages: [
+        images.images_mobilealex01,
+        images.images_mainalex02,
+        images.images_mainalex03
+      ],
+      // Desktop images 
+      desktopImages: [
         images.images_mainalex01,
         images.images_mainalex02,
         images.images_mainalex03
       ],
+      // Popup images 
       Popupimages: [
         images.images_alex01,
         images.images_alex02,
@@ -91,7 +103,11 @@ const Story = () => {
       logo: images.images_logo03,
       testimonial: "The Self-Employment Assistance Program delivered by Businessplex have been a great support throughout the year and helped me with getting my business website up and running",
       clientPhoto: images.images_logo03,
-      images: [
+      mobileImages: [
+        images.images_mainCyndyMoody01,
+        images.images_mainCyndyMoody02,
+      ],
+      desktopImages: [
         images.images_mainCyndyMoody01,
         images.images_mainCyndyMoody02,
       ],
@@ -112,7 +128,12 @@ const Story = () => {
       logo: images.images_logo04,
       testimonial: "The Self-Employment Assistance Program delivered by Businessplex provided the structure, mentorship, and business knowledge I needed to launch Pulled Noodle Bar.",
       clientPhoto: images.images_logo04,
-      images: [
+      mobileImages: [
+        images.images_mainEricLee01,
+        images.images_mainEricLee03,
+        images.images_mainEricLee02,
+      ],
+      desktopImages: [
         images.images_mainEricLee01,
         images.images_mainEricLee03,
         images.images_mainEricLee02,
@@ -135,9 +156,13 @@ const Story = () => {
       logo: images.images_logo05,
       testimonial: "The friendliness & approachability of the staff at Businessplex has helped me to ask `silly questions` without feeling silly.",
       clientPhoto: images.images_logo05,
-      images: [
+      mobileImages: [
         images.images_mainBraeKunzli01,
         images.images_mainBraeKunzli02,
+      ],
+      desktopImages: [
+        images.images_mainBraeKunzli02,
+        images.images_mainBraeKunzli01,
       ],
       Popupimages: [
         images.images_BraeKunzli01,
@@ -156,7 +181,12 @@ const Story = () => {
       logo: images.images_logo02,
       testimonial: "Joining the BusinessPlex mentoring program has been one of the best decisions I've made as a business owner. When I started TrueFix Maintenance in July 2024, I had the skills and passion but not the roadmap. Through the support and guidance of my mentor, Gish, I gained clarity, confidence, and the tools to build something sustainable and successful.",
       clientPhoto: images.images_logo02,
-      images: [
+      mobileImages: [
+        images.images_mobilepaul01,
+        images.images_mainPaulNieman02,
+        images.images_mainPaulNieman03
+      ],
+      desktopImages: [
         images.images_mainPaulNieman01,
         images.images_mainPaulNieman02,
         images.images_mainPaulNieman03
@@ -176,6 +206,31 @@ const Story = () => {
 
   const currentStory = successStories[selectedStory];
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const getGalleryImages = () => {
+    return isMobile ? currentStory.mobileImages : currentStory.desktopImages;
+  };
+
+  const navigateMobileGallery = (direction) => {
+    const totalImages = currentStory.mobileImages.length;
+    if (direction === 'next') {
+      setMobileGalleryIndex((prev) => (prev + 1) % totalImages);
+    } else {
+      setMobileGalleryIndex((prev) => (prev - 1 + totalImages) % totalImages);
+    }
+  };
+
   const openImagePopup = (imageIndex) => {
     setCurrentImageIndex(imageIndex);
     setShowImagePopup(true);
@@ -183,7 +238,9 @@ const Story = () => {
   };
 
   const openImagePopupFromGallery = (imageIndex) => {
-    setCurrentImageIndex(imageIndex);
+   
+    const actualIndex = isMobile ? mobileGalleryIndex : imageIndex;
+    setCurrentImageIndex(actualIndex);
     setShowImagePopup(true);
     document.body.style.overflow = 'hidden';
   };
@@ -204,7 +261,7 @@ const Story = () => {
 
   return (
     <div className="relative bg-gradient-to-br from-white via-green-50 to-yellow-50 py-16 px-4 sm:px-6 lg:px-8">
-      {/* Header Section */}
+     
       <div className="max-w-7xl mx-auto text-center mb-16" data-aos="fade-up" data-aos-delay="100">
         <h2 className="text-4xl md:text-5xl font-bold text-black mb-6" data-aos="fade-up" data-aos-delay="200">
           Client Success Stories
@@ -214,7 +271,7 @@ const Story = () => {
         </p>
       </div>
 
-      {/* Story Navigation */}
+     
       <div className="max-w-7xl mx-auto mb-12">
         <div className="flex flex-wrap justify-center gap-4 mb-8" data-aos="fade-up" data-aos-delay="400">
           {successStories.map((story, index) => (
@@ -240,10 +297,10 @@ const Story = () => {
         </div>
       </div>
 
-      {/* Main Content */}
+     
       <div className="max-w-7xl mx-auto" data-aos="fade-up" data-aos-delay="300">
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
-          {/* Header with metrics */}
+         
           <div className="bg-gradient-to-r from-blue-800 to-blue-600 px-4 sm:px-8 py-8 sm:py-12 text-white" data-aos="slide-down" data-aos-delay="400">
             <div className="flex flex-col lg:flex-row items-center justify-between">
               <div className="text-center lg:text-left mb-6 lg:mb-0" data-aos="fade-right" data-aos-delay="500">
@@ -262,7 +319,7 @@ const Story = () => {
                 </div>
               </div>
               
-              {/* Metrics */}
+             
               <div className="grid grid-cols-3 gap-3 sm:gap-6 text-center" data-aos="fade-left" data-aos-delay="500">
                 {Object.entries(currentStory.metrics).map(([key, value], index) => (
                   <div key={index} className="bg-white bg-opacity-20 rounded-lg p-2 sm:p-4" data-aos="flip-up" data-aos-delay={600 + index * 100}>
@@ -275,41 +332,104 @@ const Story = () => {
           </div>
 
           <div className="p-4 sm:p-8 lg:p-12">
-            {/* Story Gallery */}
+           
             <div className="mb-12">
               <h4 className="text-xl sm:text-2xl font-bold text-black mb-6 text-center" data-aos="fade-up" data-aos-delay="300">Story Gallery</h4>
-              <div className={`grid gap-4 sm:gap-6 ${
-                currentStory.images.length === 3 
-                  ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' 
-                  : 'grid-cols-1 sm:grid-cols-2'
-              }`}>
-                {currentStory.images.map((image, index) => (
-                  <div key={index} className="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer bg-black" 
-                       data-aos="zoom-in-up" data-aos-delay={400 + index * 150}
-                       onClick={() => openImagePopupFromGallery(index)}>
+              
+              {/* Mobile Gallery - Single Image*/}
+              {isMobile ? (
+                <div className="space-y-4">
+                  <div className="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer bg-black" 
+                       data-aos="zoom-in-up" data-aos-delay="400"
+                       onClick={() => openImagePopupFromGallery(0)}>
                     <img
-                      src={image}
-                      alt={`${currentStory.clientName} project ${index + 1}`}
-                      className="w-full h-48 sm:h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                      src={currentStory.mobileImages[mobileGalleryIndex]}
+                      alt={`${currentStory.clientName} project ${mobileGalleryIndex + 1}`}
+                      className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                     />
-                    {/* Hover overlay with click here icon */}
+                   
                     <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center">
                       <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white rounded-full p-3">
                         <Eye className="w-6 h-6 text-gray-800" />
                       </div>
                     </div>
-                    {/* Click here text */}
+                    
                     <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="bg-black bg-opacity-75 text-white text-sm px-3 py-1 rounded-full text-center">
                         Click to view
                       </div>
                     </div>
                   </div>
-                ))}
-              </div>
+                  
+                  {/* Mobile Navigation  */}
+                  {currentStory.mobileImages.length > 1 && (
+                    <div className="flex justify-center items-center space-x-4">
+                      <button
+                        onClick={() => navigateMobileGallery('prev')}
+                        className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-blue-50 border border-gray-200"
+                        data-aos="slide-right"
+                        data-aos-delay="500"
+                      >
+                        <ChevronLeft className="w-5 h-5 text-gray-600" />
+                      </button>
+                      
+                      <div className="flex space-x-2">
+                        {currentStory.mobileImages.map((_, index) => (
+                          <div
+                            key={index}
+                            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                              index === mobileGalleryIndex ? 'bg-blue-600' : 'bg-gray-300'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                      
+                      <button
+                        onClick={() => navigateMobileGallery('next')}
+                        className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-blue-50 border border-gray-200"
+                        data-aos="slide-left"
+                        data-aos-delay="500"
+                      >
+                        <ChevronRight className="w-5 h-5 text-gray-600" />
+                      </button>
+                    </div>
+                  )}
+                </div>
+              ) : (
+               
+                <div className={`grid gap-4 sm:gap-6 ${
+                  getGalleryImages().length === 3 
+                    ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' 
+                    : 'grid-cols-1 sm:grid-cols-2'
+                }`}>
+                  {getGalleryImages().map((image, index) => (
+                    <div key={index} className="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer bg-black" 
+                         data-aos="zoom-in-up" data-aos-delay={400 + index * 150}
+                         onClick={() => openImagePopupFromGallery(index)}>
+                      <img
+                        src={image}
+                        alt={`${currentStory.clientName} project ${index + 1}`}
+                        className="w-full h-48 sm:h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                      />
+                     
+                      <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center">
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white rounded-full p-3">
+                          <Eye className="w-6 h-6 text-gray-800" />
+                        </div>
+                      </div>
+                      
+                      <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="bg-black bg-opacity-75 text-white text-sm px-3 py-1 rounded-full text-center">
+                          Click to view
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
 
-            {/* Testimonial */}
+           
             <div className="bg-gray-50 rounded-2xl p-4 sm:p-8" data-aos="fade-up" data-aos-delay="500">
               <div className="flex flex-col lg:flex-row items-center">
                 <div className="flex-1 mb-6 lg:mb-0 lg:mr-8">
@@ -331,7 +451,7 @@ const Story = () => {
               </div>
             </div>
 
-            {/* Navigation buttons */}
+            
             <div className="flex justify-center space-x-4 mt-8" data-aos="fade-up" data-aos-delay="800">
               <button
                 onClick={() => setSelectedStory(selectedStory === 0 ? successStories.length - 1 : selectedStory - 1)}
@@ -354,10 +474,10 @@ const Story = () => {
         </div>
       </div>
 
-      {/* Image Popup Modal - Now uses Popupimages */}
+    
       {showImagePopup && (
-        <div className="fixed inset-0 z-50  bg-opacity-80 backdrop-blur-md flex items-center justify-center p-4">
-          {/* Close button */}
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-80 backdrop-blur-md flex flex-col items-center justify-center p-4">
+         
           <button
             onClick={closeImagePopup}
             className="absolute top-4 right-4 z-60 bg-red-500 hover:bg-red-600 rounded-full p-2 transition-all duration-200 shadow-lg"
@@ -365,10 +485,10 @@ const Story = () => {
             <X className="w-6 h-6 text-white" />
           </button>
 
-          {/* Main image container */}
-          <div className="relative max-w-7xl w-full h-full flex items-center justify-center">
-            {/* Previous button */}
-            {currentStory.Popupimages.length > 1 && (
+          
+          <div className="relative max-w-7xl w-full flex-1 flex items-center justify-center">
+           
+            {currentStory.Popupimages.length > 1 && !isMobile && (
               <button
                 onClick={() => navigatePopupImage('prev')}
                 className="absolute left-4 z-60 bg-black bg-opacity-70 hover:bg-opacity-90 rounded-full p-3 transition-all duration-200 border border-gray-600"
@@ -377,22 +497,22 @@ const Story = () => {
               </button>
             )}
 
-            {/* Image - Now uses Popupimages */}
+           
             <div className="relative max-h-full max-w-full">
               <img
                 src={currentStory.Popupimages[currentImageIndex]}
                 alt={`${currentStory.clientName} popup ${currentImageIndex + 1}`}
-                className="max-h-[90vh] max-w-full object-contain rounded-lg shadow-2xl"
+                className="max-h-[70vh] sm:max-h-[90vh] max-w-full object-contain rounded-lg shadow-2xl"
               />
               
-              {/* Image counter - Now uses Popupimages length */}
+              
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-70 text-white px-3 py-1 rounded-full text-sm border border-gray-600">
                 {currentImageIndex + 1} / {currentStory.Popupimages.length}
               </div>
             </div>
 
-            {/* Next button */}
-            {currentStory.Popupimages.length > 1 && (
+           
+            {currentStory.Popupimages.length > 1 && !isMobile && (
               <button
                 onClick={() => navigatePopupImage('next')}
                 className="absolute right-4 z-60 bg-black bg-opacity-70 hover:bg-opacity-90 rounded-full p-3 transition-all duration-200 border border-gray-600"
@@ -402,9 +522,26 @@ const Story = () => {
             )}
           </div>
 
-          {/* Image thumbnails - Now uses Popupimages */}
+         
+          {isMobile && currentStory.Popupimages.length > 1 && (
+            <div className="flex justify-center items-center space-x-6 mt-4 mb-4">
+              <button
+                onClick={() => navigatePopupImage('prev')}
+                className="bg-black bg-opacity-70 hover:bg-opacity-90 rounded-full p-3 transition-all duration-200 border border-gray-600"
+              >
+                <ChevronLeft className="w-6 h-6 text-white" />
+              </button>
+              <button
+                onClick={() => navigatePopupImage('next')}
+                className="bg-black bg-opacity-70 hover:bg-opacity-90 rounded-full p-3 transition-all duration-200 border border-gray-600"
+              >
+                <ChevronRight className="w-6 h-6 text-white" />
+              </button>
+            </div>
+          )}
+
           {currentStory.Popupimages.length > 1 && (
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 bg-black bg-opacity-70 p-2 rounded-lg border border-gray-600">
+            <div className="flex space-x-2 bg-black bg-opacity-70 p-2 rounded-lg border border-gray-600 mt-2">
               {currentStory.Popupimages.map((image, index) => (
                 <button
                   key={index}

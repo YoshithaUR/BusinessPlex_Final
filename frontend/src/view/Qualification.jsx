@@ -12,7 +12,7 @@ const qualificationsData = [
     skills: [
       "Reflects the role of individuals establishing or carrying on business as a sole trader or contractor, as well as those supporting the establishment of a new venture as part of a larger organisation. ",
     ],
-    image: images.image_ServicePopup01,
+    image: images.images_qualifications01,
     link: "./ApplicationForm",
     icon: FaBusinessTime,
     gradient: "from-blue-500 to-blue-800",
@@ -25,7 +25,7 @@ const qualificationsData = [
     skills: [
       "Reflects the role of individuals establishing or operating a business providing selfemployment, as well as those establishing a new venture as part of a larger organisation.",
     ],
-    image: images.image_abouteHome01,
+    image: images.images_qualifications02,
     link: "./ApplicationForm",
     icon: FaBusinessTime,
     gradient: "from-blue-500 to-blue-800",
@@ -38,7 +38,7 @@ const qualificationsData = [
     skills: [
       "Reflects the role of individuals in a variety of Business Services job roles. It is likely that these individuals are establishing their own work performance.",
     ],
-    image: images.image_Card02,
+    image: images.images_qualifications03,
     link: "./ApplicationForm",
     icon: FaGraduationCap,
     gradient: "from-blue-500 to-blue-800",
@@ -51,7 +51,7 @@ const qualificationsData = [
     skills: [
       "Reflects the role of individuals who possess a sound theoretical knowledge base in quality auditing and use a range of specialised, technical or managerial competencies to plan, carry out and evaluate their own work or the work of an audit team.",
     ],
-    image: images.image_abouteHome01,
+    image: images.images_qualifications04,
     link: "./ApplicationForm",
     icon: FaCertificate,
     gradient: "from-blue-500 to-blue-800",
@@ -119,7 +119,7 @@ const Qualifications = () => {
                     alt={qual.title}
                     className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110 filter brightness-105 contrast-110"
                   />
-                  <div className={`absolute inset-0 bg-gradient-to-br ${qual.gradient} opacity-60 transition-opacity duration-500 group-hover:opacity-40`}></div>
+                  {/* <div className={`absolute inset-0 bg-gradient-to-br ${qual.gradient} opacity-60 transition-opacity duration-500 group-hover:opacity-40`}></div> */}
                   
                  
                   <div className="absolute top-6 right-6 w-14 h-14 bg-white/95 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
@@ -199,13 +199,13 @@ const Qualifications = () => {
         <div className="mt-24" data-aos="fade-up" data-aos-delay="800">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
             
-            {/* Left Side - Content */}
+           
             <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-10 shadow-2xl border border-white/30 overflow-hidden">
               
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 to-purple-50/50"></div>
               
               <div className="relative z-10">
-                {/* Logo Section - Added above existing content */}
+                
                 <div className="mb-8 flex justify-center lg:justify-start">
                   <div className="w-24 h-24 bg-white rounded-3xl shadow-2xl flex items-center justify-center border border-white/50 transform transition-all duration-500 hover:scale-110 hover:rotate-3">
                     <FaGraduationCap className="text-blue-600 text-6xl drop-shadow-lg" />
@@ -246,22 +246,22 @@ const Qualifications = () => {
                   className="w-full h-96 lg:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-105"
                 />
                 
-                {/* Overlay with gradient */}
+                
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-purple-600/10 to-indigo-600/20 opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
                 
-                {/* Floating decorative elements */}
+               
                 <div className="absolute top-6 right-6 w-16 h-16 bg-white/90 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl">
                   <FaGraduationCap className="text-2xl text-indigo-600" />
                 </div>
                 
-                {/* Bottom overlay with text */}
+               
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-8">
                   <h4 className="text-white text-xl font-bold mb-2">Excellence in Education</h4>
                   <p className="text-white/90 text-sm">Empowering careers through quality training and certification</p>
                 </div>
               </div>
               
-              {/* Background decoration */}
+           
               <div className="absolute -top-4 -right-4 w-full h-full bg-gradient-to-br from-blue-400/10 to-purple-600/10 rounded-3xl -z-10"></div>
             </div>
 

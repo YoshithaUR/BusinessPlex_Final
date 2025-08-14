@@ -26,6 +26,7 @@ const AboutUs = () => {
   ];
 
   const team = [
+    { name: " Thinu Jayasinghe", role: "Operations Manager" },
     { name: "Moni Nair", role: "RTO Manager" },
     { name: "Joel Legaspi", role: "Trainer & Assessor" },
     { name: "Rachma Abader", role: "Trainer & Assessor & Mentor" },
