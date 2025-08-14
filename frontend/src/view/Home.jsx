@@ -41,6 +41,7 @@ import Story from "./Google Reviews/story";
 import Rationg from "./rating";
 import axiosInstance from "../api/api";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 const handleShare = () => {
@@ -178,7 +179,10 @@ const Home = () => {
     navigate("/ApplicationForm", { state: { selectedService: serviceTitle } });
   };
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const fetchData = async (formJson, resetForm) => {
+    setIsSubmitting(true);
     try {
       const response = await axiosInstance.post("/contact", formJson);
       const { message, success } = response.data;
@@ -193,6 +197,8 @@ const Home = () => {
       const errorMessage = error.response?.data?.error || error.message || 'An error occurred';
       console.log(errorMessage);
       toast.error(errorMessage);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -964,9 +970,17 @@ const Home = () => {
                 />
                 <button
                   type="submit"
-                  className="bg-gradient-to-r from-blue-600 to-blue-400 text-black font-semibold px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 rounded-full shadow hover:scale-105 transition duration-300 w-full text-xs sm:text-sm md:text-base cursor-pointer"
+                  disabled={isSubmitting}
+                  className="bg-gradient-to-r from-blue-600 to-blue-400 text-black font-semibold px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 rounded-full shadow hover:scale-105 transition duration-300 w-full text-xs sm:text-sm md:text-base cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
-                  Submit
+                  {isSubmitting ? (
+                    <span className="flex items-center justify-center">
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-black mr-2"></div>
+                      Sending...
+                    </span>
+                  ) : (
+                    "Submit"
+                  )}
                 </button>
               </div>
             </Form>
