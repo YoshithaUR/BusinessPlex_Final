@@ -118,6 +118,8 @@ import images_mainPaulNieman03 from "./story/Paul Nieman-3..png";
 import images_mainBraeKunzli02 from "./story/Brae Kunzli-1.png";
 import images_mainBraeKunzli01 from "./story/Brae Kunzli-2.png";
 
+
+
 // Story logo
 import images_logo01 from "./story/logo/1.png"
 import images_logo02 from "./story/logo/2.png"
@@ -125,6 +127,12 @@ import images_logo03 from "./story/logo/3.png"
 import images_logo04 from "./story/logo/4.png"
 import images_logo05 from "./story/logo/5.png"
 
+
+// Qualifications
+import images_qualifications01 from "./Qualifications/1.jpg"
+import images_qualifications02 from "./Qualifications/2.jpg"
+import images_qualifications03 from "./Qualifications/3.jpg"
+import images_qualifications04 from "./Qualifications/4.jpg"
 const images = {
   // Slide Show
   image_one,
@@ -214,6 +222,8 @@ const images = {
   images_mainalex01,
   images_mainalex02,
   images_mainalex03,
+
+
   // dyMoody
   images_CyndyMoody01,
   images_CyndyMoody02,
@@ -239,6 +249,8 @@ const images = {
   images_mainPaulNieman02,
   images_mainPaulNieman03,
 
+
+
   // Breakunzli
   images_BraeKunzli01,
   images_BraeKunzli02,
@@ -252,6 +264,15 @@ const images = {
   images_logo03,
   images_logo04,
   images_logo05,
+
+  // Qualifications
+  images_qualifications01,
+  images_qualifications02,
+  images_qualifications03,
+  images_qualifications04,
+
+
+  
 };
 
 export default images;

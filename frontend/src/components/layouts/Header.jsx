@@ -404,11 +404,11 @@ const Header = () => {
   );
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden pt-10">
+    <div className="relative w-full min-h-screen overflow-hidden">
       <BlueNavBar />
 
-      {/* Main Navigation */}
-      <nav className="fixed top-[48px] left-0 w-full z-40 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200">
+      {/* Main Navigation - Fixed spacing issues */}
+      <nav className="fixed top-[40px] left-0 w-full z-40 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-3">
             {/* Logo */}
@@ -615,8 +615,8 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Slideshow Section */}
-      <div className="relative pt-15">
+      {/* Slideshow Section - Removed top padding and margin */}
+      <div className="relative mt-[88px]">
         <div
           ref={slideshowRef}
           className="relative w-full h-[70vh] sm:h-[75vh] md:h-[80vh] lg:h-[85vh] overflow-hidden bg-gray-900"
@@ -677,7 +677,7 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Highlights Section */}
+        {/* Highlights Section - Removed margin */}
         <div className="relative bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 py-6">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10" />
           <div className="relative max-w-7xl mx-auto px-4">
@@ -696,11 +696,11 @@ const Header = () => {
       </div>
 
       {/* Header End Reference Point */}
-      <div ref={headerEndRef} className="w-full h-1"></div>
+      <div ref={headerEndRef} className="w-full h-0"></div>
 
-      {/* Contact Button */}
+      {/* Contact Button - Fixed positioning */}
       {showContactButton && (
-        <div className="fixed top-32 right-4 z-10">
+        <div className="fixed top-[100px] right-4 z-10">
           <button
             onClick={() => (window.location.href = "tel:1300894480")}
             className="flex items-center space-x-2 bg-gradient-to-r from-slate-800 to-blue-600 text-white px-4 py-2 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transform transition-all duration-300 border border-white/20 cursor-pointer"
