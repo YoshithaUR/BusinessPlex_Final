@@ -1348,7 +1348,7 @@ const Home = () => {
   </div>
 </section> */}
 
-      <style>
+<style>
         {`
         @keyframes ping-slow {
           0%, 100% {
@@ -1380,158 +1380,51 @@ const Home = () => {
           animation: fade-in 0.6s ease-out;
         }
         
-        /* Mobile-first responsive fixes */
-        * {
-          box-sizing: border-box;
-        }
-        
-        html, body {
-          overflow-x: hidden;
-          width: 100%;
-        }
-        
-        /* Prevent horizontal scroll */
-        .w-full {
-          width: 100% !important;
-          max-width: 100% !important;
-        }
-        
-        /* Ensure all containers respect viewport width */
-        .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl {
-          max-width: 100% !important;
-          margin-left: auto;
-          margin-right: auto;
-        }
-        
-        /* Mobile spacing adjustments */
+        /* Ensure proper mobile responsiveness */
         @media (max-width: 640px) {
-          .space-y-8 > * + * {
-            margin-top: 1rem !important;
+          .line-clamp-4 {
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
           }
           
+          /* Fix horizontal scrolling issues */
+          * {
+            max-width: 100%;
+            box-sizing: border-box;
+          }
+          
+          /* Ensure containers don't overflow */
+          .container, .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl {
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+          }
+        }
+        
+        /* Fix any potential width issues */
+        .w-full {
+          width: 100% !important;
+        }
+        
+        /* Ensure proper spacing on mobile */
+        @media (max-width: 768px) {
           .space-y-6 > * + * {
-            margin-top: 0.75rem !important;
+            margin-top: 1.5rem;
           }
           
           .space-y-4 > * + * {
-            margin-top: 0.5rem !important;
+            margin-top: 1rem;
           }
           
           .gap-8 {
-            gap: 1rem !important;
+            gap: 1.5rem;
           }
           
           .gap-6 {
-            gap: 0.75rem !important;
-          }
-          
-          /* Fix text overflow */
-          h1, h2, h3, h4, h5, h6, p {
-            word-wrap: break-word;
-            hyphens: auto;
-          }
-          
-          /* Fix button spacing */
-          .flex.gap-3 {
-            gap: 0.5rem !important;
-          }
-          
-          .flex.gap-4 {
-            gap: 0.75rem !important;
-          }
-        }
-        
-        /* Tablet adjustments */
-        @media (min-width: 641px) and (max-width: 768px) {
-          .max-w-7xl {
-            max-width: 95% !important;
-          }
-          
-          .max-w-6xl {
-            max-width: 92% !important;
-          }
-        }
-        
-        /* Large mobile adjustments */
-        @media (min-width: 480px) and (max-width: 640px) {
-          .text-xs {
-            font-size: 0.75rem !important;
-          }
-          
-          .text-sm {
-            font-size: 0.875rem !important;
-          }
-        }
-        
-        /* Extra small mobile */
-        @media (max-width: 479px) {
-          .px-4 {
-            padding-left: 0.75rem !important;
-            padding-right: 0.75rem !important;
-          }
-          
-          .py-8 {
-            padding-top: 1.5rem !important;
-            padding-bottom: 1.5rem !important;
-          }
-          
-          .py-12 {
-            padding-top: 2rem !important;
-            padding-bottom: 2rem !important;
-          }
-          
-          .text-2xl {
-            font-size: 1.25rem !important;
-          }
-          
-          .text-3xl {
-            font-size: 1.5rem !important;
-          }
-          
-          .text-4xl {
-            font-size: 1.75rem !important;
-          }
-        }
-        
-        /* Modal responsive fixes */
-        @media (max-width: 640px) {
-          .fixed.inset-0 {
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-          }
-          
-          .max-h-90vh {
-            max-height: 90vh;
-          }
-          
-          .overflow-y-auto {
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-          }
-        }
-        
-        /* Fix video aspect ratio on mobile */
-        @media (max-width: 640px) {
-          video {
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-          }
-        }
-        
-        /* Grid responsive fixes */
-        @media (max-width: 640px) {
-          .grid-cols-1 {
-            grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
-          }
-        }
-        
-        @media (min-width: 641px) and (max-width: 768px) {
-          .sm\\:grid-cols-2 {
-            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            gap: 1rem;
           }
         }
         `}
