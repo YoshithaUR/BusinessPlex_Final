@@ -52,11 +52,11 @@ const NAV_ITEMS = [
     dropdownItems: [
       { to: "/applicationForm", label: "Application Form", type: "route" },
       { to: "/enrolment", label: "Enrolment Form", type: "route" },
-      {
-        to: pdf.pdf_businessRegistration,
-        label: "Business Registration Form",
-        type: "pdf",
-      },
+      // {
+      //   to: pdf.pdf_businessRegistration,
+      //   label: "Business Registration Form",
+      //   type: "pdf",
+      // },
       {
         to: pdf.pdf_expression_pdf,
         label: "Expression of Interest Form",

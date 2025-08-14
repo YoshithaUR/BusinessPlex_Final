@@ -377,298 +377,7 @@ const Home = () => {
       </section>
 
       <ApplyNow />
-
-      {/* Image Column */}
-      {/* <div
-            className="relative w-full h-48 sm:h-64 md:h-80 lg:h-[450px] overflow-hidden rounded-3xl shadow-2xl group order-2 lg:order-1"
-
-          >
-            <img
-              src={images.image_Criteria01}
-              alt="Performance Criteria"
-              className="w-full h-full object-cover rounded-3xl transition-transform duration-700 ease-in-out group-hover:scale-105"
-            />
-          </div>  */}
-
-      {/* Counter */}
-      {/* <span ref={countRef} className="tabular-nums">
-      {prefix}{count}{suffix}
-    </span> */}
-      {/* <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-24 px-6 sm:px-12 overflow-hidden"> */}
-      {/* Background decorative elements */}
-      {/* <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-200/30 to-indigo-200/30 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-green-200/30 to-teal-200/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div> */}
-
-      {/* <div className="relative max-w-7xl mx-auto"> */}
-      {/* Header */}
-      {/* <div className="text-center mb-20">
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg mb-8">
-              <Award className="w-5 h-5 text-blue-800" />
-              <span className="text-sm font-semibold text-slate-700 tracking-wide uppercase">
-                Client Satisfaction
-              </span>
-            </div>
-
-            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-slate-800 via-blue-800 to-indigo-800 mb-6 leading-tight">
-              Satisfaction Rate
-            </h2>
-
-            <p className="text-xl sm:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              We strive for perfection — and our clients agree. Every project is
-              a testament to our commitment to excellence.
-            </p>
-          </div> */}
-
-      {/* Main Content */}
-      {/* <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20"> */}
-      {/* Left Image with enhanced effects */}
-      {/* <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-3xl blur-lg opacity-25 group-hover:opacity-40 transition-opacity duration-500"></div>
-              <div className="relative w-80 h-80 sm:w-96 sm:h-96 transform transition-all duration-700 group-hover:rotate-2 group-hover:scale-105">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-3xl "></div>
-                <img
-                  src={images.image_Criteria01}
-                  alt="Satisfied client working with our team"
-                  className="w-full h-full object-cover rounded-3xl shadow-2xl"
-                /> */}
-
-      {/* Floating icons */}
-      {/* <div className="absolute -top-4 -right-4 bg-blue-700 p-3 rounded-full shadow-lg animate-bounce delay-300">
-                  <ThumbsUp className="w-6 h-6 text-white" />
-                </div>
-                <div className="absolute -bottom-4 -left-4 bg-blue-500 p-3 rounded-full shadow-lg animate-bounce delay-700">
-                  <Star className="w-6 h-6 text-white" />
-                </div>
-              </div>
-            </div> */}
-
-      {/* Right Counter Box with glass morphism */}
-      {/* <div className="relative"> */}
-      {/* Background glow */}
-      {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 rounded-3xl blur-xl"></div>
-
-              <div className="relative bg-white/90 backdrop-blur-xl p-12 sm:p-16 rounded-3xl shadow-2xl border border-white/20 hover:shadow-blue-200/50 transition-all duration-500 text-center group"> */}
-      {/* Decorative elements */}
-      {/* <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                  <Users className="w-12 h-12 text-blue-600" />
-                </div>
-
-                <div className="relative z-10">
-                  <div className="text-8xl sm:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 mb-4 leading-none drop-shadow-sm">
-                    <CountUp start={0} end={100} duration={3} suffix="%" />
-                  </div>
-
-                  <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mx-auto mb-6"></div>
-
-                  <p className="text-xl font-bold text-slate-700 mb-2">
-                    Customer Satisfaction
-                  </p>
-                  <p className="text-sm text-slate-500 max-w-xs mx-auto leading-relaxed">
-                    Based on over 500+ completed projects and client
-                    testimonials
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div> */}
-
-      {/* Bottom Stats */}
-      {/* <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-            <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="text-3xl font-bold text-blue-600 mb-2">
-                <CountUp start={0} end={500} duration={2.5} suffix="+" />
-              </div>
-              <p className="text-slate-600 font-medium">Projects Completed</p>
-            </div>
-
-            <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="text-3xl font-bold text-blue-600 mb-2">
-                <CountUp start={0} end={98} duration={2.5} suffix="%" />
-              </div>
-              <p className="text-slate-600 font-medium">On-Time Delivery</p>
-            </div>
-
-            <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="text-3xl font-bold text-blue-600 mb-2">
-                <CountUp start={0} end={250} duration={2.5} suffix="+" />
-              </div>
-              <p className="text-slate-600 font-medium">Happy Clients</p>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      <Rationg />
-      {/* Services Section */}
-      <section className="bg-gradient-to-br from-white via-green-50 to-yellow-50 py-6 sm:py-8 md:py-12 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                onMouseEnter={() => setHoveredCard(index)}
-                onMouseLeave={() => setHoveredCard(null)}
-                className="relative h-[300px] sm:h-[350px] md:h-[400px] lg:h-[480px] xl:h-[520px] bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-500 group cursor-pointer"
-                data-aos="zoom-in"
-                data-aos-delay={index * 100}
-              >
-                {/* Default Image + Overlay */}
-                <div
-                  className={`absolute inset-0 z-20 p-3 sm:p-4 md:p-6 transition-all duration-700 ease-in-out bg-cover bg-top flex flex-col justify-center items-center rounded-3xl shadow-xl 
-                  ${
-                    hoveredCard === index
-                      ? "-translate-x-full opacity-0"
-                      : "translate-x-0 opacity-100"
-                  }`}
-                  style={{ backgroundImage: `url(${service.image})` }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-black/30 z-0" />
-
-                  {/* Content */}
-                  <div className="relative z-10 text-white text-center px-2 md:px-4">
-                    <h3
-                      className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold tracking-wider text-white  drop-shadow-lg animate-fade-in mb-4 font-[Montserrat,Open_Sans,sans-serif] leading-tight"
-                      style={{ WebkitTextStroke: "1px amber-700" }}
-                    >
-                      {service.title}
-                    </h3>
-                  </div>
-                </div>
-
-                {/* Hover GIF + Button */}
-                <div
-                  className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover transition-all duration-500 ease-in-out 
-                  ${
-                    hoveredCard === index
-                      ? "translate-x-0 opacity-100"
-                      : "translate-x-full opacity-0"
-                  }`}
-                  style={{ backgroundImage: `url(${service.gif})` }}
-                >
-                  <div className="absolute inset-0 bg-black/60 z-0" />
-                  <button
-                    onClick={() => openServiceModal(index)}
-                    className="relative z-10 bg-transparent border border-blue-800 text-white  font-semibold px-3 sm:px-4 md:px-6 py-2 md:py-3 rounded-full shadow-lg font-[Poppins,Roboto,sans-serif] text-xs sm:text-sm md:text-base hover:bg-blue-600/20 transition-all duration-300"
-                  >
-                    Read More
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Service Modal */}
-      {serviceModalIndex !== null && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
-          onClick={closeServiceModal}
-        >
-          {/* Background Image Overlay */}
-          <div className="absolute inset-0 bg-black/80" aria-hidden="true" />
-
-          {/* Blurred Background Image */}
-          <div
-            className="absolute inset-0 bg-center bg-cover filter blur-sm scale-105"
-            style={{
-              backgroundImage: `url(${services[serviceModalIndex].backgroundImage})`,
-            }}
-            aria-hidden="true"
-          />
-
-          {/* Content Modal */}
-          <div
-            className="relative bg-white/60 backdrop-blur-md rounded-xl p-3 sm:p-4 md:p-6 max-w-full sm:max-w-lg md:max-w-2xl lg:max-w-3xl w-full shadow-2xl overflow-y-auto max-h-[90vh] sm:max-h-[85vh] md:max-h-[80vh] border border-white/20"
-            onClick={(e) => e.stopPropagation()}
-            data-aos="zoom-in"
-            data-aos-duration="800"
-          >
-            {/* Top Section */}
-            <div
-              className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 md:gap-6 mb-4 sm:mb-5 md:mb-6"
-              data-aos="fade-up"
-              data-aos-duration="700"
-            >
-              <img
-                src={services[serviceModalIndex].modalImage}
-                alt={services[serviceModalIndex].title}
-                className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-lg shadow-lg object-cover flex-shrink-0"
-                data-aos="zoom-in"
-                data-aos-duration="800"
-              />
-              <div
-                className="flex-1"
-                data-aos="fade-left"
-                data-aos-duration="700"
-              >
-                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-black mb-2 sm:mb-3 md:mb-4 text-center sm:text-left">
-                  {services[serviceModalIndex].title}
-                </h2>
-                {services[serviceModalIndex].paragraph.map((para, idx) => (
-                  <p
-                    key={idx}
-                    className="text-blue-800 mb-2 sm:mb-3 text-xs sm:text-sm md:text-[15px] lg:text-[16px] leading-relaxed text-center font-bold sm:text-left font-poppins"
-                    data-aos="fade-up"
-                    data-aos-delay={idx * 100}
-                  >
-                    {para}
-                  </p>
-                ))}
-              </div>
-            </div>
-
-            {/* Points */}
-            <ul
-              className="space-y-2 sm:space-y-3 text-blue-800 text-xs sm:text-sm md:text-[15px] leading-relaxed mb-6 sm:mb-7 md:mb-8 font-bold sm:text-left font-poppins"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              {services[serviceModalIndex].points.map((point, i) => (
-                <li
-                  key={i}
-                  className="flex items-start gap-2 sm:gap-3"
-                  data-aos="fade-right"
-                  data-aos-delay={i * 100}
-                >
-                  <span className="mt-1 w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full flex-shrink-0" />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-
-            {/* CTA */}
-            <div
-              className="flex justify-center"
-              data-aos="zoom-in"
-              data-aos-delay="600"
-            >
-              <button
-                onClick={() =>
-                  handleApplyNow(services[serviceModalIndex].title)
-                }
-                className="group bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full shadow-lg transition-colors duration-300 flex items-center gap-2 text-xs sm:text-sm md:text-base"
-              >
-                Apply Now
-                <FaHandPointRight className="transition-transform duration-300 group-hover:translate-x-2" />
-              </button>
-            </div>
-
-            {/* Close Button */}
-            <button
-              onClick={closeServiceModal}
-              className="absolute top-2 sm:top-3 right-3 sm:right-4 text-white hover:text-red-500 font-bold text-xl sm:text-2xl md:text-3xl"
-              aria-label="Close modal"
-            >
-              &times;
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Hero Section */}
+ {/* Hero Section */}
       <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-white via-green-50 to-yellow-50">
         <div className="max-w-6xl mx-auto text-center">
           <div data-aos="fade-down" data-aos-duration="1200">
@@ -822,44 +531,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      {/* Call to Action */}
-      <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-white via-green-50 to-yellow-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <div
-            data-aos="fade-up"
-            data-aos-duration="1200"
-            className="bg-gradient-to-r from-blue-900 to-blue-500 rounded-3xl p-6 sm:p-8 md:p-12 text-white shadow-2xl"
-          >
-            <CheckCircle className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 mx-auto mb-3 sm:mb-4 md:mb-6" />
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 md:mb-6">
-              Ready to Start Your Journey?
-            </h2>
-            <p className="text-sm sm:text-base md:text-lg text-green-100 mb-4 sm:mb-6 md:mb-8 max-w-2xl mx-auto">
-              If you meet these eligibility criteria, take the next step towards
-              building your successful business
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center">
-              <button
-                onClick={() => navigate("/ApplicationForm")}
-                data-aos="slide-right"
-                data-aos-delay="200"
-                className="w-full sm:w-auto bg-white text-blue-600 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg transform hover:scale-105"
-              >
-                Apply Now
-              </button>
-              <button
-                data-aos="slide-left"
-                data-aos-delay="400"
-                className="w-full sm:w-auto border-2 border-white text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105"
-              >
-                <a href={pdf.pdf_StudentInformation}>Student Handbook</a>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Self-Employment Program Section */}
+       {/* Self-Employment Program Section */}
       <section
         className="relative w-full min-h-[40vh] sm:min-h-[50vh] md:min-h-[70vh] lg:min-h-[80vh] overflow-hidden mb-4 bg-gradient-to-br from-white via-green-50 to-yellow-50"
         data-aos="fade-in"
@@ -933,6 +605,194 @@ const Home = () => {
           </div>
         </div>
       </section>
+     
+      <Rationg />
+
+      {/* Services Section */}
+      <section className="py-6 sm:py-8 md:py-12 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif]">
+        <div className="max-w-7xl mx-auto">
+          {/* Responsive Grid Container */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                onMouseEnter={() => setHoveredCard(index)}
+                onMouseLeave={() => setHoveredCard(null)}
+                className="relative bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-500 group cursor-pointer
+                  w-full
+                  aspect-[650/614]
+                  max-w-[280px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-[400px] xl:max-w-[450px] 2xl:max-w-[500px]
+                  mx-auto"
+              >
+                {/* Default Image + Overlay */}
+                <div
+                  className={`absolute inset-0 z-20 p-3 sm:p-4 md:p-6 transition-all duration-700 ease-in-out bg-cover bg-center flex flex-col justify-center items-center rounded-xl shadow-xl 
+                  ${
+                    hoveredCard === index
+                      ? "-translate-x-full opacity-0"
+                      : "translate-x-0 opacity-100"
+                  }`}
+                  style={{ backgroundImage: `url(${service.image})` }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-black/30 z-0" />
+
+                  {/* Content */}
+                  <div className="relative z-10 text-white text-center px-2 md:px-4">
+                    <h3
+                      className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold tracking-wider text-white drop-shadow-lg mb-4 font-[Montserrat,Open_Sans,sans-serif] leading-tight"
+                      style={{ WebkitTextStroke: "1px #B45309" }}
+                    >
+                      {service.title}
+                    </h3>
+                  </div>
+                </div>
+
+                {/* Hover GIF + Button */}
+                <div
+                  className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover bg-center transition-all duration-500 ease-in-out 
+                  ${
+                    hoveredCard === index
+                      ? "translate-x-0 opacity-100"
+                      : "translate-x-full opacity-0"
+                  }`}
+                  style={{ backgroundImage: `url(${service.gif})` }}
+                >
+                  <div className="absolute inset-0 bg-black/60 z-0" />
+                  <button
+                    onClick={() => openServiceModal(index)}
+                    className="relative z-10 bg-transparent border border-blue-800 text-white font-semibold px-3 sm:px-4 md:px-6 py-2 md:py-3 rounded-full shadow-lg font-[Poppins,Roboto,sans-serif] text-xs sm:text-sm md:text-base hover:bg-blue-600/20 transition-all duration-300"
+                  >
+                    Read More
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Service Modal */}
+      {serviceModalIndex !== null && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
+          onClick={closeServiceModal}
+        >
+          {/* Background Image Overlay */}
+          <div className="absolute inset-0 bg-black/80" aria-hidden="true" />
+
+          {/* Blurred Background Image */}
+          <div
+            className="absolute inset-0 bg-center bg-cover filter blur-sm scale-105"
+            style={{
+              backgroundImage: `url(${services[serviceModalIndex].backgroundImage})`,
+            }}
+            aria-hidden="true"
+          />
+
+          {/* Content Modal */}
+          <div
+            className="relative bg-white/60 backdrop-blur-md rounded-xl p-3 sm:p-4 md:p-6 max-w-full sm:max-w-lg md:max-w-2xl lg:max-w-3xl w-full shadow-2xl overflow-y-auto max-h-[90vh] sm:max-h-[85vh] md:max-h-[80vh] border border-white/20"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Top Section */}
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 md:gap-6 mb-4 sm:mb-5 md:mb-6">
+              <img
+                src={services[serviceModalIndex].modalImage}
+                alt={services[serviceModalIndex].title}
+                className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-lg shadow-lg object-cover flex-shrink-0"
+              />
+              <div className="flex-1">
+                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-black mb-2 sm:mb-3 md:mb-4 text-center sm:text-left">
+                  {services[serviceModalIndex].title}
+                </h2>
+                {services[serviceModalIndex].paragraph.map((para, idx) => (
+                  <p
+                    key={idx}
+                    className="text-blue-800 mb-2 sm:mb-3 text-xs sm:text-sm md:text-[15px] lg:text-[16px] leading-relaxed text-center font-bold sm:text-left font-poppins"
+                  >
+                    {para}
+                  </p>
+                ))}
+              </div>
+            </div>
+
+            {/* Points */}
+            <ul className="space-y-2 sm:space-y-3 text-blue-800 text-xs sm:text-sm md:text-[15px] leading-relaxed mb-6 sm:mb-7 md:mb-8 font-bold sm:text-left font-poppins">
+              {services[serviceModalIndex].points.map((point, i) => (
+                <li key={i} className="flex items-start gap-2 sm:gap-3">
+                  <span className="mt-1 w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full flex-shrink-0" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* CTA */}
+            <div className="flex justify-center">
+              <button
+                onClick={() => handleApplyNow(services[serviceModalIndex].title)}
+                className="group bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full shadow-lg transition-colors duration-300 flex items-center gap-2 text-xs sm:text-sm md:text-base"
+              >
+                Apply Now
+                <span className="transition-transform duration-300 group-hover:translate-x-2">👉</span>
+              </button>
+            </div>
+
+
+            {/* Close Button */}
+            <button
+              onClick={closeServiceModal}
+              className="absolute top-2 sm:top-3 right-3 sm:right-4 text-white hover:text-red-500 font-bold text-xl sm:text-2xl md:text-3xl"
+              aria-label="Close modal"
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
+
+     
+
+      {/* Call to Action */}
+      <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-white via-green-50 to-yellow-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="1200"
+            className="bg-gradient-to-r from-blue-900 to-blue-500 rounded-3xl p-6 sm:p-8 md:p-12 text-white shadow-2xl"
+          >
+            <CheckCircle className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 mx-auto mb-3 sm:mb-4 md:mb-6" />
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 md:mb-6">
+              Ready to Start Your Journey?
+            </h2>
+            <p className="text-sm sm:text-base md:text-lg text-green-100 mb-4 sm:mb-6 md:mb-8 max-w-2xl mx-auto">
+              If you meet these eligibility criteria, take the next step towards
+              building your successful business
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center">
+              <button
+                onClick={() => navigate("/ApplicationForm")}
+                data-aos="slide-right"
+                data-aos-delay="200"
+                className="w-full sm:w-auto bg-white text-blue-600 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg transform hover:scale-105"
+              >
+                Apply Now
+              </button>
+              <button
+                data-aos="slide-left"
+                data-aos-delay="400"
+                className="w-full sm:w-auto border-2 border-white text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105"
+              >
+                <a href={pdf.pdf_StudentInformation}>Student Handbook</a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    {/* Story */}
+      <Story />
+
+        {/* Google Review */}
+      <GoogleReviewSection />
       {/* Contact Section */}
       <section
         className="w-full py-6 sm:py-8 md:py-12 bg-gradient-to-br from-white via-green-50 to-yellow-50 flex items-center justify-center px-4"
@@ -1113,10 +973,8 @@ const Home = () => {
           )}
         </Formik>
       </section>
-      {/* Story */}
-      <Story />
-      {/* Google Review */}
-      <GoogleReviewSection />
+      
+    
 
       {/* FB Update */}
 

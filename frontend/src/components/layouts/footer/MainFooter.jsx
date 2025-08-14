@@ -104,7 +104,7 @@ const MainFooter = () => {
           rel="noopener noreferrer"
           className="hover:text-blue-400 transition-colors duration-200"
         >
-          16/30, Hasler Road, Osborne Park, WA 6017
+          1/3, Marchant Road, Morley 6062 
         </a>
       ),
     },
@@ -357,11 +357,11 @@ const MainFooter = () => {
           <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
             {/* Certification Logos */}
             <div className="flex items-center space-x-6">
-              <img
+              {/* <img
                 src={images.image_Footer1}
                 alt="Australian Qualification Framework"
                 className="h-30 sm:h-30 w-auto filter brightness-110 hover:brightness-125 transition-all duration-200"
-              />
+              /> */}
               <img
                 src={images.image_Footer2}
                 alt="Workforce Australia"
