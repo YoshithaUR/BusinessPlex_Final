@@ -32,8 +32,11 @@ const applicationController = async (req, res) => {
   } = req.body;
 
   try {
+    // Generate a single reference number for both emails
+    const referenceNumber = `APP-${Date.now().toString().slice(-6)}`;
+
     // Send confirmation email to the person who submitted the application
-    const senderEmailData = applicationWelcomeSubject(email, firstName, programType);
+    const senderEmailData = applicationWelcomeSubject(email, firstName, programType, referenceNumber);
     await transporter.sendMail(senderEmailData);
     
     // Send notification email to SMTP_USER with all application details
@@ -63,7 +66,7 @@ const applicationController = async (req, res) => {
       eligibilityDeclaration,
       accuracyDeclaration,
       privacyConsent
-    });
+    }, referenceNumber);
     await transporter.sendMail(receiverEmailData);
     
     res.status(200).json({

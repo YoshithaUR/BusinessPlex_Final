@@ -1,4 +1,4 @@
-const applicationTemplate = (firstName, programType) => {
+const applicationTemplate = (firstName, programType, referenceNumber) => {
     return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
         <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
@@ -34,7 +34,7 @@ const applicationTemplate = (firstName, programType) => {
                     <strong>Application Date:</strong> ${new Date().toLocaleDateString('en-AU', { timeZone: 'Australia/Perth' })}
                 </p>
                 <p style="color: #555; line-height: 1.6;">
-                    <strong>Reference Number:</strong> APP-${Date.now().toString().slice(-6)}
+                    <strong>Reference Number:</strong> ${referenceNumber}
                 </p>
             </div>
             
@@ -66,7 +66,8 @@ const applicationTemplate = (firstName, programType) => {
             <p>© 2024 Businessplex. All rights reserved.</p>
         </div>
     </div>
-  `;
+  
+`;
 };
 
 export default applicationTemplate;

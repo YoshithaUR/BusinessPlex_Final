@@ -10,11 +10,15 @@ const enrolmentController = async (req, res) => {
   } = req.body;
 
   try {
+    // Generate a single reference number for both emails
+    const referenceNumber = `ENR-${Date.now().toString().slice(-6)}`;
+
     // Send confirmation email to the person who submitted the enrolment
     const senderEmailData = enrolmentWelcomeSubject(
       personalInfo.email, 
       personalInfo.firstName, 
-      courseInfo.courseName
+      courseInfo.courseName,
+      referenceNumber
     );
     await transporter.sendMail(senderEmailData);
     
@@ -23,7 +27,7 @@ const enrolmentController = async (req, res) => {
       personalInfo,
       courseInfo,
       finalDetails
-    });
+    }, referenceNumber);
     await transporter.sendMail(receiverEmailData);
     
     res.status(200).json({

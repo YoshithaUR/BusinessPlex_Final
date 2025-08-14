@@ -1,4 +1,4 @@
-const enrolmentTemplate = (firstName, courseName) => {
+const enrolmentTemplate = (firstName, courseName, referenceNumber) => {
     return `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
             <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
@@ -27,7 +27,7 @@ const enrolmentTemplate = (firstName, courseName) => {
                 <div style="background: #fff3cd; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #ffc107;">
                     <h3 style="color: #856404; margin-top: 0;">Important Information</h3>
                     <p style="color: #856404; margin-bottom: 10px;">
-                        <strong>Reference Number:</strong> ENR-${Date.now().toString().slice(-6)}
+                        <strong>Reference Number:</strong> ${referenceNumber}
                     </p>
                     <p style="color: #856404; margin: 0;">
                         Please keep this reference number for future correspondence.
@@ -68,7 +68,8 @@ const enrolmentTemplate = (firstName, courseName) => {
                 </div>
             </div>
         </div>
-    `;
+    
+`;
 };
 
 export default enrolmentTemplate;
