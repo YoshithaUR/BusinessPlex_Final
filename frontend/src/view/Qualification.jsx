@@ -11,6 +11,7 @@ const qualificationsData = [
     // subtitle: "Self-Employment Assistance Program",
     skills: [
       "Reflects the role of individuals establishing or carrying on business as a sole trader or contractor, as well as those supporting the establishment of a new venture as part of a larger organisation. ",
+      "Self-Employment Assistance Program",
     ],
     image: images.images_qualifications01,
     link: "./ApplicationForm",
@@ -24,6 +25,7 @@ const qualificationsData = [
     // subtitle: "Advanced Business Development",
     skills: [
       "Reflects the role of individuals establishing or operating a business providing selfemployment, as well as those establishing a new venture as part of a larger organisation.",
+      "Self-Employment Assistance Program",
     ],
     image: images.images_qualifications02,
     link: "./ApplicationForm",

@@ -21,6 +21,8 @@ import AppealsComplaintsPolicy from './view/Policies/AppealsComplaintsPolicy';
 // Forms
 import ApplicationForm from './view/Forms/applicationForm';
 import Enrolment from './view/Forms/enrolment'; 
+import ExpressionOfInterest from './view/Forms/expressionOfInterest';
+import MonthlyFeedbackForm from './view/Forms/monthlyFeedbackForm';
 
 const App = () => {
   const router = createBrowserRouter(
@@ -38,6 +40,8 @@ const App = () => {
 
         <Route path='applicationForm' element={<ApplicationForm />} />
          <Route path='enrolment' element={<Enrolment />} />
+         <Route path='expressionOfInterest' element={<ExpressionOfInterest/>} />
+          <Route path='monthlyFeedbackForm' element={<MonthlyFeedbackForm/>} />
 
         {/* Policies nested under policies layout */}
         <Route path='policies' element={<PoliciesLayout />}>

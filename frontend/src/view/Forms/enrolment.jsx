@@ -201,7 +201,7 @@ function Enrolment() {
         <form onSubmit={handleSubmit} className="max-w-6xl mx-auto space-y-8">
           
         
-          <div className="bg-white rounded-lg shadow-lg p-6 border-2 border-yellow-400">
+          <div className="bg-white rounded-lg shadow-lg p-6 border-2 border-yblue-600">
             <div className="flex items-center mb-6">
               <User className="h-6 w-6 text-blue-600 mr-3" />
               <h3 className="text-xl font-bold text-black">
@@ -224,7 +224,7 @@ function Enrolment() {
                       firstName: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                  className="w-full px-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                   placeholder="Enter your first name"
                 />
               </div>
@@ -243,7 +243,7 @@ function Enrolment() {
                       lastName: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                  className="w-full px-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                   placeholder="Enter your last name"
                 />
               </div>
@@ -264,7 +264,7 @@ function Enrolment() {
                         email: e.target.value,
                       })
                     }
-                    className="w-full pl-10 pr-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                    className="w-full pl-10 pr-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -286,7 +286,7 @@ function Enrolment() {
                         phone: e.target.value,
                       })
                     }
-                    className="w-full pl-10 pr-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                    className="w-full pl-10 pr-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                     placeholder="+61 4XX XXX XXX"
                   />
                 </div>
@@ -308,7 +308,7 @@ function Enrolment() {
                         dateOfBirth: e.target.value,
                       })
                     }
-                    className="w-full pl-10 pr-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                    className="w-full pl-10 pr-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                   />
                 </div>
               </div>
@@ -326,7 +326,7 @@ function Enrolment() {
                       gender: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                  className="w-full px-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                 >
                   <option value="">Select Gender</option>
                   <option value="male">Male</option>
@@ -337,7 +337,7 @@ function Enrolment() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-black mb-2">
+                <label className="block text-sm font-medium text-black mb-2 ">
                   Nationality *
                 </label>
                 <input
@@ -350,7 +350,7 @@ function Enrolment() {
                       nationality: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                  className="w-full px-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                   placeholder="e.g., Australian, Indian, Chinese"
                 />
               </div>
@@ -368,7 +368,7 @@ function Enrolment() {
                       passportNumber: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                  className="w-full px-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                   placeholder="For international students"
                 />
               </div>
@@ -390,7 +390,7 @@ function Enrolment() {
                     })
                   }
                   rows={3}
-                  className="w-full pl-10 pr-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                  className="w-full pl-10 pr-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                   placeholder="Enter your full address"
                 />
               </div>
@@ -408,7 +408,7 @@ function Enrolment() {
                   onChange={(e) =>
                     setPersonalInfo({ ...personalInfo, city: e.target.value })
                   }
-                  className="w-full px-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                  className="w-full px-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                   placeholder="City"
                 />
               </div>
@@ -426,7 +426,7 @@ function Enrolment() {
                       state: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                  className="w-full px-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                 >
                   <option value="">Select State</option>
                   <option value="NSW">New South Wales</option>
@@ -454,7 +454,7 @@ function Enrolment() {
                       postalCode: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                  className="w-full px-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                   placeholder="2000"
                 />
               </div>
@@ -474,7 +474,7 @@ function Enrolment() {
                         country: e.target.value,
                       })
                     }
-                    className="w-full pl-10 pr-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                    className="w-full pl-10 pr-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                   >
                     <option value="">Select Country</option>
                     <option value="australia">Australia</option>
@@ -491,7 +491,7 @@ function Enrolment() {
           </div>
 
           {/*Education Details */}
-          <div className="bg-white rounded-lg shadow-lg p-6 border-2 border-yellow-400">
+          <div className="bg-white rounded-lg shadow-lg p-6 border-2 border-blue-600">
             <div className="flex items-center mb-6">
               <BookOpen className="h-6 w-6 text-blue-600 mr-3" />
               <h3 className="text-xl font-bold text-black">
@@ -513,7 +513,7 @@ function Enrolment() {
                       courseType: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                  className="w-full px-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                 >
                   <option value="">Select Course Type</option>
                   <option value="certificate-iv">Certificate IV</option>
@@ -538,7 +538,7 @@ function Enrolment() {
                       courseName: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                  className="w-full px-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                 >
                   <option value="">Select Course</option>
                   <option value="business-administration">
@@ -581,7 +581,7 @@ function Enrolment() {
                         startDate: e.target.value,
                       })
                     }
-                    className="w-full pl-10 pr-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                    className="w-full pl-10 pr-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                   />
                 </div>
               </div>
@@ -599,7 +599,7 @@ function Enrolment() {
                       studyMode: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                  className="w-full px-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                 >
                   <option value="">Select Study Mode</option>
                   <option value="full-time">Full-time (Face-to-face)</option>
@@ -626,7 +626,7 @@ function Enrolment() {
                         duration: e.target.value,
                       })
                     }
-                    className="w-full pl-10 pr-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                    className="w-full pl-10 pr-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                   >
                     <option value="">Select Duration</option>
                     <option value="6-months">6 Months</option>
@@ -650,7 +650,7 @@ function Enrolment() {
                     onChange={(e) =>
                       setCourseInfo({ ...courseInfo, campus: e.target.value })
                     }
-                    className="w-full pl-10 pr-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                    className="w-full pl-10 pr-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                   >
                     <option value="">Select Campus</option>
                     <option value="sydney-cbd">Sydney CBD Campus</option>
@@ -681,7 +681,7 @@ function Enrolment() {
                         previousEducation: e.target.value,
                       })
                     }
-                    className="w-full pl-10 pr-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                    className="w-full pl-10 pr-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                   >
                     <option value="">Select Highest Qualification</option>
                     <option value="year-12">Year 12 / High School</option>
@@ -707,7 +707,7 @@ function Enrolment() {
                       englishProficiency: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                  className="w-full px-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                 >
                   <option value="">Select Proficiency Level</option>
                   <option value="native">Native Speaker</option>
@@ -735,7 +735,7 @@ function Enrolment() {
                     })
                   }
                   rows={4}
-                  className="w-full px-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                  className="w-full px-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                   placeholder="Briefly describe your relevant work experience (optional)"
                 />
               </div>
@@ -753,7 +753,7 @@ function Enrolment() {
                     })
                   }
                   rows={4}
-                  className="w-full px-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                  className="w-full px-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                   placeholder="Why do you want to study this course? What are your career goals? (optional)"
                 />
               </div>
@@ -761,7 +761,7 @@ function Enrolment() {
           </div>
 
           {/* Payment Information */}
-          <div className="bg-white rounded-lg shadow-lg p-6 border-2 border-yellow-400">
+          <div className="bg-white rounded-lg shadow-lg p-6 border-2 border-blue-600">
             <div className="flex items-center mb-6">
               <CreditCard className="h-6 w-6 text-blue-600 mr-3" />
               <h3 className="text-xl font-bold text-black">
@@ -783,7 +783,7 @@ function Enrolment() {
                       paymentMethod: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                  className="w-full px-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                 >
                   <option value="">Select Payment Method</option>
                   <option value="upfront">Full Payment (Upfront)</option>
@@ -809,7 +809,7 @@ function Enrolment() {
                       scholarshipApplied: e.target.checked,
                     })
                   }
-                  className="h-4 w-4 text-blue-600 border-2 border-yellow-400 rounded focus:ring-blue-500"
+                  className="h-4 w-4 text-blue-600 border-2 border-blue-600 rounded focus:ring-blue-500"
                 />
                 <label
                   htmlFor="scholarship"
@@ -822,7 +822,7 @@ function Enrolment() {
           </div>
 
           {/* Emergency Contact */}
-          <div className="bg-white rounded-lg shadow-lg p-6 border-2 border-yellow-400">
+          <div className="bg-white rounded-lg shadow-lg p-6 border-2 border-blue-600">
             <div className="flex items-center mb-6">
               <Users className="h-6 w-6 text-blue-600 mr-3" />
               <h3 className="text-xl font-bold text-black">
@@ -845,7 +845,7 @@ function Enrolment() {
                       emergencyContactName: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                  className="w-full px-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                   placeholder="Full name"
                 />
               </div>
@@ -866,7 +866,7 @@ function Enrolment() {
                         emergencyContactPhone: e.target.value,
                       })
                     }
-                    className="w-full pl-10 pr-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                    className="w-full pl-10 pr-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                     placeholder="+61 4XX XXX XXX"
                   />
                 </div>
@@ -885,7 +885,7 @@ function Enrolment() {
                       emergencyContactRelation: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                  className="w-full px-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                 >
                   <option value="">Select Relationship</option>
                   <option value="parent">Parent</option>
@@ -900,7 +900,7 @@ function Enrolment() {
           </div>
 
           {/* Additional Information */}
-          <div className="bg-white rounded-lg shadow-lg p-6 border-2 border-yellow-400">
+          <div className="bg-white rounded-lg shadow-lg p-6 border-2 border-blue-600">
             <div className="flex items-center mb-6">
               <FileText className="h-6 w-6 text-blue-600 mr-3" />
               <h3 className="text-xl font-bold text-black">
@@ -922,7 +922,7 @@ function Enrolment() {
                     })
                   }
                   rows={4}
-                  className="w-full px-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                  className="w-full px-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                   placeholder="Please describe any health conditions or disabilities that may require special support (optional)"
                 />
               </div>
@@ -940,7 +940,7 @@ function Enrolment() {
                     })
                   }
                   rows={4}
-                  className="w-full px-3 py-2 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                  className="w-full px-3 py-2 border-2 border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                   placeholder="Any special learning requirements, dietary needs, or accessibility requirements (optional)"
                 />
               </div>
@@ -948,7 +948,7 @@ function Enrolment() {
           </div>
 
           {/* Terms and Conditions */}
-          <div className="bg-white rounded-lg shadow-lg p-6 border-2 border-yellow-400">
+          <div className="bg-white rounded-lg shadow-lg p-6 border-2 border-blue-600">
             <div className="flex items-center mb-6">
               <FileText className="h-6 w-6 text-blue-600 mr-3" />
               <h3 className="text-xl font-bold text-black">
@@ -969,7 +969,7 @@ function Enrolment() {
                       termsAccepted: e.target.checked,
                     })
                   }
-                  className="h-4 w-4 text-blue-600 border-2 border-yellow-400 rounded focus:ring-blue-500 mt-1"
+                  className="h-4 w-4 text-blue-600 border-2 border-blue-600 rounded focus:ring-blue-500 mt-1"
                 />
                 <label htmlFor="terms" className="ml-2 text-sm text-black">
                   I agree to the{" "}
@@ -999,7 +999,7 @@ function Enrolment() {
                       marketingConsent: e.target.checked,
                     })
                   }
-                  className="h-4 w-4 text-blue-600 border-2 border-yellow-400 rounded focus:ring-blue-500 mt-1"
+                  className="h-4 w-4 text-blue-600 border-2 border-blue-600 rounded focus:ring-blue-500 mt-1"
                 />
                 <label
                   htmlFor="marketing"
@@ -1022,7 +1022,7 @@ function Enrolment() {
                       accuracyDeclaration: e.target.checked,
                     })
                   }
-                  className="h-4 w-4 text-blue-600 border-2 border-yellow-400 rounded focus:ring-blue-500 mt-1"
+                  className="h-4 w-4 text-blue-600 border-2 border-blue-600 rounded focus:ring-blue-500 mt-1"
                 />
                 <label
                   htmlFor="accuracy"
@@ -1037,34 +1037,31 @@ function Enrolment() {
           </div>
 
           {/* Submit Button */}
-          <div className="flex justify-center">
-            <button
-              type="submit"
-              disabled={!validateForm() || isSubmitting}
-              className={`flex items-center px-12 py-4 rounded-lg font-bold text-lg transition-all duration-200 border-2 border-yellow-400 ${
-                !validateForm() || isSubmitting
-                  ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                  : "bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 transform hover:scale-105 shadow-lg"
-              }`}
-            >
-              {isSubmitting ? (
-                <>
-                  <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white mr-3"></div>
-                  Submitting Application...
-                </>
-              ) : (
-                <>
-                  <Send className="h-6 w-6 mr-3" />
-                  Submit Enrollment Application
-                </>
-              )}
-            </button>
-          </div>
+         <div className="flex justify-center">
+  <button
+    type="submit"
+    className={`flex items-center px-12 py-4 rounded-lg font-bold text-lg transition-all duration-200 border-2 border-blue-600
+      bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800
+      focus:outline-none focus:ring-2 focus:ring-blue-500 transform hover:scale-105 shadow-lg`}
+  >
+    {isSubmitting ? (
+      <>
+        <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white mr-3"></div>
+        Submitting Application...
+      </>
+    ) : (
+      <>
+        <Send className="h-6 w-6 mr-3" />
+        Submit Enrollment Application
+      </>
+    )}
+  </button>
+</div>
         </form>
 
         {/* Footer */}
         <div className="text-center mt-12 mb-12 text-gray-600">
-          <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 border border-amber-400">
+          <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 border border-blue-600">
             <p className="text-sm text-gray-600 font-[Poppins,Roboto,sans-serif]">
               Need assistance? Contact our enrollment team at{" "}
               <span className="text-blue-700 font-semibold">

@@ -283,12 +283,19 @@ const AboutUs = () => {
                 We will help you to start or grow your business
               </h2>
             </div>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Gish has worked in the NEIS and SEA programs for 9 years, bringing
-              extensive experience in business development, training, and
-              mentoring. With a passion for empowering entrepreneurs and a track
-              record of successful business launches, Gish leads our team with
-              vision and dedication.
+            <p className="text-lg text-gray-700 leading-relaxed text-justify">
+             Gish is a seasoned business leader with over 14 years of experience in the Self-Employment Assistance
+(SEA) Program, formerty known as NEIS. Throughout his career, he has played a pivotal role in supporting
+individuals from diverse backgrounds in turning their business ideas into reality. His deep expertise in
+business development, combined with a strong foundation in training and mentoring, has made him a trusted
+advisor to hundreds of aspiring entrepreneurs.
+            </p>
+           <p className="text-lg text-gray-700 leading-relaxed text-justify">
+            Driven by a genuine passion for empowering others, Gish has dedicated his career to helping individuals
+navigate the complexities of starting and growing a business. With a clear vision for the future and a strong
+dedication to community impact, Gish continues to lead the team with purpose, driving initiatives that not
+only empower individuals but also contribute to the broader goal of building stronger, more resilient
+communities through entrepreneurship.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">

@@ -52,17 +52,19 @@ const NAV_ITEMS = [
     dropdownItems: [
       { to: "/applicationForm", label: "Application Form", type: "route" },
       { to: "/enrolment", label: "Enrolment Form", type: "route" },
+      { to: "/expressionOfInterest", label: "ExpressionOfInterest Form", type: "route" },
+      { to: "/monthlyFeedbackForm", label: "MonthlyFeedbackForm Form", type: "route" },
       // {
       //   to: pdf.pdf_businessRegistration,
       //   label: "Business Registration Form",
       //   type: "pdf",
       // },
-      {
-        to: pdf.pdf_expression_pdf,
-        label: "Expression of Interest Form",
-        type: "pdf",
-      },
-      { to: pdf.pdf_feedback, label: "Monthly Feedback Form", type: "pdf" },
+      // {
+      //   to: pdf.pdf_expression_pdf,
+      //   label: "Expression of Interest Form",
+      //   type: "pdf",
+      // },
+      // { to: pdf.pdf_feedback, label: "Monthly Feedback Form", type: "pdf" },
     ],
   },
   { to: "/policies", label: "Our Policies" },
