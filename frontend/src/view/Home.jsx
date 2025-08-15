@@ -137,7 +137,7 @@ const Home = () => {
 
   const services = [
     {
-      title: "Small Business Training",
+      title: "",
       image: images.image_Card01,
       gif: images.image_GIF01,
       link: "./ApplicationForm",
@@ -154,7 +154,7 @@ const Home = () => {
       backgroundImage: images.image_ServicePopup01,
     },
     {
-      title: "Exploring Self-Employment Workshop",
+      title: "",
       image: images.image_Card04,
       gif: images.image_GIF04,
       paragraph: [
@@ -172,7 +172,7 @@ const Home = () => {
     },
 
     {
-      title: "Business Health Check",
+      title: "",
       image: images.image_Card03,
       gif: images.image_GIF03,
       paragraph: [
@@ -189,7 +189,7 @@ const Home = () => {
       backgroundImage: images.image_ServicePopup03,
     },
     {
-      title: "Business Advice",
+      title: "",
       image: images.image_Card02,
       gif: images.image_GIF02,
       paragraph: [
