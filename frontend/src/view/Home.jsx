@@ -296,7 +296,7 @@ const Home = () => {
             className="text-base md:text-lg text-gray-600 max-w-4xl mx-auto"
           >
             We deliver the <strong>Self-Employment Assistance Program</strong>{" "}
-            (formerly NEIS), fully funded by the Department of Employment and
+            (formerly known as NEIS), fully funded by the Department of Employment and
             Workplace Relations (DEWR) under Workforce Australia for eligible
             start-ups and established businesses in the Perth-North area.
           </p>
