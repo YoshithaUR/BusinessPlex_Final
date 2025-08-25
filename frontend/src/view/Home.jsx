@@ -471,6 +471,7 @@ const services = [
           </div>
         </div>
       </section> */}
+       <ApplyNow />
 {/* Services Section */}
 <section className="py-6 sm:py-8 md:py-12 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif]">
   <div className="max-w-7xl mx-auto">
@@ -602,7 +603,7 @@ const services = [
   </div>
 </section>
 
- <ApplyNow />
+
       {/* Service Modal */}
       {serviceModalIndex !== null && (
   <div
