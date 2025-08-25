@@ -33,7 +33,7 @@ const AboutUs = () => {
     { name: "Lyndon Jansen", role: "Trainer & Assessor & Mentor" },
     { name: "Belle Illegami", role: "Trainer & Mentor" },
     { name: "Erika Legaspi", role: "Administrator & Student Support" },
-    { name: "Denise Mario", role: "Administrator & Student Support" },
+    // { name: "Denise Mario", role: "Administrator & Student Support" },
     { name: "Aliyah Cohen", role: "Administrator & Student Support" },
     { name: "Amila Rathnayake", role: "IT Consultant" },  
      { name: "Sharmin Sultana", role: "RTO Compliance Consultant" },  
@@ -44,7 +44,8 @@ const AboutUs = () => {
   return (
     <div className="bg-gradient-to-br from-white via-green-50 to-yellow-50 text-gray-800 font-sans select-none">
       {/* Hero Section */}
-      <section className="relative h-[85vh] overflow-hidden flex items-center justify-center mb-20">
+      <br/><br/>
+      {/* <section className="relative h-[85vh] overflow-hidden flex items-center justify-center mb-20">
         <video
           autoPlay
           loop
@@ -85,10 +86,10 @@ const AboutUs = () => {
             learning.
           </p>
         </div>
-      </section>
+      </section> */}
 
       {/* About Section */}
-      <section className="relative py-20 px-6 md:px-20 overflow-hidden bg-gradient-to-br from-white via-green-50 to-yellow-50">
+      <section className="relative py-30 px-6 md:px-20 overflow-hidden bg-gradient-to-br from-white via-green-50 to-yellow-50">
         {/* Soft gradient background */}
         <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-white to-purple-50" />
         <div className="absolute inset-0 opacity-10">
@@ -270,7 +271,7 @@ const AboutUs = () => {
                     <Award className="text-white w-12 h-12" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-800 mb-2">CEO</h3>
-                  <p className="text-gray-600">Gish Wickramasinghe</p>
+                  <p className="text-gray-600">Gish Liyanage</p>
                 </div>
               </div>
             </div>
@@ -280,7 +281,7 @@ const AboutUs = () => {
             <div className="flex items-center gap-4 justify-center md:justify-start">
               <Award className="text-blue-800 w-12 h-12" />
               <h2 className="text-3xl font-bold text-black">
-                We will help you to start or grow your business
+                We help you to start or grow your business
               </h2>
             </div>
             <p className="text-lg text-gray-700 leading-relaxed text-justify">
@@ -297,8 +298,8 @@ dedication to community impact, Gish continues to lead the team with purpose, dr
 only empower individuals but also contribute to the broader goal of building stronger, more resilient
 communities through entrepreneurship.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
+            {/* {/* <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"> */}
+              {/* <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
                 <Mail className="text-blue-800 w-5 h-5" />
                 <span className="text-gray-700 font-medium">
                   <a
@@ -316,9 +317,9 @@ communities through entrepreneurship.
                   <a href="tel:08 6156 5319"
                    className="hover:text-blue-700">08 6156 5319</a>
                 </span>
-              </div>
-            </div>
-          </div>
+              </div> */} 
+            
+          </div> 
         </div>
       </section>
 

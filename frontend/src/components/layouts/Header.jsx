@@ -406,7 +406,7 @@ const Header = () => {
   );
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden">
+    <div className="relative w-full min-h-screen overflow-hidden  bg-gradient-to-br from-white via-green-50 to-yellow-50 ">
       <BlueNavBar />
 
       {/* Main Navigation - Fixed spacing issues */}

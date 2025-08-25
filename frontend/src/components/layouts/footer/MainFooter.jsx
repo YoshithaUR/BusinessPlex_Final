@@ -224,7 +224,20 @@ const MainFooter = () => {
           rel="noopener noreferrer"
           className="hover:text-blue-400 transition-colors duration-200"
         >
-          1/3, Marchant Road, Morley 6062 
+           1/3 Marchant Way, Morley, WA 6062  
+        </a>
+      ),
+    },
+     {
+      icon: <FaMapMarkerAlt className="flex-shrink-0 mt-1" size={14} />,
+      content: (
+        <a
+          href="https://www.google.com/maps?q=16/30+Hasler+Road,+Osborne+Park,+WA+6017"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-blue-400 transition-colors duration-200"
+        >
+         Other Location : 16/30 Hasler Road, Osborne Park, WA 6017
         </a>
       ),
     },
@@ -243,13 +256,14 @@ const MainFooter = () => {
       icon: <FaPhoneAlt className="flex-shrink-0 mt-1" size={14} />,
       content: (
         <a
-          href="tel:0861565820"
+          href="tel:08 6156 5320"
           className="hover:text-blue-400 transition-colors duration-200"
         >
-          08 6156 5820
+          08 6156 5320
         </a>
       ),
     },
+    
     {
       icon: <MdEmail className="flex-shrink-0 mt-1" size={16} />,
       content: (
@@ -290,7 +304,7 @@ const MainFooter = () => {
     },
 
     {
-      href: "https://www.instagram.com/businessplex_rto?igsh=N2hlZWh6M2hnbXY4",
+      href: "https://www.instagram.com/businessplex_rto?igsh=ZHY3aHlyNWg2dzM1",
       icon: <FaInstagram size={20} />,
       label: "FaInstagram",
       hoverColor: "hover:text-blue-500",

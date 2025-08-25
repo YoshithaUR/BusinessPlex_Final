@@ -24,7 +24,7 @@ const qualificationsData = [
     code: "BSB40320",
     // subtitle: "Advanced Business Development",
     skills: [
-      "Reflects the role of individuals establishing or operating a business providing selfemployment, as well as those establishing a new venture as part of a larger organisation.",
+      "Reflects the role of individuals establishing or operating a business providing  as well as those establishing a new venture as part of a larger organisation.",
       "Self-Employment Assistance Program",
     ],
     image: images.images_qualifications02,
@@ -70,7 +70,7 @@ const Qualifications = () => {
 
   return (
     <section className="relative bg-gradient-to-br from-white via-green-50 to-yellow-50 py-24 px-6 sm:px-10 lg:px-20 font-[Poppins,Roboto,sans-serif] overflow-hidden">
-   
+   <br/><br/>
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -219,9 +219,9 @@ const Qualifications = () => {
                   <span className="text-indigo-700 font-semibold text-sm uppercase tracking-wide">Ready to Begin?</span>
                 </div>
                 
-                <h3 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4 text-center lg:text-left">Start Your Professional Journey Today</h3>
+                <h3 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4 text-center lg:text-left">Start your business journey today!</h3>
                 <p className="text-gray-600 mb-8 text-lg leading-relaxed text-center lg:text-left">
-                  Join thousands of professionals who have advanced their careers with our industry-recognized certification programs.
+                 Join hundreds of participants who’ve started and grown with their businesses through our industry recognised certification programs.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
