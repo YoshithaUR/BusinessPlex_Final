@@ -23,6 +23,13 @@ import images from "../assets/Images/images";
 
 const SelfEmployment = () => {
   useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
+    // Initialize AOS
     AOS.init({
       duration: 1000,
       once: false,
@@ -61,7 +68,7 @@ const SelfEmployment = () => {
           data-aos="zoom-in"
         >
           <img
-            src={images.image_ServicePopup01}
+            src={images.image_Programepm01}
             alt="Self Employment Program"
             className="w-full h-full object-cover rounded-3xl"
           />
@@ -76,7 +83,7 @@ const SelfEmployment = () => {
           </p>
 
           <p data-aos="fade-up" data-aos-delay="100">
-            Whether you’re launching your first business or growing an existing one,
+            Whether you're launching your first business or growing an existing one,
             <strong> Businessplex </strong> will support your journey with guidance through the SEA program.
           </p>
 
@@ -227,7 +234,7 @@ const SelfEmployment = () => {
                 "Age Pension",
                 "Carer Payment",
                 "Partner Service Pension",
-                "War Widow(er)’s Pension",
+                "War Widow(er)'s Pension",
               ].map((item, index) => (
                 <div
                   key={index}

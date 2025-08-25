@@ -84,6 +84,7 @@ import image_partnes06 from "./Partners/intojobs-Australia.png";
 import image_partnes07 from "./Partners/Local Jobs-Perth North.png";
 import image_partnes08 from "./Partners/Workforce-Australia.jpg";
 
+import image_Programepm01 from "./self employee/1.jpg";
 
 //-----------------------Google Reviews--------------------
 
@@ -142,6 +143,9 @@ import images_qualifications02 from "./Qualifications/2.jpg"
 import images_qualifications03 from "./Qualifications/3.jpg"
 import images_qualifications04 from "./Qualifications/4.jpg"
 const images = {
+
+  image_Programepm01,
+  
   // Slide Show
   image_one,
   image_two,
