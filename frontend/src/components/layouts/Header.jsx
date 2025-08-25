@@ -354,7 +354,7 @@ const Header = () => {
               className="notif-bell-icon text-white hover:text-yellow-400 transition-colors duration-200 p-1 cursor-pointer"
               aria-label="Notifications"
             >
-              <FaBell size={16} />
+              {/* <FaBell size={16} /> */}
             </button>
 
             {isNotifOpen && (
