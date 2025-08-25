@@ -418,7 +418,7 @@ const Header = () => {
               className="flex items-center space-x-3 flex-shrink-0 cursor-pointer"
               onClick={() => handleNavClick("/")}
             >
-              <img src={logo} alt="BusinessPlex Logo" className="h-8 w-auto" />
+              <img src={logo} alt="BusinessPlex Logo" className="h-15 w-auto" />
               <span className="text-xl font-bold text-slate-800 hidden sm:block">
                 Businessplex
               </span>
@@ -702,7 +702,7 @@ const Header = () => {
 
       {/* Contact Button - Fixed positioning */}
       {showContactButton && (
-        <div className="fixed top-[100px] right-4 z-10">
+        <div className="fixed top-[125px] right-4 z-10">
           <button
             onClick={() => (window.location.href = "tel:1300894480")}
             className="flex items-center space-x-2 bg-gradient-to-r from-slate-800 to-blue-600 text-white px-4 py-2 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transform transition-all duration-300 border border-white/20 cursor-pointer"
