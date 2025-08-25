@@ -676,7 +676,7 @@ const services = [
         </div>
       )}
 
-      {/* CTA */}
+     {/* CTA Button */}
       <div className="flex justify-center">
         <button
           onClick={() => handleApplyNow(services[serviceModalIndex].title)}

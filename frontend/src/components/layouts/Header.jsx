@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import { FaPaperPlane } from "react-icons/fa";
 import {
   FaFacebookF,
   FaLinkedin,
@@ -82,7 +82,7 @@ const NAV_ITEMS = [
 
 const Header = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showContactButton, setShowContactButton] = useState(true);
+  const [showApplyButton, setShowContactButton] = useState(true);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isNotifOpen, setIsNotifOpen] = useState(false);
@@ -271,6 +271,9 @@ const Header = () => {
       }
     };
   }, [hasManuallyClosed]);
+const handleApplyNow = (serviceTitle) => {
+    navigate("/ApplicationForm", { state: { selectedService: serviceTitle } });
+  };
 
   // Event handlers
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -701,17 +704,17 @@ const Header = () => {
       <div ref={headerEndRef} className="w-full h-0"></div>
 
       {/* Contact Button - Fixed positioning */}
-      {showContactButton && (
+      {showApplyButton && (
         <div className="fixed top-[125px] right-4 z-10">
           <button
-            onClick={() => (window.location.href = "tel:1300894480")}
+            onClick={() => (window.location.href = "/ApplicationForm")}
             className="flex items-center space-x-2 bg-gradient-to-r from-slate-800 to-blue-600 text-white px-4 py-2 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transform transition-all duration-300 border border-white/20 cursor-pointer"
           >
-            <FaPhoneAlt size={14} className="animate-pulse" />
+            <FaPaperPlane  size={14} className="animate-pulse" />
             <span className="font-semibold text-sm hidden sm:inline">
-              Contact Us
+              Apply
             </span>
-            <span className="font-semibold text-sm sm:inline">Call</span>
+            <span className="font-semibold text-sm sm:inline">Now</span>
           </button>
         </div>
       )}
