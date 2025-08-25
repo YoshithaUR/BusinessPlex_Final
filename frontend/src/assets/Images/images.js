@@ -21,6 +21,8 @@ import image_Card01 from "./Home/Card01.jpeg";
 import image_Card02 from "./Home/Card02.jpg";
 import image_Card03 from "./Home/Card03.jpg";
 import image_Card04 from "./Home/Card04.jpg";
+import image_Card05 from "./Home/Card05.jpg";
+import image_Card06 from "./Home/Card06.jpg";
 
 // GIFs & Videos
 import image_GIF01 from "./Video/GIF01.gif";
@@ -34,6 +36,8 @@ import image_ServicePopup01 from "./ServicePopup/1.jpg";
 import image_ServicePopup02 from "./ServicePopup/2.jpg";
 import image_ServicePopup03 from "./ServicePopup/3.jpg";
 import image_ServicePopup04 from "./ServicePopup/4.jpg";
+import image_ServicePopup05 from "./ServicePopup/5.jpg";
+import image_ServicePopup06 from "./ServicePopup/6.jpg";
 
 // Self Image
 import image_program from "./Home/123.jpg";
@@ -76,6 +80,10 @@ import image_partnes02 from "./Partners/Impact Services Australia.png";
 import image_partnes03 from "./Partners/Mutlicultural Services Australia.png";
 import image_partnes04 from "./Partners/NSEA Australia.png";
 import image_partnes05 from "./Partners/Workskil-Australia.png";
+import image_partnes06 from "./Partners/intojobs-Australia.png";
+import image_partnes07 from "./Partners/Local Jobs-Perth North.png";
+import image_partnes08 from "./Partners/Workforce-Australia.jpg";
+
 
 //-----------------------Google Reviews--------------------
 
@@ -150,6 +158,8 @@ const images = {
   image_Card02,
   image_Card03,
   image_Card04,
+  image_Card05,
+  image_Card06,
 
   // GIFs & Video
   image_GIF01,
@@ -163,6 +173,8 @@ const images = {
   image_ServicePopup02,
   image_ServicePopup03,
   image_ServicePopup04,
+  image_ServicePopup05,
+  image_ServicePopup06,
 
   // Self
   image_program,
@@ -210,6 +222,9 @@ const images = {
   image_partnes03,
   image_partnes04,
   image_partnes05,
+  image_partnes06,
+  image_partnes07,
+  image_partnes08,
 
   // ----------------------Google Reviews
 

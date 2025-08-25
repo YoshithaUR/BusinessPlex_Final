@@ -292,7 +292,7 @@ const ApplicationForm = () => {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 to-blue-50 py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-slate-100 to-blue-50 py-30 px-4">
       <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl border border-gray-200">
         {/* Header */}
         <div className="bg-gradient-to-r from-blue-700 to-blue-800 text-white rounded-t-2xl p-8 text-center">

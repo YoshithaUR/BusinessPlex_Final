@@ -98,11 +98,7 @@ const Story = () => {
         images.images_alex02,
         images.images_alex03,
       ],
-      metrics: {
-        revenue: "+250%",
-        efficiency: "+40%",
-        satisfaction: "95%",
-      },
+      
     },
     {
       id: 2,
@@ -115,11 +111,7 @@ const Story = () => {
       mobileImages: [images.images_CyndyMoody01, images.images_CyndyMoody02],
       desktopImages: [images.images_CyndyMoody01, images.images_CyndyMoody02],
       Popupimages: [images.images_CyndyMoody01, images.images_CyndyMoody02],
-      metrics: {
-        revenue: "+500%",
-        engagement: "+200%",
-        customers: "+150%",
-      },
+     
     },
     {
       id: 3,
@@ -144,11 +136,7 @@ const Story = () => {
         images.images_EricLee03,
         images.images_EricLee04,
       ],
-      metrics: {
-        efficiency: "+35%",
-        satisfaction: "90%",
-        conflicts: "-60%",
-      },
+      
     },
     {
       id: 4,
@@ -156,7 +144,7 @@ const Story = () => {
       industry: "TRUEFIX MAINTENANCE & PROPERTY SOLUTIONS",
       logo: images.images_logo05,
       testimonial:
-        "The friendliness & approachability of the staff at Businessplex has helped me to ask `silly questions` without feeling silly.",
+      "Joining the BusinessPlex mentoring program has been one of the best decisions I've made as a business owner. When I started TrueFix Maintenance in July 2024, I had the skills and passion but not the roadmap. Through the support and guidance of my mentor, Gish, I gained clarity, confidence, and the tools to build something sustainable and successful.",
       clientPhoto: images.images_logo05,
       mobileImages: [
         images.images_BraeKunzli01, 
@@ -170,11 +158,7 @@ const Story = () => {
         images.images_BraeKunzli01, 
         images.images_BraeKunzli02,
       ],
-      metrics: {
-        engagement: "+80%",
-        completion: "+45%",
-        uptime: "99%",
-      },
+     
     },
     {
       id: 5,
@@ -182,7 +166,7 @@ const Story = () => {
       industry: "SUMMER'S HOME MAINTENANCE",
       logo: images.images_logo02,
       testimonial:
-        "Joining the BusinessPlex mentoring program has been one of the best decisions I've made as a business owner. When I started TrueFix Maintenance in July 2024, I had the skills and passion but not the roadmap. Through the support and guidance of my mentor, Gish, I gained clarity, confidence, and the tools to build something sustainable and successful.",
+         "The friendliness & approachability of the staff at Businessplex has helped me to ask `silly questions` without feeling silly.",
       clientPhoto: images.images_logo02,
       mobileImages: [
         images.images_PaulNieman01,
@@ -199,11 +183,7 @@ const Story = () => {
         images.images_PaulNieman02,
         images.images_PaulNieman03,
       ],
-      metrics: {
-        efficiency: "+35%",
-        satisfaction: "90%",
-        conflicts: "-60%",
-      },
+    
     },
   ];
 
@@ -367,7 +347,7 @@ const Story = () => {
                 data-aos="fade-left"
                 data-aos-delay="500"
               >
-                {Object.entries(currentStory.metrics).map(
+                {/* {Object.entries(currentStory.metrics).map(
                   ([key, value], index) => (
                     <div
                       key={index}
@@ -381,9 +361,9 @@ const Story = () => {
                       <div className="text-blue-900 capitalize text-xs sm:text-sm">
                         {key}
                       </div>
-                    </div>
-                  )
-                )}
+                    </div> */}
+                  {/* )
+                )} */}
               </div>
             </div>
           </div>
