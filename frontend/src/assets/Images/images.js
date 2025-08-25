@@ -29,6 +29,8 @@ import image_GIF01 from "./Video/GIF01.gif";
 import image_GIF02 from "./Video/GIF02.gif";
 import image_GIF03 from "./Video/GIF03.gif";
 import image_GIF04 from "./Video/GIF04.gif";
+import image_GIF05 from "./Video/GIF05.gif";
+import image_GIF06 from "./Video/GIF06.gif";
 import video_video2 from "./Video/suport.mp4";
 
 // ServicePopup
@@ -170,6 +172,8 @@ const images = {
   image_GIF02,
   image_GIF03,
   image_GIF04,
+  image_GIF05,
+  image_GIF06,
   video_video2,
 
   // ServicePopup
