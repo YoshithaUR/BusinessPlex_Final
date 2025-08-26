@@ -8,6 +8,7 @@ import {
   FaInstagram,
   FaSearch,
   FaPhoneAlt,
+  FaMapMarkerAlt,
   // FaArrowUp,
   FaBars,
   FaTimes,
@@ -330,6 +331,11 @@ const handleApplyNow = (serviceTitle) => {
             <FaPhoneAlt size={12} />
             <span className="font-medium">INQUIRIES? CALL: 1300 894 480</span>
           </a>
+          <div className="hidden lg:block h-4 w-px bg-white/30"></div>
+          <div className="hidden lg:flex items-center space-x-2 text-white">
+            <FaMapMarkerAlt size={12} />
+            <span className="font-medium">1/3 Marchant Way, Morley, WA 6062</span>
+          </div>
         </div>
 
         {/* Right side - Search and notifications */}
