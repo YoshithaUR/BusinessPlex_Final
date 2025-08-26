@@ -82,7 +82,7 @@ const NAV_ITEMS = [
 
 const Header = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showApplyButton, setShowContactButton] = useState(true);
+  const [showContactButton, setShowContactButton] = useState(true);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isNotifOpen, setIsNotifOpen] = useState(false);
@@ -180,12 +180,12 @@ const Header = () => {
     }
   };
 
-  // Slideshow autoplay
+  // Slideshow autoplay - automatically moves to next slide
   useEffect(() => {
     timeoutRef.current = setTimeout(() => {
       const currentImages = getCurrentImages();
       setCurrentIndex((prev) => (prev + 1) % currentImages.length);
-    }, 5000);
+    }, 5000); // Change slide every 5 seconds
     return () => clearTimeout(timeoutRef.current);
   }, [currentIndex, isMobile]);
 
@@ -271,6 +271,7 @@ const Header = () => {
       }
     };
   }, [hasManuallyClosed]);
+
 const handleApplyNow = (serviceTitle) => {
     navigate("/ApplicationForm", { state: { selectedService: serviceTitle } });
   };
@@ -422,7 +423,7 @@ const handleApplyNow = (serviceTitle) => {
               onClick={() => handleNavClick("/")}
             >
               <img src={logo} alt="BusinessPlex Logo" className="h-15 w-auto" />
-              <span className="text-xl font-bold text-slate-800 hidden sm:block">
+              <span className="text-xl font-bold text-slate-800">
                 Businessplex
               </span>
             </div>
@@ -665,7 +666,8 @@ const handleApplyNow = (serviceTitle) => {
             </div>
           ))}
 
-          {/* Slide Indicators */}
+          {/* Slide Indicators - COMMENTED OUT TO HIDE THE DOTS */}
+          {/* 
           <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
             {getCurrentImages().map((_, index) => (
               <button
@@ -680,6 +682,7 @@ const handleApplyNow = (serviceTitle) => {
               />
             ))}
           </div>
+          */}
         </div>
 
         {/* Highlights Section - Removed margin */}
@@ -704,7 +707,7 @@ const handleApplyNow = (serviceTitle) => {
       <div ref={headerEndRef} className="w-full h-0"></div>
 
       {/* Contact Button - Fixed positioning */}
-      {showApplyButton && (
+      {showContactButton && (
         <div className="fixed top-[125px] right-4 z-10">
           <button
             onClick={() => (window.location.href = "/ApplicationForm")}

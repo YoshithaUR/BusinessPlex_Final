@@ -145,11 +145,22 @@ const services = [
     points: [
       "Certificate III in Entrepreneurship and New Business (BSB30220)",
       "Certificate IV in Entrepreneurship and New Business (BSB40320)",
+      
+    ],
+    secondparagraph: [
+      
+      "Program Benefits for Eligible Participants:",
+    ],
+    secondpoints: [
       "Fully government-funded training (eligible participants)",
       "Development of a business plan tailored to your business",
       "Creation of a financial plan for your business",
       "Development of a marketing plan to drive growth",
       "Award of a nationally accredited certificate upon successful completion of the full qualification"
+    ],
+    additionalInfo: [
+      "Pathway to Small Business Coaching",
+      "Once your business plan and financial plan are successfully completed, participants may progress to Small Business Coaching, receiving 12 months of personalised mentoring and support to help implement their plans and grow their business successfully."
     ],
     additionalInfo: [
       "Pathway to Small Business Coaching",
@@ -167,11 +178,14 @@ const services = [
       "Once your business plan is complete and assessed for viability, you may progress to Small Business Coaching. This gives you access to 12 months of personalised mentoring, ongoing support, and guidance to help you implement your plan, overcome challenges, and grow your business successfully."
     ],
     points: [
-      "Create a tailored business plan for your specific business needs",
-      "Business plan assessed for commercial viability",
-      "Clear pathway to Small Business Coaching program",
-      "12 months of personalised mentoring upon progression",
-      "Ongoing support and guidance throughout the process"
+      
+    ],
+     secondparagraph: [
+      
+     
+    ],
+    secondpoints: [
+      
     ],
     modalImage: images.image_Card05,
     backgroundImage: images.image_ServicePopup05,
@@ -196,6 +210,13 @@ const services = [
       "Our one-on-one mentoring sessions are delivered by experienced mentors who bring proven business expertise, strong knowledge of small business management, and excellent communication skills.",
       "In addition to these personalised sessions, we maintain regular contact with participants, at least monthly, to provide ongoing support and guidance. This may include a phone call from your dedicated mentor/forms to be filled with any concern or invitations to participate in small business seminars and workshops, ensuring you have the assistance you need to successfully run and grow your business."
     ],
+     secondparagraph: [
+      
+     
+    ],
+    secondpoints: [
+      
+    ],
     modalImage: images.image_Card06,
     backgroundImage: images.image_ServicePopup06,
   },
@@ -204,14 +225,21 @@ const services = [
     image: images.image_Card04,
     gif: images.image_GIF04,
     paragraph: [
-      "Our Exploring Self-Employment Workshops are designed to help you understand the fundamentals of self-employment and assess if it's the right path for you.",
-      "Workshops are delivered one day a week over four weeks, giving you time to reflect and apply what you learn."
+      "Our Exploring Self-Employment Workshops are designed to help you understand the fundamentals of self-employment and assess whether it’s the right path for you. Delivered one day per week over four weeks, these workshops provide time to reflect, learn, and apply new knowledge.",
+      "Through these workshops, you will:	"
     ],
     points: [
-      "Understand what's involved in starting and managing a business",
-      "Develop or validate a business idea",
-      "Make an informed decision about pursuing self-employment",
-      "Confident first step toward starting a business"
+      "Gain a clear understanding of what starting a business involves",
+      "Generate a new business idea (if required)",
+      "Validate your existing business idea",
+      "Make an informed decision about pursuing self-employment"
+    ],
+     secondparagraph: [
+      "The Exploring Self-Employment Workshops are your first step toward confidently starting and running a successful business.",
+     
+    ],
+    secondpoints: [
+      
     ],
     modalImage: images.image_Card04,
     backgroundImage: images.image_ServicePopup04,
@@ -222,13 +250,21 @@ const services = [
     gif: images.image_GIF03,
     paragraph: [
       "A Business Health Check is a comprehensive, 3-hour one-on-one session designed to give small business owners a clear picture of how their business is performing and actionable strategies to improve. This service is ideal for both new and existing micro-businesses that want to enhance operations, increase profitability, and plan for sustainable growth.",
-      "During your Business Health Check, your provider will work closely with you to:"
+      "What the Session Covers",
+      "During your Business Health Check, your provider will work closely with you to:",
     ],
     points: [
-      "Analyse key business areas: Examine your operations, marketing, financials, and customer engagement to identify strengths and weaknesses",
-      "Identify challenges and opportunities: Pinpoint potential risks and discover growth opportunities to make your business more competitive and resilient",
-      "Connect with support services: Link you to relevant local business networks, training, or government resources that can help your business thrive",
-      "Eligible participants can access one free Business Health Check every 12 months"
+      "Analyse key business areas: Examine your operations, marketing, financials, and customer engagement to identify strengths and weaknesses.",
+      "Identify challenges and opportunities: Pinpoint potential risks and discover growth opportunities to make your business more competitive and resilient.",
+      "Connect with support services: Link you to relevant local business networks, training, or government resources that can help your business thrive.",
+      
+    ],
+     secondparagraph: [
+      
+     
+    ],
+    secondpoints: [
+     
     ],
     additionalInfo: [
       "Eligibility and Access",
@@ -244,6 +280,13 @@ const services = [
     paragraph: [
       "Our Business Advice Sessions are personalised, one-hour consultations with an experienced business advisor. Whether you are starting a new business or managing an existing one, these sessions provide practical guidance tailored to your unique needs.",
       "What You Can Use These Sessions For:"
+    ],
+     secondparagraph: [
+      
+     
+    ],
+    secondpoints: [
+      
     ],
     points: [
       "Develop strategies to improve your business's commercial viability",
@@ -658,7 +701,23 @@ const services = [
           </li>
         ))}
       </ul>
-
+ {services[serviceModalIndex].secondparagraph.map((para, idx) => (
+            <p
+              key={idx}
+              className="text-blue-800 mb-2 sm:mb-3 text-xs sm:text-sm md:text-[15px] lg:text-[16px] leading-relaxed text-center font-bold sm:text-left font-poppins"
+            >
+              {para}
+            </p>
+          ))}
+           {/* Points */}
+      <ul className="space-y-2 sm:space-y-3 text-blue-800 text-xs sm:text-sm md:text-[15px] leading-relaxed mb-6 sm:mb-7 md:mb-8 font-bold sm:text-left font-poppins">
+        {services[serviceModalIndex].secondpoints.map((point, i) => (
+          <li key={i} className="flex items-start gap-2 sm:gap-3">
+            <span className="mt-1 w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full flex-shrink-0" />
+            <span>{point}</span>
+          </li>
+        ))}
+      </ul>
       {/* Additional Information Section */}
       {services[serviceModalIndex].additionalInfo && (
         <div className="mb-6 sm:mb-7 md:mb-8">

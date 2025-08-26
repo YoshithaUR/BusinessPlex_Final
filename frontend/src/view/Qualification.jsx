@@ -24,7 +24,7 @@ const qualificationsData = [
     code: "BSB40320",
     // subtitle: "Advanced Business Development",
     skills: [
-      "Reflects the role of individuals establishing or operating a business providing  as well as those establishing a new venture as part of a larger organisation.",
+      "Reflects the role of individuals establishing or operating a business providing self employment as well as those establishing a new venture as part of a larger organisation.",
       "Self-Employment Assistance Program",
     ],
     image: images.images_qualifications02,
