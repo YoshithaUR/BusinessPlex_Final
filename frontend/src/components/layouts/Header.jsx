@@ -103,6 +103,13 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Function to handle address click and open Google Maps
+  const handleAddressClick = () => {
+    const address = "1/3 Marchant Way, Morley, WA 6062, Australia";
+    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+    window.open(googleMapsUrl, '_blank');
+  };
+
   // Check screen size for mobile/desktop images
   useEffect(() => {
     const checkScreenSize = () => {
@@ -332,10 +339,15 @@ const handleApplyNow = (serviceTitle) => {
             <span className="font-medium">INQUIRIES? CALL: 1300 894 480</span>
           </a>
           <div className="hidden lg:block h-4 w-px bg-white/30"></div>
-          <div className="hidden lg:flex items-center space-x-2 text-white">
+          <button
+            onClick={handleAddressClick}
+            className="hidden lg:flex items-center space-x-2 text-white hover:text-blue-200 transition-colors duration-200 cursor-pointer"
+            aria-label="View location on Google Maps"
+            title="Click to view location on Google Maps"
+          >
             <FaMapMarkerAlt size={12} />
             <span className="font-medium">1/3 Marchant Way, Morley, WA 6062</span>
-          </div>
+          </button>
         </div>
 
         {/* Right side - Search and notifications */}
@@ -616,7 +628,7 @@ const handleApplyNow = (serviceTitle) => {
         </div>
 
         {/* Mobile Menu Footer */}
-        <div className="p-4 border-t border-gray-200 bg-gray-50">
+        <div className="p-4 border-t border-gray-200 bg-gray-50 space-y-3">
           <a
             href="tel:1300894480"
             className="flex items-center justify-center space-x-2 w-full bg-slate-800 text-white py-3 rounded-lg font-semibold hover:bg-slate-900 transition-colors duration-200 cursor-pointer"
@@ -624,6 +636,16 @@ const handleApplyNow = (serviceTitle) => {
             <FaPhoneAlt size={16} />
             <span>Call: 1300 894 480</span>
           </a>
+          
+          {/* Mobile Address Button */}
+          <button
+            onClick={handleAddressClick}
+            className="flex items-center justify-center space-x-2 w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200 cursor-pointer group"
+            aria-label="View location on Google Maps"
+          >
+            <FaMapMarkerAlt size={16} className="group-hover:animate-bounce" />
+            <span>View Location</span>
+          </button>
         </div>
       </div>
 
