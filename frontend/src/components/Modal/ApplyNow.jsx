@@ -35,28 +35,28 @@ const ApplyNow = () => {
       <div ref={applyTriggerRef}></div>
 
       {showApplyModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-          <div className="bg-white p-4 rounded-lg shadow-lg w-72 relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <div className="bg-white p-8 rounded-xl shadow-2xl w-96 max-w-md mx-4 relative">
             <button
               onClick={() => {
                 setShowApplyModal(false);
                 setHasManuallyClosed(true);
               }}
-              className="absolute top-2 right-2 text-gray-600 hover:text-red-500 cursor-pointer focus:outline-none"
+              className="absolute top-3 right-3 text-gray-600 hover:text-red-500 cursor-pointer focus:outline-none text-lg"
               title="Close"
             >
               <FaTimes />
             </button>
-            <h2 className="text-xl font-bold mb-4 text-center text-green-700">
+            <h2 className="text-2xl font-bold mb-6 text-center text-green-700">
               {/* Ready to Enroll? */}
             </h2>
-            <p className="text-sm mb-4 text-center text-gray-700">
-              Ready to start your business journey?
+            <p className="text-base mb-6 text-center text-gray-700">
+             Ready to start your business journey?
             </p>
             <div className="flex justify-center">
               <a
                 href="./ApplicationForm"
-                className="inline-block w-full text-center bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-800 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                className="inline-block w-full text-center bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-800 text-white px-8 py-4 rounded-lg font-semibold shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
               >
                 Apply Now
               </a>
