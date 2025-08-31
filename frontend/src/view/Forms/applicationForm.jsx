@@ -467,8 +467,8 @@ const ApplicationForm = () => {
                   className="w-full px-4 py-3 bg-white border border-yellow-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-gray-900"
                 >
                   <option value="" className="text-gray-500">Select Program Type</option>
-                  <option value="Small Business Training - Certificate III">Small Business Training - Certificate III</option>
-                  <option value="Small Business Training - Certificate IV">Small Business Training - Certificate IV</option>
+                  <option value="Small Business Training - Certificate III in Entrepreneurship and New Business">Small Business Training - Certificate III in Entrepreneurship and New Business</option>
+                  <option value="Small Business Training - Certificate IV in Entrepreneurship and New Business(must have completed Cert III)">Small Business Training - Certificate IV in Entrepreneurship and New Business(must have completed Cert III)</option>
                   <option value="Exploring Self-Employment Workshop">Exploring Self-Employment Workshop</option>
                   <option value="Business Advice Session">Business Advice Session</option>
                   <option value="Business Health Check">Business Health Check</option>

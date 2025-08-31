@@ -15,6 +15,7 @@ import {
   FaBell,
   FaChevronDown,
   FaFileAlt,
+  FaUserGraduate,
 } from "react-icons/fa";
 
 import images from "../../assets/Images/images";
@@ -46,32 +47,35 @@ const NAV_ITEMS = [
   { to: "/about", label: "About" },
   { to: "/qualifications", label: "Qualification" },
   // { to: "/trainingResources", label: "Training Resources" },
-  {
-    to: "#",
-    label: "Forms",
-    hasDropdown: true,
-    dropdownItems: [
-      { to: "/applicationForm", label: "Application Form", type: "route" },
-      { to: "/enrolment", label: "Enrolment Form", type: "route" },
-      { to: "/expressionOfInterest", label: "ExpressionOfInterest Form", type: "route" },
-      { to: "/monthlyFeedbackForm", label: "MonthlyFeedbackForm Form", type: "route" },
-      // {
-      //   to: pdf.pdf_businessRegistration,
-      //   label: "Business Registration Form",
-      //   type: "pdf",
-      // },
-      // {
-      //   to: pdf.pdf_expression_pdf,
-      //   label: "Expression of Interest Form",
-      //   type: "pdf",
-      // },
-      // { to: pdf.pdf_feedback, label: "Monthly Feedback Form", type: "pdf" },
-    ],
-  },
+  // {
+  //   to: "#",
+  //   label: "Forms",
+  //   hasDropdown: true,
+  //   dropdownItems: [
+  //     { to: "/applicationForm", label: "Application Form", type: "route" },
+  //     { to: "/enrolment", label: "Enrolment Form", type: "route" },
+  //     { to: "/expressionOfInterest", label: "ExpressionOfInterest Form", type: "route" },
+  //     { to: "/monthlyFeedbackForm", label: "MonthlyFeedbackForm Form", type: "route" },
+  //     // {
+  //     //   to: pdf.pdf_businessRegistration,
+  //     //   label: "Business Registration Form",
+  //     //   type: "pdf",
+  //     // },
+  //     // {
+  //     //   to: pdf.pdf_expression_pdf,
+  //     //   label: "Expression of Interest Form",
+  //     //   type: "pdf",
+  //     // },
+  //     // { to: pdf.pdf_feedback, label: "Monthly Feedback Form", type: "pdf" },
+  //   ],
+  // },
   { to: "/policies", label: "Our Policies" },
+  { to: "/ApplicationForm", label: "Apply Now" },
   {
     to: "https://businessplex.e-learnme.com.au/login/index.php",
     label: "Student Login",
+    isIcon: true,
+    iconType: "login",
   },
 ];
 
@@ -106,6 +110,13 @@ const Header = () => {
   // Function to handle address click and open Google Maps
   const handleAddressClick = () => {
     const address = "1/3 Marchant Way, Morley, WA 6062, Australia";
+    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+    window.open(googleMapsUrl, '_blank');
+  };
+
+  // Function to handle second address click and open Google Maps
+  const handleSecondAddressClick = () => {
+    const address = "16/30 Hasler Road, Osborne Park, WA 6017, Australia";
     const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
     window.open(googleMapsUrl, '_blank');
   };
@@ -348,6 +359,16 @@ const handleApplyNow = (serviceTitle) => {
             <FaMapMarkerAlt size={12} />
             <span className="font-medium">1/3 Marchant Way, Morley, WA 6062</span>
           </button>
+          <div className="hidden lg:block h-4 w-px bg-white/30"></div>
+          <button
+            onClick={handleSecondAddressClick}
+            className="hidden lg:flex items-center space-x-2 text-white hover:text-blue-200 transition-colors duration-200 cursor-pointer"
+            aria-label="View second location on Google Maps"
+            title="Click to view second location on Google Maps"
+          >
+            <FaMapMarkerAlt size={12} />
+            <span className="font-medium">16/30 Hasler Road, Osborne Park, WA 6017</span>
+          </button>
         </div>
 
         {/* Right side - Search and notifications */}
@@ -428,16 +449,16 @@ const handleApplyNow = (serviceTitle) => {
   );
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden  bg-gradient-to-br from-white via-green-50 to-yellow-50 ">
+    <div className="relative w-full bg-gradient-to-br from-white via-green-50 to-yellow-50">
       <BlueNavBar />
 
-      {/* Main Navigation - Fixed spacing issues */}
+      {/* Main Navigation - Updated with larger logo and icon for student login */}
       <nav className="fixed top-[40px] left-0 w-full z-40 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-3">
-            {/* Logo */}
+            {/* Logo - Original size and positioned more to the left */}
             <div
-              className="flex items-center space-x-3 flex-shrink-0 cursor-pointer"
+              className="flex items-center space-x-3 flex-shrink-0 cursor-pointer -ml-4"
               onClick={() => handleNavClick("/")}
             >
               <img src={logo} alt="BusinessPlex Logo" className="h-15 w-auto" />
@@ -506,6 +527,24 @@ const handleApplyNow = (serviceTitle) => {
                         </div>
                       )}
                     </>
+                  ) : item.isIcon ? (
+                    // Icons for Apply Now and Student Login
+                    <button
+                      onClick={() => handleNavClick(item.to)}
+                      className={`flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-200 cursor-pointer group ${
+                        item.iconType === "apply"
+                          ? "bg-gradient-to-r from-slate-800 to-blue-600 hover:from-slate-900 hover:to-blue-700 text-white shadow-lg hover:shadow-xl"
+                          : "text-black hover:text-gray-600 hover:bg-gray-100"
+                      }`}
+                      title={item.label}
+                      aria-label={item.label}
+                    >
+                      {item.iconType === "apply" ? (
+                        <FaPaperPlane size={16} className="group-hover:scale-110 transition-transform duration-200" />
+                      ) : (
+                        <FaUserGraduate size={20} className="group-hover:scale-110 transition-transform duration-200" />
+                      )}
+                    </button>
                   ) : (
                     <button
                       onClick={() => handleNavClick(item.to)}
@@ -611,6 +650,27 @@ const handleApplyNow = (serviceTitle) => {
                     </div>
                   )}
                 </>
+              ) : item.isIcon ? (
+                // Icons for Apply Now and Student Login in mobile
+                <button
+                  onClick={() => handleNavClick(item.to)}
+                  className="w-full flex items-center px-6 py-4 text-gray-700 hover:bg-gray-50 hover:text-slate-800 transition-colors duration-200 border-l-4 border-transparent hover:border-slate-800 cursor-pointer"
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                      item.iconType === "apply"
+                        ? "bg-gradient-to-r from-slate-800 to-blue-600 text-white"
+                        : "bg-gray-200 text-gray-700"
+                    }`}>
+                      {item.iconType === "apply" ? (
+                        <FaPaperPlane size={14} />
+                      ) : (
+                        <FaUserGraduate size={14} />
+                      )}
+                    </div>
+                    <span className="font-medium">{item.label}</span>
+                  </div>
+                </button>
               ) : (
                 <button
                   onClick={() => handleNavClick(item.to)}
@@ -637,23 +697,32 @@ const handleApplyNow = (serviceTitle) => {
             <span>Call: 1300 894 480</span>
           </a>
           
-          {/* Mobile Address Button */}
+          {/* Mobile Address Buttons */}
           <button
             onClick={handleAddressClick}
             className="flex items-center justify-center space-x-2 w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200 cursor-pointer group"
             aria-label="View location on Google Maps"
           >
             <FaMapMarkerAlt size={16} className="group-hover:animate-bounce" />
-            <span>View Location</span>
+            <span>Morley Location</span>
+          </button>
+          
+          <button
+            onClick={handleSecondAddressClick}
+            className="flex items-center justify-center space-x-2 w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 cursor-pointer group"
+            aria-label="View second location on Google Maps"
+          >
+            <FaMapMarkerAlt size={16} className="group-hover:animate-bounce" />
+            <span>Osborne Park Location</span>
           </button>
         </div>
       </div>
 
-      {/* Slideshow Section - Removed top padding and margin */}
-      <div className="relative mt-[88px]">
+      {/* Slideshow Section - Full viewport coverage */}
+      <div className="relative mt-[88px] md:mt-[88px]">
         <div
           ref={slideshowRef}
-          className="relative w-full h-[70vh] sm:h-[75vh] md:h-[80vh] lg:h-[85vh] overflow-hidden bg-gray-900"
+          className="relative w-full h-[calc(100vh-88px)] overflow-hidden bg-gray-900"
         >
           {getCurrentImages().map((src, index) => (
             <div
@@ -734,8 +803,8 @@ const handleApplyNow = (serviceTitle) => {
       {/* Header End Reference Point */}
       <div ref={headerEndRef} className="w-full h-0"></div>
 
-      {/* Contact Button - Fixed positioning */}
-      {showContactButton && (
+      {/* Contact Button - Now hidden since Apply Now is in navbar */}
+      {false && showContactButton && (
         <div className="fixed top-[125px] right-4 z-10">
           <button
             onClick={() => (window.location.href = "/ApplicationForm")}

@@ -122,178 +122,270 @@ const Home = () => {
     });
   }, []);
   const logos = [
+    images.image_partnes05,
     images.image_partnes01,
     images.image_partnes02,
     images.image_partnes03,
-    images.image_partnes04,
-    images.image_partnes05,
     images.image_partnes06,
-    images.image_partnes07,
-    images.image_partnes08,
+    images.image_partnes04,
+    
+    // images.image_partnes07,
+    // images.image_partnes08,
   ];
 const services = [
   {
-    title: "",
+    title: "Small Business Training",
     image: images.image_Card01,
     gif: images.image_GIF01,
     link: "./ApplicationForm",
     paragraph: [
-      "Our Small Business Training equips participants with the essential skills to start, manage, and grow a successful business. As part of the program, you'll also develop a comprehensive business plan to guide your business strategy and long-term goals.",
+      "Our Small Business Training equips participants with the essential skills to start, manage, and grow a successful business. As part of the program, you’ll also develop a comprehensive business plan to guide your business strategy and long-term goals.",
       "Training is delivered two days per week over four weeks, with flexible online and classroom options available.",
-      "Nationally Accredited Qualifications:"
     ],
-    points: [
-      "Certificate III in Entrepreneurship and New Business (BSB30220)",
-      "Certificate IV in Entrepreneurship and New Business (BSB40320)",
-      
+    
+    // Enhanced structure with 4 subtopics
+    subtopics: [
+      {
+        title: "Nationally Accredited Qualifications:",
+        points: [
+          "Certificate III in Entrepreneurship and New Business (BSB30220)",
+          "Certificate IV in Entrepreneurship and New Business (BSB40320)",
+        ]
+      },
+      {
+        title: "Program Benefits for Eligible Participants:",
+        points: [
+          "Fully government-funded training",
+          "Development of a business plan tailored to your business",
+          "Creation of a financial plan for your business",
+          "Development of a marketing plan to drive growth",
+          "Award of a nationally accredited certificate upon successful completion of the full qualification"
+        ]
+      },
+      {
+        title: " Pathway to Small Business Coaching",
+        points: [
+          "Once your business plan and financial plan are successfully completed, participants may progress to Small Business Coaching, receiving 12 months of personalised mentoring and support to help implement their plans and grow their business successfully."
+        ]
+      },
+      {
+        title: "",
+        points: [
+         
+        ]
+      }
     ],
-    secondparagraph: [
-      
-      "Program Benefits for Eligible Participants:",
-    ],
-    secondpoints: [
-      "Fully government-funded training (eligible participants)",
-      "Development of a business plan tailored to your business",
-      "Creation of a financial plan for your business",
-      "Development of a marketing plan to drive growth",
-      "Award of a nationally accredited certificate upon successful completion of the full qualification"
-    ],
-    additionalInfo: [
-      "Pathway to Small Business Coaching",
-      "Once your business plan and financial plan are successfully completed, participants may progress to Small Business Coaching, receiving 12 months of personalised mentoring and support to help implement their plans and grow their business successfully."
-    ],
-    additionalInfo: [
-      "Pathway to Small Business Coaching",
-      "Once your business plan and financial plan are successfully completed, participants may progress to Small Business Coaching, receiving 12 months of personalised mentoring and support to help implement their plans and grow their business successfully."
-    ],
+    
     modalImage: images.image_Card01,
     backgroundImage: images.image_ServicePopup01,
   },
   {
-    title: "",
+    title: "Business Plan Development",
     image: images.image_Card05,
     gif: images.image_GIF05,
     paragraph: [
       "Participants who choose not to enrol in Small Business Training can access the Business Plan Development service directly. A well-prepared business plan is essential for new and existing micro-business owners, helping them clearly define the steps necessary to achieve success.",
       "Once your business plan is complete and assessed for viability, you may progress to Small Business Coaching. This gives you access to 12 months of personalised mentoring, ongoing support, and guidance to help you implement your plan, overcome challenges, and grow your business successfully."
     ],
-    points: [
-      
+    
+    subtopics: [
+      {
+        title: "",
+        points: [
+          
+        ]
+      },
+      {
+        title: "",
+        points: [
+          
+        ]
+      },
+      {
+        title: "",
+        points: [
+         
+        ]
+      },
+      {
+        title: "",
+        points: [
+          
+        ]
+      }
     ],
-     secondparagraph: [
-      
-     
-    ],
-    secondpoints: [
-      
-    ],
+    
     modalImage: images.image_Card05,
     backgroundImage: images.image_ServicePopup05,
   },
   {
-    title: "",
+    title: "Small Business Coaching",
     image: images.image_Card06,
     gif: images.image_GIF06,
     paragraph: [
       "Our Small Business Coaching program provides 12 months of personalised mentoring and support to help you successfully start and manage your small business.",
-      "Under Small Business Coaching, eligible participants can benefit from:"
-    ],
-    points: [
-      "Earning unlimited business income",
-      "Access up to $300 for eligible business costs (e.g.: business insurance, registration etc)",
-      "Access self-employment allowance payments for up to 39 weeks",
-      "Access self-employment rental assistance payments for up to 26 weeks (if eligible)",
-      "Access free mentoring session every 2 months over the course of Small Business Coaching Agreement"
-    ],
-    additionalInfo: [
-      "One-on-One Mentoring Sessions",
-      "Our one-on-one mentoring sessions are delivered by experienced mentors who bring proven business expertise, strong knowledge of small business management, and excellent communication skills.",
-      "In addition to these personalised sessions, we maintain regular contact with participants, at least monthly, to provide ongoing support and guidance. This may include a phone call from your dedicated mentor/forms to be filled with any concern or invitations to participate in small business seminars and workshops, ensuring you have the assistance you need to successfully run and grow your business."
-    ],
-     secondparagraph: [
-      
      
     ],
-    secondpoints: [
-      
+    
+    subtopics: [
+      {
+        title: "Under Small Business Coaching, eligible participants can benefit from:",
+        points: [
+          "Earning unlimited business income",
+          "Access up to $300 for eligible business costs (e.g.: business insurance, registration etc)",
+          "Access self-employment allowance payments for up to 39 weeks",
+          "Access self-employment rental assistance payments for up to 26 weeks (if eligible)",
+          "Access free mentoring session every 2 months over the course of Small Business Coaching Agreement"
+        ]
+      },
+      {
+        title: "One-on-One Mentoring Sessions",
+        points: [
+          "Our one-on-one mentoring sessions are delivered by experienced mentors who bring proven business expertise, strong knowledge of small business management, and excellent communication skills.",
+          "In addition to these personalised sessions, we maintain regular contact with participants, at least monthly, to provide ongoing support and guidance. This may include a phone call from your dedicated mentor/forms to be filled with any concern or invitations to participate in small business seminars and workshops, ensuring you have the assistance you need to successfully run and grow your business.",
+          
+        ]
+      },
+      {
+        title: "",
+        points: [
+          
+        ]
+      },
+      {
+        title: "",
+        points: [
+         
+        ]
+      }
     ],
+    
     modalImage: images.image_Card06,
     backgroundImage: images.image_ServicePopup06,
   },
   {
-    title: "",
+    title: "Exploring Self-Employment Workshop",
     image: images.image_Card04,
     gif: images.image_GIF04,
     paragraph: [
       "Our Exploring Self-Employment Workshops are designed to help you understand the fundamentals of self-employment and assess whether it’s the right path for you. Delivered one day per week over four weeks, these workshops provide time to reflect, learn, and apply new knowledge.",
-      "Through these workshops, you will:	"
     ],
-    points: [
-      "Gain a clear understanding of what starting a business involves",
-      "Generate a new business idea (if required)",
-      "Validate your existing business idea",
-      "Make an informed decision about pursuing self-employment"
+    
+    subtopics: [
+      {
+        title: "Through these workshops, you will:",
+        points: [
+          "Gain a clear understanding of what starting a business involves",
+          "Generate a new business idea (if required)",
+          "Validate your existing business idea",
+          "Make an informed decision about pursuing self-employment"
+        ]
+      },
+      {
+        title: "Exploring Self-Employment Workshop",
+        points: [
+          "The Exploring Self-Employment Workshops are your first step toward confidently starting and running a successful business."
+        ]
+      },
+      {
+        title: "",
+        points: [
+          
+        ]
+      },
+      {
+        title: "",
+        points: [
+          
+        ]
+      }
     ],
-     secondparagraph: [
-      "The Exploring Self-Employment Workshops are your first step toward confidently starting and running a successful business.",
-     
-    ],
-    secondpoints: [
-      
-    ],
+    
     modalImage: images.image_Card04,
     backgroundImage: images.image_ServicePopup04,
   },
   {
-    title: "",
+    title: "Business Health check",
     image: images.image_Card03,
     gif: images.image_GIF03,
     paragraph: [
-      "A Business Health Check is a comprehensive, 3-hour one-on-one session designed to give small business owners a clear picture of how their business is performing and actionable strategies to improve. This service is ideal for both new and existing micro-businesses that want to enhance operations, increase profitability, and plan for sustainable growth.",
-      "What the Session Covers",
-      "During your Business Health Check, your provider will work closely with you to:",
-    ],
-    points: [
-      "Analyse key business areas: Examine your operations, marketing, financials, and customer engagement to identify strengths and weaknesses.",
-      "Identify challenges and opportunities: Pinpoint potential risks and discover growth opportunities to make your business more competitive and resilient.",
-      "Connect with support services: Link you to relevant local business networks, training, or government resources that can help your business thrive.",
+      "A Business Health Check is a comprehensive, 3-hour one-on-one session designed to give small business owners a clear picture of how their business is performing and actionable strategies to improve. This service is ideal for both new and existing micro-businesses that want to enhance operations, increase profitability, and plan for sustainable growth",
       
     ],
-     secondparagraph: [
-      
-     
+    
+    subtopics: [
+      {
+       
+        title: "What the Session Covers.",
+        points: [
+         
+          
+        ]
+      },
+      {
+        title: " During your Business Health Check, your provider will work closely with you to:",
+        points: [
+          "Analyse key business areas: Examine your operations, marketing, financials, and customer engagement to identify strengths and weaknesses.",
+          "Identify challenges and opportunities: Pinpoint potential risks and discover growth opportunities to make your business more competitive and resilient.",
+          "Connect with support services: Link you to relevant local business networks, training, or government resources that can help your business thrive.",
+        ]
+      },
+      {
+        title: "Eligibility and Access",
+        points: [
+          "If eligible, participants can access one free Business Health Check every 12 months, providing ongoing expert guidance to ensure your business stays on track and continues to grow.",
+         
+        ]
+      },
+      {
+        title: "",
+        points: [
+          
+        ]
+      }
     ],
-    secondpoints: [
-     
-    ],
-    additionalInfo: [
-      "Eligibility and Access",
-      "If eligible, participants can access one free Business Health Check every 12 months, providing ongoing expert guidance to ensure your business stays on track and continues to grow."
-    ],
+    
     modalImage: images.image_Card03,
     backgroundImage: images.image_ServicePopup03,
   },
   {
-    title: "",
+    title: "Business Advice",
     image: images.image_Card02,
     gif: images.image_GIF02,
     paragraph: [
       "Our Business Advice Sessions are personalised, one-hour consultations with an experienced business advisor. Whether you are starting a new business or managing an existing one, these sessions provide practical guidance tailored to your unique needs.",
-      "What You Can Use These Sessions For:"
     ],
-     secondparagraph: [
-      
-     
+    
+    subtopics: [
+      {
+        title: "What You Can Use These Sessions For",
+        points: [
+          "Develop strategies to improve your business’s commercial viability",
+          "Receive advice on a wide range of small business topics",
+          "Get referrals to other relevant business support networks",
+          "Eligible participants can access up to 2 free sessions every 12 months, helping you make informed decisions and strengthen your business for long-term success."
+        ]
+      },
+      {
+        title: "",
+        points: [
+          
+        ]
+      },
+      {
+        title: "",
+        points: [
+         
+        ]
+      },
+      {
+        title: "",
+        points: [
+         
+        ]
+      }
     ],
-    secondpoints: [
-      
-    ],
-    points: [
-      "Develop strategies to improve your business's commercial viability",
-      "Receive advice on a wide range of small business topics",
-      "Get referrals to other relevant business support networks",
-      "Eligible participants can access up to 2 free sessions every 12 months, helping you make informed decisions and strengthen your business for long-term success"
-    ],
+    
     modalImage: images.image_Card02,
     backgroundImage: images.image_ServicePopup02,
   },
@@ -351,14 +443,26 @@ const services = [
       />
       {/* Business Support Services Section */}
 
-      <section className="relative bg-gradient-to-br from-white via-green-50 to-yellow-50 py-30 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
-        <div className="max-w-6xl mx-auto text-center">
+     <section className="relative bg-gradient-to-br from-white via-green-50 to-yellow-50 py-40 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
+        {/* Hero Image - Option 2: Featured Image */}
+          <div 
+            data-aos="fade-up"
+            data-aos-delay="250"
+            className="mb-10"
+          >
+            <img 
+              src={images.image_yearimg}
+              alt="Business meeting and entrepreneurship"
+              className="w-50 max-w-4xl mx-auto rounded-2xl shadow-2xl"
+            />
+          </div>
+        <div className="max-w-6xl mx-auto text-center relative z-10">
           {/* Tagline */}
           <h1
             data-aos="fade-up"
             className="text-4xl md:text-5xl font-extrabold text-black mb-4 py-10"
           >
-            “Best place to start your own business’’
+            "Best place to start your own business"
           </h1>
           <p
             data-aos="fade-up"
@@ -368,6 +472,8 @@ const services = [
             Thinking of starting a business or taking the existing business to
             the next level?
           </p>
+
+         
 
           {/* Description */}
           <p
@@ -426,7 +532,6 @@ const services = [
             >
               <FaLightbulb className="text-4xl text-blue-800 mb-4" />
               <h4 className="text-xl font-semibold text-gray-800 mb-2">
-                {" "}
                 Mentoring
               </h4>
               <p className="text-sm text-gray-600">
@@ -646,45 +751,49 @@ const services = [
   </div>
 </section>
 
-
-      {/* Service Modal */}
-      {serviceModalIndex !== null && (
+{/* Enhanced Service Modal with Smooth Tailwind Animations */}
+{serviceModalIndex !== null && (
   <div
-    className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
+    className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 animate-fade-in"
     onClick={closeServiceModal}
   >
-    {/* Background Image Overlay */}
-    <div className="absolute inset-0 bg-black/80" aria-hidden="true" />
+    {/* Background Image Overlay with smooth fade */}
+    <div 
+      className="absolute inset-0 bg-black/80 transition-opacity duration-500 ease-out animate-fade-in" 
+      aria-hidden="true"
+    />
 
-    {/* Blurred Background Image */}
+    {/* Blurred Background Image with scale animation */}
     <div
-      className="absolute inset-0 bg-center bg-cover filter blur-sm scale-105"
+      className="absolute inset-0 bg-center bg-cover filter blur-sm transition-all duration-700 ease-out animate-scale-in"
       style={{
         backgroundImage: `url(${services[serviceModalIndex].backgroundImage})`,
       }}
       aria-hidden="true"
     />
 
-    {/* Content Modal */}
+    {/* Content Modal with enhanced animations */}
     <div
-      className="relative bg-white/60 backdrop-blur-md rounded-xl p-3 sm:p-4 md:p-6 max-w-full sm:max-w-lg md:max-w-2xl lg:max-w-4xl w-full shadow-2xl overflow-y-auto max-h-[90vh] sm:max-h-[85vh] md:max-h-[80vh] border border-white/20"
+      className="relative bg-white/70 backdrop-blur-lg rounded-2xl p-3 sm:p-4 md:p-6 max-w-full sm:max-w-lg md:max-w-2xl lg:max-w-5xl w-full shadow-2xl overflow-y-auto max-h-[90vh] sm:max-h-[85vh] md:max-h-[80vh] border border-white/30 transform transition-all duration-500 ease-out animate-slide-up"
       onClick={(e) => e.stopPropagation()}
     >
-      {/* Top Section */}
-      <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 md:gap-6 mb-4 sm:mb-5 md:mb-6">
+      {/* Top Section with smooth slide animation */}
+      <div 
+        className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 md:gap-6 mb-4 sm:mb-5 md:mb-6 animate-slide-in-left animation-delay-200"
+      >
         <img
           src={services[serviceModalIndex].modalImage}
           alt={services[serviceModalIndex].title}
-          className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-lg shadow-lg object-cover flex-shrink-0"
+          className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-xl shadow-xl object-cover flex-shrink-0 transform transition-all duration-300 hover:scale-105"
         />
         <div className="flex-1">
-          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-black mb-2 sm:mb-3 md:mb-4 text-center sm:text-left">
+          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-black mb-2 sm:mb-3 md:mb-4 text-center sm:text-left transform transition-all duration-300">
             {services[serviceModalIndex].title}
           </h2>
           {services[serviceModalIndex].paragraph.map((para, idx) => (
             <p
               key={idx}
-              className="text-blue-800 mb-2 sm:mb-3 text-xs sm:text-sm md:text-[15px] lg:text-[16px] leading-relaxed text-center font-bold sm:text-left font-poppins"
+              className={`text-blue-800 mb-2 sm:mb-3 text-xs sm:text-sm md:text-[15px] lg:text-[16px] leading-relaxed text-center font-bold sm:text-left font-poppins transform transition-all duration-500 animate-fade-in-up animation-delay-${300 + idx * 100}`}
             >
               {para}
             </p>
@@ -692,64 +801,53 @@ const services = [
         </div>
       </div>
 
-      {/* Points */}
-      <ul className="space-y-2 sm:space-y-3 text-blue-800 text-xs sm:text-sm md:text-[15px] leading-relaxed mb-6 sm:mb-7 md:mb-8 font-bold sm:text-left font-poppins">
-        {services[serviceModalIndex].points.map((point, i) => (
-          <li key={i} className="flex items-start gap-2 sm:gap-3">
-            <span className="mt-1 w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full flex-shrink-0" />
-            <span>{point}</span>
-          </li>
-        ))}
-      </ul>
- {services[serviceModalIndex].secondparagraph.map((para, idx) => (
-            <p
-              key={idx}
-              className="text-blue-800 mb-2 sm:mb-3 text-xs sm:text-sm md:text-[15px] lg:text-[16px] leading-relaxed text-center font-bold sm:text-left font-poppins"
+      {/* Enhanced Subtopics Section with staggered animations */}
+      {services[serviceModalIndex].subtopics && (
+        <div className="space-y-6 sm:space-y-7 md:space-y-8">
+          {services[serviceModalIndex].subtopics.map((subtopic, idx) => (
+            <div 
+              key={idx} 
+              className={`mb-6 transform transition-all duration-300 hover:scale-[1.02] animate-slide-in-right animation-delay-${400 + idx * 100}`}
             >
-              {para}
-            </p>
-          ))}
-           {/* Points */}
-      <ul className="space-y-2 sm:space-y-3 text-blue-800 text-xs sm:text-sm md:text-[15px] leading-relaxed mb-6 sm:mb-7 md:mb-8 font-bold sm:text-left font-poppins">
-        {services[serviceModalIndex].secondpoints.map((point, i) => (
-          <li key={i} className="flex items-start gap-2 sm:gap-3">
-            <span className="mt-1 w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full flex-shrink-0" />
-            <span>{point}</span>
-          </li>
-        ))}
-      </ul>
-      {/* Additional Information Section */}
-      {services[serviceModalIndex].additionalInfo && (
-        <div className="mb-6 sm:mb-7 md:mb-8">
-          <h3 className="text-base sm:text-lg md:text-xl font-bold text-black mb-3 sm:mb-4 font-poppins">
-            {services[serviceModalIndex].additionalInfo[0]}
-          </h3>
-          {services[serviceModalIndex].additionalInfo.slice(1).map((info, idx) => (
-            <p
-              key={idx}
-              className="text-blue-800 mb-2 sm:mb-3 text-xs sm:text-sm md:text-[15px] lg:text-[16px] leading-relaxed font-bold font-poppins"
-            >
-              {info}
-            </p>
+              {/* Bold Black Subtopic Title with hover effect */}
+              <h3 className="text-base sm:text-lg md:text-xl font-bold text-black mb-3 sm:mb-4 font-poppins transition-colors duration-300 hover:text-blue-800">
+                {subtopic.title}
+              </h3>
+              
+              {/* Points for this subtopic with staggered fade-in */}
+              <ul className="space-y-2 sm:space-y-3 text-blue-800 text-xs sm:text-sm md:text-[15px] leading-relaxed font-bold font-poppins">
+                {subtopic.points.map((point, i) => (
+                  <li 
+                    key={i} 
+                    className={`flex items-start gap-2 sm:gap-3 transform transition-all duration-300 hover:translate-x-2 animate-fade-in-left animation-delay-${500 + idx * 100 + i * 50}`}
+                  >
+                    <span className="mt-1 w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full flex-shrink-0 animate-pulse" />
+                    <span className="transition-colors duration-300 hover:text-blue-900">{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
         </div>
       )}
 
-     {/* CTA Button */}
-      <div className="flex justify-center">
+      {/* CTA Button with enhanced animation */}
+      <div 
+        className="flex justify-center mt-8 animate-bounce-in animation-delay-800"
+      >
         <button
           onClick={() => handleApplyNow(services[serviceModalIndex].title)}
-          className="group bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full shadow-lg transition-colors duration-300 flex items-center gap-2 text-xs sm:text-sm md:text-base"
+          className="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 rounded-full shadow-xl transition-all duration-300 flex items-center gap-3 text-sm sm:text-base md:text-lg transform hover:scale-105 hover:shadow-2xl"
         >
           Apply Now
-          <span className="transition-transform duration-300 group-hover:translate-x-2">👉</span>
+          <span className="transition-transform duration-300 group-hover:translate-x-2 group-hover:scale-110">👉</span>
         </button>
       </div>
 
-      {/* Close Button */}
+      {/* Close Button with smooth hover effects */}
       <button
         onClick={closeServiceModal}
-        className="absolute top-2 sm:top-3 right-3 sm:right-4 text-white hover:text-red-500 font-bold text-xl sm:text-2xl md:text-3xl"
+        className="absolute top-3 sm:top-4 right-4 sm:right-5 text-white hover:text-red-400 font-bold text-2xl sm:text-3xl md:text-4xl transition-all duration-300 transform hover:scale-110 hover:rotate-90 bg-black/30 hover:bg-red-500/30 rounded-full w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center backdrop-blur-sm"
         aria-label="Close modal"
       >
         &times;
@@ -781,17 +879,17 @@ const services = [
                 onClick={() => navigate("/ApplicationForm")}
                 data-aos="slide-right"
                 data-aos-delay="200"
-                className="w-full sm:w-auto bg-white text-blue-600 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg transform hover:scale-105"
+                className="w-50 sm:w-auto bg-white text-blue-600 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg transform hover:scale-105"
               >
                 Apply Now
               </button>
-              <button
+              {/* <button
                 data-aos="slide-left"
                 data-aos-delay="400"
                 className="w-full sm:w-auto border-2 border-white text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105"
               >
                 <a href={pdf.pdf_StudentInformation}>Student Handbook</a>
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
@@ -1463,32 +1561,32 @@ const services = [
 
       {/* Partners */}
 <section className="bg-gradient-to-br from-white via-green-50 to-emerald-100 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
-  <div className="max-w-6xl mx-auto text-center">
-    <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 relative inline-block">
-      <span className="relative z-10">Our Trusted Partners</span>
-    </h2>
-    <p className="text-gray-600 text-lg mb-14 max-w-2xl mx-auto">
-      We proudly collaborate with these industry leaders to drive
-      innovation and excellence.
-    </p>
-
-    {/* Logos grid: 4 per row on lg screens */}
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
-      {logos.slice(0, 8).map((logo, index) => (
-        <div
-          key={index}
-          className="bg-white/40 backdrop-blur-md border border-white/30 shadow-lg hover:shadow-2xl rounded-2xl p-6 flex items-center justify-center transition-transform hover:scale-105 duration-300 w-full h-28"
-        >
-          <img
-            src={logo}
-            alt={`Logo ${index + 1}`}
-            className="h-20 w-auto object-contain transition duration-300"
-          />
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 relative inline-block">
+          <span className="relative z-10">Our Trusted Partners</span>
+        </h2>
+        <p className="text-gray-600 text-lg mb-14 max-w-2xl mx-auto">
+          We proudly collaborate with these industry leaders to drive
+          innovation and excellence.
+        </p>
+        
+        {/* Logos grid: 3 per row with better balance */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {logos.map((logo, index) => (
+            <div
+              key={index}
+              className="bg-white/40 backdrop-blur-md border border-white/30 shadow-lg hover:shadow-2xl rounded-2xl p-6 flex items-center justify-center transition-transform hover:scale-105 duration-300 w-full h-32"
+            >
+              <img
+                src={logo}
+                alt={`Partner ${index + 1}`}
+                className="h-20 w-auto object-contain transition duration-300 max-w-full"
+              />
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </div>
+    </section>
       {/* Branding */}
       {/* <section className="bg-gradient-to-br from-white via-green-50 to-yellow-50 py-12">
   <div className="max-w-6xl mx-auto px-4">

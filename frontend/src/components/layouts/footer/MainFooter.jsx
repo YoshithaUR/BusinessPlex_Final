@@ -11,9 +11,11 @@ import {
   FaArrowRight,
   FaCheck,
   FaInstagram,
+ 
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import axiosInstance from "../../../api/api";
+
 
 // Email validation functions
 const isValidSyntax = (email) => {
@@ -237,7 +239,7 @@ const MainFooter = () => {
           rel="noopener noreferrer"
           className="hover:text-blue-400 transition-colors duration-200"
         >
-         Other Location : 16/30 Hasler Road, Osborne Park, WA 6017
+         Based on Appointments : 16/30 Hasler Road, Osborne Park, WA 6017
         </a>
       ),
     },
@@ -250,6 +252,20 @@ const MainFooter = () => {
         >
           Free call: 1300 894 480
         </a>
+        
+      ),
+    },
+     {
+        icon: <FaPhoneAlt className="flex-shrink-0 mt-1 text-gray-900 py-3" size={14} />,
+      content: (
+        
+        <a
+          
+          className="hover:text-blue-400 transition-colors duration-200"
+        >
+         Add RTO: 45725
+        </a>
+        
       ),
     },
     {

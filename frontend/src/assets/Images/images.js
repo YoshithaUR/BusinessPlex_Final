@@ -64,6 +64,8 @@ import image_Footer7 from "./AllLogos/Workforce_Australia_Businessplex_Quality_L
 
 import image_logo from "./HomeSlideShow/logo.png";
 
+import image_yearimg from "./AllLogos/40 Years of SEA Logo Transparent.png";
+
 // About
 import image_abouteHome01 from "./Aboute/abouteHome.jpg";
 import image_aboutBG01 from "./Aboute/aboutBG01.jpg";
@@ -287,6 +289,8 @@ const images = {
   images_logo03,
   images_logo04,
   images_logo05,
+
+  image_yearimg,
 
   // Qualifications
   images_qualifications01,
