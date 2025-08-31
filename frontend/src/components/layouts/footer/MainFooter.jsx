@@ -202,18 +202,18 @@ const MainFooter = () => {
     { href: "/", label: "Home" },
     { href: "/about", label: "About Us" },
     { href: "/qualifications", label: "Qualifications" },
-    { href: "/trainingResources", label: "Training Resources" },
+    // { href: "/trainingResources", label: "Training Resources" },
     { href: "/policies", label: "Our Policies" },
-    { href: "/contact", label: "Contact Us" },
+    // { href: "/contact", label: "Contact Us" },
   ];
 
   const services = [
     { href: "#", label: "Small Business Training" },
-    { href: "#", label: "Exploring Self-Employment Workshops" },
-    { href: "#", label: "Business Health Checks" },
+    { href: "#", label: "Business Plan Development" },
+    { href: "#", label: "Small Business Coaching" },
+    { href: "#", label: "Exploring Self-Employment Workshop" },
+    { href: "#", label: "Business Health check" },
     { href: "#", label: "Business Advice" },
-    { href: "#", label: "Mentoring Programs" },
-    { href: "#", label: "Online Learning" },
   ];
 
   const contactInfo = [
@@ -527,7 +527,7 @@ const MainFooter = () => {
                 className="h-30 sm:h-30 w-auto filter brightness-110 hover:brightness-125 transition-all duration-200"
               /> */}
               <img
-                src={images.image_Footer2}
+                src={images.image_Footer7}
                 alt="Workforce Australia"
                 className="h-30 sm:h-30 w-auto filter brightness-110 hover:brightness-125 transition-all duration-200"
               />
@@ -541,7 +541,7 @@ const MainFooter = () => {
                   Businessplex
                 </span>
                 . All Rights Reserved.Development by{" "}
-                <span className="text-blue-400">A4Technologies</span>
+                <span className="text-blue-400"><a href="">A4Technologies</a></span>
               </p>
               <p className="text-white text-xs mt-1"></p>
             </div>
