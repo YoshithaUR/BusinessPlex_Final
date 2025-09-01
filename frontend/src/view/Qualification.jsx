@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { FaArrowRight, FaCheckCircle, FaGraduationCap, FaCertificate, FaBusinessTime } from "react-icons/fa";
@@ -64,9 +65,25 @@ const qualificationsData = [
 ];
 
 const Qualifications = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
+
+  const handleApplyNow = () => {
+    // Navigate to ApplicationForm page
+    navigate("/ApplicationForm");
+    
+    // After navigation, scroll down past the slideshow
+    setTimeout(() => {
+      const slideshowHeight = window.innerHeight - 88; // Full viewport height minus header height
+      window.scrollTo({
+        top: slideshowHeight + 100, // Add extra 100px to ensure we're past the slideshow
+        behavior: 'smooth'
+      });
+    }, 100); // Small delay to ensure navigation completes
+  };
 
   return (
     <section className="relative bg-gradient-to-br from-white via-green-50 to-yellow-50 py-24 px-6 sm:px-10 lg:px-20 font-[Poppins,Roboto,sans-serif] overflow-hidden">
@@ -172,11 +189,9 @@ const Qualifications = () => {
 
                  
                   <div className="mt-6">
-                    <a
-                      href={qual.link}
+                    <button
+                      onClick={handleApplyNow}
                       className={`relative inline-flex items-center justify-center w-full px-4 py-3 bg-gradient-to-r ${qual.gradient} text-white rounded-2xl font-bold text-sm uppercase tracking-wider transition-all duration-500 hover:shadow-2xl hover:shadow-${qual.accentColor}-500/30 group/btn overflow-hidden transform hover:scale-105`}
-                      target="_blank"
-                      rel="noopener noreferrer"
                     >
                       <span className="relative z-10 flex items-center gap-3">
                         
@@ -189,7 +204,7 @@ const Qualifications = () => {
                       
                       
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500"></div>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
