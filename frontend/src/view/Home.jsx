@@ -641,7 +641,7 @@ const services = [
                 className="text-lg font-bold tracking-wider text-white drop-shadow-lg mb-4"
                 style={{ WebkitTextStroke: "1px #B45309" }}
               >
-                {service.title}
+                
               </h3>
             </div>
           </div>
