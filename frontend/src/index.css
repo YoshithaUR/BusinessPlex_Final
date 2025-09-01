@@ -16,3 +16,11 @@
 body, html {
   overflow-x: hidden;
 }
+::-webkit-scrollbar {
+  display: none;   /* Chrome, Safari */
+}
+
+* {
+  -ms-overflow-style: none;  /* IE and old Edge */
+  scrollbar-width: none;     /* Firefox */
+}

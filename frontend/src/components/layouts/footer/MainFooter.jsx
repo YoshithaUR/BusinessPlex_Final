@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import images from "../../../assets/Images/images";
 import {
   FaFacebook,
@@ -54,6 +55,7 @@ const isValidGmail = (email) => {
 };
 
 const MainFooter = () => {
+  const navigate = useNavigate();
   const [formResetKey, setFormResetKey] = useState(0);
   const [newsletterData, setNewsletterData] = useState({
     name: "",
@@ -63,6 +65,20 @@ const MainFooter = () => {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [alreadySubscribed, setAlreadySubscribed] = useState(false);
   const [validationErrors, setValidationErrors] = useState({});
+
+  const handleServiceClick = () => {
+    // Navigate to ApplicationForm page
+    navigate("/ApplicationForm");
+    
+    // After navigation, scroll down past the slideshow
+    setTimeout(() => {
+      const slideshowHeight = window.innerHeight - 88; // Full viewport height minus header height
+      window.scrollTo({
+        top: slideshowHeight + 100, // Add extra 100px to ensure we're past the slideshow
+        behavior: 'smooth'
+      });
+    }, 100); // Small delay to ensure navigation completes
+  };
 
   // Validation function for the newsletter form
   const validateNewsletterForm = () => {
@@ -208,12 +224,12 @@ const MainFooter = () => {
   ];
 
   const services = [
-    { href: "#", label: "Small Business Training" },
-    { href: "#", label: "Business Plan Development" },
-    { href: "#", label: "Small Business Coaching" },
-    { href: "#", label: "Exploring Self-Employment Workshop" },
-    { href: "#", label: "Business Health check" },
-    { href: "#", label: "Business Advice" },
+    { label: "Small Business Training" },
+    { label: "Business Plan Development" },
+    { label: "Small Business Coaching" },
+    { label: "Exploring Self-Employment Workshop" },
+    { label: "Business Health check" },
+    { label: "Business Advice" },
   ];
 
   const contactInfo = [
@@ -407,16 +423,16 @@ const MainFooter = () => {
               <ul className="space-y-3 text-center md:text-left">
                 {services.map((service, idx) => (
                   <li key={idx}>
-                    <a
-                      href={service.href}
-                      className="group flex items-center justify-center md:justify-start text-gray-300 hover:text-blue-400 transition-colors duration-200 text-sm"
+                    <button
+                      onClick={handleServiceClick}
+                      className="group flex items-center justify-center md:justify-start text-gray-300 hover:text-blue-400 transition-colors duration-200 text-sm w-full text-left bg-transparent border-none cursor-pointer"
                     >
                       <FaArrowRight
                         size={10}
                         className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                       />
                       <span>{service.label}</span>
-                    </a>
+                    </button>
                   </li>
                 ))}
               </ul>
