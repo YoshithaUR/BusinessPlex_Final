@@ -283,7 +283,9 @@ const AboutUs = () => {
                 <span className="inline-flex items-center gap-1 bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm font-semibold ml-2">
                   (RTO ID: 45725)
                 </span>
-                , accredited by ASQA (Australian Skills Quality Authority) to deliver nationally recognised qualifications across all states of Australia. We've been committed to helping individuals turn their business ideas into reality with necessary business training & coaching.
+                , accredited by ASQA (Australian Skills Quality Authority) to
+deliver nationally recognised qualifications across all states of Australia. We offer a range of
+qualifications, including:
               </p>
 
               {/* Single Qualifications Card */}
@@ -329,7 +331,20 @@ const AboutUs = () => {
 
               <div className="mt-8 text-center scroll-animate fade-up delay-900 duration-1000">
                 <p className="text-gray-700 text-lg leading-relaxed max-w-4xl mx-auto text-center">
-                  Training is available through classroom, online, and hybrid options, providing flexibility to meet the needs of participants. We also deliver the Self-Employment Assistance Program under Workforce Australia in the Perth North region, supporting individuals to start or grow their businesses. At Businessplex, we pride ourselves on employing highly skilled trainers to deliver quality education and practical business support, creating opportunities for participants to connect with mentors and networks for a meaningful and outcome-driven training experience.
+                  Training is available through classroom, online, and hybrid options, providing flexibility to
+meet the needs of participants.
+                </p>
+                <p className="text-gray-700 text-lg leading-relaxed max-w-4xl mx-auto text-center">
+                 We also deliver the Self-Employment Assistance Program under Workforce Australia in the
+Perth North region, supporting individuals to start or grow their businesses. We’ve been
+committed to helping individuals since turn their business ideas into reality with necessary
+business training &amp; coaching.
+                </p>
+                <p className="text-gray-700 text-lg leading-relaxed max-w-4xl mx-auto text-center">
+                At Businessplex, we pride ourselves on employing highly skilled trainers to deliver quality
+education and practical business support. We also create opportunities for participants to
+connect with mentors and networks, ensuring a meaningful and outcome-driven training
+experience.
                 </p>
               </div>
 

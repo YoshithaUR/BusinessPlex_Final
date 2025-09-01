@@ -134,7 +134,7 @@ const Home = () => {
   ];
 const services = [
   {
-    title: "Small Business Training",
+    title: "",
     image: images.image_Card01,
     gif: images.image_GIF01,
     link: "./ApplicationForm",
@@ -180,7 +180,7 @@ const services = [
     backgroundImage: images.image_ServicePopup01,
   },
   {
-    title: "Business Plan Development",
+    title: "",
     image: images.image_Card05,
     gif: images.image_GIF05,
     paragraph: [
@@ -219,7 +219,7 @@ const services = [
     backgroundImage: images.image_ServicePopup05,
   },
   {
-    title: "Small Business Coaching",
+    title: "",
     image: images.image_Card06,
     gif: images.image_GIF06,
     paragraph: [

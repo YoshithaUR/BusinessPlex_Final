@@ -82,7 +82,7 @@ const NAV_ITEMS = [
 // const highlights = [
 //   { icon: <GiTennisBall size={24} />, title: "Perth Based" },
 //   { icon: <BsFlag size={24} />, title: "Nationally Recognized" },
-//   { icon: <FaGraduationCap size={24} />, title: "E-Skilled LMS" },
+//   {icon: <FaGraduationCap size={24} />, title: "E-Skilled LMS"},
 // ];
 
 const Header = () => {
@@ -106,6 +106,15 @@ const Header = () => {
   const headerEndRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Updated function to handle logo click - scroll to nav bar area
+  const handleLogoClick = () => {
+    // Scroll to the nav bar area (88px from top to show the nav bar)
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
 
   // Function to handle address click and open Google Maps
   const handleAddressClick = () => {
@@ -452,14 +461,15 @@ const handleApplyNow = (serviceTitle) => {
     <div className="relative w-full bg-gradient-to-br from-white via-green-50 to-yellow-50">
       <BlueNavBar />
 
-      {/* Main Navigation - Updated with larger logo and icon for student login */}
+      {/* Main Navigation - Updated logo click handler */}
       <nav className="fixed top-[40px] left-0 w-full z-40 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-3">
-            {/* Logo - Original size and positioned more to the left */}
+            {/* Logo - Now stays on current page and scrolls to slideshow */}
             <div
-              className="flex items-center space-x-3 flex-shrink-0 cursor-pointer -ml-4"
-              onClick={() => handleNavClick("/")}
+              className="flex items-center space-x-3 flex-shrink-0 cursor-pointer -ml-4 hover:opacity-80 transition-opacity duration-200"
+              onClick={handleLogoClick}
+              title="Click to scroll to nav bar"
             >
               <img src={logo} alt="BusinessPlex Logo" className="h-15 w-auto" />
               <span className="text-xl font-bold text-slate-800">
@@ -587,9 +597,16 @@ const handleApplyNow = (serviceTitle) => {
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* Mobile Menu Header */}
+        {/* Mobile Menu Header - Updated with logo click handler */}
         <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50">
-          <div className="flex items-center space-x-3">
+          <div 
+            className="flex items-center space-x-3 cursor-pointer hover:opacity-80 transition-opacity duration-200"
+            onClick={() => {
+              handleLogoClick();
+              closeMenu(); // Close mobile menu after click
+            }}
+            title="Click to scroll to nav bar"
+          >
             <img src={logo} alt="BusinessPlex Logo" className="h-8 w-auto" />
             <span className="text-lg font-bold text-slate-800">
               BusinessPlex
