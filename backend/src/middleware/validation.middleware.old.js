@@ -48,7 +48,59 @@ export const contactValidation = devFriendlyValidation([
   
   body('email')
     .trim()
-    .custom(createEmailValidator(isProduction))
+    .custom((value) => {
+      if (!value) return true; // Let required validation handle empty values
+      
+      // Check basic syntax
+      if (!isValidSyntax(value)) {
+        throw new Error('Please provide a valid email address');
+      }
+      
+      // Check Gmail-specific validation
+      if (!isValidGmail(value)) {
+        throw new Error('Invalid Gmail address format');
+      }
+      
+      // Check for common typos
+      const email = value.toLowerCase();
+      const commonTypos = [
+        "gnail.com", "gmial.com", "gamil.com", "gmal.com", "gmai.com", "gmeil.com",
+        "hotmai.com", "hotmial.com", "hotmeil.com", "hotmal.com",
+        "outlok.com", "outloook.com", "outlokc.com", "outloock.com",
+        "yahooo.com", "yaho.com", "yahooo.com", "yaho.com",
+        "icloud.com", "iclod.com", "icloude.com",
+        "protonmai.com", "protonmial.com",
+        "yandex.ru", "yandex.com", "yandex.ru",
+        "zoho.com", "zohoo.com", "zoh.com"
+      ];
+      
+      for (const typo of commonTypos) {
+        if (email.includes(typo)) {
+          const suggestion = typo.replace('gnail.com', 'gmail.com')
+                                .replace('gmial.com', 'gmail.com')
+                                .replace('gamil.com', 'gmail.com')
+                                .replace('gmal.com', 'gmail.com')
+                                .replace('gmai.com', 'gmail.com')
+                                .replace('gmeil.com', 'gmail.com');
+          throw new Error(`Did you mean "${suggestion}"?`);
+        }
+      }
+      
+      // Check for valid email providers
+      const validProviders = [
+        "gmail.com", "hotmail.com", "outlook.com", "yahoo.com", "icloud.com",
+        "protonmail.com", "yandex.ru", "zoho.com", "aol.com", "live.com",
+        "msn.com", "me.com", "mac.com", "gmx.com", "mail.com", "fastmail.com",
+        "tutanota.com", "startmail.com", "posteo.de", "kolabnow.com"
+      ];
+      
+      const domain = email.split('@')[1];
+      if (domain && !validProviders.includes(domain)) {
+        throw new Error('Please use a valid email provider (Gmail, Hotmail, Outlook, Yahoo, etc.)');
+      }
+      
+      return true;
+    })
     .normalizeEmail()
     .isLength({ max: 100 })
     .withMessage('Email must be less than 100 characters'),
@@ -84,7 +136,59 @@ export const newsletterValidation = [
   
   body('email')
     .trim()
-    .custom(createEmailValidator(false)) // Use basic validation for newsletter to be more permissive
+    .custom((value) => {
+      if (!value) return true; // Let required validation handle empty values
+      
+      // Check basic syntax
+      if (!isValidSyntax(value)) {
+        throw new Error('Please provide a valid email address');
+      }
+      
+      // Check Gmail-specific validation
+      if (!isValidGmail(value)) {
+        throw new Error('Invalid Gmail address format');
+      }
+      
+      // Check for common typos
+      const email = value.toLowerCase();
+      const commonTypos = [
+        "gnail.com", "gmial.com", "gamil.com", "gmal.com", "gmai.com", "gmeil.com",
+        "hotmai.com", "hotmial.com", "hotmeil.com", "hotmal.com",
+        "outlok.com", "outloook.com", "outlokc.com", "outloock.com",
+        "yahooo.com", "yaho.com", "yahooo.com", "yaho.com",
+        "icloud.com", "iclod.com", "icloude.com",
+        "protonmai.com", "protonmial.com",
+        "yandex.ru", "yandex.com", "yandex.ru",
+        "zoho.com", "zohoo.com", "zoh.com"
+      ];
+      
+      for (const typo of commonTypos) {
+        if (email.includes(typo)) {
+          const suggestion = typo.replace('gnail.com', 'gmail.com')
+                                .replace('gmial.com', 'gmail.com')
+                                .replace('gamil.com', 'gmail.com')
+                                .replace('gmal.com', 'gmail.com')
+                                .replace('gmai.com', 'gmail.com')
+                                .replace('gmeil.com', 'gmail.com');
+          throw new Error(`Did you mean "${suggestion}"?`);
+        }
+      }
+      
+      // Check for valid email providers
+      const validProviders = [
+        "gmail.com", "hotmail.com", "outlook.com", "yahoo.com", "icloud.com",
+        "protonmail.com", "yandex.ru", "zoho.com", "aol.com", "live.com",
+        "msn.com", "me.com", "mac.com", "gmx.com", "mail.com", "fastmail.com",
+        "tutanota.com", "startmail.com", "posteo.de", "kolabnow.com"
+      ];
+      
+      const domain = email.split('@')[1];
+      if (domain && !validProviders.includes(domain)) {
+        throw new Error('Please use a valid email provider (Gmail, Hotmail, Outlook, Yahoo, etc.)');
+      }
+      
+      return true;
+    })
     .normalizeEmail()
     .isLength({ max: 100 })
     .withMessage('Email must be less than 100 characters')
@@ -94,7 +198,8 @@ export const newsletterValidation = [
 export const emailOnlyValidation = [
   body('email')
     .trim()
-    .custom(createEmailValidator(false)) // Use basic validation for simple cases
+    .isEmail()
+    .withMessage('Please provide a valid email address')
     .normalizeEmail()
     .isLength({ max: 100 })
     .withMessage('Email must be less than 100 characters')
@@ -112,7 +217,8 @@ export const userRegistrationValidation = [
   
   body('email')
     .trim()
-    .custom(createEmailValidator(isProduction))
+    .isEmail()
+    .withMessage('Please provide a valid email address')
     .normalizeEmail(),
   
   body('password')
@@ -142,7 +248,8 @@ export const applicationValidation = [
   
   body('email')
     .trim()
-    .custom(createEmailValidator(isProduction))
+    .isEmail()
+    .withMessage('Please provide a valid email address')
     .normalizeEmail()
     .isLength({ max: 100 })
     .withMessage('Email must be less than 100 characters'),
@@ -391,7 +498,8 @@ export const enrolmentValidation = [
   
   body('personalInfo.email')
     .trim()
-    .custom(createEmailValidator(isProduction))
+    .isEmail()
+    .withMessage('Please provide a valid email address')
     .normalizeEmail()
     .isLength({ max: 100 })
     .withMessage('Email must be less than 100 characters'),
