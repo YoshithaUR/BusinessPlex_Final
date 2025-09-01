@@ -761,7 +761,7 @@ const services = [
     <div
       className="absolute inset-0 bg-center bg-cover filter blur-sm transition-all duration-700 ease-out animate-scale-in"
       style={{
-        backgroundImage: `url(${services[serviceModalIndex].backgroundImage})`,
+        // backgroundImage: `url(${services[serviceModalIndex].backgroundImage})`,
       }}
       aria-hidden="true"
     />
