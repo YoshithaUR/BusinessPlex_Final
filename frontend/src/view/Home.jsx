@@ -1105,7 +1105,43 @@ const services = [
         data-aos-delay="600"
       >
         <button
-          onClick={() => navigate("/SelfEmployment")}
+          onClick={() => {
+            navigate("/SelfEmployment");
+            // After navigation, scroll to the end of the slideshow section
+            setTimeout(() => {
+              // Try multiple times to ensure the page is fully loaded
+              const scrollToSlideshowEnd = () => {
+                // Look for the slideshow section or header element
+                const slideshowSection = document.querySelector('.slideshow-section') || 
+                                        document.querySelector('[data-aos="fade-in"]') ||
+                                        document.querySelector('.header-section') ||
+                                        document.querySelector('header');
+                
+                if (slideshowSection) {
+                  // Get the end position of the slideshow section
+                  const slideshowEnd = slideshowSection.offsetTop + slideshowSection.offsetHeight;
+                  window.scrollTo({
+                    top: slideshowEnd,
+                    behavior: 'smooth'
+                  });
+                } else {
+                  // Fallback: calculate slideshow height based on viewport
+                  const slideshowHeight = window.innerHeight - 88; // Full viewport height minus header
+                  const highlightsSectionHeight = 48; // py-6 = 1.5rem * 2 = 48px
+                  const totalSlideshowHeight = slideshowHeight + highlightsSectionHeight;
+                  
+                  window.scrollTo({
+                    top: totalSlideshowHeight,
+                    behavior: 'smooth'
+                  });
+                }
+              };
+              
+              // Try immediately, then retry if needed
+              scrollToSlideshowEnd();
+              setTimeout(scrollToSlideshowEnd, 100);
+            }, 300); // Shorter delay for better responsiveness
+          }}
           className="bg-white text-blue-800 px-4 sm:px-6 md:px-8 lg:px-10 py-2 sm:py-3 md:py-4 rounded-full font-semibold flex items-center justify-center hover:scale-105 hover:bg-gray-100 transition duration-300 shadow-[0_8px_24px_rgba(0,59,122),0_0_10px_rgba(34,197,94,0.6)] text-xs sm:text-sm md:text-base whitespace-nowrap"
         >
           Read More
