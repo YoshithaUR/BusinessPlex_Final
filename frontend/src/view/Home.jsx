@@ -134,7 +134,7 @@ const Home = () => {
   ];
 const services = [
   {
-    title: "",
+    title: "Small Business Training",
     image: images.image_Card01,
     gif: images.image_GIF01,
     link: "./ApplicationForm",
@@ -180,7 +180,7 @@ const services = [
     backgroundImage: images.image_ServicePopup01,
   },
   {
-    title: "",
+    title: "Business Plan Development",
     image: images.image_Card05,
     gif: images.image_GIF05,
     paragraph: [
@@ -219,7 +219,7 @@ const services = [
     backgroundImage: images.image_ServicePopup05,
   },
   {
-    title: "",
+    title: "Small Business Coaching",
     image: images.image_Card06,
     gif: images.image_GIF06,
     paragraph: [
@@ -648,7 +648,7 @@ const services = [
                 className="text-lg font-bold tracking-wider text-white drop-shadow-lg mb-4"
                 style={{ WebkitTextStroke: "1px #B45309" }}
               >
-                {service.title}
+                
               </h3>
             </div>
           </div>

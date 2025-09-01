@@ -70,12 +70,14 @@ const NAV_ITEMS = [
   //   ],
   // },
   { to: "/policies", label: "Our Policies" },
-  { to: "/ApplicationForm", label: "Apply Now" },
   {
     to: "https://businessplex.e-learnme.com.au/login/index.php",
     label: "Student Login",
-    isIcon: true,
-    iconType: "login",
+  },
+  {
+    to: "/ApplicationForm",
+    label: "Apply Now",
+    isApplyButton: true,
   },
 ];
 
@@ -537,23 +539,14 @@ const handleApplyNow = (serviceTitle) => {
                         </div>
                       )}
                     </>
-                  ) : item.isIcon ? (
-                    // Icons for Apply Now and Student Login
+                  ) : item.isApplyButton ? (
+                    // Special Apply Now button with colorful design
                     <button
                       onClick={() => handleNavClick(item.to)}
-                      className={`flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-200 cursor-pointer group ${
-                        item.iconType === "apply"
-                          ? "bg-gradient-to-r from-slate-800 to-blue-600 hover:from-slate-900 hover:to-blue-700 text-white shadow-lg hover:shadow-xl"
-                          : "text-black hover:text-gray-600 hover:bg-gray-100"
-                      }`}
-                      title={item.label}
-                      aria-label={item.label}
+                      className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white rounded-full font-bold text-sm shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 cursor-pointer animate-pulse hover:animate-none"
                     >
-                      {item.iconType === "apply" ? (
-                        <FaPaperPlane size={16} className="group-hover:scale-110 transition-transform duration-200" />
-                      ) : (
-                        <FaUserGraduate size={20} className="group-hover:scale-110 transition-transform duration-200" />
-                      )}
+                      <FaPaperPlane size={14} className="animate-bounce" />
+                      <span>{item.label}</span>
                     </button>
                   ) : (
                     <button
@@ -593,50 +586,50 @@ const handleApplyNow = (serviceTitle) => {
 
       {/* Mobile Menu */}
       <div
-        className={`mobile-menu fixed top-0 right-0 h-full w-80 max-w-[90vw] bg-white shadow-2xl z-50 transform transition-transform duration-300 overflow-y-auto ${
+        className={`mobile-menu fixed top-0 right-0 h-full w-80 max-w-[85vw] sm:max-w-[70vw] md:max-w-[60vw] bg-white shadow-2xl z-50 transform transition-transform duration-300 overflow-y-auto ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Mobile Menu Header - Updated with logo click handler */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50">
+        <div className="flex items-center justify-between p-3 sm:p-4 border-b border-gray-200 bg-gray-50">
           <div 
-            className="flex items-center space-x-3 cursor-pointer hover:opacity-80 transition-opacity duration-200"
+            className="flex items-center space-x-2 sm:space-x-3 cursor-pointer hover:opacity-80 transition-opacity duration-200"
             onClick={() => {
               handleLogoClick();
               closeMenu(); // Close mobile menu after click
             }}
             title="Click to scroll to nav bar"
           >
-            <img src={logo} alt="BusinessPlex Logo" className="h-8 w-auto" />
-            <span className="text-lg font-bold text-slate-800">
+            <img src={logo} alt="BusinessPlex Logo" className="h-6 sm:h-8 w-auto" />
+            <span className="text-base sm:text-lg font-bold text-slate-800">
               BusinessPlex
             </span>
           </div>
           <button
             onClick={closeMenu}
-            className="p-2 rounded-lg text-gray-500 hover:text--500 hover:bg-red-50 transition-colors duration-200 cursor-pointer"
+            className="p-1.5 sm:p-2 rounded-lg text-gray-500 hover:text-red-500 hover:bg-red-50 transition-colors duration-200 cursor-pointer"
             aria-label="Close mobile menu"
           >
-            <FaTimes size={18} />
+            <FaTimes size={16} className="sm:w-4 sm:h-4" />
           </button>
         </div>
 
         {/* Mobile Navigation Items */}
-        <div className="py-4">
+        <div className="py-2 sm:py-4">
           {NAV_ITEMS.map((item, index) => (
             <div key={item.to}>
               {item.hasDropdown ? (
                 <>
                   <button
                     onClick={() => handleMobileDropdownToggle(index)}
-                    className="w-full flex items-center justify-between px-6 py-4 text-gray-700 hover:bg-gray-50 hover:text-slate-800 transition-colors duration-200 border-l-4 border-transparent hover:border-slate-800 cursor-pointer"
+                    className="w-full flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base text-gray-700 hover:bg-gray-50 hover:text-slate-800 transition-colors duration-200 border-l-4 border-transparent hover:border-slate-800 cursor-pointer"
                   >
                     <span className="font-medium">{item.label}</span>
                     <FaChevronDown
                       className={`transition-transform duration-200 ${
                         mobileActiveDropdown === index ? "rotate-180" : ""
                       }`}
-                      size={14}
+                      size={12}
                     />
                   </button>
                   {mobileActiveDropdown === index && (
@@ -645,7 +638,7 @@ const handleApplyNow = (serviceTitle) => {
                         <button
                           key={`${dropdownItem.to}-${dropdownIndex}`}
                           onClick={() => handleDropdownClick(dropdownItem)}
-                          className={`flex items-center space-x-3 px-10 py-3 text-sm transition-colors duration-200 w-full text-left cursor-pointer ${
+                          className={`flex items-center space-x-3 px-8 sm:px-10 py-2.5 sm:py-3 text-xs sm:text-sm transition-colors duration-200 w-full text-left cursor-pointer ${
                             dropdownItem.type !== "pdf" &&
                             isActiveNavItem(dropdownItem.to)
                               ? "bg-slate-800 text-white"
@@ -653,8 +646,8 @@ const handleApplyNow = (serviceTitle) => {
                           }`}
                         >
                           <FaFileAlt
-                            size={12}
-                            className={`flex-shrink-0 ${
+                            size={10}
+                            className={`flex-shrink-0 sm:w-3 sm:h-3 ${
                               dropdownItem.type !== "pdf" &&
                               isActiveNavItem(dropdownItem.to)
                                 ? "text-white"
@@ -667,31 +660,21 @@ const handleApplyNow = (serviceTitle) => {
                     </div>
                   )}
                 </>
-              ) : item.isIcon ? (
-                // Icons for Apply Now and Student Login in mobile
-                <button
-                  onClick={() => handleNavClick(item.to)}
-                  className="w-full flex items-center px-6 py-4 text-gray-700 hover:bg-gray-50 hover:text-slate-800 transition-colors duration-200 border-l-4 border-transparent hover:border-slate-800 cursor-pointer"
-                >
-                  <div className="flex items-center space-x-3">
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                      item.iconType === "apply"
-                        ? "bg-gradient-to-r from-slate-800 to-blue-600 text-white"
-                        : "bg-gray-200 text-gray-700"
-                    }`}>
-                      {item.iconType === "apply" ? (
-                        <FaPaperPlane size={14} />
-                      ) : (
-                        <FaUserGraduate size={14} />
-                      )}
-                    </div>
-                    <span className="font-medium">{item.label}</span>
-                  </div>
-                </button>
+              ) : item.isApplyButton ? (
+                // Special Apply Now button for mobile - smaller and more compact
+                <div className="px-4 sm:px-6 py-2">
+                  <button
+                    onClick={() => handleNavClick(item.to)}
+                    className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white py-2 sm:py-2.5 rounded-lg font-semibold text-xs sm:text-sm shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 cursor-pointer"
+                  >
+                    <FaPaperPlane size={12} className="sm:w-3 sm:h-3" />
+                    <span>{item.label}</span>
+                  </button>
+                </div>
               ) : (
                 <button
                   onClick={() => handleNavClick(item.to)}
-                  className={`block px-6 py-4 font-medium border-l-4 transition-colors duration-200 w-full text-left cursor-pointer ${
+                  className={`block px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base font-medium border-l-4 transition-colors duration-200 w-full text-left cursor-pointer ${
                     isActiveNavItem(item.to)
                       ? "bg-slate-800 text-white border-slate-800"
                       : "text-gray-700 hover:bg-gray-50 hover:text-slate-800 border-transparent hover:border-slate-800"
@@ -705,31 +688,31 @@ const handleApplyNow = (serviceTitle) => {
         </div>
 
         {/* Mobile Menu Footer */}
-        <div className="p-4 border-t border-gray-200 bg-gray-50 space-y-3">
+        <div className="p-3 sm:p-4 border-t border-gray-200 bg-gray-50 space-y-2 sm:space-y-3">
           <a
             href="tel:1300894480"
-            className="flex items-center justify-center space-x-2 w-full bg-slate-800 text-white py-3 rounded-lg font-semibold hover:bg-slate-900 transition-colors duration-200 cursor-pointer"
+            className="flex items-center justify-center space-x-2 w-full bg-slate-800 text-white py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-slate-900 transition-colors duration-200 cursor-pointer text-sm sm:text-base"
           >
-            <FaPhoneAlt size={16} />
+            <FaPhoneAlt size={14} className="sm:w-4 sm:h-4" />
             <span>Call: 1300 894 480</span>
           </a>
           
           {/* Mobile Address Buttons */}
           <button
             onClick={handleAddressClick}
-            className="flex items-center justify-center space-x-2 w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200 cursor-pointer group"
+            className="flex items-center justify-center space-x-2 w-full bg-green-600 text-white py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200 cursor-pointer group text-sm sm:text-base"
             aria-label="View location on Google Maps"
           >
-            <FaMapMarkerAlt size={16} className="group-hover:animate-bounce" />
+            <FaMapMarkerAlt size={14} className="group-hover:animate-bounce sm:w-4 sm:h-4" />
             <span>Morley Location</span>
           </button>
           
           <button
             onClick={handleSecondAddressClick}
-            className="flex items-center justify-center space-x-2 w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 cursor-pointer group"
+            className="flex items-center justify-center space-x-2 w-full bg-blue-600 text-white py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 cursor-pointer group text-sm sm:text-base"
             aria-label="View second location on Google Maps"
           >
-            <FaMapMarkerAlt size={16} className="group-hover:animate-bounce" />
+            <FaMapMarkerAlt size={14} className="group-hover:animate-bounce sm:w-4 sm:h-4" />
             <span>Osborne Park Location</span>
           </button>
         </div>
