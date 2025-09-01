@@ -34,7 +34,6 @@ import {
 // import { MdEmail } from "react-icons/md";
 
 import images from "../assets/Images/images";
-import pdf from "../assets/Images/pdf";
 import ApplyNow from "../components/Modal/ApplyNow";
 import GoogleReviewSection from "./Google Reviews/googleReviws";
 import Story from "./Google Reviews/story";
@@ -43,27 +42,6 @@ import axiosInstance from "../api/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
-const handleShare = () => {
-  if (navigator.share) {
-    navigator
-      .share({
-        title: "Check out this Facebook page!",
-        text: "Follow us on Facebook",
-        url: "https://www.facebook.com/share/16yoXUzBX7/",
-      })
-      .then(() => {
-        console.log("Successful share");
-      })
-      .catch((error) => {
-        console.log("Error sharing:", error);
-      });
-  } else {
-    alert(
-      "Web Share API is not supported in your browser. Please copy the link manually."
-    );
-  }
-};
 
 const Home = () => {
   const [serviceModalIndex, setServiceModalIndex] = useState(null);
@@ -121,6 +99,21 @@ const Home = () => {
       offset: 120,
     });
   }, []);
+
+  // Add this useEffect to listen for footer service modal events
+  useEffect(() => {
+    const handleFooterServiceClick = (event) => {
+      const { serviceIndex } = event.detail;
+      setServiceModalIndex(serviceIndex);
+    };
+
+    window.addEventListener('openServiceModal', handleFooterServiceClick);
+
+    return () => {
+      window.removeEventListener('openServiceModal', handleFooterServiceClick);
+    };
+  }, []);
+
   const logos = [
     images.image_partnes05,
     images.image_partnes01,
@@ -139,7 +132,7 @@ const services = [
     gif: images.image_GIF01,
     link: "./ApplicationForm",
     paragraph: [
-      "Our Small Business Training equips participants with the essential skills to start, manage, and grow a successful business. As part of the program, you’ll also develop a comprehensive business plan to guide your business strategy and long-term goals.",
+      "Our Small Business Training equips participants with the essential skills to start, manage, and grow a successful business. As part of the program, you'll also develop a comprehensive business plan to guide your business strategy and long-term goals.",
       "Training is delivered two days per week over four weeks, with flexible online and classroom options available.",
     ],
     
@@ -268,7 +261,7 @@ const services = [
     image: images.image_Card04,
     gif: images.image_GIF04,
     paragraph: [
-      "Our Exploring Self-Employment Workshops are designed to help you understand the fundamentals of self-employment and assess whether it’s the right path for you. Delivered one day per week over four weeks, these workshops provide time to reflect, learn, and apply new knowledge.",
+      "Our Exploring Self-Employment Workshops are designed to help you understand the fundamentals of self-employment and assess whether it's the right path for you. Delivered one day per week over four weeks, these workshops provide time to reflect, learn, and apply new knowledge.",
     ],
     
     subtopics: [
@@ -360,7 +353,7 @@ const services = [
       {
         title: "What You Can Use These Sessions For",
         points: [
-          "Develop strategies to improve your business’s commercial viability",
+          "Develop strategies to improve your business's commercial viability",
           "Receive advice on a wide range of small business topics",
           "Get referrals to other relevant business support networks",
           "Eligible participants can access up to 2 free sessions every 12 months, helping you make informed decisions and strengthen your business for long-term success."

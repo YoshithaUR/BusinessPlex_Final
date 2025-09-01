@@ -12,11 +12,9 @@ import {
   FaArrowRight,
   FaCheck,
   FaInstagram,
- 
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import axiosInstance from "../../../api/api";
-
 
 // Email validation functions
 const isValidSyntax = (email) => {
@@ -24,33 +22,33 @@ const isValidSyntax = (email) => {
 };
 
 const isValidGmail = (email) => {
-  const [username, domain] = email.split('@');
-  
+  const [username, domain] = email.split("@");
+
   // Check if it's a Gmail address
-  if (domain.toLowerCase() !== 'gmail.com') {
+  if (domain.toLowerCase() !== "gmail.com") {
     return true; // Not Gmail, so no Gmail-specific validation needed
   }
-  
+
   // Gmail username rules
   if (username.length < 6 || username.length > 30) {
     return false;
   }
-  
+
   // Only allow lowercase letters, numbers, dots, and underscores
   if (!/^[a-z0-9._]+$/.test(username)) {
     return false;
   }
-  
+
   // No consecutive dots
-  if (username.includes('..')) {
+  if (username.includes("..")) {
     return false;
   }
-  
+
   // No leading or trailing dots
-  if (username.startsWith('.') || username.endsWith('.')) {
+  if (username.startsWith(".") || username.endsWith(".")) {
     return false;
   }
-  
+
   return true;
 };
 
@@ -69,21 +67,85 @@ const MainFooter = () => {
   const handleServiceClick = () => {
     // Navigate to ApplicationForm page
     navigate("/ApplicationForm");
-    
+
     // After navigation, scroll down past the slideshow
     setTimeout(() => {
       const slideshowHeight = window.innerHeight - 88; // Full viewport height minus header height
       window.scrollTo({
         top: slideshowHeight + 100, // Add extra 100px to ensure we're past the slideshow
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }, 100); // Small delay to ensure navigation completes
+  };
+
+  // New handler for Small Business Training modal
+  const handleSmallBusinessTrainingClick = () => {
+    // Navigate to home page first
+    navigate("/");
+    
+    // Dispatch custom event to open Small Business Training modal
+    setTimeout(() => {
+      const event = new CustomEvent('openServiceModal', { 
+        detail: { serviceIndex: 0 } // 0 is the index for Small Business Training
+      });
+      window.dispatchEvent(event);
+    }, 300); // Delay to ensure navigation completes
+  };
+
+  // New handler for Business Plan Development modal
+  const handleBusinessPlanDevelopmentClick = () => {
+    // Navigate to home page first
+    navigate("/");
+    
+    // Dispatch custom event to open Business Plan Development modal
+    setTimeout(() => {
+      const event = new CustomEvent('openServiceModal', { 
+        detail: { serviceIndex: 1 } // 1 is the index for Business Plan Development
+      });
+      window.dispatchEvent(event);
+    }, 300); // Delay to ensure navigation completes
+  };
+
+  // New handler for Small Business Coaching modal
+  const handleSmallBusinessCoachingClick = () => {
+    navigate("/");
+    setTimeout(() => {
+      const event = new CustomEvent('openServiceModal', { detail: { serviceIndex: 2 } });
+      window.dispatchEvent(event);
+    }, 300);
+  };
+
+  // New handler for Exploring Self-Employment Workshop modal
+  const handleExploringSelfEmploymentClick = () => {
+    navigate("/");
+    setTimeout(() => {
+      const event = new CustomEvent('openServiceModal', { detail: { serviceIndex: 3 } });
+      window.dispatchEvent(event);
+    }, 300);
+  };
+
+  // New handler for Business Health Check modal
+  const handleBusinessHealthCheckClick = () => {
+    navigate("/");
+    setTimeout(() => {
+      const event = new CustomEvent('openServiceModal', { detail: { serviceIndex: 4 } });
+      window.dispatchEvent(event);
+    }, 300);
+  };
+
+  // New handler for Business Advice modal
+  const handleBusinessAdviceClick = () => {
+    navigate("/");
+    setTimeout(() => {
+      const event = new CustomEvent('openServiceModal', { detail: { serviceIndex: 5 } });
+      window.dispatchEvent(event);
+    }, 300);
   };
 
   // Validation function for the newsletter form
   const validateNewsletterForm = () => {
     const errors = {};
-    
+
     // Name validation
     if (!newsletterData.name.trim()) {
       errors.name = "Name is required";
@@ -92,7 +154,7 @@ const MainFooter = () => {
     } else if (newsletterData.name.trim().length > 50) {
       errors.name = "Name cannot exceed 50 characters";
     }
-    
+
     // Email validation
     if (!newsletterData.email.trim()) {
       errors.email = "Email is required";
@@ -103,58 +165,67 @@ const MainFooter = () => {
       } else {
         // Gmail-specific validation
         if (!isValidGmail(newsletterData.email)) {
-          errors.email = "Gmail username must be 6-30 characters, lowercase letters, numbers, dots, and underscores only. No consecutive, leading, or trailing dots.";
+          errors.email =
+            "Gmail username must be 6-30 characters, lowercase letters, numbers, dots, and underscores only. No consecutive, leading, or trailing dots.";
         } else {
           // Common typo detection
-          const domain = newsletterData.email.split('@')[1]?.toLowerCase();
-          if (domain === 'gnail.com') {
+          const domain = newsletterData.email.split("@")[1]?.toLowerCase();
+          if (domain === "gnail.com") {
             errors.email = "Did you mean 'gmail.com'?";
-          } else if (domain === 'gmial.com') {
+          } else if (domain === "gmial.com") {
             errors.email = "Did you mean 'gmail.com'?";
-          } else if (domain === 'gmal.com') {
+          } else if (domain === "gmal.com") {
             errors.email = "Did you mean 'gmail.com'?";
-          } else if (domain === 'gmai.com') {
+          } else if (domain === "gmai.com") {
             errors.email = "Did you mean 'gmail.com'?";
-          } else if (domain === 'hotmai.com') {
+          } else if (domain === "hotmai.com") {
             errors.email = "Did you mean 'hotmail.com'?";
-          } else if (domain === 'hotmial.com') {
+          } else if (domain === "hotmial.com") {
             errors.email = "Did you mean 'hotmail.com'?";
-          } else if (domain === 'outlok.com') {
+          } else if (domain === "outlok.com") {
             errors.email = "Did you mean 'outlook.com'?";
-          } else if (domain === 'yaho.com') {
+          } else if (domain === "yaho.com") {
             errors.email = "Did you mean 'yahoo.com'?";
-          } else if (domain === 'yhaoo.com') {
+          } else if (domain === "yhaoo.com") {
             errors.email = "Did you mean 'yahoo.com'?";
           }
-          
+
           // Valid email provider whitelist
           const validProviders = [
-            'gmail.com', 'hotmail.com', 'outlook.com', 'yahoo.com', 
-            'icloud.com', 'protonmail.com', 'aol.com', 'live.com',
-            'businessplex.com.au', 'businessplex.com'
+            "gmail.com",
+            "hotmail.com",
+            "outlook.com",
+            "yahoo.com",
+            "icloud.com",
+            "protonmail.com",
+            "aol.com",
+            "live.com",
+            "businessplex.com.au",
+            "businessplex.com",
           ];
-          
+
           if (!validProviders.includes(domain)) {
-            errors.email = "Please use a valid email provider (Gmail, Hotmail, Outlook, Yahoo, iCloud, ProtonMail, etc.)";
+            errors.email =
+              "Please use a valid email provider (Gmail, Hotmail, Outlook, Yahoo, iCloud, ProtonMail, etc.)";
           }
         }
       }
     }
-    
+
     return errors;
   };
 
   const handleNewsletterSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Validate form before submission
     const errors = validateNewsletterForm();
     setValidationErrors(errors);
-    
+
     if (Object.keys(errors).length > 0) {
       return; // Don't submit if there are validation errors
     }
-    
+
     setIsSubmitting(true);
 
     try {
@@ -200,12 +271,12 @@ const MainFooter = () => {
       ...prev,
       [name]: value,
     }));
-    
+
     // Clear validation error for this field when user starts typing
     if (validationErrors[name]) {
-      setValidationErrors(prev => ({
+      setValidationErrors((prev) => ({
         ...prev,
-        [name]: ""
+        [name]: "",
       }));
     }
   };
@@ -242,11 +313,11 @@ const MainFooter = () => {
           rel="noopener noreferrer"
           className="hover:text-blue-400 transition-colors duration-200"
         >
-           1/3 Marchant Way, Morley, WA 6062  
+          1/3 Marchant Way, Morley, WA 6062
         </a>
       ),
     },
-     {
+    {
       icon: <FaMapMarkerAlt className="flex-shrink-0 mt-1" size={14} />,
       content: (
         <a
@@ -255,7 +326,7 @@ const MainFooter = () => {
           rel="noopener noreferrer"
           className="hover:text-blue-400 transition-colors duration-200"
         >
-         Based on Appointments : 16/30 Hasler Road, Osborne Park, WA 6017
+          Based on Appointments : 16/30 Hasler Road, Osborne Park, WA 6017
         </a>
       ),
     },
@@ -268,20 +339,19 @@ const MainFooter = () => {
         >
           Free call: 1300 894 480
         </a>
-        
       ),
     },
-     {
-        icon: <FaPhoneAlt className="flex-shrink-0 mt-1 text-gray-900 py-3" size={14} />,
+    {
+      icon: (
+        <FaPhoneAlt
+          className="flex-shrink-0 mt-1 text-gray-900 py-3"
+          size={14}
+        />
+      ),
       content: (
-        
-        <a
-          
-          className="hover:text-blue-400 transition-colors duration-200"
-        >
-         Add RTO: 45725
+        <a className="hover:text-blue-400 transition-colors duration-200">
+          Add RTO: 45725
         </a>
-        
       ),
     },
     {
@@ -295,7 +365,7 @@ const MainFooter = () => {
         </a>
       ),
     },
-    
+
     {
       icon: <MdEmail className="flex-shrink-0 mt-1" size={16} />,
       content: (
@@ -423,16 +493,72 @@ const MainFooter = () => {
               <ul className="space-y-3 text-center md:text-left">
                 {services.map((service, idx) => (
                   <li key={idx}>
-                    <button
-                      onClick={handleServiceClick}
-                      className="group flex items-center justify-center md:justify-start text-gray-300 hover:text-blue-400 transition-colors duration-200 text-sm w-full text-left bg-transparent border-none cursor-pointer"
-                    >
-                      <FaArrowRight
-                        size={10}
-                        className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                      />
-                      <span>{service.label}</span>
-                    </button>
+                    {service.label === "Small Business Training" ? (
+                      <button
+                        onClick={handleSmallBusinessTrainingClick}
+                        className="group flex items-center justify-center md:justify-start text-gray-300 hover:text-blue-400 transition-colors duration-200 text-sm w-full text-left bg-transparent border-none cursor-pointer"
+                      >
+                        <FaArrowRight
+                          size={10}
+                          className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                        />
+                        <span>{service.label}</span>
+                      </button>
+                    ) : service.label === "Business Plan Development" ? (
+                      <button
+                        onClick={handleBusinessPlanDevelopmentClick}
+                        className="group flex items-center justify-center md:justify-start text-gray-300 hover:text-blue-400 transition-colors duration-200 text-sm w-full text-left bg-transparent border-none cursor-pointer"
+                      >
+                        <FaArrowRight
+                          size={10}
+                          className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                        />
+                        <span>{service.label}</span>
+                      </button>
+                    ) : service.label === "Small Business Coaching" ? (
+                      <button
+                        onClick={handleSmallBusinessCoachingClick}
+                        className="group flex items-center justify-center md:justify-start text-gray-300 hover:text-blue-400 transition-colors duration-200 text-sm w-full text-left bg-transparent border-none cursor-pointer"
+                      >
+                        <FaArrowRight size={10} className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                        <span>{service.label}</span>
+                      </button>
+                    ) : service.label === "Exploring Self-Employment Workshop" ? (
+                      <button
+                        onClick={handleExploringSelfEmploymentClick}
+                        className="group flex items-center justify-center md:justify-start text-gray-300 hover:text-blue-400 transition-colors duration-200 text-sm w-full text-left bg-transparent border-none cursor-pointer"
+                      >
+                        <FaArrowRight size={10} className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                        <span>{service.label}</span>
+                      </button>
+                    ) : service.label === "Business Health check" ? (
+                      <button
+                        onClick={handleBusinessHealthCheckClick}
+                        className="group flex items-center justify-center md:justify-start text-gray-300 hover:text-blue-400 transition-colors duration-200 text-sm w-full text-left bg-transparent border-none cursor-pointer"
+                      >
+                        <FaArrowRight size={10} className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                        <span>{service.label}</span>
+                      </button>
+                    ) : service.label === "Business Advice" ? (
+                      <button
+                        onClick={handleBusinessAdviceClick}
+                        className="group flex items-center justify-center md:justify-start text-gray-300 hover:text-blue-400 transition-colors duration-200 text-sm w-full text-left bg-transparent border-none cursor-pointer"
+                      >
+                        <FaArrowRight size={10} className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                        <span>{service.label}</span>
+                      </button>
+                    ) : (
+                      <button
+                        onClick={handleServiceClick}
+                        className="group flex items-center justify-center md:justify-start text-gray-300 hover:text-blue-400 transition-colors duration-200 text-sm w-full text-left bg-transparent border-none cursor-pointer"
+                      >
+                        <FaArrowRight
+                          size={10}
+                          className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                        />
+                        <span>{service.label}</span>
+                      </button>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -481,14 +607,16 @@ const MainFooter = () => {
                       onChange={handleInputChange}
                       autoComplete="off"
                       className={`w-full px-4 py-3 rounded-lg text-gray-900 bg-white border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent ${
-                        validationErrors.name 
-                          ? 'border-red-500 focus:ring-red-400' 
-                          : 'border-gray-300'
+                        validationErrors.name
+                          ? "border-red-500 focus:ring-red-400"
+                          : "border-gray-300"
                       }`}
                       required
                     />
                     {validationErrors.name && (
-                      <p className="text-red-500 text-xs mt-1">{validationErrors.name}</p>
+                      <p className="text-red-500 text-xs mt-1">
+                        {validationErrors.name}
+                      </p>
                     )}
                   </div>
                   <div>
@@ -500,14 +628,16 @@ const MainFooter = () => {
                       onChange={handleInputChange}
                       autoComplete="off"
                       className={`w-full px-4 py-3 rounded-lg text-gray-900 bg-white border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent ${
-                        validationErrors.email 
-                          ? 'border-red-500 focus:ring-red-400' 
-                          : 'border-gray-300'
+                        validationErrors.email
+                          ? "border-red-500 focus:ring-red-400"
+                          : "border-gray-300"
                       }`}
                       required
                     />
                     {validationErrors.email && (
-                      <p className="text-red-500 text-xs mt-1">{validationErrors.email}</p>
+                      <p className="text-red-500 text-xs mt-1">
+                        {validationErrors.email}
+                      </p>
                     )}
                   </div>
                   <button
@@ -557,7 +687,9 @@ const MainFooter = () => {
                   Businessplex
                 </span>
                 . All Rights Reserved.Development by{" "}
-                <span className="text-blue-400"><a href="">A4Technologies</a></span>
+                <span className="text-blue-400">
+                  <a href="">A4Technologies</a>
+                </span>
               </p>
               <p className="text-white text-xs mt-1"></p>
             </div>
