@@ -654,7 +654,8 @@ const services = [
                 ? "translate-x-0 opacity-100"
                 : "translate-x-full opacity-0"
             }`}
-            style={{ backgroundImage: `url(${service.gif})` }}
+            // style={{ backgroundImage: `url(${service.gif})` }}
+            style={{ backgroundImage: `url(${service.image})` }}
           >
             <div className="absolute inset-0 bg-black/60 z-0" />
             <button
@@ -713,7 +714,7 @@ const services = [
                     ? "translate-x-0 opacity-100"
                     : "translate-x-full opacity-0"
                 }`}
-                style={{ backgroundImage: `url(${service.gif})` }}
+                style={{ backgroundImage: `url(${service.image})` }}
               >
                 <div className="absolute inset-0 bg-black/60 z-0" />
                 <button
@@ -760,7 +761,7 @@ const services = [
     <div
       className="absolute inset-0 bg-center bg-cover filter blur-sm transition-all duration-700 ease-out animate-scale-in"
       style={{
-        backgroundImage: `url(${services[serviceModalIndex].backgroundImage})`,
+        // backgroundImage: `url(${services[serviceModalIndex].backgroundImage})`,
       }}
       aria-hidden="true"
     />
