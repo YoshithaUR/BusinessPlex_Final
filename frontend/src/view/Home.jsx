@@ -655,7 +655,7 @@ const services = [
                 : "translate-x-full opacity-0"
             }`}
             // style={{ backgroundImage: `url(${service.gif})` }}
-            style={{ backgroundImage: `url(${service.gif})` }}
+            style={{ backgroundImage: `url(${service.image})` }}
           >
             <div className="absolute inset-0 bg-black/60 z-0" />
             <button
