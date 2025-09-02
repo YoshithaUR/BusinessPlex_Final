@@ -104,7 +104,7 @@ const Home = () => {
   useEffect(() => {
     const handleFooterServiceClick = (event) => {
       const { serviceIndex } = event.detail;
-      setServiceModalIndex(serviceIndex);
+      openServiceModal(serviceIndex);
     };
 
     window.addEventListener('openServiceModal', handleFooterServiceClick);
@@ -113,6 +113,25 @@ const Home = () => {
       window.removeEventListener('openServiceModal', handleFooterServiceClick);
     };
   }, []);
+
+  // Handle browser back button for modals
+  useEffect(() => {
+    const handlePopState = () => {
+      if (serviceModalIndex !== null) {
+        // If modal is open and back button is pressed, close the modal
+        closeServiceModal();
+        // Push a new state to prevent navigation away from the page
+        window.history.pushState(null, '', window.location.pathname);
+      }
+    };
+
+    // Listen for popstate (back button) events
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [serviceModalIndex]);
 
   const logos = [
     images.image_partnes05,
@@ -387,10 +406,16 @@ const services = [
 
   const openServiceModal = (index) => {
     setServiceModalIndex(index);
+    // Add a history state when opening modal so back button can close it
+    window.history.pushState({ modal: true, serviceIndex: index }, '', window.location.pathname);
   };
 
   const closeServiceModal = () => {
     setServiceModalIndex(null);
+    // Go back in history to remove the modal state
+    if (window.history.state && window.history.state.modal) {
+      window.history.back();
+    }
   };
 
   const handleApplyNow = (serviceTitle) => {
