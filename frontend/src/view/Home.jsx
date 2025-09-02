@@ -895,7 +895,7 @@ const services = [
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center">
               <button
-                onClick={() => navigate("/ApplicationForm")}
+                onClick={() => navigate("/ApplicationForm", { state: { scrollToForm: true } })}
                 data-aos="slide-right"
                 data-aos-delay="200"
                 className="w-50 sm:w-auto bg-white text-blue-600 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg transform hover:scale-105"
