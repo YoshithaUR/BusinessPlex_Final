@@ -55,7 +55,7 @@ const StudentInformationHandbook = () => {
                     return (
                         <div
                             key={index}
-                            className={`border rounded-md shadow transition-all duration-300 ${isOpen ? 'border-blue-500' : 'border-gray-200'
+                            className={`border rounded-md shadow transition-all duration-300 ${isOpen ? 'border-blue-500 relative z-10' : 'border-gray-200'
                                 }`}
                         >
                             <button

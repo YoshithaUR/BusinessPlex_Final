@@ -104,18 +104,6 @@ const AccessEquityPolicy = () => {
 
   const toggleTopic = (index) => {
     setOpenIndex(openIndex === index ? null : index);
-
-    if (openIndex !== index) {
-      setTimeout(() => {
-        const expandedCard = document.getElementById(`card-${index}`);
-        if (expandedCard) {
-          expandedCard.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      }, 100);
-    }
   };
 
   return (
@@ -142,7 +130,7 @@ const AccessEquityPolicy = () => {
                 key={index}
                 id={`card-${index}`}
                 className={`border-2 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl ${isOpen
-                  ? 'border-blue-500 bg-gradient-to-r from-blue-50 to-purple-50'
+                  ? 'border-blue-500 bg-gradient-to-r from-blue-50 to-purple-50 relative z-10'
                   : 'border-gray-200 bg-white hover:border-gray-300'
                   }`}
               >
