@@ -285,13 +285,28 @@ const MainFooter = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // Quick link navigation handlers
+  const handleQuickLinkClick = (path) => {
+    // Navigate to the target page
+    navigate(path);
+    
+    // After navigation, scroll down past the slideshow
+    setTimeout(() => {
+      const slideshowHeight = window.innerHeight - 88; // Full viewport height minus header height
+      window.scrollTo({
+        top: slideshowHeight + 100, // Add extra 100px to ensure we're past the slideshow
+        behavior: "smooth",
+      });
+    }, 100); // Small delay to ensure navigation completes
+  };
+
   const quickLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About Us" },
-    { href: "/qualifications", label: "Qualifications" },
-    // { href: "/trainingResources", label: "Training Resources" },
-    { href: "/policies", label: "Our Policies" },
-    // { href: "/contact", label: "Contact Us" },
+    { path: "/", label: "Home", onClick: () => handleQuickLinkClick("/") },
+    { path: "/about", label: "About Us", onClick: () => handleQuickLinkClick("/about") },
+    { path: "/qualifications", label: "Qualifications", onClick: () => handleQuickLinkClick("/qualifications") },
+    // { path: "/trainingResources", label: "Training Resources", onClick: () => handleQuickLinkClick("/trainingResources") },
+    { path: "/policies", label: "Our Policies", onClick: () => handleQuickLinkClick("/policies") },
+    // { path: "/contact", label: "Contact Us", onClick: () => handleQuickLinkClick("/contact") },
   ];
 
   const services = [
@@ -469,16 +484,16 @@ const MainFooter = () => {
               <ul className="space-y-3 text-center md:text-left">
                 {quickLinks.map((link, idx) => (
                   <li key={idx}>
-                    <a
-                      href={link.href}
-                      className="group flex items-center justify-center md:justify-start text-gray-300 hover:text-blue-400 transition-colors duration-200 text-sm"
+                    <button
+                      onClick={link.onClick}
+                      className="group flex items-center justify-center md:justify-start text-gray-300 hover:text-blue-400 transition-colors duration-200 text-sm w-full text-left bg-transparent border-none cursor-pointer"
                     >
                       <FaArrowRight
                         size={10}
                         className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                       />
                       <span>{link.label}</span>
-                    </a>
+                    </button>
                   </li>
                 ))}
               </ul>
