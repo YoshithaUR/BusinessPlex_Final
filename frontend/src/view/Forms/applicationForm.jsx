@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Building2, Send, Calendar, X } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 import axiosInstance from '../../api/api';
 
 const ApplicationForm = () => {
+  const location = useLocation();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -97,6 +99,28 @@ const ApplicationForm = () => {
       document.removeEventListener('wheel', handleWheel);
     };
   }, [showCalendar]);
+
+  // Handle state-based scrolling from ApplyNow modal
+  useEffect(() => {
+    if (location.state?.scrollToForm) {
+      // Wait for the page to fully load and render
+      const timer = setTimeout(() => {
+        // Calculate slideshow height based on viewport
+        const slideshowHeight = window.innerHeight - 88; // Full viewport height minus header height
+        
+        // Scroll to the end of the slideshow section
+        window.scrollTo({
+          top: slideshowHeight + 100, // Add extra 100px to ensure we're past the slideshow
+          behavior: 'smooth'
+        });
+        
+        // Clear the state to prevent re-scrolling on refresh
+        window.history.replaceState(null, null, window.location.pathname);
+      }, 500); // Wait 500ms for page to fully render
+      
+      return () => clearTimeout(timer);
+    }
+  }, [location.state]);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;

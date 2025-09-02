@@ -1,9 +1,11 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa"; // ✅ Make sure this is imported
+import { useNavigate } from "react-router-dom";
 
 const ApplyNow = () => {
   const [showApplyModal, setShowApplyModal] = React.useState(false);
   const [hasManuallyClosed, setHasManuallyClosed] = React.useState(false);
+  const navigate = useNavigate();
 
   const applyTriggerRef = React.useRef(null);
 
@@ -76,12 +78,15 @@ const ApplyNow = () => {
 
           {/* CTA Button */}
           <div className="flex justify-center">
-            <a
-              href="./ApplicationForm"
+                         <button
+               onClick={() => {
+                 // Navigate to ApplicationForm page with state to trigger scroll
+                 navigate("/ApplicationForm", { state: { scrollToForm: true } });
+               }}
               className="inline-block w-full text-center bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-800 text-white px-10 py-5 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
             >
               Apply Now
-            </a>
+            </button>
           </div>
 
           {/* Additional Info */}
