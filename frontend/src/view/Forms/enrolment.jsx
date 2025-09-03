@@ -167,7 +167,6 @@ function Enrolment() {
         alert("Enrollment application submitted successfully!");
         
       } catch (error) {
-        console.error("Enrollment submission error:", error);
         alert("An error occurred while submitting your enrollment. Please try again later.");
       } finally {
         setIsSubmitting(false);

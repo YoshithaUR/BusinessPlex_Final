@@ -144,7 +144,6 @@ function MonthlyFeedbackForm() {
         alert("Monthly feedback submitted successfully! Thank you for your update.");
         
       } catch (error) {
-        console.error("Feedback submission error:", error);
         alert("An error occurred while submitting your feedback. Please try again later.");
       } finally {
         setIsSubmitting(false);

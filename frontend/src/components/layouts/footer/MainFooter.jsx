@@ -18,39 +18,16 @@ import axiosInstance from "../../../api/api";
 
 // Email validation functions
 const isValidSyntax = (email) => {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  // Enhanced email validation regex
+  // Checks for: username@domain.tld format
+  // Username: alphanumeric, dots, underscores, hyphens, plus signs
+  // Domain: alphanumeric, hyphens, dots
+  // TLD: at least 2 characters, alphanumeric
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return emailRegex.test(email);
 };
 
-const isValidGmail = (email) => {
-  const [username, domain] = email.split("@");
 
-  // Check if it's a Gmail address
-  if (domain.toLowerCase() !== "gmail.com") {
-    return true; // Not Gmail, so no Gmail-specific validation needed
-  }
-
-  // Gmail username rules
-  if (username.length < 6 || username.length > 30) {
-    return false;
-  }
-
-  // Only allow lowercase letters, numbers, dots, and underscores
-  if (!/^[a-z0-9._]+$/.test(username)) {
-    return false;
-  }
-
-  // No consecutive dots
-  if (username.includes("..")) {
-    return false;
-  }
-
-  // No leading or trailing dots
-  if (username.startsWith(".") || username.endsWith(".")) {
-    return false;
-  }
-
-  return true;
-};
 
 const MainFooter = () => {
   const navigate = useNavigate();
@@ -63,6 +40,7 @@ const MainFooter = () => {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [alreadySubscribed, setAlreadySubscribed] = useState(false);
   const [validationErrors, setValidationErrors] = useState({});
+  const [submitError, setSubmitError] = useState("");
 
   const handleServiceClick = () => {
     // Navigate to ApplicationForm page
@@ -150,56 +128,9 @@ const MainFooter = () => {
     if (!newsletterData.email.trim()) {
       errors.email = "Email is required";
     } else {
-      // Basic syntax validation
+      // Basic email syntax validation - check for proper email format
       if (!isValidSyntax(newsletterData.email)) {
-        errors.email = "Please enter a valid email address";
-      } else {
-        // Gmail-specific validation
-        if (!isValidGmail(newsletterData.email)) {
-          errors.email =
-            "Gmail username must be 6-30 characters, lowercase letters, numbers, dots, and underscores only. No consecutive, leading, or trailing dots.";
-        } else {
-          // Common typo detection
-          const domain = newsletterData.email.split("@")[1]?.toLowerCase();
-          if (domain === "gnail.com") {
-            errors.email = "Did you mean 'gmail.com'?";
-          } else if (domain === "gmial.com") {
-            errors.email = "Did you mean 'gmail.com'?";
-          } else if (domain === "gmal.com") {
-            errors.email = "Did you mean 'gmail.com'?";
-          } else if (domain === "gmai.com") {
-            errors.email = "Did you mean 'gmail.com'?";
-          } else if (domain === "hotmai.com") {
-            errors.email = "Did you mean 'hotmail.com'?";
-          } else if (domain === "hotmial.com") {
-            errors.email = "Did you mean 'hotmail.com'?";
-          } else if (domain === "outlok.com") {
-            errors.email = "Did you mean 'outlook.com'?";
-          } else if (domain === "yaho.com") {
-            errors.email = "Did you mean 'yahoo.com'?";
-          } else if (domain === "yhaoo.com") {
-            errors.email = "Did you mean 'yahoo.com'?";
-          }
-
-          // Valid email provider whitelist
-          const validProviders = [
-            "gmail.com",
-            "hotmail.com",
-            "outlook.com",
-            "yahoo.com",
-            "icloud.com",
-            "protonmail.com",
-            "aol.com",
-            "live.com",
-            "businessplex.com.au",
-            "businessplex.com",
-          ];
-
-          if (!validProviders.includes(domain)) {
-            errors.email =
-              "Please use a valid email provider (Gmail, Hotmail, Outlook, Yahoo, iCloud, ProtonMail, etc.)";
-          }
-        }
+        errors.email = "Please enter a valid email address (must contain @ and a valid domain)";
       }
     }
 
@@ -224,33 +155,41 @@ const MainFooter = () => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       const response = await axiosInstance.post("/newsletter", newsletterData);
-      console.log(response);
 
-      if (response.data.success) {
-        // ✅ Clear fields for both cases
-        setNewsletterData({ name: "", email: "" });
-        // ✅ Force a fresh form instance (prevents autofill sticking)
-        setFormResetKey((k) => k + 1);
-        // Clear validation errors on success
-        setValidationErrors({});
+              if (response.data.success) {
+          // ✅ Clear fields for both cases
+          setNewsletterData({ name: "", email: "" });
+          // ✅ Force a fresh form instance (prevents autofill sticking)
+          setFormResetKey((k) => k + 1);
+          // Clear validation errors and error messages on success
+          setValidationErrors({});
+          setSubmitError("");
 
-        if (response.data.alreadySubscribed) {
-          setAlreadySubscribed(true);
-          setSubmitSuccess(false);
-        } else {
-          setSubmitSuccess(true);
-          setAlreadySubscribed(false);
+          if (response.data.alreadySubscribed) {
+            setAlreadySubscribed(true);
+            setSubmitSuccess(false);
+          } else {
+            setSubmitSuccess(true);
+            setAlreadySubscribed(false);
+          }
+
+          // Reset messages after 3 seconds
+          setTimeout(() => {
+            setSubmitSuccess(false);
+            setAlreadySubscribed(false);
+          }, 3000);
         }
-
-        // Reset messages after 3 seconds
-        setTimeout(() => {
-          setSubmitSuccess(false);
-          setAlreadySubscribed(false);
-        }, 3000);
-      }
     } catch (error) {
-      console.log(error);
-      // You might want to show an error message here
+      const errorMessage = error.response?.data?.message || error.message || "An error occurred while subscribing. Please try again.";
+      setSubmitError(errorMessage);
+      // Clear any previous success messages
+      setSubmitSuccess(false);
+      setAlreadySubscribed(false);
+      
+      // Clear error message after 5 seconds
+      setTimeout(() => {
+        setSubmitError("");
+      }, 5000);
     } finally {
       setIsSubmitting(false);
     }
@@ -269,6 +208,11 @@ const MainFooter = () => {
         ...prev,
         [name]: "",
       }));
+    }
+
+    // Clear submit error when user starts typing
+    if (submitError) {
+      setSubmitError("");
     }
   };
 
@@ -572,24 +516,55 @@ const MainFooter = () => {
                 insights.
               </p>
 
-              {submitSuccess ? (
-                <div className="bg-blue-600 text-white p-4 rounded-lg text-center">
-                  <FaCheck className="mx-auto mb-2" size={20} />
-                  <p className="text-sm font-semibold">
-                    Successfully subscribed!
-                  </p>
-                </div>
-              ) : alreadySubscribed ? (
-                <div className="bg-green-600 text-white p-4 rounded-lg text-center">
-                  <FaCheck className="mx-auto mb-2" size={20} />
-                  <p className="text-sm font-semibold">
-                    You are already subscribed!
-                  </p>
-                  <p className="text-xs mt-1">
-                    Thank you for your continued interest.
-                  </p>
-                </div>
-              ) : (
+                             {submitSuccess ? (
+                 <div className="bg-blue-600 text-white p-4 rounded-lg text-center relative">
+                   <button
+                     onClick={() => setSubmitSuccess(false)}
+                     className="absolute top-2 right-2 text-blue-200 hover:text-white transition-colors duration-200"
+                     aria-label="Close success message"
+                   >
+                     ×
+                   </button>
+                   <FaCheck className="mx-auto mb-2" size={20} />
+                   <p className="text-sm font-semibold">
+                     Successfully subscribed!
+                   </p>
+                 </div>
+               ) : alreadySubscribed ? (
+                 <div className="bg-green-600 text-white p-4 rounded-lg text-center relative">
+                   <button
+                     onClick={() => setAlreadySubscribed(false)}
+                     className="absolute top-2 right-2 text-green-200 hover:text-white transition-colors duration-200"
+                     aria-label="Close message"
+                   >
+                     ×
+                   </button>
+                   <FaCheck className="mx-auto mb-2" size={20} />
+                   <p className="text-sm font-semibold">
+                     You are already subscribed!
+                   </p>
+                   <p className="text-xs mt-1">
+                     Thank you for your continued interest.
+                   </p>
+                 </div>
+               ) : submitError ? (
+                 <div className="bg-red-600 text-white p-4 rounded-lg text-center relative">
+                   <button
+                     onClick={() => setSubmitError("")}
+                     className="absolute top-2 right-2 text-red-200 hover:text-white transition-colors duration-200"
+                     aria-label="Close error message"
+                   >
+                     ×
+                   </button>
+                   <div className="mx-auto mb-2 text-red-200 text-xl">⚠️</div>
+                   <p className="text-sm font-semibold">
+                     Subscription Failed
+                   </p>
+                   <p className="text-xs mt-1">
+                     {submitError}
+                   </p>
+                 </div>
+               ) : (
                 <form
                   key={formResetKey}
                   onSubmit={handleNewsletterSubmit}

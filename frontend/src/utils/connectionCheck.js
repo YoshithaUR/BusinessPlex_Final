@@ -30,7 +30,6 @@ export const checkConnectionStatus = async () => {
       error: null
     };
   } catch (error) {
-    console.error('Connection check failed:', error);
     return {
       success: false,
       connected: false,
@@ -65,7 +64,6 @@ export const checkHealth = async () => {
       error: null
     };
   } catch (error) {
-    console.error('Health check failed:', error);
     return {
       success: false,
       healthy: false,
@@ -101,7 +99,6 @@ export const testConnection = async () => {
       error: null
     };
   } catch (error) {
-    console.error('Connection test failed:', error);
     return {
       success: false,
       connected: false,
@@ -117,8 +114,6 @@ export const testConnection = async () => {
  * @returns {Promise<Object>} Complete connection status
  */
 export const performFullConnectionCheck = async () => {
-  console.log('🔍 Starting comprehensive connection check...');
-  
   const results = {
     timestamp: new Date().toISOString(),
     checks: {},
@@ -130,15 +125,12 @@ export const performFullConnectionCheck = async () => {
   };
 
   // Test 1: Basic connection test
-  console.log('📡 Testing basic connection...');
   results.checks.basicConnection = await testConnection();
 
   // Test 2: Health check
-  console.log('🏥 Testing health endpoint...');
   results.checks.health = await checkHealth();
 
   // Test 3: Detailed connection status
-  console.log('📊 Getting detailed connection status...');
   results.checks.connectionStatus = await checkConnectionStatus();
 
   // Determine overall status
@@ -149,7 +141,6 @@ export const performFullConnectionCheck = async () => {
     results.checks.health.success && 
     results.checks.connectionStatus.success;
 
-  console.log('✅ Connection check completed:', results.overall);
   return results;
 };
 

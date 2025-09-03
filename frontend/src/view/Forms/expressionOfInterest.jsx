@@ -164,7 +164,6 @@ function ExpressionOfInterest() {
         alert("Expression of Interest submitted successfully! We will contact you soon.");
         
       } catch (error) {
-        console.error("Submission error:", error);
         alert("An error occurred while submitting your expression of interest. Please try again later.");
       } finally {
         setIsSubmitting(false);

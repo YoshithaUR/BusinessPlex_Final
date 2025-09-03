@@ -51,43 +51,16 @@ const Home = () => {
 
   // Email validation functions
   const isValidSyntax = (email) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    // Enhanced email validation regex
+    // Checks for: username@domain.tld format
+    // Username: alphanumeric, dots, underscores, hyphens, plus signs
+    // Domain: alphanumeric, hyphens, dots
+    // TLD: at least 2 characters, alphanumeric
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
   };
 
-  const isValidGmail = (email) => {
-    if (!email) return true;
-    const emailLower = email.toLowerCase();
 
-    // Check if it's a Gmail address
-    if (emailLower.includes("@gmail.com")) {
-      // Gmail-specific validations
-      const localPart = emailLower.split("@")[0];
-
-      // Gmail username rules
-      if (localPart.length < 6 || localPart.length > 30) {
-        return false;
-      }
-
-      // Gmail username can only contain letters, numbers, dots, and underscores
-      if (!/^[a-z0-9._]+$/.test(localPart)) {
-        return false;
-      }
-
-      // Gmail username cannot start or end with a dot
-      if (localPart.startsWith(".") || localPart.endsWith(".")) {
-        return false;
-      }
-
-      // Gmail username cannot have consecutive dots
-      if (localPart.includes("..")) {
-        return false;
-      }
-
-      return true;
-    }
-
-    return true; // Not a Gmail address, let other validations handle it
-  };
 
   useEffect(() => {
     AOS.init({
@@ -408,7 +381,6 @@ const Home = () => {
     } catch (error) {
       const errorMessage =
         error.response?.data?.error || error.message || "An error occurred";
-      console.log(errorMessage);
       toast.error(errorMessage);
     } finally {
       setIsSubmitting(false);
@@ -1191,109 +1163,10 @@ const Home = () => {
             email: Yup.string()
               .test(
                 "syntax",
-                "Please enter a valid email address",
+                "Please enter a valid email address (must contain @ and a valid domain)",
                 function (value) {
                   if (!value) return true; // Let required validation handle empty values
                   return isValidSyntax(value);
-                }
-              )
-              .test(
-                "gmail-validation",
-                "Invalid Gmail address format",
-                function (value) {
-                  if (!value) return true;
-                  return isValidGmail(value);
-                }
-              )
-              .test(
-                "no-typos",
-                "Please check your email address for typos",
-                function (value) {
-                  if (!value) return true; // Let required validation handle empty values
-
-                  const email = value.toLowerCase();
-
-                  // Common typos to check for
-                  const commonTypos = [
-                    "gnail.com",
-                    "gmial.com",
-                    "gamil.com",
-                    "gmal.com",
-                    "gmai.com",
-                    "gmeil.com",
-                    "hotmai.com",
-                    "hotmial.com",
-                    "hotmeil.com",
-                    "hotmal.com",
-                    "outlok.com",
-                    "outloook.com",
-                    "outlokc.com",
-                    "outloock.com",
-                    "yahooo.com",
-                    "yaho.com",
-                    "yahooo.com",
-                    "yaho.com",
-                    "icloud.com",
-                    "iclod.com",
-                    "icloude.com",
-                    "protonmai.com",
-                    "protonmial.com",
-                    "yandex.ru",
-                    "yandex.com",
-                    "yandex.ru",
-                    "zoho.com",
-                    "zohoo.com",
-                    "zoh.com",
-                  ];
-
-                  // Check for common typos
-                  for (const typo of commonTypos) {
-                    if (email.includes(typo)) {
-                      return this.createError({
-                        message: `Did you mean "${typo
-                          .replace("gnail.com", "gmail.com")
-                          .replace("gmial.com", "gmail.com")
-                          .replace("gamil.com", "gmail.com")
-                          .replace("gmal.com", "gmail.com")
-                          .replace("gmai.com", "gmail.com")
-                          .replace("gmeil.com", "gmail.com")}"?`,
-                      });
-                    }
-                  }
-
-                  // Check for valid email providers (whitelist approach)
-                  const validProviders = [
-                    "gmail.com",
-                    "hotmail.com",
-                    "outlook.com",
-                    "yahoo.com",
-                    "icloud.com",
-                    "protonmail.com",
-                    "yandex.ru",
-                    "zoho.com",
-                    "aol.com",
-                    "live.com",
-                    "msn.com",
-                    "me.com",
-                    "mac.com",
-                    "gmx.com",
-                    "mail.com",
-                    "fastmail.com",
-                    "tutanota.com",
-                    "startmail.com",
-                    "posteo.de",
-                    "kolabnow.com",
-                  ];
-
-                  const domain = email.split("@")[1];
-                  if (domain && !validProviders.includes(domain)) {
-                    return this.createError({
-                      message:
-                        "Please use a valid email provider (Gmail, Hotmail, Outlook, Yahoo, etc.)",
-                    });
-                  }
-
-                  return true;
                 }
               )
               .required("Please enter your email address"),

@@ -743,7 +743,10 @@ const handleApplyNow = (serviceTitle) => {
               {/* Overlay clickable area only on image_two */}
               {src === images.image_two && index === currentIndex && (
                 <button
-                  onClick={() => console.log("clicked")}
+                  onClick={() => {
+                    // Navigate to application form when clicked
+                    window.location.href = "/ApplicationForm";
+                  }}
                   style={{
                     position: "absolute",
                     left: "690px",

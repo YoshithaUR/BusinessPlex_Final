@@ -159,7 +159,6 @@ const ApplicationForm = () => {
     setCurrentMonth(prevMonth => {
       const newDate = new Date(prevMonth);
       newDate.setMonth(newDate.getMonth() + 1);
-      console.log('Next month:', newDate.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' }));
       return newDate;
     });
   };
@@ -168,7 +167,6 @@ const ApplicationForm = () => {
     setCurrentMonth(prevMonth => {
       const newDate = new Date(prevMonth);
       newDate.setMonth(newDate.getMonth() - 1);
-      console.log('Previous month:', newDate.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' }));
       return newDate;
     });
   };
@@ -312,8 +310,6 @@ const ApplicationForm = () => {
         });
         setErrors({});
       } catch (error) {
-        console.error('Application submission error:', error);
-        
         if (error.response && error.response.data && error.response.data.errors) {
           // Handle validation errors from backend
           const backendErrors = {};
