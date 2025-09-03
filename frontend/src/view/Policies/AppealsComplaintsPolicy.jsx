@@ -72,7 +72,7 @@ const topics = [
       <div>
         <p>
           <div className='pb-5'>
-            All complaints are treated with appropriate confidentiality, unless to do so would compromise the Institute’s duty of care. Similarly, people who are themselves the subject of a complaint, have the right to expect that any claims made against them are treated confidentially.
+            All complaints are treated with appropriate confidentiality, unless to do so would compromise the Institute's duty of care. Similarly, people who are themselves the subject of a complaint, have the right to expect that any claims made against them are treated confidentially.
           </div>
 
           <div className='pb-5'>
@@ -97,7 +97,7 @@ const topics = [
       <div>
         <p>
           <div className='pb-5'>
-            Complaint – a person’s expression of dissatisfaction with any service provided by Businessplex.
+            Complaint – a person's expression of dissatisfaction with any service provided by Businessplex.
           </div>
           <div className='pb-5'>
             Appeal – a request to review a decision that has previously been made.
@@ -138,10 +138,10 @@ const topics = [
             The CEO will discuss the complaint with the Administration Manager and/or Director and advise, in writing, the person who has made the complaint of the proposed solution.
           </div>
           <div className='pb-5'>
-            The advice to the person who has made the complaint will include information and procedures concerning the complainant’s right to appeal the proposed solution and request for an independent adjudicator.
+            The advice to the person who has made the complaint will include information and procedures concerning the complainant's right to appeal the proposed solution and request for an independent adjudicator.
           </div>
           <div className='pb-5'>
-            A student may be assisted or accompanied by a support person regardless of the nature of the complaint or appeal. Businessplex will maintain a student’s enrolment while a complaint and appeal process is on-going, however, this does not exclude Businessplex from reserving the right to suspend a student from attending class or visiting Businessplex Training facility, if that is considered necessary during this period.Businessplex acknowledges the need for an independent party to mediate where an appropriate outcome cannot be reached internally.
+            A student may be assisted or accompanied by a support person regardless of the nature of the complaint or appeal. Businessplex will maintain a student's enrolment while a complaint and appeal process is on-going, however, this does not exclude Businessplex from reserving the right to suspend a student from attending class or visiting Businessplex Training facility, if that is considered necessary during this period.Businessplex acknowledges the need for an independent party to mediate where an appropriate outcome cannot be reached internally.
           </div>
           <div className='pb-5'>
             All independent adjudicator outcomes will be communicated to the complainant in a timely manner.
@@ -177,10 +177,10 @@ const AppealsComplaintsPolicy = () => {
       <div className="max-w-4xl mx-auto p-6">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-black to-blue-800 bg-clip-text text-transparent">
-            Learner Support Policy
+            Appeals and Complaints Policy
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Your privacy is important to us. This policy explains how we collect, use, and protect your personal information when you use our services.
+            We are committed to resolving student complaints and appeals fairly, promptly, and in accordance with principles of natural justice.
           </p>
           <div className="mt-4 inline-flex items-center space-x-2 text-sm text-gray-500">
             <span>📅</span>
@@ -195,24 +195,33 @@ const AppealsComplaintsPolicy = () => {
               <div
                 key={index}
                 id={`card-${index}`}
-                className={`border-2 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl ${isOpen
-                  ? 'border-blue-500 bg-gradient-to-r from-blue-50 to-purple-50 relative z-10'
-                  : 'border-gray-200 bg-white hover:border-gray-300'
-                  }`}
+                className={`border-2 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl ${
+                  isOpen
+                    ? 'border-blue-500 bg-gradient-to-br from-blue-50 via-blue-50 to-purple-50 relative z-10 shadow-2xl'
+                    : 'border-gray-200 bg-white hover:border-gray-300'
+                }`}
               >
                 <button
                   onClick={() => toggleTopic(index)}
-                  className="w-full text-left px-6 py-5 flex justify-between items-center cursor-pointer transition-all duration-200 hover:bg-gray-50 rounded-t-xl"
+                  className={`w-full text-left px-6 py-5 flex justify-between items-center cursor-pointer transition-all duration-200 ${
+                    isOpen 
+                      ? 'bg-gradient-to-r from-blue-100 to-purple-100 rounded-t-xl border-b border-blue-200' 
+                      : 'hover:bg-gray-50 rounded-xl'
+                  }`}
                 >
                   <div className="flex items-center space-x-3">
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold ${isOpen ? 'bg-blue-800' : 'bg-blue-400'
-                      }`}>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold ${
+                      isOpen ? 'bg-blue-800' : 'bg-blue-400'
+                    }`}>
                       {index + 1}
                     </div>
-                    <span className="text-lg font-semibold text-gray-800">{topic.title}</span>
+                    <span className={`text-lg font-semibold ${
+                      isOpen ? 'text-blue-900' : 'text-gray-800'
+                    }`}>{topic.title}</span>
                   </div>
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-blue-500 text-white rotate-180' : 'bg-gray-200 text-gray-600'
-                    }`}>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
+                    isOpen ? 'bg-blue-600 text-white rotate-180' : 'bg-gray-200 text-gray-600'
+                  }`}>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
@@ -220,11 +229,16 @@ const AppealsComplaintsPolicy = () => {
                 </button>
 
                 <div
-                  className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
-                    }`}
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    isOpen ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
+                  }`}
                 >
                   <div className="px-6 pb-6">
-                    <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+                    <div className={`rounded-b-xl p-6 ${
+                      isOpen 
+                        ? 'bg-gradient-to-br from-blue-50 to-purple-50 border-t-0' 
+                        : 'bg-white'
+                    }`}>
                       <div
                         className="leading-relaxed overflow-y-auto max-h-[700px] pr-2 content-scroll"
                         style={{
@@ -232,15 +246,16 @@ const AppealsComplaintsPolicy = () => {
                           msOverflowStyle: 'none',
                         }}
                       >
-                        <style>{`
-                .content-scroll::-webkit-scrollbar {
-                    display: none;
-                }
-                .content-scroll {
-                    -ms-overflow-style: none;
-                    scrollbar-width: none;
-                }
-            `}
+                        <style>
+                          {`
+                            .content-scroll::-webkit-scrollbar {
+                              display: none;
+                            }
+                            .content-scroll {
+                              -ms-overflow-style: none;
+                              scrollbar-width: none;
+                            }
+                          `}
                         </style>
                         <div className="content-scroll text-gray-700">
                           {topic.content}
@@ -254,10 +269,10 @@ const AppealsComplaintsPolicy = () => {
           })}
         </div>
 
-        <div className="mt-12 mb-10 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200">
+        <div className="mt-15 mb-10 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200">
           <div className="text-center">
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">Questions about our Privacy Policy?</h3>
-            <p className="text-gray-600 mb-4">We're here to help you understand how we protect your data.</p>
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">Questions about our Appeals and Complaints Policy?</h3>
+            <p className="text-gray-600 mb-4">We're here to help you understand the process for lodging complaints and appeals.</p>
             {/* <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
               Contact Our Privacy Team
             </button> */}

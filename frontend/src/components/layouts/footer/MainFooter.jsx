@@ -230,9 +230,7 @@ const MainFooter = () => {
     { path: "/", label: "Home", onClick: () => handleQuickLinkClick("/") },
     { path: "/about", label: "About Us", onClick: () => handleQuickLinkClick("/about") },
     { path: "/qualifications", label: "Qualifications", onClick: () => handleQuickLinkClick("/qualifications") },
-    // { path: "/trainingResources", label: "Training Resources", onClick: () => handleQuickLinkClick("/trainingResources") },
     { path: "/policies", label: "Our Policies", onClick: () => handleQuickLinkClick("/policies") },
-    // { path: "/contact", label: "Contact Us", onClick: () => handleQuickLinkClick("/contact") },
   ];
 
   const services = [
@@ -278,7 +276,7 @@ const MainFooter = () => {
           href="tel:1300894480"
           className="hover:text-blue-400 transition-colors duration-200"
         >
-          Free call: 1300 894 480
+          Free call : 1300 894 480
         </a>
       ),
     },
@@ -291,7 +289,7 @@ const MainFooter = () => {
       ),
       content: (
         <a className="hover:text-blue-400 transition-colors duration-200">
-          Add RTO: 45725
+          Add RTO : 45725
         </a>
       ),
     },
