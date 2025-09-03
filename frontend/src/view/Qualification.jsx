@@ -74,15 +74,6 @@ const Qualifications = () => {
   const handleApplyNow = () => {
     // Navigate to ApplicationForm page
     navigate("/ApplicationForm");
-    
-    // After navigation, scroll down past the slideshow
-    setTimeout(() => {
-      const slideshowHeight = window.innerHeight - 88; // Full viewport height minus header height
-      window.scrollTo({
-        top: slideshowHeight + 100, // Add extra 100px to ensure we're past the slideshow
-        behavior: 'smooth'
-      });
-    }, 100); // Small delay to ensure navigation completes
   };
 
   return (

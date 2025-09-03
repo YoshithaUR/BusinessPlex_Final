@@ -97,6 +97,8 @@ const selfEmploymentData = [
 const TrainingResources = () => {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
+    // Scroll down a little bit when component mounts
+    window.scrollTo(0, 100); // Scroll down 100px from top
   }, []);
 
   return (

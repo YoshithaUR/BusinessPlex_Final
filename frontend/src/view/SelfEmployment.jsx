@@ -23,10 +23,10 @@ import images from "../assets/Images/images";
 
 const SelfEmployment = () => {
   useEffect(() => {
-    // Scroll to top when component mounts with delay for header visibility
+    // Scroll down a little bit when component mounts with delay for header visibility
     setTimeout(() => {
       window.scrollTo({
-        top: 0,
+        top: 100, // Scroll down 100px from top
         behavior: 'smooth'
       });
     }, 100);

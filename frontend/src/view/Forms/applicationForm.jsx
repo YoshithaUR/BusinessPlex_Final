@@ -100,9 +100,27 @@ const ApplicationForm = () => {
     };
   }, [showCalendar]);
 
-  // Handle state-based scrolling from ApplyNow modal
+  // Scroll to end of slideshow section when component mounts
   useEffect(() => {
-    if (location.state?.scrollToForm) {
+    // Wait for the page to fully load and render
+    const timer = setTimeout(() => {
+      // Calculate slideshow height based on viewport
+      const slideshowHeight = window.innerHeight - 88; // Full viewport height minus header height
+      
+      // Scroll to the end of the slideshow section
+      window.scrollTo({
+        top: slideshowHeight + 100, // Add extra 100px to ensure we're past the slideshow
+        behavior: 'smooth'
+      });
+    }, 500); // Wait 500ms for page to fully render
+    
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Handle navigation from service cards or other components
+  useEffect(() => {
+    // Check if we came from a service card or other navigation
+    if (location.state?.selectedService || location.state?.scrollToForm) {
       // Wait for the page to fully load and render
       const timer = setTimeout(() => {
         // Calculate slideshow height based on viewport

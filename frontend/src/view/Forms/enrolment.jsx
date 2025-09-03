@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   User,
   Mail,
@@ -64,6 +64,11 @@ function Enrolment() {
     marketingConsent: false,
     accuracyDeclaration: false,
   });
+
+  // Scroll down a little bit when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 100); // Scroll down 100px from top
+  }, []);
 
   // Form validation
   const validateForm = () => {

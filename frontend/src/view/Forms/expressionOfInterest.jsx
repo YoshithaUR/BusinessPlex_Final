@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   User,
   Mail,
@@ -84,6 +84,11 @@ function ExpressionOfInterest() {
   const [declaration, setDeclaration] = useState({
     certifyInformation: false,
   });
+
+  // Scroll down a little bit when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 100); // Scroll down 100px from top
+  }, []);
 
   const validateForm = () => {
     const requiredPersonalFields = [

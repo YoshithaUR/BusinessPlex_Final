@@ -42,12 +42,10 @@ import axiosInstance from "../api/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 const Home = () => {
   const [serviceModalIndex, setServiceModalIndex] = useState(null);
   const [hoveredCard, setHoveredCard] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
-
 
   const navigate = useNavigate();
 
@@ -59,35 +57,35 @@ const Home = () => {
   const isValidGmail = (email) => {
     if (!email) return true;
     const emailLower = email.toLowerCase();
-    
+
     // Check if it's a Gmail address
-    if (emailLower.includes('@gmail.com')) {
+    if (emailLower.includes("@gmail.com")) {
       // Gmail-specific validations
-      const localPart = emailLower.split('@')[0];
-      
+      const localPart = emailLower.split("@")[0];
+
       // Gmail username rules
       if (localPart.length < 6 || localPart.length > 30) {
         return false;
       }
-      
+
       // Gmail username can only contain letters, numbers, dots, and underscores
       if (!/^[a-z0-9._]+$/.test(localPart)) {
         return false;
       }
-      
+
       // Gmail username cannot start or end with a dot
-      if (localPart.startsWith('.') || localPart.endsWith('.')) {
+      if (localPart.startsWith(".") || localPart.endsWith(".")) {
         return false;
       }
-      
+
       // Gmail username cannot have consecutive dots
-      if (localPart.includes('..')) {
+      if (localPart.includes("..")) {
         return false;
       }
-      
+
       return true;
     }
-    
+
     return true; // Not a Gmail address, let other validations handle it
   };
 
@@ -107,10 +105,10 @@ const Home = () => {
       openServiceModal(serviceIndex);
     };
 
-    window.addEventListener('openServiceModal', handleFooterServiceClick);
+    window.addEventListener("openServiceModal", handleFooterServiceClick);
 
     return () => {
-      window.removeEventListener('openServiceModal', handleFooterServiceClick);
+      window.removeEventListener("openServiceModal", handleFooterServiceClick);
     };
   }, []);
 
@@ -121,15 +119,15 @@ const Home = () => {
         // If modal is open and back button is pressed, close the modal
         closeServiceModal();
         // Push a new state to prevent navigation away from the page
-        window.history.pushState(null, '', window.location.pathname);
+        window.history.pushState(null, "", window.location.pathname);
       }
     };
 
     // Listen for popstate (back button) events
-    window.addEventListener('popstate', handlePopState);
+    window.addEventListener("popstate", handlePopState);
 
     return () => {
-      window.removeEventListener('popstate', handlePopState);
+      window.removeEventListener("popstate", handlePopState);
     };
   }, [serviceModalIndex]);
 
@@ -140,274 +138,245 @@ const Home = () => {
     images.image_partnes03,
     images.image_partnes06,
     images.image_partnes04,
-    
+
     // images.image_partnes07,
     // images.image_partnes08,
   ];
-const services = [
-  {
-    title: "Small Business Training",
-    image: images.image_Card01,
-    gif: images.image_GIF01,
-    link: "./ApplicationForm",
-    paragraph: [
-      "Our Small Business Training equips participants with the essential skills to start, manage, and grow a successful business. As part of the program, you'll also develop a comprehensive business plan to guide your business strategy and long-term goals.",
-      "Training is delivered two days per week over four weeks, with flexible online and classroom options available.",
-    ],
-    
-    // Enhanced structure with 4 subtopics
-    subtopics: [
-      {
-        title: "Nationally Accredited Qualifications:",
-        points: [
-          "Certificate III in Entrepreneurship and New Business (BSB30220)",
-          "Certificate IV in Entrepreneurship and New Business (BSB40320)",
-        ]
-      },
-      {
-        title: "Program Benefits for Eligible Participants:",
-        points: [
-          "Fully government-funded training",
-          "Development of a business plan tailored to your business",
-          "Creation of a financial plan for your business",
-          "Development of a marketing plan to drive growth",
-          "Award of a nationally accredited certificate upon successful completion of the full qualification"
-        ]
-      },
-      {
-        title: " Pathway to Small Business Coaching",
-        points: [
-          "Once your business plan and financial plan are successfully completed, participants may progress to Small Business Coaching, receiving 12 months of personalised mentoring and support to help implement their plans and grow their business successfully."
-        ]
-      },
-      {
-        title: "",
-        points: [
-         
-        ]
-      }
-    ],
-    
-    modalImage: images.image_Card01,
-    backgroundImage: images.image_ServicePopup01,
-  },
-  {
-    title: "Business Plan Development",
-    image: images.image_Card05,
-    gif: images.image_GIF05,
-    paragraph: [
-      "Participants who choose not to enrol in Small Business Training can access the Business Plan Development service directly. A well-prepared business plan is essential for new and existing micro-business owners, helping them clearly define the steps necessary to achieve success.",
-      "Once your business plan is complete and assessed for viability, you may progress to Small Business Coaching. This gives you access to 12 months of personalised mentoring, ongoing support, and guidance to help you implement your plan, overcome challenges, and grow your business successfully."
-    ],
-    
-    subtopics: [
-      {
-        title: "",
-        points: [
-          
-        ]
-      },
-      {
-        title: "",
-        points: [
-          
-        ]
-      },
-      {
-        title: "",
-        points: [
-         
-        ]
-      },
-      {
-        title: "",
-        points: [
-          
-        ]
-      }
-    ],
-    
-    modalImage: images.image_Card05,
-    backgroundImage: images.image_ServicePopup05,
-  },
-  {
-    title: "Small Business Coaching",
-    image: images.image_Card06,
-    gif: images.image_GIF06,
-    paragraph: [
-      "Our Small Business Coaching program provides 12 months of personalised mentoring and support to help you successfully start and manage your small business.",
-     
-    ],
-    
-    subtopics: [
-      {
-        title: "Under Small Business Coaching, eligible participants can benefit from:",
-        points: [
-          "Earning unlimited business income",
-          "Access up to $300 for eligible business costs (e.g.: business insurance, registration etc)",
-          "Access self-employment allowance payments for up to 39 weeks",
-          "Access self-employment rental assistance payments for up to 26 weeks (if eligible)",
-          "Access free mentoring session every 2 months over the course of Small Business Coaching Agreement"
-        ]
-      },
-      {
-        title: "One-on-One Mentoring Sessions",
-        points: [
-          "Our one-on-one mentoring sessions are delivered by experienced mentors who bring proven business expertise, strong knowledge of small business management, and excellent communication skills.",
-          "In addition to these personalised sessions, we maintain regular contact with participants, at least monthly, to provide ongoing support and guidance. This may include a phone call from your dedicated mentor/forms to be filled with any concern or invitations to participate in small business seminars and workshops, ensuring you have the assistance you need to successfully run and grow your business.",
-          
-        ]
-      },
-      {
-        title: "",
-        points: [
-          
-        ]
-      },
-      {
-        title: "",
-        points: [
-         
-        ]
-      }
-    ],
-    
-    modalImage: images.image_Card06,
-    backgroundImage: images.image_ServicePopup06,
-  },
-  {
-    title: "Exploring Self-Employment Workshop",
-    image: images.image_Card04,
-    gif: images.image_GIF04,
-    paragraph: [
-      "Our Exploring Self-Employment Workshops are designed to help you understand the fundamentals of self-employment and assess whether it's the right path for you. Delivered one day per week over four weeks, these workshops provide time to reflect, learn, and apply new knowledge.",
-    ],
-    
-    subtopics: [
-      {
-        title: "Through these workshops, you will:",
-        points: [
-          "Gain a clear understanding of what starting a business involves",
-          "Generate a new business idea (if required)",
-          "Validate your existing business idea",
-          "Make an informed decision about pursuing self-employment"
-        ]
-      },
-      {
-        title: "Exploring Self-Employment Workshop",
-        points: [
-          "The Exploring Self-Employment Workshops are your first step toward confidently starting and running a successful business."
-        ]
-      },
-      {
-        title: "",
-        points: [
-          
-        ]
-      },
-      {
-        title: "",
-        points: [
-          
-        ]
-      }
-    ],
-    
-    modalImage: images.image_Card04,
-    backgroundImage: images.image_ServicePopup04,
-  },
-  {
-    title: "Business Health check",
-    image: images.image_Card03,
-    gif: images.image_GIF03,
-    paragraph: [
-      "A Business Health Check is a comprehensive, 3-hour one-on-one session designed to give small business owners a clear picture of how their business is performing and actionable strategies to improve. This service is ideal for both new and existing micro-businesses that want to enhance operations, increase profitability, and plan for sustainable growth",
-      
-    ],
-    
-    subtopics: [
-      {
-       
-        title: "What the Session Covers.",
-        points: [
-         
-          
-        ]
-      },
-      {
-        title: " During your Business Health Check, your provider will work closely with you to:",
-        points: [
-          "Analyse key business areas: Examine your operations, marketing, financials, and customer engagement to identify strengths and weaknesses.",
-          "Identify challenges and opportunities: Pinpoint potential risks and discover growth opportunities to make your business more competitive and resilient.",
-          "Connect with support services: Link you to relevant local business networks, training, or government resources that can help your business thrive.",
-        ]
-      },
-      {
-        title: "Eligibility and Access",
-        points: [
-          "If eligible, participants can access one free Business Health Check every 12 months, providing ongoing expert guidance to ensure your business stays on track and continues to grow.",
-         
-        ]
-      },
-      {
-        title: "",
-        points: [
-          
-        ]
-      }
-    ],
-    
-    modalImage: images.image_Card03,
-    backgroundImage: images.image_ServicePopup03,
-  },
-  {
-    title: "Business Advice",
-    image: images.image_Card02,
-    gif: images.image_GIF02,
-    paragraph: [
-      "Our Business Advice Sessions are personalised, one-hour consultations with an experienced business advisor. Whether you are starting a new business or managing an existing one, these sessions provide practical guidance tailored to your unique needs.",
-    ],
-    
-    subtopics: [
-      {
-        title: "What You Can Use These Sessions For",
-        points: [
-          "Develop strategies to improve your business's commercial viability",
-          "Receive advice on a wide range of small business topics",
-          "Get referrals to other relevant business support networks",
-          "Eligible participants can access up to 2 free sessions every 12 months, helping you make informed decisions and strengthen your business for long-term success."
-        ]
-      },
-      {
-        title: "",
-        points: [
-          
-        ]
-      },
-      {
-        title: "",
-        points: [
-         
-        ]
-      },
-      {
-        title: "",
-        points: [
-         
-        ]
-      }
-    ],
-    
-    modalImage: images.image_Card02,
-    backgroundImage: images.image_ServicePopup02,
-  },
-];
+  const services = [
+    {
+      title: "Small Business Training",
+      image: images.image_Card01,
+      gif: images.image_GIF01,
+      link: "./ApplicationForm",
+      paragraph: [
+        "Our Small Business Training equips participants with the essential skills to start, manage, and grow a successful business. As part of the program, you'll also develop a comprehensive business plan to guide your business strategy and long-term goals.",
+        "Training is delivered two days per week over four weeks, with flexible online and classroom options available.",
+      ],
 
+      // Enhanced structure with 4 subtopics
+      subtopics: [
+        {
+          title: "Nationally Accredited Qualifications:",
+          points: [
+            "Certificate III in Entrepreneurship and New Business (BSB30220)",
+            "Certificate IV in Entrepreneurship and New Business (BSB40320)",
+          ],
+        },
+        {
+          title: "Program Benefits for Eligible Participants:",
+          points: [
+            "Fully government-funded training",
+            "Development of a business plan tailored to your business",
+            "Creation of a financial plan for your business",
+            "Development of a marketing plan to drive growth",
+            "Award of a nationally accredited certificate upon successful completion of the full qualification",
+          ],
+        },
+        {
+          title: " Pathway to Small Business Coaching",
+          points: [
+            "Once your business plan and financial plan are successfully completed, participants may progress to Small Business Coaching, receiving 12 months of personalised mentoring and support to help implement their plans and grow their business successfully.",
+          ],
+        },
+        {
+          title: "",
+          points: [],
+        },
+      ],
+
+      modalImage: images.image_Card01,
+      backgroundImage: images.image_ServicePopup01,
+    },
+    {
+      title: "Business Plan Development",
+      image: images.image_Card05,
+      gif: images.image_GIF05,
+      paragraph: [
+        "Participants who choose not to enrol in Small Business Training can access the Business Plan Development service directly. A well-prepared business plan is essential for new and existing micro-business owners, helping them clearly define the steps necessary to achieve success.",
+        "Once your business plan is complete and assessed for viability, you may progress to Small Business Coaching. This gives you access to 12 months of personalised mentoring, ongoing support, and guidance to help you implement your plan, overcome challenges, and grow your business successfully.",
+      ],
+
+      subtopics: [
+        {
+          title: "",
+          points: [],
+        },
+        {
+          title: "",
+          points: [],
+        },
+        {
+          title: "",
+          points: [],
+        },
+        {
+          title: "",
+          points: [],
+        },
+      ],
+
+      modalImage: images.image_Card05,
+      backgroundImage: images.image_ServicePopup05,
+    },
+    {
+      title: "Small Business Coaching",
+      image: images.image_Card06,
+      gif: images.image_GIF06,
+      paragraph: [
+        "Our Small Business Coaching program provides 12 months of personalised mentoring and support to help you successfully start and manage your small business.",
+      ],
+
+      subtopics: [
+        {
+          title:
+            "Under Small Business Coaching, eligible participants can benefit from:",
+          points: [
+            "Earning unlimited business income",
+            "Access up to $300 for eligible business costs (e.g.: business insurance, registration etc)",
+            "Access self-employment allowance payments for up to 39 weeks",
+            "Access self-employment rental assistance payments for up to 26 weeks (if eligible)",
+            "Access free mentoring session every 2 months over the course of Small Business Coaching Agreement",
+          ],
+        },
+        {
+          title: "One-on-One Mentoring Sessions",
+          points: [
+            "Our one-on-one mentoring sessions are delivered by experienced mentors who bring proven business expertise, strong knowledge of small business management, and excellent communication skills.",
+            "In addition to these personalised sessions, we maintain regular contact with participants, at least monthly, to provide ongoing support and guidance. This may include a phone call from your dedicated mentor/forms to be filled with any concern or invitations to participate in small business seminars and workshops, ensuring you have the assistance you need to successfully run and grow your business.",
+          ],
+        },
+        {
+          title: "",
+          points: [],
+        },
+        {
+          title: "",
+          points: [],
+        },
+      ],
+
+      modalImage: images.image_Card06,
+      backgroundImage: images.image_ServicePopup06,
+    },
+    {
+      title: "Exploring Self-Employment Workshop",
+      image: images.image_Card04,
+      gif: images.image_GIF04,
+      paragraph: [
+        "Our Exploring Self-Employment Workshops are designed to help you understand the fundamentals of self-employment and assess whether it's the right path for you. Delivered one day per week over four weeks, these workshops provide time to reflect, learn, and apply new knowledge.",
+      ],
+
+      subtopics: [
+        {
+          title: "Through these workshops, you will:",
+          points: [
+            "Gain a clear understanding of what starting a business involves",
+            "Generate a new business idea (if required)",
+            "Validate your existing business idea",
+            "Make an informed decision about pursuing self-employment",
+          ],
+        },
+        {
+          title: "Exploring Self-Employment Workshop",
+          points: [
+            "The Exploring Self-Employment Workshops are your first step toward confidently starting and running a successful business.",
+          ],
+        },
+        {
+          title: "",
+          points: [],
+        },
+        {
+          title: "",
+          points: [],
+        },
+      ],
+
+      modalImage: images.image_Card04,
+      backgroundImage: images.image_ServicePopup04,
+    },
+    {
+      title: "Business Health check",
+      image: images.image_Card03,
+      gif: images.image_GIF03,
+      paragraph: [
+        "A Business Health Check is a comprehensive, 3-hour one-on-one session designed to give small business owners a clear picture of how their business is performing and actionable strategies to improve. This service is ideal for both new and existing micro-businesses that want to enhance operations, increase profitability, and plan for sustainable growth",
+      ],
+
+      subtopics: [
+        {
+          title: "What the Session Covers.",
+          points: [],
+        },
+        {
+          title:
+            " During your Business Health Check, your provider will work closely with you to:",
+          points: [
+            "Analyse key business areas: Examine your operations, marketing, financials, and customer engagement to identify strengths and weaknesses.",
+            "Identify challenges and opportunities: Pinpoint potential risks and discover growth opportunities to make your business more competitive and resilient.",
+            "Connect with support services: Link you to relevant local business networks, training, or government resources that can help your business thrive.",
+          ],
+        },
+        {
+          title: "Eligibility and Access",
+          points: [
+            "If eligible, participants can access one free Business Health Check every 12 months, providing ongoing expert guidance to ensure your business stays on track and continues to grow.",
+          ],
+        },
+        {
+          title: "",
+          points: [],
+        },
+      ],
+
+      modalImage: images.image_Card03,
+      backgroundImage: images.image_ServicePopup03,
+    },
+    {
+      title: "Business Advice",
+      image: images.image_Card02,
+      gif: images.image_GIF02,
+      paragraph: [
+        "Our Business Advice Sessions are personalised, one-hour consultations with an experienced business advisor. Whether you are starting a new business or managing an existing one, these sessions provide practical guidance tailored to your unique needs.",
+      ],
+
+      subtopics: [
+        {
+          title: "What You Can Use These Sessions For",
+          points: [
+            "Develop strategies to improve your business's commercial viability",
+            "Receive advice on a wide range of small business topics",
+            "Get referrals to other relevant business support networks",
+            "Eligible participants can access up to 2 free sessions every 12 months, helping you make informed decisions and strengthen your business for long-term success.",
+          ],
+        },
+        {
+          title: "",
+          points: [],
+        },
+        {
+          title: "",
+          points: [],
+        },
+        {
+          title: "",
+          points: [],
+        },
+      ],
+
+      modalImage: images.image_Card02,
+      backgroundImage: images.image_ServicePopup02,
+    },
+  ];
 
   const openServiceModal = (index) => {
     setServiceModalIndex(index);
     // Add a history state when opening modal so back button can close it
-    window.history.pushState({ modal: true, serviceIndex: index }, '', window.location.pathname);
+    window.history.pushState(
+      { modal: true, serviceIndex: index },
+      "",
+      window.location.pathname
+    );
   };
 
   const closeServiceModal = () => {
@@ -437,7 +406,8 @@ const services = [
         toast.error(message);
       }
     } catch (error) {
-      const errorMessage = error.response?.data?.error || error.message || 'An error occurred';
+      const errorMessage =
+        error.response?.data?.error || error.message || "An error occurred";
       console.log(errorMessage);
       toast.error(errorMessage);
     } finally {
@@ -461,19 +431,15 @@ const services = [
       />
       {/* Business Support Services Section */}
 
-     <section className="relative bg-gradient-to-br from-white via-green-50 to-yellow-50 py-40 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
+      <section className="relative bg-gradient-to-br from-white via-green-50 to-yellow-50 py-40 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
         {/* Hero Image - Option 2: Featured Image */}
-          <div 
-            data-aos="fade-up"
-            data-aos-delay="250"
-            className="mb-10"
-          >
-            <img 
-              src={images.image_yearimg}
-              alt="Business meeting and entrepreneurship"
-              className="w-50 max-w-4xl mx-auto rounded-2xl shadow-2xl"
-            />
-          </div>
+        <div data-aos="fade-up" data-aos-delay="250" className="mb-10">
+          <img
+            src={images.image_yearimg}
+            alt="Business meeting and entrepreneurship"
+            className="w-50 max-w-4xl mx-auto rounded-2xl shadow-2xl"
+          />
+        </div>
         <div className="max-w-6xl mx-auto text-center relative z-10">
           {/* Tagline */}
           <h1
@@ -490,8 +456,6 @@ const services = [
             Thinking of starting a business or taking the existing business to
             the next level?
           </p>
-
-         
 
           {/* Description */}
           <p
@@ -513,9 +477,10 @@ const services = [
             className="text-base md:text-lg text-gray-600 max-w-4xl mx-auto"
           >
             We deliver the <strong>Self-Employment Assistance Program</strong>{" "}
-            (formerly known as NEIS), fully funded by the Department of Employment and
-            Workplace Relations (DEWR) under Workforce Australia for eligible
-            start-ups and established businesses in the Perth-North area.
+            (formerly known as NEIS), fully funded by the Department of
+            Employment and Workplace Relations (DEWR) under Workforce Australia
+            for eligible start-ups and established businesses in the Perth-North
+            area.
           </p>
 
           <p
@@ -585,10 +550,10 @@ const services = [
         ></div>
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent z-0"></div> */}
 
-        {/* Main Content */}
-        {/* <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-6 sm:gap-8 lg:gap-12"> */}
-          {/* Left - Timeline Text Content */}
-          {/* <div className="w-full lg:w-1/2 relative">
+      {/* Main Content */}
+      {/* <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-6 sm:gap-8 lg:gap-12"> */}
+      {/* Left - Timeline Text Content */}
+      {/* <div className="w-full lg:w-1/2 relative">
             <h2
               className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-800 mb-4 sm:mb-6 md:mb-8 font-[Montserrat,Open_Sans,sans-serif] text-center lg:text-left"
               data-aos="fade-up"
@@ -604,11 +569,11 @@ const services = [
                   data-aos="fade-up"
                   data-aos-delay={index * 100}
                 > */}
-                  {/* Ping Dot */}
-                  {/* <div className="absolute -left-1.5 sm:-left-2 md:-left-3 top-1.5 w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 rounded-full bg-blue-700 shadow-lg border-2 sm:border-2 md:border-4 border-white z-10 animate-ping-slow"></div> */}
+      {/* Ping Dot */}
+      {/* <div className="absolute -left-1.5 sm:-left-2 md:-left-3 top-1.5 w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 rounded-full bg-blue-700 shadow-lg border-2 sm:border-2 md:border-4 border-white z-10 animate-ping-slow"></div> */}
 
-                  {/* Text Card */}
-                  {/* <div className="bg-white/80 p-2 sm:p-3 md:p-4 lg:p-5 rounded-xl shadow-md border border-gray-200 hover:shadow-xl transition duration-300 backdrop-blur-lg cursor-pointer group-hover:scale-[1.02] transform">
+      {/* Text Card */}
+      {/* <div className="bg-white/80 p-2 sm:p-3 md:p-4 lg:p-5 rounded-xl shadow-md border border-gray-200 hover:shadow-xl transition duration-300 backdrop-blur-lg cursor-pointer group-hover:scale-[1.02] transform">
                     <div className="flex items-start gap-2 md:gap-3">
                       <TiTickOutline className="text-blue-500 text-base sm:text-lg md:text-xl animate-bounce flex-shrink-0 mt-0.5" />
                       <p className="text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed font-[Poppins,Roboto,sans-serif]">
@@ -621,8 +586,8 @@ const services = [
             </div>
           </div> */}
 
-          {/* Right - Video Preview */}
-          {/* <div
+      {/* Right - Video Preview */}
+      {/* <div
             className="w-full lg:w-1/2 h-48 sm:h-64 md:h-80 lg:h-[450px] mt-4 sm:mt-6 lg:mt-0"
             data-aos="fade-left"
             data-aos-delay="300"
@@ -637,245 +602,253 @@ const services = [
           </div>
         </div>
       </section> */}
-       <ApplyNow />
-{/* Services Section */}
-<section className="py-6 sm:py-8 md:py-12 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif]">
-  <div className="max-w-7xl mx-auto">
-    {/* Desktop Grid (always visible) */}
-    <div className="hidden lg:grid grid-cols-3 gap-6">
-      {services.map((service, index) => (
-        <div
-          key={index}
-          className="relative bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-500 group cursor-pointer aspect-[650/614]"
-          onMouseEnter={() => setHoveredCard(index)}
-          onMouseLeave={() => setHoveredCard(null)}
-        >
-          {/* Default Image */}
-          <div
-            className={`absolute inset-0 z-20 p-3 sm:p-4 md:p-6 transition-all duration-700 ease-in-out bg-cover bg-center flex flex-col justify-center items-center rounded-xl shadow-xl 
+      <ApplyNow />
+      {/* Services Section */}
+      <section className="py-6 sm:py-8 md:py-12 px-4 sm:px-6 md:px-8 font-[Poppins,Roboto,sans-serif]">
+        <div className="max-w-7xl mx-auto">
+          {/* Desktop Grid (always visible) */}
+          <div className="hidden lg:grid grid-cols-3 gap-6">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="relative bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-500 group cursor-pointer aspect-[650/614]"
+                onMouseEnter={() => setHoveredCard(index)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                {/* Default Image */}
+                <div
+                  className={`absolute inset-0 z-20 p-3 sm:p-4 md:p-6 transition-all duration-700 ease-in-out bg-cover bg-center flex flex-col justify-center items-center rounded-xl shadow-xl 
             ${
               hoveredCard === index
                 ? "-translate-x-full opacity-0"
                 : "translate-x-0 opacity-100"
             }`}
-            style={{ backgroundImage: `url(${service.image})` }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-black/30 z-0" />
-            <div className="relative z-10 text-white text-center px-2 md:px-4">
-              <h3
-                className="text-lg font-bold tracking-wider text-white drop-shadow-lg mb-4"
-                style={{ WebkitTextStroke: "1px #B45309" }}
-              >
-                
-              </h3>
-            </div>
-          </div>
+                  style={{ backgroundImage: `url(${service.image})` }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-black/30 z-0" />
+                  <div className="relative z-10 text-white text-center px-2 md:px-4">
+                    <h3
+                      className="text-lg font-bold tracking-wider text-white drop-shadow-lg mb-4"
+                      style={{ WebkitTextStroke: "1px #B45309" }}
+                    ></h3>
+                  </div>
+                </div>
 
-          {/* Hover GIF */}
-          <div
-            className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover bg-center transition-all duration-500 ease-in-out 
+                {/* Hover GIF */}
+                <div
+                  className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover bg-center transition-all duration-500 ease-in-out 
             ${
               hoveredCard === index
                 ? "translate-x-0 opacity-100"
                 : "translate-x-full opacity-0"
             }`}
-            // style={{ backgroundImage: `url(${service.gif})` }}
-            style={{ backgroundImage: `url(${service.image})` }}
-          >
-            <div className="absolute inset-0 bg-black/60 z-0" />
-            <button
-              onClick={() => openServiceModal(index)}
-              className="relative z-10 bg-transparent border border-blue-800 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-blue-600/20 transition-all"
-            >
-              Read More
-            </button>
+                  // style={{ backgroundImage: `url(${service.gif})` }}
+                  style={{ backgroundImage: `url(${service.image})` }}
+                >
+                  <div className="absolute inset-0 bg-black/60 z-0" />
+                  <button
+                    onClick={() => openServiceModal(index)}
+                    className="relative z-10 bg-transparent border border-blue-800 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-blue-600/20 transition-all"
+                  >
+                    Read More
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
-      ))}
-    </div>
 
-     {/* Mobile Carousel */}
-    <div className="relative lg:hidden overflow-hidden">
-      {/* Cards Container */}
-      <div
-        className="flex transition-transform duration-500"
-        style={{
-          transform: `translateX(-${currentSlide * 100}%)`,
-        }}
-      >
-        {services.map((service, index) => (
-          <div key={index} className="flex-shrink-0 w-full px-2">
+          {/* Mobile Carousel */}
+          <div className="relative lg:hidden overflow-hidden">
+            {/* Cards Container */}
             <div
-              onMouseEnter={() => setHoveredCard(index)}
-              onMouseLeave={() => setHoveredCard(null)}
-              className="relative bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-500 group cursor-pointer aspect-[650/614]"
+              className="flex transition-transform duration-500"
+              style={{
+                transform: `translateX(-${currentSlide * 100}%)`,
+              }}
             >
-              {/* Default Image */}
-              <div
-                className={`absolute inset-0 z-20 p-3 transition-all duration-700 ease-in-out bg-cover bg-center flex flex-col justify-center items-center rounded-xl shadow-xl 
+              {services.map((service, index) => (
+                <div key={index} className="flex-shrink-0 w-full px-2">
+                  <div
+                    onMouseEnter={() => setHoveredCard(index)}
+                    onMouseLeave={() => setHoveredCard(null)}
+                    className="relative bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-500 group cursor-pointer aspect-[650/614]"
+                  >
+                    {/* Default Image */}
+                    <div
+                      className={`absolute inset-0 z-20 p-3 transition-all duration-700 ease-in-out bg-cover bg-center flex flex-col justify-center items-center rounded-xl shadow-xl 
                 ${
                   hoveredCard === index
                     ? "-translate-x-full opacity-0"
                     : "translate-x-0 opacity-100"
                 }`}
-                style={{ backgroundImage: `url(${service.image})` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-black/30 z-0" />
-                <div className="relative z-10 text-white text-center px-2">
-                  <h3
-                    className="text-base font-bold tracking-wider text-white drop-shadow-lg mb-4"
-                    style={{ WebkitTextStroke: "1px #B45309" }}
-                  >
-                    {service.title}
-                  </h3>
-                </div>
-              </div>
+                      style={{ backgroundImage: `url(${service.image})` }}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-black/30 z-0" />
+                      <div className="relative z-10 text-white text-center px-2">
+                        <h3
+                          className="text-base font-bold tracking-wider text-white drop-shadow-lg mb-4"
+                          style={{ WebkitTextStroke: "1px #B45309" }}
+                        >
+                          {service.title}
+                        </h3>
+                      </div>
+                    </div>
 
-              {/* Hover GIF */}
-              <div
-                className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover bg-center transition-all duration-500 ease-in-out 
+                    {/* Hover GIF */}
+                    <div
+                      className={`absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover bg-center transition-all duration-500 ease-in-out 
                 ${
                   hoveredCard === index
                     ? "translate-x-0 opacity-100"
                     : "translate-x-full opacity-0"
                 }`}
-                style={{ backgroundImage: `url(${service.image})` }}
-              >
-                <div className="absolute inset-0 bg-black/60 z-0" />
+                      style={{ backgroundImage: `url(${service.image})` }}
+                    >
+                      <div className="absolute inset-0 bg-black/60 z-0" />
+                      <button
+                        onClick={() => openServiceModal(index)}
+                        className="relative z-10 bg-transparent border border-blue-800 text-white font-semibold px-4 py-2 rounded-full shadow-lg hover:bg-blue-600/20 transition-all"
+                      >
+                        Read More
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Pagination Dots */}
+            <div className="flex justify-center gap-3 mt-4">
+              {services.map((_, index) => (
                 <button
-                  onClick={() => openServiceModal(index)}
-                  className="relative z-10 bg-transparent border border-blue-800 text-white font-semibold px-4 py-2 rounded-full shadow-lg hover:bg-blue-600/20 transition-all"
-                >
-                  Read More
-                </button>
-              </div>
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    currentSlide === index
+                      ? "bg-red-600 scale-125"
+                      : "bg-gray-300"
+                  }`}
+                />
+              ))}
             </div>
           </div>
-        ))}
-      </div>
-
-      {/* Pagination Dots */}
-      <div className="flex justify-center gap-3 mt-4">
-        {services.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              currentSlide === index ? "bg-red-600 scale-125" : "bg-gray-300"
-            }`}
-          />
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
-
-{/* Enhanced Service Modal with Smooth Tailwind Animations */}
-{serviceModalIndex !== null && (
-  <div
-    className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 animate-fade-in"
-    onClick={closeServiceModal}
-  >
-    {/* Background Image Overlay with smooth fade */}
-    <div 
-      className="absolute inset-0 bg-black/80 transition-opacity duration-500 ease-out animate-fade-in" 
-      aria-hidden="true"
-    />
-
-    {/* Blurred Background Image with scale animation */}
-    <div
-      className="absolute inset-0 bg-center bg-cover filter blur-sm transition-all duration-700 ease-out animate-scale-in"
-      style={{
-        // backgroundImage: `url(${services[serviceModalIndex].backgroundImage})`,
-      }}
-      aria-hidden="true"
-    />
-
-    {/* Content Modal with enhanced animations */}
-    <div
-      className="relative bg-white/70 backdrop-blur-lg rounded-2xl p-3 sm:p-4 md:p-6 max-w-full sm:max-w-lg md:max-w-2xl lg:max-w-5xl w-full shadow-2xl overflow-y-auto max-h-[90vh] sm:max-h-[85vh] md:max-h-[80vh] border border-white/30 transform transition-all duration-500 ease-out animate-slide-up"
-      onClick={(e) => e.stopPropagation()}
-    >
-      {/* Top Section with smooth slide animation */}
-      <div 
-        className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 md:gap-6 mb-4 sm:mb-5 md:mb-6 animate-slide-in-left animation-delay-200"
-      >
-        <img
-          src={services[serviceModalIndex].modalImage}
-          alt={services[serviceModalIndex].title}
-          className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-xl shadow-xl object-cover flex-shrink-0 transform transition-all duration-300 hover:scale-105"
-        />
-        <div className="flex-1">
-          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-black mb-2 sm:mb-3 md:mb-4 text-center sm:text-left transform transition-all duration-300">
-            {services[serviceModalIndex].title}
-          </h2>
-          {services[serviceModalIndex].paragraph.map((para, idx) => (
-            <p
-              key={idx}
-              className={`text-blue-800 mb-2 sm:mb-3 text-xs sm:text-sm md:text-[15px] lg:text-[16px] leading-relaxed text-center font-bold sm:text-left font-poppins transform transition-all duration-500 animate-fade-in-up animation-delay-${300 + idx * 100}`}
-            >
-              {para}
-            </p>
-          ))}
         </div>
-      </div>
+      </section>
 
-      {/* Enhanced Subtopics Section with staggered animations */}
-      {services[serviceModalIndex].subtopics && (
-        <div className="space-y-6 sm:space-y-7 md:space-y-8">
-          {services[serviceModalIndex].subtopics.map((subtopic, idx) => (
-            <div 
-              key={idx} 
-              className={`mb-6 transform transition-all duration-300 hover:scale-[1.02] animate-slide-in-right animation-delay-${400 + idx * 100}`}
-            >
-              {/* Bold Black Subtopic Title with hover effect */}
-              <h3 className="text-base sm:text-lg md:text-xl font-bold text-black mb-3 sm:mb-4 font-poppins transition-colors duration-300 hover:text-blue-800">
-                {subtopic.title}
-              </h3>
-              
-              {/* Points for this subtopic with staggered fade-in */}
-              <ul className="space-y-2 sm:space-y-3 text-blue-800 text-xs sm:text-sm md:text-[15px] leading-relaxed font-bold font-poppins">
-                {subtopic.points.map((point, i) => (
-                  <li 
-                    key={i} 
-                    className={`flex items-start gap-2 sm:gap-3 transform transition-all duration-300 hover:translate-x-2 animate-fade-in-left animation-delay-${500 + idx * 100 + i * 50}`}
+      {/* Enhanced Service Modal with Smooth Tailwind Animations */}
+      {serviceModalIndex !== null && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 animate-fade-in"
+          onClick={closeServiceModal}
+        >
+          {/* Background Image Overlay with smooth fade */}
+          <div
+            className="absolute inset-0 bg-black/80 transition-opacity duration-500 ease-out animate-fade-in"
+            aria-hidden="true"
+          />
+
+          {/* Blurred Background Image with scale animation */}
+          <div
+            className="absolute inset-0 bg-center bg-cover filter blur-sm transition-all duration-700 ease-out animate-scale-in"
+            style={
+              {
+                // backgroundImage: `url(${services[serviceModalIndex].backgroundImage})`,
+              }
+            }
+            aria-hidden="true"
+          />
+
+          {/* Content Modal with enhanced animations */}
+          <div
+            className="relative bg-white/70 backdrop-blur-lg rounded-2xl p-3 sm:p-4 md:p-6 max-w-full sm:max-w-lg md:max-w-2xl lg:max-w-5xl w-full shadow-2xl overflow-y-auto max-h-[90vh] sm:max-h-[85vh] md:max-h-[80vh] border border-white/30 transform transition-all duration-500 ease-out animate-slide-up"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Top Section with smooth slide animation */}
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 md:gap-6 mb-4 sm:mb-5 md:mb-6 animate-slide-in-left animation-delay-200">
+              <img
+                src={services[serviceModalIndex].modalImage}
+                alt={services[serviceModalIndex].title}
+                className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-xl shadow-xl object-cover flex-shrink-0 transform transition-all duration-300 hover:scale-105"
+              />
+              <div className="flex-1">
+                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-black mb-2 sm:mb-3 md:mb-4 text-center sm:text-left transform transition-all duration-300">
+                  {services[serviceModalIndex].title}
+                </h2>
+                {services[serviceModalIndex].paragraph.map((para, idx) => (
+                  <p
+                    key={idx}
+                    className={`text-blue-800 mb-2 sm:mb-3 text-xs sm:text-sm md:text-[15px] lg:text-[16px] leading-relaxed text-center font-bold sm:text-left font-poppins transform transition-all duration-500 animate-fade-in-up animation-delay-${
+                      300 + idx * 100
+                    }`}
                   >
-                    <span className="mt-1 w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full flex-shrink-0 animate-pulse" />
-                    <span className="transition-colors duration-300 hover:text-blue-900">{point}</span>
-                  </li>
+                    {para}
+                  </p>
                 ))}
-              </ul>
+              </div>
             </div>
-          ))}
+
+            {/* Enhanced Subtopics Section with staggered animations */}
+            {services[serviceModalIndex].subtopics && (
+              <div className="space-y-6 sm:space-y-7 md:space-y-8">
+                {services[serviceModalIndex].subtopics.map((subtopic, idx) => (
+                  <div
+                    key={idx}
+                    className={`mb-6 transform transition-all duration-300 hover:scale-[1.02] animate-slide-in-right animation-delay-${
+                      400 + idx * 100
+                    }`}
+                  >
+                    {/* Bold Black Subtopic Title with hover effect */}
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-black mb-3 sm:mb-4 font-poppins transition-colors duration-300 hover:text-blue-800">
+                      {subtopic.title}
+                    </h3>
+
+                    {/* Points for this subtopic with staggered fade-in */}
+                    <ul className="space-y-2 sm:space-y-3 text-blue-800 text-xs sm:text-sm md:text-[15px] leading-relaxed font-bold font-poppins">
+                      {subtopic.points.map((point, i) => (
+                        <li
+                          key={i}
+                          className={`flex items-start gap-2 sm:gap-3 transform transition-all duration-300 hover:translate-x-2 animate-fade-in-left animation-delay-${
+                            500 + idx * 100 + i * 50
+                          }`}
+                        >
+                          <span className="mt-1 w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full flex-shrink-0 animate-pulse" />
+                          <span className="transition-colors duration-300 hover:text-blue-900">
+                            {point}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* CTA Button with enhanced animation */}
+            <div className="flex justify-center mt-8 animate-bounce-in animation-delay-800">
+              <button
+                onClick={() =>
+                  handleApplyNow(services[serviceModalIndex].title)
+                }
+                className="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 rounded-full shadow-xl transition-all duration-300 flex items-center gap-3 text-sm sm:text-base md:text-lg transform hover:scale-105 hover:shadow-2xl"
+              >
+                Apply Now
+                <span className="transition-transform duration-300 group-hover:translate-x-2 group-hover:scale-110">
+                  👉
+                </span>
+              </button>
+            </div>
+
+            {/* Close Button with smooth hover effects */}
+            <button
+              onClick={closeServiceModal}
+              className="absolute top-3 sm:top-4 right-4 sm:right-5 text-white hover:text-red-400 font-bold text-2xl sm:text-3xl md:text-4xl transition-all duration-300 transform hover:scale-110 hover:rotate-90 bg-black/30 hover:bg-red-500/30 rounded-full w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center backdrop-blur-sm"
+              aria-label="Close modal"
+            >
+              &times;
+            </button>
+          </div>
         </div>
       )}
-
-      {/* CTA Button with enhanced animation */}
-      <div 
-        className="flex justify-center mt-8 animate-bounce-in animation-delay-800"
-      >
-        <button
-          onClick={() => handleApplyNow(services[serviceModalIndex].title)}
-          className="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 rounded-full shadow-xl transition-all duration-300 flex items-center gap-3 text-sm sm:text-base md:text-lg transform hover:scale-105 hover:shadow-2xl"
-        >
-          Apply Now
-          <span className="transition-transform duration-300 group-hover:translate-x-2 group-hover:scale-110">👉</span>
-        </button>
-      </div>
-
-      {/* Close Button with smooth hover effects */}
-      <button
-        onClick={closeServiceModal}
-        className="absolute top-3 sm:top-4 right-4 sm:right-5 text-white hover:text-red-400 font-bold text-2xl sm:text-3xl md:text-4xl transition-all duration-300 transform hover:scale-110 hover:rotate-90 bg-black/30 hover:bg-red-500/30 rounded-full w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center backdrop-blur-sm"
-        aria-label="Close modal"
-      >
-        &times;
-      </button>
-    </div>
-  </div>
-)}
-
-     
 
       {/* Call to Action */}
       <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-white via-green-50 to-yellow-50">
@@ -895,7 +868,11 @@ const services = [
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center">
               <button
-                onClick={() => navigate("/ApplicationForm", { state: { scrollToForm: true } })}
+                onClick={() =>
+                  navigate("/ApplicationForm", {
+                    state: { scrollToForm: true },
+                  })
+                }
                 data-aos="slide-right"
                 data-aos-delay="200"
                 className="w-50 sm:w-auto bg-white text-blue-600 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg transform hover:scale-105"
@@ -913,8 +890,8 @@ const services = [
           </div>
         </div>
       </section>
-     
- {/* Hero Section */}
+
+      {/* Hero Section */}
       <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-white via-green-50 to-yellow-50">
         <div className="max-w-6xl mx-auto text-center">
           <div data-aos="fade-down" data-aos-duration="1200">
@@ -1069,114 +1046,124 @@ const services = [
         </div>
       </section>
       {/* Self-Employment Program Section */}
-<section
-  className="relative w-full min-h-[40vh] sm:min-h-[50vh] md:min-h-[70vh] lg:min-h-[80vh] overflow-hidden mb-4 bg-gradient-to-br from-white via-green-50 to-yellow-50"
-  data-aos="fade-in"
->
-  <div
-    className="absolute inset-0 bg-cover bg-center bg-no-repeat transition duration-700"
-    style={{
-      backgroundImage: `url(${images.image_program})`,
-    }}
-    data-aos="fade-in"
-    data-aos-duration="1000"
-  >
-    <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black/70 to-transparent"></div>
-  </div>
-
-  <div className="absolute inset-0 bg-black/60 z-0" />
-
-  <div className="relative z-10 flex flex-col md:flex-row justify-center items-center h-full px-4 sm:px-6 md:px-8 text-white">
-    <div
-      className="w-full md:w-2/3 mb-6 md:mb-0 mt-6 sm:mt-8 md:mt-16 bg-white/10 backdrop-blur-md p-3 sm:p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"
-      data-aos="fade-right"
-      data-aos-duration="900"
-      data-aos-delay="150"
-    >
-      <h1
-        className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-extrabold mb-3 sm:mb-4 md:mb-6 drop-shadow-md text-center md:text-left font-[Montserrat,Open_Sans,sans-serif]"
-        data-aos="fade-up"
-        data-aos-duration="900"
-        data-aos-delay="300"
+      <section
+        className="relative w-full min-h-[40vh] sm:min-h-[50vh] md:min-h-[70vh] lg:min-h-[80vh] overflow-hidden mb-4 bg-gradient-to-br from-white via-green-50 to-yellow-50"
+        data-aos="fade-in"
       >
-        Self-Employment Assistance Program
-      </h1>
-
-      <p
-        className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-relaxed text-center md:text-justify max-w-2xl font-[Poppins,Roboto,sans-serif]"
-        data-aos="fade-up"
-        data-aos-duration="900"
-        data-aos-delay="450"
-      >
-        We offer business training and coaching across Perth North, Western Australia. Our programs are delivered by experienced industry specialists with a strong background in small business. The Self-Employment Assistance Program, funded by the Australian Federal Government, supports unemployed and under-employed individuals, as well as owners of existing micro-businesses (up to 4 employees), to explore and pursue opportunities for self-employment.
-      </p>
-    </div>
-
-    <div
-      className="w-full md:w-1/3 flex justify-center items-center md:justify-center md:items-center h-full md:h-auto"
-      data-aos="fade-left"
-      data-aos-duration="900"
-      data-aos-delay="600"
-    >
-      <div
-        className="flex justify-center items-center w-full"
-        data-aos="zoom-in"
-        data-aos-delay="600"
-      >
-        <button
-          onClick={() => {
-            navigate("/SelfEmployment");
-            // After navigation, scroll to the end of the slideshow section
-            setTimeout(() => {
-              // Try multiple times to ensure the page is fully loaded
-              const scrollToSlideshowEnd = () => {
-                // Look for the slideshow section or header element
-                const slideshowSection = document.querySelector('.slideshow-section') || 
-                                        document.querySelector('[data-aos="fade-in"]') ||
-                                        document.querySelector('.header-section') ||
-                                        document.querySelector('header');
-                
-                if (slideshowSection) {
-                  // Get the end position of the slideshow section
-                  const slideshowEnd = slideshowSection.offsetTop + slideshowSection.offsetHeight;
-                  window.scrollTo({
-                    top: slideshowEnd,
-                    behavior: 'smooth'
-                  });
-                } else {
-                  // Fallback: calculate slideshow height based on viewport
-                  const slideshowHeight = window.innerHeight - 88; // Full viewport height minus header
-                  const highlightsSectionHeight = 48; // py-6 = 1.5rem * 2 = 48px
-                  const totalSlideshowHeight = slideshowHeight + highlightsSectionHeight;
-                  
-                  window.scrollTo({
-                    top: totalSlideshowHeight,
-                    behavior: 'smooth'
-                  });
-                }
-              };
-              
-              // Try immediately, then retry if needed
-              scrollToSlideshowEnd();
-              setTimeout(scrollToSlideshowEnd, 100);
-            }, 300); // Shorter delay for better responsiveness
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition duration-700"
+          style={{
+            backgroundImage: `url(${images.image_program})`,
           }}
-          className="bg-white text-blue-800 px-4 sm:px-6 md:px-8 lg:px-10 py-2 sm:py-3 md:py-4 rounded-full font-semibold flex items-center justify-center hover:scale-105 hover:bg-gray-100 transition duration-300 shadow-[0_8px_24px_rgba(0,59,122),0_0_10px_rgba(34,197,94,0.6)] text-xs sm:text-sm md:text-base whitespace-nowrap"
+          data-aos="fade-in"
+          data-aos-duration="1000"
         >
-          Read More
-          <FaHandPointRight className="ml-2 text-sm sm:text-base md:text-lg lg:text-xl" />
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
+          <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black/70 to-transparent"></div>
+        </div>
+
+        <div className="absolute inset-0 bg-black/60 z-0" />
+
+        <div className="relative z-10 flex flex-col md:flex-row justify-center items-center h-full px-4 sm:px-6 md:px-8 text-white">
+          <div
+            className="w-full md:w-2/3 mb-6 md:mb-0 mt-6 sm:mt-8 md:mt-16 bg-white/10 backdrop-blur-md p-3 sm:p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"
+            data-aos="fade-right"
+            data-aos-duration="900"
+            data-aos-delay="150"
+          >
+            <h1
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-extrabold mb-3 sm:mb-4 md:mb-6 drop-shadow-md text-center md:text-left font-[Montserrat,Open_Sans,sans-serif]"
+              data-aos="fade-up"
+              data-aos-duration="900"
+              data-aos-delay="300"
+            >
+              Self-Employment Assistance Program
+            </h1>
+
+            <p
+              className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-relaxed text-center md:text-justify max-w-2xl font-[Poppins,Roboto,sans-serif]"
+              data-aos="fade-up"
+              data-aos-duration="900"
+              data-aos-delay="450"
+            >
+              We offer business training and coaching across Perth North,
+              Western Australia. Our programs are delivered by experienced
+              industry specialists with a strong background in small business.
+              The Self-Employment Assistance Program, funded by the Australian
+              Federal Government, supports unemployed and under-employed
+              individuals, as well as owners of existing micro-businesses (up to
+              4 employees), to explore and pursue opportunities for
+              self-employment.
+            </p>
+          </div>
+
+          <div
+            className="w-full md:w-1/3 flex justify-center items-center md:justify-center md:items-center h-full md:h-auto"
+            data-aos="fade-left"
+            data-aos-duration="900"
+            data-aos-delay="600"
+          >
+            <div
+              className="flex justify-center items-center w-full"
+              data-aos="zoom-in"
+              data-aos-delay="600"
+            >
+              <button
+                onClick={() => {
+                  navigate("/SelfEmployment");
+                  // After navigation, scroll to the end of the slideshow section
+                  setTimeout(() => {
+                    // Try multiple times to ensure the page is fully loaded
+                    const scrollToSlideshowEnd = () => {
+                      // Look for the slideshow section or header element
+                      const slideshowSection =
+                        document.querySelector(".slideshow-section") ||
+                        document.querySelector('[data-aos="fade-in"]') ||
+                        document.querySelector(".header-section") ||
+                        document.querySelector("header");
+
+                      if (slideshowSection) {
+                        // Get the end position of the slideshow section
+                        const slideshowEnd =
+                          slideshowSection.offsetTop +
+                          slideshowSection.offsetHeight;
+                        window.scrollTo({
+                          top: slideshowEnd,
+                          behavior: "smooth",
+                        });
+                      } else {
+                        // Fallback: calculate slideshow height based on viewport
+                        const slideshowHeight = window.innerHeight - 88; // Full viewport height minus header
+                        const highlightsSectionHeight = 48; // py-6 = 1.5rem * 2 = 48px
+                        const totalSlideshowHeight =
+                          slideshowHeight + highlightsSectionHeight;
+
+                        window.scrollTo({
+                          top: totalSlideshowHeight,
+                          behavior: "smooth",
+                        });
+                      }
+                    };
+
+                    // Try immediately, then retry if needed
+                    scrollToSlideshowEnd();
+                    setTimeout(scrollToSlideshowEnd, 100);
+                  }, 300); // Shorter delay for better responsiveness
+                }}
+                className="bg-white text-blue-800 px-4 sm:px-6 md:px-8 lg:px-10 py-2 sm:py-3 md:py-4 rounded-full font-semibold flex items-center justify-center hover:scale-105 hover:bg-gray-100 transition duration-300 shadow-[0_8px_24px_rgba(0,59,122),0_0_10px_rgba(34,197,94,0.6)] text-xs sm:text-sm md:text-base whitespace-nowrap"
+              >
+                Read More
+                <FaHandPointRight className="ml-2 text-sm sm:text-base md:text-lg lg:text-xl" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
       <Rationg />
 
-    
-    {/* Story */}
+      {/* Story */}
       <Story />
 
-        {/* Google Review */}
+      {/* Google Review */}
       <GoogleReviewSection />
       {/* Contact Section */}
       <section
@@ -1202,57 +1189,113 @@ const services = [
               .max(50, "Last name cannot exceed 50 characters")
               .required("Please enter your last name"),
             email: Yup.string()
-              .test("syntax", "Please enter a valid email address", function(value) {
-                if (!value) return true; // Let required validation handle empty values
-                return isValidSyntax(value);
-              })
-              .test("gmail-validation", "Invalid Gmail address format", function(value) {
-                if (!value) return true;
-                return isValidGmail(value);
-              })
-              .test("no-typos", "Please check your email address for typos", function(value) {
-                if (!value) return true; // Let required validation handle empty values
-                
-                const email = value.toLowerCase();
-                
-                // Common typos to check for
-                const commonTypos = [
-                  "gnail.com", "gmial.com", "gamil.com", "gmal.com", "gmai.com", "gmeil.com",
-                  "hotmai.com", "hotmial.com", "hotmeil.com", "hotmal.com",
-                  "outlok.com", "outloook.com", "outlokc.com", "outloock.com",
-                  "yahooo.com", "yaho.com", "yahooo.com", "yaho.com",
-                  "icloud.com", "iclod.com", "icloude.com",
-                  "protonmai.com", "protonmial.com",
-                  "yandex.ru", "yandex.com", "yandex.ru",
-                  "zoho.com", "zohoo.com", "zoh.com"
-                ];
-                
-                // Check for common typos
-                for (const typo of commonTypos) {
-                  if (email.includes(typo)) {
+              .test(
+                "syntax",
+                "Please enter a valid email address",
+                function (value) {
+                  if (!value) return true; // Let required validation handle empty values
+                  return isValidSyntax(value);
+                }
+              )
+              .test(
+                "gmail-validation",
+                "Invalid Gmail address format",
+                function (value) {
+                  if (!value) return true;
+                  return isValidGmail(value);
+                }
+              )
+              .test(
+                "no-typos",
+                "Please check your email address for typos",
+                function (value) {
+                  if (!value) return true; // Let required validation handle empty values
+
+                  const email = value.toLowerCase();
+
+                  // Common typos to check for
+                  const commonTypos = [
+                    "gnail.com",
+                    "gmial.com",
+                    "gamil.com",
+                    "gmal.com",
+                    "gmai.com",
+                    "gmeil.com",
+                    "hotmai.com",
+                    "hotmial.com",
+                    "hotmeil.com",
+                    "hotmal.com",
+                    "outlok.com",
+                    "outloook.com",
+                    "outlokc.com",
+                    "outloock.com",
+                    "yahooo.com",
+                    "yaho.com",
+                    "yahooo.com",
+                    "yaho.com",
+                    "icloud.com",
+                    "iclod.com",
+                    "icloude.com",
+                    "protonmai.com",
+                    "protonmial.com",
+                    "yandex.ru",
+                    "yandex.com",
+                    "yandex.ru",
+                    "zoho.com",
+                    "zohoo.com",
+                    "zoh.com",
+                  ];
+
+                  // Check for common typos
+                  for (const typo of commonTypos) {
+                    if (email.includes(typo)) {
+                      return this.createError({
+                        message: `Did you mean "${typo
+                          .replace("gnail.com", "gmail.com")
+                          .replace("gmial.com", "gmail.com")
+                          .replace("gamil.com", "gmail.com")
+                          .replace("gmal.com", "gmail.com")
+                          .replace("gmai.com", "gmail.com")
+                          .replace("gmeil.com", "gmail.com")}"?`,
+                      });
+                    }
+                  }
+
+                  // Check for valid email providers (whitelist approach)
+                  const validProviders = [
+                    "gmail.com",
+                    "hotmail.com",
+                    "outlook.com",
+                    "yahoo.com",
+                    "icloud.com",
+                    "protonmail.com",
+                    "yandex.ru",
+                    "zoho.com",
+                    "aol.com",
+                    "live.com",
+                    "msn.com",
+                    "me.com",
+                    "mac.com",
+                    "gmx.com",
+                    "mail.com",
+                    "fastmail.com",
+                    "tutanota.com",
+                    "startmail.com",
+                    "posteo.de",
+                    "kolabnow.com",
+                  ];
+
+                  const domain = email.split("@")[1];
+                  if (domain && !validProviders.includes(domain)) {
                     return this.createError({
-                      message: `Did you mean "${typo.replace('gnail.com', 'gmail.com').replace('gmial.com', 'gmail.com').replace('gamil.com', 'gmail.com').replace('gmal.com', 'gmail.com').replace('gmai.com', 'gmail.com').replace('gmeil.com', 'gmail.com')}"?`
+                      message:
+                        "Please use a valid email provider (Gmail, Hotmail, Outlook, Yahoo, etc.)",
                     });
                   }
+
+                  return true;
                 }
-                
-                // Check for valid email providers (whitelist approach)
-                const validProviders = [
-                  "gmail.com", "hotmail.com", "outlook.com", "yahoo.com", "icloud.com",
-                  "protonmail.com", "yandex.ru", "zoho.com", "aol.com", "live.com",
-                  "msn.com", "me.com", "mac.com", "gmx.com", "mail.com", "fastmail.com",
-                  "tutanota.com", "startmail.com", "posteo.de", "kolabnow.com"
-                ];
-                
-                const domain = email.split('@')[1];
-                if (domain && !validProviders.includes(domain)) {
-                  return this.createError({
-                    message: "Please use a valid email provider (Gmail, Hotmail, Outlook, Yahoo, etc.)"
-                  });
-                }
-                
-                return true;
-              })
+              )
               .required("Please enter your email address"),
             age: Yup.number()
               .min(15, "You must be at least 15 years old")
@@ -1416,22 +1459,20 @@ const services = [
           )}
         </Formik>
       </section>
-      
-    
 
       {/* FB Update */}
 
       {/* <section className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-24 px-6 sm:px-12 overflow-hidden"> */}
-        {/* Background decorative elements */}
-        {/* <div className="absolute inset-0 overflow-hidden">
+      {/* Background decorative elements */}
+      {/* <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-200/20 to-indigo-200/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-purple-200/20 to-pink-200/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-blue-100/10 to-indigo-100/10 rounded-full blur-3xl animate-pulse delay-500"></div>
         </div> */}
 
-        {/* <div className="relative max-w-6xl mx-auto"> */}
-          {/* Header */}
-          {/* <div className="text-center mb-16">
+      {/* <div className="relative max-w-6xl mx-auto"> */}
+      {/* Header */}
+      {/* <div className="text-center mb-16">
             <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm px-8 py-4 rounded-full shadow-lg mb-8 hover:shadow-xl transition-shadow duration-300">
               <div className="p-2 bg-blue-600 rounded-full">
                 <FaFacebook className="w-5 h-5 text-white" />
@@ -1467,13 +1508,13 @@ const services = [
             </div>
           </div> */}
 
-          {/* Main Content */}
-          {/* <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20"> */}
-            {/* Left Content */}
-            {/* <div className="flex-1 max-w-lg">
+      {/* Main Content */}
+      {/* <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20"> */}
+      {/* Left Content */}
+      {/* <div className="flex-1 max-w-lg">
               <div className="space-y-8"> */}
-                {/* Feature Cards */}
-                {/* <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
+      {/* Feature Cards */}
+      {/* <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="p-3 bg-blue-100 rounded-full group-hover:bg-blue-200 transition-colors duration-300">
                       <MessageCircle className="w-6 h-6 text-blue-800" />
@@ -1520,8 +1561,8 @@ const services = [
               </div>
             </div> */}
 
-            {/* Right Facebook Embed */}
-            {/* <div className="relative group">
+      {/* Right Facebook Embed */}
+      {/* <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
 
               <div className="relative bg-white/90 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white/20 hover:shadow-blue-200/50 transition-all duration-500">
@@ -1584,8 +1625,8 @@ const services = [
             </div>
           </div> */}
 
-          {/* Bottom CTA */}
-          {/* <div className="mt-20 text-center">
+      {/* Bottom CTA */}
+      {/* <div className="mt-20 text-center">
             <div className="bg-white/60 backdrop-blur-sm p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 max-w-2xl mx-auto">
               <h3 className="text-2xl font-bold text-slate-800 mb-4">
                 Don't miss out on our updates!
@@ -1615,33 +1656,33 @@ const services = [
       </section> */}
 
       {/* Partners */}
-<section className="bg-gradient-to-br from-white via-green-50 to-emerald-100 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 relative inline-block">
-          <span className="relative z-10">Our Trusted Partners</span>
-        </h2>
-        <p className="text-gray-600 text-lg mb-14 max-w-2xl mx-auto">
-          We proudly collaborate with these industry leaders to drive
-          innovation and excellence.
-        </p>
-        
-        {/* Logos grid: 3 per row with better balance */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          {logos.map((logo, index) => (
-            <div
-              key={index}
-              className="bg-white/40 backdrop-blur-md border border-white/30 shadow-lg hover:shadow-2xl rounded-2xl p-6 flex items-center justify-center transition-transform hover:scale-105 duration-300 w-full h-32"
-            >
-              <img
-                src={logo}
-                alt={`Partner ${index + 1}`}
-                className="h-20 w-auto object-contain transition duration-300 max-w-full"
-              />
-            </div>
-          ))}
+      <section className="bg-gradient-to-br from-white via-green-50 to-emerald-100 py-20 px-6 sm:px-12 lg:px-24 font-[Poppins,sans-serif]">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 relative inline-block">
+            <span className="relative z-10">Our Trusted Partners</span>
+          </h2>
+          <p className="text-gray-600 text-lg mb-14 max-w-2xl mx-auto">
+            We proudly collaborate with these industry leaders to drive
+            innovation and excellence.
+          </p>
+
+          {/* Logos grid: 3 per row with better balance */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {logos.map((logo, index) => (
+              <div
+                key={index}
+                className="bg-white/40 backdrop-blur-md border border-white/30 shadow-lg hover:shadow-2xl rounded-2xl p-6 flex items-center justify-center transition-transform hover:scale-105 duration-300 w-full h-32"
+              >
+                <img
+                  src={logo}
+                  alt={`Partner ${index + 1}`}
+                  className="h-20 w-auto object-contain transition duration-300 max-w-full"
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
       {/* Branding */}
       {/* <section className="bg-gradient-to-br from-white via-green-50 to-yellow-50 py-12">
   <div className="max-w-6xl mx-auto px-4">
@@ -1686,7 +1727,7 @@ const services = [
   </div>
 </section> */}
 
-<style>
+      <style>
         {`
         @keyframes ping-slow {
           0%, 100% {

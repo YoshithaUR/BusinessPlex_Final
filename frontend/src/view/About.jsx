@@ -15,6 +15,9 @@ const AboutUs = () => {
   useEffect(() => {
     setIsVisible(true);
     
+    // Scroll down a little bit when component mounts
+    window.scrollTo(0, 100); // Scroll down 100px from top
+    
     // Initialize custom AOS-like animations
     const initScrollAnimations = () => {
       const observer = new IntersectionObserver((entries) => {
