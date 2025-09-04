@@ -225,9 +225,9 @@ const Qualifications = () => {
                   <span className="text-indigo-700 font-semibold text-sm uppercase tracking-wide">Ready to Begin?</span>
                 </div>
                 
-                <h3 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4 text-center lg:text-left">Start your business journey today!</h3>
+                <h3 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4 text-center lg:text-left">Ready to Start Your Journey?</h3>
                 <p className="text-gray-600 mb-8 text-lg leading-relaxed text-center lg:text-left">
-                 Join hundreds of participants who’ve started and grown with their businesses through our industry recognised certification programs.
+                 If you meet these eligibility criteria, take the next step towards building your successful business
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
