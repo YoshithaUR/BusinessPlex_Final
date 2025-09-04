@@ -409,7 +409,7 @@ const Home = () => {
           <img
             src={images.image_yearimg}
             alt="Business meeting and entrepreneurship"
-            className="w-50 max-w-4xl mx-auto rounded-2xl shadow-2xl"
+            className="w-90 max-w-6xl mx-auto rounded-2xl shadow-2xl opacity-80"
           />
         </div>
         <div className="max-w-6xl mx-auto text-center relative z-10">
