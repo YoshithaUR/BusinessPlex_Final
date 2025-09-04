@@ -359,12 +359,12 @@ const SelfEmployment = () => {
   data-aos="slide-right"
   data-aos-delay="200"
 >
-  <FaCheckCircle 
+  {/* <FaCheckCircle 
     className="text-blue-800" 
     data-aos="bounce-in"
     data-aos-delay="100"
-  />
-  Payments That May Affect SEA Allowance
+  /> */}
+  {/* Payments That May Affect SEA Allowance */}
 </h3>
             
             <p 
