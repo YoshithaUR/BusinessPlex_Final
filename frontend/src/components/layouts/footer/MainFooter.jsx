@@ -289,7 +289,7 @@ const MainFooter = () => {
       ),
       content: (
         <a className="hover:text-blue-400 transition-colors duration-200">
-          Add RTO  : 45725
+           RTO  : 45725
         </a>
       ),
     },
