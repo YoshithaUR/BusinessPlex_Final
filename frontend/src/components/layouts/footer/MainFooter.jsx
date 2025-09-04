@@ -265,7 +265,7 @@ const MainFooter = () => {
           rel="noopener noreferrer"
           className="hover:text-blue-400 transition-colors duration-200"
         >
-          (Based on Appointments  : 16/30 Hasler Road, Osborne Park, WA 6017)
+             16/30 Hasler Road, Osborne Park, WA 6017 (Based on Appointments)
         </a>
       ),
     },
