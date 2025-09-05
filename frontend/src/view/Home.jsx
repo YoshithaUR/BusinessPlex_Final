@@ -749,7 +749,7 @@ const Home = () => {
                 {services[serviceModalIndex].paragraph.map((para, idx) => (
                   <p
                     key={idx}
-                    className={`text-blue-800 mb-2 sm:mb-3 text-xs sm:text-sm md:text-[15px] lg:text-[16px] leading-relaxed text-center font-bold sm:text-left font-poppins transform transition-all duration-500 animate-fade-in-up animation-delay-${
+                    className={`text-gray-800 mb-2 sm:mb-3 text-xs sm:text-sm md:text-[15px] lg:text-[16px] leading-relaxed text-center font-bold sm:text-left font-poppins transform transition-all duration-500 animate-fade-in-up animation-delay-${
                       300 + idx * 100
                     }`}
                   >
@@ -775,7 +775,7 @@ const Home = () => {
                     </h3>
 
                     {/* Points for this subtopic with staggered fade-in */}
-                    <ul className="space-y-2 sm:space-y-3 text-blue-800 text-xs sm:text-sm md:text-[15px] leading-relaxed font-bold font-poppins">
+                    <ul className="space-y-2 sm:space-y-3 text-gray-800 text-xs sm:text-sm md:text-[15px] leading-relaxed font-bold font-poppins">
                       {subtopic.points.map((point, i) => (
                         <li
                           key={i}
