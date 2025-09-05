@@ -947,7 +947,7 @@ const ApplicationForm = () => {
             Need assistance with your application?
           </p>
           <div className="text-sm text-gray-800">
-            <p>Email: <a href="mailto:info@businessplex.com.au" className="text-blue-600 hover:text-blue-800">info@businessplex.com.au</a></p>
+            <p>Email: <a href="mailto:admin@businessplex.com.au" className="text-blue-600 hover:text-blue-800">admin@businessplex.com.au</a></p>
             {/* <p>Phone: <a href="tel:0890000000" className="text-blue-600 hover:text-blue-800">(08) 9000 0000</a></p> */}
           </div>
         </div>
