@@ -111,13 +111,26 @@ const Header = () => {
 
   // Updated function to handle logo click - scroll to nav bar area
   const handleLogoClick = () => {
-    // Scroll to the nav bar area (88px from top to show the nav bar)
+  // Check if we're currently on the home page
+  if (location.pathname === "/") {
+    // If already on home page, just scroll to the slideshow
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
-  };
-
+  } else {
+    // If on another page, navigate to home first
+    navigate("/");
+    
+    // Wait a moment for navigation to complete, then scroll to slideshow
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }, 100);
+  }
+};
   // Function to handle address click and open Google Maps
   const handleAddressClick = () => {
     const address = "1/3 Marchant Way, Morley, WA 6062, Australia";
