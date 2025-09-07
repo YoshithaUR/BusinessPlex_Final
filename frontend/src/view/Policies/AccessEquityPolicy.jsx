@@ -173,27 +173,8 @@ const AccessEquityPolicy = () => {
                         ? 'bg-gradient-to-br from-blue-50 to-purple-50 border-t-0' 
                         : 'bg-white'
                     }`}>
-                      <div
-                        className="leading-relaxed overflow-y-auto max-h-[700px] pr-2 content-scroll"
-                        style={{
-                          scrollbarWidth: 'none',
-                          msOverflowStyle: 'none',
-                        }}
-                      >
-                        <style>
-                          {`
-                            .content-scroll::-webkit-scrollbar {
-                              display: none;
-                            }
-                            .content-scroll {
-                              -ms-overflow-style: none;
-                              scrollbar-width: none;
-                            }
-                          `}
-                        </style>
-                        <div className="content-scroll text-gray-700">
-                          {topic.content}
-                        </div>
+                      <div className="leading-relaxed text-gray-700">
+                        {topic.content}
                       </div>
                     </div>
                   </div>
