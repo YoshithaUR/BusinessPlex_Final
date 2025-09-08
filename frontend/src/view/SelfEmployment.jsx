@@ -23,13 +23,32 @@ import images from "../assets/Images/images";
 
 const SelfEmployment = () => {
   useEffect(() => {
-    // Scroll down a little bit when component mounts with delay for header visibility
-    setTimeout(() => {
-      window.scrollTo({
-        top: 100, // Scroll down 100px from top
-        behavior: 'smooth'
-      });
-    }, 100);
+    // Check if we need to scroll to a specific target
+    const urlHash = window.location.hash;
+    
+    if (urlHash === '#after-slideshow') {
+      // Scroll to the target element after slideshow
+      setTimeout(() => {
+        const targetElement = document.getElementById('after-slideshow');
+        if (targetElement) {
+          const elementPosition = targetElement.offsetTop;
+          const offsetPosition = elementPosition - 80; // 80px offset to account for fixed header
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 1000); // Wait for page to load and animations to start
+    } else {
+      // Default scroll behavior - scroll down a little bit when component mounts
+      setTimeout(() => {
+        window.scrollTo({
+          top: 100, // Scroll down 100px from top
+          behavior: 'smooth'
+        });
+      }, 100);
+    }
 
     // Initialize AOS with refresh
     AOS.init({
@@ -133,6 +152,9 @@ const SelfEmployment = () => {
             data-aos-delay="700"
           ></div>
         </div>
+
+        {/* Scroll target after slideshow */}
+        <div id="after-slideshow" className="scroll-mt-24 h-0"></div>
 
         {/* Overview */}
         <div className="space-y-10 text-[17px] sm:text-lg leading-relaxed px-2">
