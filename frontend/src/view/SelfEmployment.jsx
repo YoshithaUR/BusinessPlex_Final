@@ -27,12 +27,12 @@ const SelfEmployment = () => {
     const urlHash = window.location.hash;
     
     if (urlHash === '#after-slideshow') {
-      // Scroll to the target element after slideshow
+      // Scroll to the target element right next to slideshow
       setTimeout(() => {
         const targetElement = document.getElementById('after-slideshow');
         if (targetElement) {
           const elementPosition = targetElement.offsetTop;
-          const offsetPosition = elementPosition - 80; // 80px offset to account for fixed header
+          const offsetPosition = elementPosition - 60; // 60px offset to show content right next to slideshow
           
           window.scrollTo({
             top: offsetPosition,
@@ -151,10 +151,9 @@ const SelfEmployment = () => {
             data-aos="fade-in"
             data-aos-delay="700"
           ></div>
+          {/* Scroll target right at the end of slideshow */}
+          <div id="after-slideshow" className="absolute bottom-0 left-0 w-full h-0"></div>
         </div>
-
-        {/* Scroll target after slideshow */}
-        <div id="after-slideshow" className="scroll-mt-24 h-0"></div>
 
         {/* Overview */}
         <div className="space-y-10 text-[17px] sm:text-lg leading-relaxed px-2">
