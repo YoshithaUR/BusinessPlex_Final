@@ -832,7 +832,7 @@ const Home = () => {
           >
             <CheckCircle className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 mx-auto mb-3 sm:mb-4 md:mb-6" />
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 md:mb-6">
-              Ready to Start Your Journey?
+              Ready to Start your Business Journey?
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-green-100 mb-4 sm:mb-6 md:mb-8 max-w-2xl mx-auto">
               If you meet these eligibility criteria, take the next step towards

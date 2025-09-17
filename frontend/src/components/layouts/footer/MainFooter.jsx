@@ -280,19 +280,7 @@ const MainFooter = () => {
         </a>
       ),
     },
-    {
-      icon: (
-        <FaPhoneAlt
-          className="flex-shrink-0 mt-1 text-gray-900 py-3"
-          size={14}
-        />
-      ),
-      content: (
-        <a className="hover:text-blue-400 transition-colors duration-200">
-           RTO  : 45725
-        </a>
-      ),
-    },
+    
     {
       icon: <FaPhoneAlt className="flex-shrink-0 mt-1" size={14} />,
       content: (
@@ -313,6 +301,19 @@ const MainFooter = () => {
           className="hover:text-blue-400 transition-colors duration-200 break-words"
         >
           admin@businessplex.com.au
+        </a>
+      ),
+    },
+    {
+      icon: (
+        <FaPhoneAlt
+          className="flex-shrink-0 mt-1 text-gray-900 py-3"
+          size={14}
+        />
+      ),
+      content: (
+        <a className="hover:text-blue-400 transition-colors duration-200">
+           RTO  : 45725
         </a>
       ),
     },
@@ -658,7 +659,7 @@ const MainFooter = () => {
                 </span>
                 . All Rights Reserved.Development by{" "}
                 <span className="text-blue-400">
-                  <a href="">A4Technologies</a>
+                  <a href="https://a4technologies.com.au/">A4technologies</a>
                 </span>
               </p>
               <p className="text-white text-xs mt-1"></p>

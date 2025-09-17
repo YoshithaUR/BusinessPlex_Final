@@ -65,7 +65,7 @@ const ApplyNow = () => {
 
           {/* Header */}
           <h2 className="text-3xl font-bold mb-4 text-center text-green-700">
-            Ready to Start Your Journey?
+            Ready to Start your Business Journey?
           </h2>
 
           {/* Description */}
@@ -90,9 +90,9 @@ const ApplyNow = () => {
           </div>
 
           {/* Additional Info */}
-          <p className="text-sm text-gray-500 text-center mt-4">
+          {/* <p className="text-sm text-gray-500 text-center mt-4">
             No application fee • Quick approval process
-          </p>
+          </p> */}
         </div>
       </div>
     </>

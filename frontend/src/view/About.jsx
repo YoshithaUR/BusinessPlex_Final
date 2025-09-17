@@ -7,6 +7,7 @@ import {
   Megaphone,
   Users,
   Lightbulb,
+  Target,
 } from "lucide-react";
 
 const AboutUs = () => {
@@ -334,15 +335,12 @@ qualifications, including:
 
               <div className="mt-8 text-center scroll-animate fade-up delay-900 duration-1000">
                 <p className="text-gray-700 text-lg leading-relaxed max-w-4xl mx-auto text-center">
-                  Training is available through classroom, online, and hybrid options, providing flexibility to
-meet the needs of participants.
-                </p>
-                <p className="text-gray-700 text-lg leading-relaxed max-w-4xl mx-auto text-center">
-                 We also deliver the Self-Employment Assistance Program under Workforce Australia in the
-Perth North region, supporting individuals to start or grow their businesses. We’ve been
+                 We  deliver the Self-Employment Assistance Program under Workforce Australia in the
+Perth North region, supporting individuals to start or grow their businesses. We've been
 committed to helping individuals since turn their business ideas into reality with necessary
 business training &amp; coaching.
                 </p>
+                <br />
                 <p className="text-gray-700 text-lg leading-relaxed max-w-4xl mx-auto text-center">
                 At Businessplex, we pride ourselves on employing highly skilled trainers to deliver quality
 education and practical business support. We also create opportunities for participants to
@@ -358,44 +356,59 @@ experience.
           </div>
         </section>
 
-        {/* Vision & Mission Section */}
+        {/* Combined Vision & Mission Section */}
         <section className="relative py-20 px-6 md:px-20 mb-20">
           <div className="absolute inset-0 bg-gradient-to-br from-white via-green-50 to-yellow-50" />
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white via-green-50 to-yellow-50" />
           </div>
 
-          <div className="relative z-10 max-w-4xl mx-auto text-center space-y-16">
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl scroll-animate slide-right duration-1000 glow-effect">
-              <div className="flex items-center justify-center gap-4 mb-6 scroll-animate flip-left delay-200">
+          <div className="relative z-10 max-w-5xl mx-auto text-center space-y-16">
+            {/* Section Header */}
+            <div className="text-center mb-12 scroll-animate fade-down duration-1000">
+              <div className="flex items-center justify-center gap-4 mb-6 scroll-animate zoom-in delay-200">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center animate-pulse">
-                  <Lightbulb className="text-white w-8 h-8" />
+                  <Target className="text-white w-8 h-8" />
                 </div>
-                <h3 className="text-4xl font-extrabold text-black">
-                  Our Vision
-                </h3>
+                <h2 className="text-4xl font-extrabold text-black">
+                  Our Vision & Mission
+                </h2>
               </div>
-              <p className="text-gray-700 text-lg leading-relaxed max-w-2xl mx-auto scroll-animate fade-up delay-400 text-reveal">
-                To provide top quality support and services to enable clients to
-                grow their business dreams and achieve sustainable success in
-                today's competitive marketplace.
-              </p>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl scroll-animate slide-left duration-1000 glow-effect">
-              <div className="flex items-center justify-center gap-4 mb-6 scroll-animate flip-right delay-200">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center animate-pulse">
-                  <Users className="text-white w-8 h-8" />
+            {/* Combined Card */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl scroll-animate slide-up duration-1000 glow-effect">
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* Vision */}
+                <div className="text-center scroll-animate fade-right delay-300">
+                  <div className="flex items-center justify-center gap-3 mb-4 scroll-animate flip-left delay-400">
+                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                      <Lightbulb className="text-white w-6 h-6" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-blue-700">Vision</h3>
+                  </div>
+                  <p className="text-gray-700 text-lg leading-relaxed scroll-animate fade-up delay-500 text-reveal">
+                    To provide top quality support and services to enable clients to
+                    grow their business dreams and achieve sustainable success in
+                    today's competitive marketplace.
+                  </p>
                 </div>
-                <h3 className="text-4xl font-extrabold text-black">
-                  Our Mission
-                </h3>
+
+                {/* Mission */}
+                <div className="text-center scroll-animate fade-left delay-300">
+                  <div className="flex items-center justify-center gap-3 mb-4 scroll-animate flip-right delay-400">
+                    <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center">
+                      <Users className="text-white w-6 h-6" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-green-700">Mission</h3>
+                  </div>
+                  <p className="text-gray-700 text-lg leading-relaxed scroll-animate fade-up delay-500 text-reveal">
+                    To be the preferred Self-Employment Assistance Program provider,
+                    delivering exceptional training, mentoring, and support services
+                    that empower individuals to build thriving businesses.
+                  </p>
+                </div>
               </div>
-              <p className="text-gray-700 text-lg leading-relaxed max-w-2xl mx-auto scroll-animate fade-up delay-400 text-reveal">
-                To be the preferred Self-Employment Assistance Program provider,
-                delivering exceptional training, mentoring, and support services
-                that empower individuals to build thriving businesses.
-              </p>
             </div>
           </div>
         </section>
@@ -522,7 +535,7 @@ experience.
               Ready to Transform Your Future?
             </h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed scroll-animate fade-up delay-400 duration-1000">
-              Join the Businessplex community and take your skills to the next
+              Join Businessplex and take your skills to the next
               level. Let us help you turn your business dreams into reality.
             </p>
             <button className="bg-white text-blue-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-xl scroll-animate bounce-in delay-600 duration-800 pulse-grow">

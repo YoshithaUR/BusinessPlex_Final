@@ -45,7 +45,7 @@ const MOBILE_IMAGES = [
 const NAV_ITEMS = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/qualifications", label: "Qualification" },
+  { to: "/qualifications", label: "Qualifications" },
   // { to: "/trainingResources", label: "Training Resources" },
   // {
   //   to: "#",
