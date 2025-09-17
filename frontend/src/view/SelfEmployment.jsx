@@ -132,24 +132,40 @@ const SelfEmployment = () => {
           ></div>
         </div>
 
-        {/* Hero Image */}
+        {/* Hero Image - Optimized for 2048 × 1536 */}
         <div
-          className="relative w-full h-72 sm:h-96 md:h-[450px] rounded-3xl overflow-hidden shadow-xl"
+          className="relative w-full rounded-3xl overflow-hidden shadow-xl"
           data-aos="zoom-in"
           data-aos-duration="1500"
           data-aos-delay="300"
+          style={{
+            aspectRatio: '4/3', // Matches 2048 × 1536 ratio
+            minHeight: '280px',
+            maxHeight: 'min(70vh, 600px)'
+          }}
         >
           <img
             src={images.image_Programepm01}
             alt="Self Employment Program"
-            className="w-full h-full object-cover rounded-3xl transform hover:scale-105 transition-transform duration-500"
+            className="w-full h-full object-cover object-center rounded-3xl transform hover:scale-105 transition-transform duration-700 ease-out"
             data-aos="fade-in"
             data-aos-delay="500"
+            style={{
+              imageRendering: 'high-quality',
+              filter: 'contrast(1.02) brightness(1.01)'
+            }}
           />
+          {/* Enhanced gradient overlay */}
           <div 
-            className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-3xl"
+            className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent rounded-3xl"
             data-aos="fade-in"
             data-aos-delay="700"
+          ></div>
+          {/* Corner accent */}
+          <div 
+            className="absolute top-4 right-4 w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full opacity-60"
+            data-aos="zoom-in"
+            data-aos-delay="900"
           ></div>
           {/* Scroll target right at the end of slideshow */}
           <div id="after-slideshow" className="absolute bottom-0 left-0 w-full h-0"></div>
@@ -385,7 +401,7 @@ const SelfEmployment = () => {
     data-aos="bounce-in"
     data-aos-delay="100"
   /> */}
-  {/* Payments That May Affect SEA Allowance */}
+  Payments That May Affect SEA Allowance
 </h3>
             
             <p 
