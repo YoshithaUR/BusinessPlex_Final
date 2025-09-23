@@ -146,10 +146,34 @@ import images_qualifications01 from "./Qualifications/1.jpg"
 import images_qualifications02 from "./Qualifications/2.jpg"
 import images_qualifications03 from "./Qualifications/3.jpg"
 import images_qualifications04 from "./Qualifications/4.jpg"
+
+// Team
+import images_Aliyah from "./Team/Aliyah.jpg";
+import images_Belle from "./Team/Belle..jpg";
+import images_Erika from "./Team/Erika.jpg";
+import images_Gish from "./Team/Gish.jpg";
+import images_Gishpng from "./Team/Gish.png";
+import images_JoelEdited from "./Team/Joel-Edited.jpg";
+import images_LyndonEdited from "./Team/Lyndon-Edited.jpg";
+import images_Moni from "./Team/Moni-1..jpg";
+import images_Rachma from "./Team/Rachma .jpg";
+import images_Thinu from "./Team/Thinu.jpg";
+
 const images = {
 
   image_Programepm01,
-  
+
+   // Team
+  images_Aliyah,
+  images_Belle,
+  images_Erika,
+  images_Gish,
+  images_JoelEdited,
+  images_LyndonEdited,
+  images_Moni,
+  images_Rachma,
+  images_Thinu,
+  images_Gishpng,
   // Slide Show
   image_one,
   image_two,

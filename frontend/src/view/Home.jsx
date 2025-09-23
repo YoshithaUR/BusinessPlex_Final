@@ -268,6 +268,42 @@ const Home = () => {
       modalImage: images.image_Card04,
       backgroundImage: images.image_ServicePopup04,
     },
+    
+    {
+      title: "Business Advice",
+      image: images.image_Card02,
+      gif: images.image_GIF02,
+      paragraph: [
+        "Our Business Advice Sessions are personalised, one-hour consultations with an experienced business advisor. Whether you are starting a new business or managing an existing one, these sessions provide practical guidance tailored to your unique needs.",
+      ],
+
+      subtopics: [
+        {
+          title: "What You Can Use These Sessions For",
+          points: [
+            "Develop strategies to improve your business's commercial viability",
+            "Receive advice on a wide range of small business topics",
+            "Get referrals to other relevant business support networks",
+            "Eligible participants can access up to 2 free sessions every 12 months, helping you make informed decisions and strengthen your business for long-term success.",
+          ],
+        },
+        {
+          title: "",
+          points: [],
+        },
+        {
+          title: "",
+          points: [],
+        },
+        {
+          title: "",
+          points: [],
+        },
+      ],
+
+      modalImage: images.image_Card02,
+      backgroundImage: images.image_ServicePopup02,
+    },
     {
       title: "Business Health check",
       image: images.image_Card03,
@@ -304,41 +340,6 @@ const Home = () => {
 
       modalImage: images.image_Card03,
       backgroundImage: images.image_ServicePopup03,
-    },
-    {
-      title: "Business Advice",
-      image: images.image_Card02,
-      gif: images.image_GIF02,
-      paragraph: [
-        "Our Business Advice Sessions are personalised, one-hour consultations with an experienced business advisor. Whether you are starting a new business or managing an existing one, these sessions provide practical guidance tailored to your unique needs.",
-      ],
-
-      subtopics: [
-        {
-          title: "What You Can Use These Sessions For",
-          points: [
-            "Develop strategies to improve your business's commercial viability",
-            "Receive advice on a wide range of small business topics",
-            "Get referrals to other relevant business support networks",
-            "Eligible participants can access up to 2 free sessions every 12 months, helping you make informed decisions and strengthen your business for long-term success.",
-          ],
-        },
-        {
-          title: "",
-          points: [],
-        },
-        {
-          title: "",
-          points: [],
-        },
-        {
-          title: "",
-          points: [],
-        },
-      ],
-
-      modalImage: images.image_Card02,
-      backgroundImage: images.image_ServicePopup02,
     },
   ];
 

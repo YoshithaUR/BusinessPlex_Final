@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   Mail,
   Phone,
@@ -8,7 +8,10 @@ import {
   Users,
   Lightbulb,
   Target,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
+import images from "../assets/Images/images";
 
 const AboutUs = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -46,18 +49,83 @@ const AboutUs = () => {
     return cleanup;
   }, []);
 
+  // Team data with images - Replace with your actual images from the images object
   const team = [
-    { name: " Thinu Jayasinghe", role: "Operations Manager" },
-    { name: "Moni Nair", role: "RTO Manager" },
-    { name: "Joel Legaspi", role: "Trainer & Assessor" },
-    { name: "Rachma Abader", role: "Trainer & Assessor & Mentor" },
-    { name: "Lyndon Jansen", role: "Trainer & Assessor & Mentor" },
-    { name: "Belle Illegami", role: "Trainer & Mentor" },
-    { name: "Erika Legaspi", role: "Administrator & Student Support" },
-    { name: "Aliyah Cohen", role: "Administrator & Student Support" },
-    { name: "Amila Rathnayake", role: "IT Consultant" },  
-    { name: "Sharmin Sultana", role: "RTO Compliance Consultant" },  
+    { 
+      name: "Gish Liyanage", 
+      role: "CEO", 
+      image: images.images_Gish
+    },
+    { 
+      name: "Thinu Jayasinghe", 
+      role: "Operations Manager", 
+      image: images.images_Thinu || images.image_ServicePopup03
+    },
+    { 
+      name: "Moni Nair", 
+      role: "RTO Manager", 
+      image: images.images_Moni 
+    },
+    { 
+      name: "Joel Legaspi", 
+      role: "Trainer & Assessor", 
+      image: images.images_JoelEdited 
+    },
+    { 
+      name: "Rachma Abader", 
+      role: "Trainer & Assessor & Mentor", 
+      image: images.images_Rachma 
+    },
+    { 
+      name: "Lyndon Jansen", 
+      role: "Trainer & Assessor & Mentor", 
+      image: images.images_LyndonEdited 
+    },
+    { 
+      name: "Belle Illegami", 
+      role: "Trainer & Mentor", 
+      image: images.images_Belle 
+    },
+    { 
+      name: "Erika Legaspi", 
+      role: "Administrator & Student Support", 
+      image: images.images_Erika 
+    },
+    { 
+      name: "Aliyah Cohen", 
+      role: "Administrator & Student Support", 
+      image: images.images_Aliyah 
+    },
+    { 
+      name: "Amila Rathnayake", 
+      role: "IT Consultant", 
+      image: images.amila 
+    },  
+    { 
+      name: "Sharmin Sultana", 
+      role: "RTO Compliance Consultant", 
+      image: images.sharmin 
+    },  
   ];
+
+  // State for mobile carousel
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const teamRef = useRef(null);
+
+  // Handle next slide
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === team.length - 1 ? 0 : prev + 1));
+  };
+
+  // Handle previous slide
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? team.length - 1 : prev - 1));
+  };
+
+  // Handle dot navigation
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
 
   return (
     <>
@@ -246,6 +314,23 @@ const AboutUs = () => {
         .text-reveal.animate-in::after {
           transform: translateX(100%);
         }
+
+        /* Image styles */
+        .team-image {
+          transition: transform 0.3s ease;
+        }
+        .team-image:hover {
+          transform: scale(1.1);
+        }
+
+        .ceo-image {
+          transition: all 0.3s ease;
+        }
+        .ceo-image:hover {
+          transform: scale(1.05);
+          filter: brightness(1.1);
+        }
+
       `}</style>
 
       <div className="bg-gradient-to-br from-white via-green-50 to-yellow-50 text-gray-800 font-sans select-none">
@@ -375,41 +460,14 @@ experience.
                 </h2>
               </div>
             </div>
+          </div>
 
-            {/* Combined Card */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl scroll-animate slide-up duration-1000 glow-effect">
-              <div className="grid md:grid-cols-2 gap-8">
-                {/* Vision */}
-                <div className="text-center scroll-animate fade-right delay-300">
-                  <div className="flex items-center justify-center gap-3 mb-4 scroll-animate flip-left delay-400">
-                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                      <Lightbulb className="text-white w-6 h-6" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-blue-700">Vision</h3>
-                  </div>
-                  <p className="text-gray-700 text-lg leading-relaxed scroll-animate fade-up delay-500 text-reveal">
-                    To provide top quality support and services to enable clients to
-                    grow their business dreams and achieve sustainable success in
-                    today's competitive marketplace.
-                  </p>
-                </div>
-
-                {/* Mission */}
-                <div className="text-center scroll-animate fade-left delay-300">
-                  <div className="flex items-center justify-center gap-3 mb-4 scroll-animate flip-right delay-400">
-                    <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center">
-                      <Users className="text-white w-6 h-6" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-green-700">Mission</h3>
-                  </div>
-                  <p className="text-gray-700 text-lg leading-relaxed scroll-animate fade-up delay-500 text-reveal">
-                    To be the preferred Self-Employment Assistance Program provider,
-                    delivering exceptional training, mentoring, and support services
-                    that empower individuals to build thriving businesses.
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div className="bg-gradient-to-br from-white via-green-50 to-yellow-50 backdrop-blur-sm rounded-3xl p-8 shadow-xl scroll-animate fade-up duration-1000 max-w-5xl mx-auto">
+            <p className="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center scroll-animate fade-up delay-400 duration-800">
+               To be the preferred Self-Employment Assistance Program provider,
+                  delivering exceptional training, mentoring, and support services
+                  that empower individuals to build thriving businesses.
+            </p>
           </div>
         </section>
 
@@ -422,18 +480,17 @@ experience.
           <div className="relative z-10 flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
             <div className="relative group scroll-animate zoom-in duration-1200">
               <div className="w-72 h-72 bg-gradient-to-br from-green-400 to-blue-500 rounded-full p-2 shadow-2xl">
-                <div className="w-full h-full bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
-                  <div className="text-center">
-                    <div className="w-24 h-24 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 scroll-animate bounce-in delay-300">
-                      <Award className="text-white w-12 h-12" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-800 mb-2 scroll-animate fade-up delay-400">
-                      CEO
-                    </h3>
-                    <p className="text-gray-600 scroll-animate fade-up delay-500">
-                      Gish Liyanage
-                    </p>
-                  </div>
+                <div className="w-full h-full rounded-full overflow-hidden group-hover:scale-105 transition-transform duration-700">
+                  <img 
+                    src={images.images_Gishpng }
+                    alt="Gish Liyanage - CEO"
+                    className="w-full h-full object-contain ceo-image"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <div className="absolute bottom-4 left-0 right-0 text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <h3 className="text-xl font-bold mb-1">CEO</h3>
+                  <p className="text-sm">Gish Liyanage</p>
                 </div>
               </div>
             </div>
@@ -491,7 +548,7 @@ experience.
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
               {team.map((member, idx) => (
                 <article
                   key={idx}
@@ -502,23 +559,81 @@ experience.
                     'fade-right'
                   } duration-800 delay-${(idx % 8) * 100 + 400} glow-effect`}
                 >
-                  <div className="relative h-64 bg-gradient-to-br from-blue-400 to-blue-800 flex items-center justify-center">
-                    <div className="text-center text-white">
-                      <div className={`w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 scroll-animate bounce-in delay-${(idx % 8) * 100 + 600}`}>
-                        <Users className="w-10 h-10" />
-                      </div>
-                      <h3 className={`text-xl font-bold scroll-animate fade-up delay-${(idx % 8) * 100 + 700}`}>
+                  <div className="relative h-96 bg-gradient-to-br from-blue-400 to-blue-800 overflow-hidden">
+                    <img 
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover team-image"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 text-center text-white p-4 bg-gradient-to-t from-blue-900/80 to-transparent">
+                      <h3 className={`text-xl font-bold scroll-animate fade-up delay-${(idx % 8) * 100 + 700} leading-tight mb-2`}>
                         {member.name}
                       </h3>
+                      <span className={`inline-block bg-blue-800/80 text-white px-3 py-1 rounded-full text-xs font-medium scroll-animate zoom-in delay-${(idx % 8) * 100 + 800} leading-tight`}>
+                        {member.role}
+                      </span>
                     </div>
-                  </div>
-                  <div className="p-6 text-center">
-                    <span className={`inline-block bg-gradient-to-r from-blue-500 to-blue-800 text-white px-4 py-2 rounded-full text-sm font-medium scroll-animate zoom-in delay-${(idx % 8) * 100 + 800}`}>
-                      {member.role}
-                    </span>
                   </div>
                 </article>
               ))}
+            </div>
+
+            {/* Mobile Carousel */}
+            <div className="sm:hidden">
+              {/* Carousel Container */}
+              <div className="relative overflow-hidden">
+                <div 
+                  className="flex transition-transform duration-300 ease-in-out"
+                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                >
+                  {team.map((member, idx) => (
+                    <div key={idx} className="w-full flex-shrink-0 px-2">
+                      <article className="group bg-gradient-to-br from-white via-green-50 to-yellow-50 rounded-tl-[30px] rounded-br-[30px] rounded-tr-lg rounded-bl-lg shadow-xl transition-all duration-300 overflow-hidden glow-effect">
+                        <div className="relative h-80 bg-gradient-to-br from-blue-400 to-blue-800 overflow-hidden">
+                          <img 
+                            src={member.image}
+                            alt={member.name}
+                            className="w-full h-full object-cover team-image"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 to-transparent" />
+                          <div className="absolute bottom-0 left-0 right-0 text-center text-white p-3 bg-gradient-to-t from-blue-900/80 to-transparent">
+                            <h3 className="text-lg font-bold leading-tight mb-1">
+                              {member.name}
+                            </h3>
+                            <span className="inline-block bg-blue-800/80 text-white px-2 py-1 rounded-full text-xs font-medium leading-tight">
+                              {member.role}
+                            </span>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Navigation Arrows */}
+              <div className="flex justify-center items-center mt-5 px-2 space-x-6">
+                <button 
+                  onClick={prevSlide}
+                  className="bg-blue-800 text-white p-2 rounded-full shadow-lg hover:bg-blue-900 transition-colors duration-300"
+                  aria-label="Previous team member"
+                >
+                  <ChevronLeft size={20} />
+                </button>
+                
+                <div className="text-center text-gray-600 text-sm">
+                  {currentSlide + 1} / {team.length}
+                </div>
+                
+                <button 
+                  onClick={nextSlide}
+                  className="bg-blue-800 text-white p-2 rounded-full shadow-lg hover:bg-blue-900 transition-colors duration-300"
+                  aria-label="Next team member"
+                >
+                  <ChevronRight size={20} />
+                </button>
+              </div>
             </div>
           </div>
         </section>
