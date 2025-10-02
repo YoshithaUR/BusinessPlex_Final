@@ -66,7 +66,7 @@ const NAV_ITEMS = [
   //     //   label: "Expression of Interest Form",
   //     //   type: "pdf",
   //     // },
-  //     // { to: pdf.pdf_feedback, label: "Monthly Feedback Form", type: "pdf" },
+  //     { to: pdf.pdf_feedback, label: "Monthly Feedback Form", type: "pdf" },
   //   ],
   // },
   { to: "/policies", label: "Our Policies" },
@@ -332,7 +332,7 @@ const handleApplyNow = (serviceTitle) => {
 
   // Top Blue Navigation Bar
   const BlueNavBar = () => (
-    <div className="w-full bg-slate-800 text-white text-sm py-3 px-4 fixed top-0 left-0 z-50 shadow-md">
+    <div className="w-full bg-slate-800 text-white text-xs py-2 px-4 fixed top-0 left-0 z-50 shadow-md hidden md:block">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Left side - Social links and phone */}
         <div className="flex items-center space-x-4">
@@ -371,7 +371,7 @@ const handleApplyNow = (serviceTitle) => {
             className="hidden md:flex items-center space-x-2 text-white hover:text-blue-200 transition-colors duration-200 cursor-pointer"
           >
             <FaPhoneAlt size={12} />
-            <span className="font-medium">INQUIRIES? CALL: 1300 894 480</span>
+            <span className="font-medium text-xs">INQUIRIES? CALL: 1300 894 480</span>
           </a>
           <div className="hidden lg:block h-4 w-px bg-white/30"></div>
           <button
@@ -381,7 +381,7 @@ const handleApplyNow = (serviceTitle) => {
             title="Click to view location on Google Maps"
           >
             <FaMapMarkerAlt size={12} />
-            <span className="font-medium">1/3 Marchant Way, Morley, WA 6062</span>
+            <span className="font-medium text-xs">1/3 Marchant Way, Morley, WA 6062</span>
           </button>
           <div className="hidden lg:block h-4 w-px bg-white/30"></div>
           <button
@@ -391,7 +391,7 @@ const handleApplyNow = (serviceTitle) => {
             title="Click to view second location on Google Maps"
           >
             <FaMapMarkerAlt size={12} />
-            <span className="font-medium">16/30 Hasler Road, Osborne Park, WA 6017</span>
+            <span className="font-medium text-xs">16/30 Hasler Road, Osborne Park, WA 6017</span>
           </button>
         </div>
 
@@ -477,9 +477,9 @@ const handleApplyNow = (serviceTitle) => {
       <BlueNavBar />
 
       {/* Main Navigation - Updated logo click handler */}
-      <nav className="fixed top-[40px] left-0 w-full z-40 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200">
+      <nav className="fixed top-0 md:top-[32px] left-0 w-full z-40 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200 md:h-auto h-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-3">
+          <div className="flex justify-between items-center py-2">
             {/* Logo - Now stays on current page and scrolls to slideshow */}
             <div
               className="flex items-center space-x-3 flex-shrink-0 cursor-pointer -ml-4 hover:opacity-80 transition-opacity duration-200"
@@ -604,7 +604,7 @@ const handleApplyNow = (serviceTitle) => {
         }`}
       >
         {/* Mobile Menu Header - Updated with logo click handler */}
-        <div className="flex items-center justify-between p-3 sm:p-4 border-b border-gray-200 bg-gray-50">
+        <div className="flex items-center justify-between p-3 sm:p-4 border-b border-gray-200 bg-gray-50 h-16">
           <div 
             className="flex items-center space-x-2 sm:space-x-3 cursor-pointer hover:opacity-80 transition-opacity duration-200"
             onClick={() => {
@@ -732,10 +732,10 @@ const handleApplyNow = (serviceTitle) => {
       </div>
 
       {/* Slideshow Section - Full viewport coverage */}
-      <div className="relative mt-[88px] md:mt-[88px]">
+      <div className="relative md:mt-[74px] mt-0">
         <div
           ref={slideshowRef}
-          className="relative w-full h-[calc(100vh-88px)] overflow-hidden bg-gray-900"
+          className="relative w-full md:h-[calc(100vh-74px)] h-[100svh] overflow-hidden bg-gray-900 md:pt-0 pt-16"
         >
           {getCurrentImages().map((src, index) => (
             <div
@@ -750,7 +750,7 @@ const handleApplyNow = (serviceTitle) => {
               <img
                 src={src}
                 alt={`Slide ${index + 1}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain object-center"
                 loading={index === 0 ? "eager" : "lazy"}
               />
               {/* Overlay clickable area only on image_two */}
@@ -799,7 +799,7 @@ const handleApplyNow = (serviceTitle) => {
         </div>
 
         {/* Highlights Section - Removed margin */}
-        <div className="relative bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 py-6">
+        <div className="relative bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 py-6 hidden md:block">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10" />
           <div className="relative max-w-7xl mx-auto px-4">
             <div className="flex justify-center items-center space-x-8 md:space-x-16">
