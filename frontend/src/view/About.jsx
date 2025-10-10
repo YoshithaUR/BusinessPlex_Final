@@ -99,12 +99,12 @@ const AboutUs = () => {
     { 
       name: "Amila Rathnayake", 
       role: "IT Consultant", 
-      image: images.amila 
+      image: images.images_Amila 
     },  
     { 
       name: "Sharmin Sultana", 
       role: "RTO Compliance Consultant", 
-      image: images.sharmin 
+      image: images.images_Sharmin 
     },  
   ];
 
@@ -125,6 +125,47 @@ const AboutUs = () => {
   // Handle dot navigation
   const goToSlide = (index) => {
     setCurrentSlide(index);
+  };
+
+  // Dynamic CEO frame background: sample image corner colors to match background
+  const [ceoBgColor, setCeoBgColor] = useState('#ffffff');
+  const handleCeoImageLoad = (e) => {
+    try {
+      const img = e.currentTarget;
+      const CANVAS_SIZE = 12; // small for performance, large enough to avoid heavy blur
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      canvas.width = CANVAS_SIZE;
+      canvas.height = CANVAS_SIZE;
+      ctx.drawImage(img, 0, 0, CANVAS_SIZE, CANVAS_SIZE);
+      const getPixel = (x, y) => {
+        const data = ctx.getImageData(x, y, 1, 1).data;
+        return { r: data[0], g: data[1], b: data[2], a: data[3] };
+      };
+      const corners = [
+        getPixel(0, 0),
+        getPixel(CANVAS_SIZE - 1, 0),
+        getPixel(0, CANVAS_SIZE - 1),
+        getPixel(CANVAS_SIZE - 1, CANVAS_SIZE - 1)
+      ];
+      // Pick the most similar pair among corners to reduce artifact risk
+      const distance = (c1, c2) => Math.abs(c1.r - c2.r) + Math.abs(c1.g - c2.g) + Math.abs(c1.b - c2.b);
+      let bestPair = [corners[0], corners[1]];
+      let bestDist = Infinity;
+      for (let i = 0; i < corners.length; i++) {
+        for (let j = i + 1; j < corners.length; j++) {
+          const d = distance(corners[i], corners[j]);
+          if (d < bestDist) { bestDist = d; bestPair = [corners[i], corners[j]]; }
+        }
+      }
+      const r = Math.round((bestPair[0].r + bestPair[1].r) / 2);
+      const g = Math.round((bestPair[0].g + bestPair[1].g) / 2);
+      const b = Math.round((bestPair[0].b + bestPair[1].b) / 2);
+      setCeoBgColor(`rgb(${r}, ${g}, ${b})`);
+    } catch (_) {
+      setCeoBgColor('#ffffff');
+    }
   };
 
   return (
@@ -525,12 +566,13 @@ experience.
 
           <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-12 max-w-6xl mx-auto">
             <div className="relative group scroll-animate zoom-in duration-1200 w-60 h-60 md:w-72 md:h-72 mx-auto">
-              <div className="w-full h-full bg-gradient-to-br from-green-400 to-blue-500 rounded-full p-1.5 md:p-2 shadow-2xl">
+              <div className="w-full h-full rounded-full p-1.5 md:p-2 shadow-2xl" style={{ backgroundColor: ceoBgColor }}>
                 <div className="w-full h-full rounded-full overflow-hidden group-hover:scale-105 transition-transform duration-700">
                   <img 
-                    src={images.images_Gishpng }
+                    src={images.images_Gish }
                     alt="Gish Liyanage - CEO"
                     className="w-full h-full object-contain ceo-image"
+                    onLoad={handleCeoImageLoad}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>

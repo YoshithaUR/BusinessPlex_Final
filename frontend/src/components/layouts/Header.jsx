@@ -31,7 +31,6 @@ const DESKTOP_IMAGES = [
   images.image_two,
   images.image_three,
   images.image_four,
-  images.image_five,
 ];
 
 const MOBILE_IMAGES = [
@@ -735,7 +734,7 @@ const handleApplyNow = (serviceTitle) => {
       <div className="relative md:mt-[74px] mt-0">
         <div
           ref={slideshowRef}
-          className="relative w-full md:h-[calc(100vh-74px)] h-[100svh] overflow-hidden bg-gray-900 md:pt-0 pt-16"
+          className={`${isMobile ? "h-[calc(100svh-64px)] pt-0" : "md:h-[calc(100vh-74px)]"} relative w-full overflow-hidden bg-gray-900 md:pt-0`}
         >
           {getCurrentImages().map((src, index) => (
             <div
@@ -750,7 +749,7 @@ const handleApplyNow = (serviceTitle) => {
               <img
                 src={src}
                 alt={`Slide ${index + 1}`}
-                className="w-full h-full object-contain object-center"
+                className={`w-full h-full ${isMobile ? "object-cover" : "object-contain"} object-center`}
                 loading={index === 0 ? "eager" : "lazy"}
               />
               {/* Overlay clickable area only on image_two */}

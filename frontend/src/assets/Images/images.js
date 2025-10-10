@@ -3,7 +3,7 @@ import image_one from "./HomeSlideShow/1.png";
 import image_two from "./HomeSlideShow/2.png";
 import image_three from "./HomeSlideShow/3.png";
 import image_four from "./HomeSlideShow/4.png";
-import image_five from "./HomeSlideShow/5.png";
+// image_five removed: ./HomeSlideShow/5.png no longer exists
 
 //mobile slides
 import mobile_image_one from "./HomeSlideShow/mobile/1.jpg";
@@ -157,7 +157,9 @@ import images_JoelEdited from "./Team/Joel-Edited.jpg";
 import images_LyndonEdited from "./Team/Lyndon-Edited.jpg";
 import images_Moni from "./Team/Moni-1..jpg";
 import images_Rachma from "./Team/Rachma .jpg";
+import images_Sharmin from "./Team/Sharmin.jpg";
 import images_Thinu from "./Team/Thinu.jpg";
+import images_Amila from "./Team/Amila.jpg";
 
 const images = {
 
@@ -172,14 +174,16 @@ const images = {
   images_LyndonEdited,
   images_Moni,
   images_Rachma,
+  images_Sharmin,
   images_Thinu,
   images_Gishpng,
+  images_Amila,
   // Slide Show
   image_one,
   image_two,
   image_three,
   image_four,
-  image_five,
+  // image_five removed
 
   // Home Support Services
   image_SuportService01,

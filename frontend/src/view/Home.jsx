@@ -1067,30 +1067,23 @@ const Home = () => {
               4 employees), to explore and pursue opportunities for
               self-employment.
             </p>
-          </div>
 
-          <div
-            className="w-full md:w-1/3 flex justify-center items-center md:justify-center md:items-center h-full md:h-auto"
-            data-aos="fade-left"
-            data-aos-duration="900"
-            data-aos-delay="600"
-          >
-            <div
-              className="flex justify-center items-center w-full"
-              data-aos="zoom-in"
-              data-aos-delay="600"
-            >
+            <div className="mt-4 sm:mt-6 flex justify-center md:justify-start" data-aos="fade-up" data-aos-duration="900" data-aos-delay="600">
               <button
                 onClick={() => {
                   navigate("/SelfEmployment#after-slideshow");
                 }}
-                className="bg-white text-blue-800 px-4 sm:px-6 md:px-8 lg:px-10 py-2 sm:py-3 md:py-4 rounded-full font-semibold flex items-center justify-center hover:scale-105 hover:bg-gray-100 transition duration-300 shadow-[0_8px_24px_rgba(0,59,122),0_0_10px_rgba(34,197,94,0.6)] text-xs sm:text-sm md:text-base whitespace-nowrap"
+                className="bg-white text-blue-800 px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-full font-semibold flex items-center justify-center hover:scale-105 hover:bg-gray-100 transition duration-300 shadow-lg text-xs sm:text-sm md:text-base whitespace-nowrap"
               >
                 Read More
-                <FaHandPointRight className="ml-2 text-sm sm:text-base md:text-lg lg:text-xl" />
+                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </button>
             </div>
           </div>
+
+          {/* Right column button removed as per request; only the button under the paragraph is kept */}
         </div>
       </section>
       <Rationg />
