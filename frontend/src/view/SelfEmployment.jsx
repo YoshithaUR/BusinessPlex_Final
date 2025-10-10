@@ -26,13 +26,13 @@ const SelfEmployment = () => {
     // Check if we need to scroll to a specific target
     const urlHash = window.location.hash;
     
-    if (urlHash === '#after-slideshow') {
-      // Scroll to the target element right next to slideshow
+    if (urlHash === '#self-employment-program') {
+      // Scroll to the Self-Employment Assistance Program section header
       setTimeout(() => {
-        const targetElement = document.getElementById('after-slideshow');
+        const targetElement = document.getElementById('self-employment-program');
         if (targetElement) {
           const elementPosition = targetElement.offsetTop;
-          const offsetPosition = elementPosition - 60; // 60px offset to show content right next to slideshow
+          const offsetPosition = elementPosition - 80; // 80px offset for better visibility
           
           window.scrollTo({
             top: offsetPosition,
@@ -44,7 +44,7 @@ const SelfEmployment = () => {
       // Default scroll behavior - scroll down a little bit when component mounts
       setTimeout(() => {
         window.scrollTo({
-          top: 100, // Scroll down 100px from top
+          top: 650, // Scroll down 100px from top
           behavior: 'smooth'
         });
       }, 100);
@@ -103,6 +103,7 @@ const SelfEmployment = () => {
       <div className="relative z-10 max-w-7xl mx-auto space-y-20">
         {/* Header */}
         <div 
+          id="self-employment-program"
           className="text-center" 
           data-aos="fade-down" 
           data-aos-duration="1500"
@@ -167,16 +168,16 @@ const SelfEmployment = () => {
             data-aos="zoom-in"
             data-aos-delay="900"
           ></div>
-          {/* Scroll target right at the end of slideshow */}
-          <div id="after-slideshow" className="absolute bottom-0 left-0 w-full h-0"></div>
         </div>
 
-        {/* Overview */}
-        <div className="space-y-10 text-[17px] sm:text-lg leading-relaxed px-2">
+        {/* Overview - Moved further down with better spacing */}
+        <div className="space-y-12 text-[17px] sm:text-lg leading-relaxed px-2 py-8">
+          {/* Introduction paragraph */}
           <p 
             data-aos="fade-up" 
             data-aos-duration="1000"
             data-aos-delay="100"
+            className="text-center max-w-4xl mx-auto"
           >
             The <strong>Self-Employment Assistance Program (SEA)</strong> is a fully government-funded
             initiative that supports aspiring entrepreneurs or those with micro-businesses by offering
@@ -187,6 +188,7 @@ const SelfEmployment = () => {
             data-aos="fade-up" 
             data-aos-delay="200"
             data-aos-duration="1000"
+            className="text-center max-w-4xl mx-auto"
           >
             Whether you're launching your first business or growing an existing one,
             <strong> Businessplex </strong> will support your journey with guidance through the SEA program.
@@ -197,9 +199,10 @@ const SelfEmployment = () => {
             data-aos="fade-up" 
             data-aos-delay="300"
             data-aos-duration="1200"
+            className="mt-12"
           >
             <h3 
-              className="text-3xl font-bold text-black flex items-center gap-3 mb-6"
+              className="text-3xl font-bold text-black flex items-center gap-3 mb-8 justify-center"
               data-aos="slide-right"
               data-aos-delay="100"
             >
@@ -211,7 +214,7 @@ const SelfEmployment = () => {
               Program Benefits
             </h3>
 
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
               {[
                 {
                   icon: <FaChalkboardTeacher className="text-blue-800 text-2xl" />,
@@ -253,7 +256,7 @@ const SelfEmployment = () => {
 
           {/* Small Business Coaching Section */}
           <section 
-            className="relative py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-white via-green-50 to-yellow-50 rounded-3xl"
+            className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-white via-green-50 to-yellow-50 rounded-3xl mt-12"
             data-aos="fade-in"
             data-aos-duration="1500"
           >
@@ -262,22 +265,22 @@ const SelfEmployment = () => {
                 data-aos="flip-up"
                 data-aos-duration="1200"
                 data-aos-delay="200"
-                className="text-center mb-8 sm:mb-12 md:mb-16"
+                className="text-center mb-12 sm:mb-16 md:mb-20"
               >
                 <FileText 
-                  className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-blue-800 mx-auto mb-2 sm:mb-3 md:mb-4" 
+                  className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-blue-800 mx-auto mb-4 sm:mb-5 md:mb-6" 
                   data-aos="bounce-in"
                   data-aos-delay="100"
                 />
                 <h2 
-                  className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-2 sm:mb-3 md:mb-4"
+                  className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-4 sm:mb-5 md:mb-6"
                   data-aos="slide-down"
                   data-aos-delay="300"
                 >
                   Small Business Coaching
                 </h2>
                 <p 
-                  className="text-sm sm:text-base md:text-lg text-black"
+                  className="text-sm sm:text-base md:text-lg text-black max-w-2xl mx-auto"
                   data-aos="fade-up"
                   data-aos-delay="500"
                 >
@@ -285,7 +288,7 @@ const SelfEmployment = () => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
                 {[
                   {
                     icon: <Users />,
@@ -323,18 +326,18 @@ const SelfEmployment = () => {
                     data-aos="fade-up"
                     data-aos-delay={`${100 + i * 150}`}
                     data-aos-duration="1000"
-                    className="bg-white/10 backdrop-blur-sm rounded-2xl p-3 sm:p-4 md:p-6 border border-white/20 hover:bg-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-lg"
+                    className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 sm:p-6 md:p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-lg"
                   >
-                    <div className="flex items-center mb-2 sm:mb-3 md:mb-4">
+                    <div className="flex items-center mb-3 sm:mb-4 md:mb-5">
                       <div 
-                        className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-blue-800 mr-2 md:mr-3 flex-shrink-0"
+                        className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-blue-800 mr-3 md:mr-4 flex-shrink-0"
                         data-aos="rotate-in"
                         data-aos-delay={`${200 + i * 150}`}
                       >
                         {item.icon}
                       </div>
                       <h3 
-                        className="text-sm sm:text-base md:text-lg font-bold text-black"
+                        className="text-base sm:text-lg md:text-xl font-bold text-black"
                         data-aos="slide-right"
                         data-aos-delay={`${300 + i * 150}`}
                       >
@@ -342,7 +345,7 @@ const SelfEmployment = () => {
                       </h3>
                     </div>
                     <p 
-                      className="text-black text-xs sm:text-sm md:text-base"
+                      className="text-black text-sm sm:text-base md:text-lg"
                       data-aos="fade-in"
                       data-aos-delay={`${400 + i * 150}`}
                     >
@@ -357,16 +360,16 @@ const SelfEmployment = () => {
                 data-aos="zoom-in"
                 data-aos-delay="800"
                 data-aos-duration="1200"
-                className="mt-6 sm:mt-8 md:mt-12 bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 border border-white/20 text-center transform hover:scale-102 transition-all duration-500"
+                className="mt-10 sm:mt-12 md:mt-16 bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 md:p-10 border border-white/20 text-center transform hover:scale-102 transition-all duration-500"
               >
-                <div className="flex flex-col sm:flex-row items-center justify-center mb-2 sm:mb-3 md:mb-4">
+                <div className="flex flex-col sm:flex-row items-center justify-center mb-4 sm:mb-5 md:mb-6">
                   <Users 
-                    className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-blue-800 mr-0 sm:mr-4 mb-2 sm:mb-0" 
+                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-blue-800 mr-0 sm:mr-5 mb-3 sm:mb-0" 
                     data-aos="bounce-in"
                     data-aos-delay="100"
                   />
                   <h3 
-                    className="text-base sm:text-lg md:text-xl font-bold text-black"
+                    className="text-lg sm:text-xl md:text-2xl font-bold text-black"
                     data-aos="slide-left"
                     data-aos-delay="300"
                   >
@@ -374,7 +377,7 @@ const SelfEmployment = () => {
                   </h3>
                 </div>
                 <p 
-                  className="text-blue-800 text-xs sm:text-sm md:text-base"
+                  className="text-blue-800 text-base sm:text-lg md:text-xl max-w-3xl mx-auto"
                   data-aos="fade-up"
                   data-aos-delay="500"
                 >
@@ -389,30 +392,30 @@ const SelfEmployment = () => {
             data-aos="fade-up"
             data-aos-delay="400"
             data-aos-duration="1200"
-            className="pt-10 bg-white/60 backdrop-blur-md p-6 sm:p-10 rounded-2xl shadow-lg transition-all duration-500 hover:shadow-2xl transform hover:-translate-y-2"
+            className="pt-12 bg-white/60 backdrop-blur-md p-8 sm:p-12 rounded-2xl shadow-lg transition-all duration-500 hover:shadow-2xl transform hover:-translate-y-2 mt-12"
           >
            <h3
-  className="text-3xl text-black flex items-center gap-3 mb-6"
+  className="text-3xl text-black flex items-center gap-3 mb-8 justify-center"
   data-aos="slide-right"
   data-aos-delay="200"
 >
-  {/* <FaCheckCircle 
+  <FaCheckCircle 
     className="text-blue-800" 
     data-aos="bounce-in"
     data-aos-delay="100"
-  /> */}
+  />
   Payments That May Affect SEA Allowance
 </h3>
             
             <p 
-              className="text-base text-gray-700 mb-6"
+              className="text-base text-gray-700 mb-8 text-center max-w-4xl mx-auto"
               data-aos="fade-in"
               data-aos-delay="400"
             >
               If you are receiving any of the following payments, it will continue and you will not be entitled for the SEA Allowance.
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-4 pl-2">
+            <div className="grid sm:grid-cols-2 gap-5 max-w-4xl mx-auto pl-3">
               {[
                 "Disability Support Pension",
                 "Parenting Payment (Single/Partnered)",
@@ -423,13 +426,13 @@ const SelfEmployment = () => {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-3 text-base text-gray-700 hover:translate-x-2 transition-all duration-500 transform hover:scale-105"
+                  className="flex items-center gap-4 text-base text-gray-700 hover:translate-x-2 transition-all duration-500 transform hover:scale-105"
                   data-aos="slide-right"
                   data-aos-delay={200 + index * 100}
                   data-aos-duration="800"
                 >
                   <FaCheckCircle 
-                    className="text-blue-500" 
+                    className="text-blue-500 flex-shrink-0" 
                     data-aos="zoom-in"
                     data-aos-delay={300 + index * 100}
                   />
@@ -449,4 +452,4 @@ const SelfEmployment = () => {
   );
 };
 
-export default SelfEmployment;  
+export default SelfEmployment;

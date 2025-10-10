@@ -1018,7 +1018,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      {/* Self-Employment Program Section */}
+        {/* Self-Employment Program Section */}
       <section
         className="relative w-full min-h-[40vh] sm:min-h-[50vh] md:min-h-[70vh] lg:min-h-[80vh] overflow-hidden mb-4 bg-gradient-to-br from-white via-green-50 to-yellow-50"
         data-aos="fade-in"
