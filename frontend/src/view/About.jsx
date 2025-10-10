@@ -96,16 +96,17 @@ const AboutUs = () => {
       role: "Administrator & Student Support", 
       image: images.images_Aliyah 
     },
+    // Newly added team members
     { 
       name: "Amila Rathnayake", 
       role: "IT Consultant", 
-      image: images.images_Amila 
-    },  
+      image: images.images_Amila
+    },
     { 
       name: "Sharmin Sultana", 
       role: "RTO Compliance Consultant", 
-      image: images.images_Sharmin 
-    },  
+      image: images.images_Sharmin
+    },
   ];
 
   // State for mobile carousel
@@ -125,47 +126,6 @@ const AboutUs = () => {
   // Handle dot navigation
   const goToSlide = (index) => {
     setCurrentSlide(index);
-  };
-
-  // Dynamic CEO frame background: sample image corner colors to match background
-  const [ceoBgColor, setCeoBgColor] = useState('#ffffff');
-  const handleCeoImageLoad = (e) => {
-    try {
-      const img = e.currentTarget;
-      const CANVAS_SIZE = 12; // small for performance, large enough to avoid heavy blur
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-      canvas.width = CANVAS_SIZE;
-      canvas.height = CANVAS_SIZE;
-      ctx.drawImage(img, 0, 0, CANVAS_SIZE, CANVAS_SIZE);
-      const getPixel = (x, y) => {
-        const data = ctx.getImageData(x, y, 1, 1).data;
-        return { r: data[0], g: data[1], b: data[2], a: data[3] };
-      };
-      const corners = [
-        getPixel(0, 0),
-        getPixel(CANVAS_SIZE - 1, 0),
-        getPixel(0, CANVAS_SIZE - 1),
-        getPixel(CANVAS_SIZE - 1, CANVAS_SIZE - 1)
-      ];
-      // Pick the most similar pair among corners to reduce artifact risk
-      const distance = (c1, c2) => Math.abs(c1.r - c2.r) + Math.abs(c1.g - c2.g) + Math.abs(c1.b - c2.b);
-      let bestPair = [corners[0], corners[1]];
-      let bestDist = Infinity;
-      for (let i = 0; i < corners.length; i++) {
-        for (let j = i + 1; j < corners.length; j++) {
-          const d = distance(corners[i], corners[j]);
-          if (d < bestDist) { bestDist = d; bestPair = [corners[i], corners[j]]; }
-        }
-      }
-      const r = Math.round((bestPair[0].r + bestPair[1].r) / 2);
-      const g = Math.round((bestPair[0].g + bestPair[1].g) / 2);
-      const b = Math.round((bestPair[0].b + bestPair[1].b) / 2);
-      setCeoBgColor(`rgb(${r}, ${g}, ${b})`);
-    } catch (_) {
-      setCeoBgColor('#ffffff');
-    }
   };
 
   return (
@@ -361,6 +321,8 @@ const AboutUs = () => {
           transition: transform 0.3s ease;
           object-fit: contain !important;
           object-position: center;
+          max-width: 100%;
+          max-height: 100%;
         }
         .team-image:hover {
           transform: scale(1.05);
@@ -566,13 +528,12 @@ experience.
 
           <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-12 max-w-6xl mx-auto">
             <div className="relative group scroll-animate zoom-in duration-1200 w-60 h-60 md:w-72 md:h-72 mx-auto">
-              <div className="w-full h-full rounded-full p-1.5 md:p-2 shadow-2xl" style={{ backgroundColor: ceoBgColor }}>
+              <div className="w-full h-full rounded-full p-1.5 md:p-2 shadow-2xl" style={{ backgroundColor: '#e5f7f7' }}>
                 <div className="w-full h-full rounded-full overflow-hidden group-hover:scale-105 transition-transform duration-700">
                   <img 
-                    src={images.images_Gish }
+                    src={images.images_Gishpng }
                     alt="Gish Liyanage - CEO"
                     className="w-full h-full object-contain ceo-image"
-                    onLoad={handleCeoImageLoad}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
@@ -636,29 +597,42 @@ experience.
               </p>
             </div>
 
-            <div className="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
+            <div className="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
               {team.map((member, idx) => (
                 <article
                   key={idx}
-                  className={`group bg-gradient-to-br from-white via-green-50 to-yellow-50 rounded-tl-[30px] md:rounded-tl-[50px] rounded-br-[30px] md:rounded-br-[50px] rounded-tr-lg rounded-bl-lg shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2 scroll-animate ${
+                  className={`group bg-gradient-to-br from-white via-green-50 to-yellow-50 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2 scroll-animate ${
                     idx % 4 === 0 ? 'fade-up' : 
                     idx % 4 === 1 ? 'fade-down' : 
                     idx % 4 === 2 ? 'fade-left' : 
                     'fade-right'
-                  } duration-800 delay-${(idx % 8) * 100 + 400} glow-effect`}
+                  } duration-800 glow-effect`}
                 >
-                  <div className="relative h-64 md:h-96 bg-gradient-to-br from-blue-400 to-blue-800 overflow-hidden">
-                    <img 
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-contain team-image"
-                    />
+                  <div className="relative h-64 md:h-80 bg-gradient-to-br from-blue-500 to-blue-700 overflow-hidden">
+                    <div className="absolute inset-0 flex items-center justify-center p-4">
+                      <div className="bg-white/10 rounded-xl w-full h-full flex items-center justify-center p-2">
+                        {member.image ? (
+                          <img 
+                            src={member.image}
+                            alt={member.name}
+                            className="w-full h-full object-contain team-image"
+                          />
+                        ) : (
+                          <div className="flex flex-col items-center justify-center text-white text-center p-4">
+                            <div className="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16 flex items-center justify-center mb-3">
+                              <Users className="text-gray-500 w-8 h-8" />
+                            </div>
+                            <span className="text-sm font-medium">Image Coming Soon</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 text-center text-white p-3 md:p-4 bg-gradient-to-t from-blue-900/80 to-transparent">
-                      <h3 className={`text-base md:text-xl font-bold scroll-animate fade-up delay-${(idx % 8) * 100 + 700} leading-tight mb-1 md:mb-2`}>
+                    <div className="absolute bottom-0 left-0 right-0 text-center text-white p-4 bg-gradient-to-t from-blue-900/80 to-transparent">
+                      <h3 className="text-base md:text-xl font-bold leading-tight mb-1">
                         {member.name}
                       </h3>
-                      <span className={`inline-block bg-blue-800/80 text-white px-2 py-1 md:px-3 md:py-1 rounded-full text-xs font-medium scroll-animate zoom-in delay-${(idx % 8) * 100 + 800} leading-tight`}>
+                      <span className="inline-block bg-blue-800/90 text-white px-3 py-1 rounded-full text-xs font-medium leading-tight">
                         {member.role}
                       </span>
                     </div>
@@ -676,20 +650,33 @@ experience.
                   style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                 >
                   {team.map((member, idx) => (
-                    <div key={idx} className="w-full flex-shrink-0 px-2">
-                      <article className="group bg-gradient-to-br from-white via-green-50 to-yellow-50 rounded-tl-[30px] rounded-br-[30px] rounded-tr-lg rounded-bl-lg shadow-xl transition-all duration-300 overflow-hidden glow-effect">
-                        <div className="relative h-80 bg-gradient-to-br from-blue-400 to-blue-800 overflow-hidden">
-                          <img 
-                            src={member.image}
-                            alt={member.name}
-                            className="w-full h-full object-contain team-image"
-                          />
+                    <div key={idx} className="w-full flex-shrink-0 px-4">
+                      <article className="group bg-gradient-to-br from-white via-green-50 to-yellow-50 rounded-2xl shadow-xl transition-all duration-300 overflow-hidden glow-effect">
+                        <div className="relative h-80 bg-gradient-to-br from-blue-500 to-blue-700 overflow-hidden">
+                          <div className="absolute inset-0 flex items-center justify-center p-4">
+                            <div className="bg-white/10 rounded-xl w-full h-full flex items-center justify-center p-2">
+                              {member.image ? (
+                                <img 
+                                  src={member.image}
+                                  alt={member.name}
+                                  className="w-full h-full object-contain team-image"
+                                />
+                              ) : (
+                                <div className="flex flex-col items-center justify-center text-white text-center p-4">
+                                  <div className="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16 flex items-center justify-center mb-3">
+                                    <Users className="text-gray-500 w-8 h-8" />
+                                  </div>
+                                  <span className="text-sm font-medium">Image Coming Soon</span>
+                                </div>
+                              )}
+                            </div>
+                          </div>
                           <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 to-transparent" />
-                          <div className="absolute bottom-0 left-0 right-0 text-center text-white p-3 bg-gradient-to-t from-blue-900/80 to-transparent">
+                          <div className="absolute bottom-0 left-0 right-0 text-center text-white p-4 bg-gradient-to-t from-blue-900/80 to-transparent">
                             <h3 className="text-lg font-bold leading-tight mb-1">
                               {member.name}
                             </h3>
-                            <span className="inline-block bg-blue-800/80 text-white px-2 py-1 rounded-full text-xs font-medium leading-tight">
+                            <span className="inline-block bg-blue-800/90 text-white px-3 py-1 rounded-full text-xs font-medium leading-tight">
                               {member.role}
                             </span>
                           </div>
@@ -723,19 +710,7 @@ experience.
                 </button>
               </div>
               
-              {/* Dots Navigation */}
-              <div className="flex justify-center mt-3 space-x-1.5">
-                {team.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => goToSlide(idx)}
-                    className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                      currentSlide === idx ? 'bg-blue-800' : 'bg-gray-300'
-                    }`}
-                    aria-label={`Go to team member ${idx + 1}`}
-                  />
-                ))}
-              </div>
+              {/* Dots Navigation - Removed as per user preference */}
             </div>
           </div>
         </section>

@@ -157,9 +157,9 @@ import images_JoelEdited from "./Team/Joel-Edited.jpg";
 import images_LyndonEdited from "./Team/Lyndon-Edited.jpg";
 import images_Moni from "./Team/Moni-1..jpg";
 import images_Rachma from "./Team/Rachma .jpg";
-import images_Sharmin from "./Team/Sharmin.jpg";
 import images_Thinu from "./Team/Thinu.jpg";
-import images_Amila from "./Team/Amila.jpg";
+import images_Amila from "./Team/Amila.png";
+import images_Sharmin from "./Team/Sharmin.png";
 
 const images = {
 
@@ -174,10 +174,12 @@ const images = {
   images_LyndonEdited,
   images_Moni,
   images_Rachma,
-  images_Sharmin,
   images_Thinu,
   images_Gishpng,
   images_Amila,
+  images_Sharmin,
+  // images_Amila,  // Commented out as file doesn't exist
+
   // Slide Show
   image_one,
   image_two,
