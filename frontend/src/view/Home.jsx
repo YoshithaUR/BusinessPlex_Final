@@ -1018,7 +1018,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-        {/* Self-Employment Program Section */}
+      {/* Self-Employment Program Section */}
       <section
         className="relative w-full min-h-[40vh] sm:min-h-[50vh] md:min-h-[70vh] lg:min-h-[80vh] overflow-hidden mb-4 bg-gradient-to-br from-white via-green-50 to-yellow-50"
         data-aos="fade-in"
@@ -1036,7 +1036,7 @@ const Home = () => {
 
         <div className="absolute inset-0 bg-black/60 z-0" />
 
-        <div className="relative z-10 flex flex-col md:flex-row justify-center items-center h-full px-4 sm:px-6 md:px-8 text-white">
+        <div className="relative z-10 flex flex-col md:flex-row justify-center items-center h-full px-4 sm:px-6 md:px-8 text-white -mt-8">
           <div
             className="w-full md:w-2/3 mb-6 md:mb-0 mt-6 sm:mt-8 md:mt-16 bg-white/10 backdrop-blur-md p-3 sm:p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"
             data-aos="fade-right"
@@ -1067,23 +1067,36 @@ const Home = () => {
               4 employees), to explore and pursue opportunities for
               self-employment.
             </p>
-
-            <div className="mt-4 sm:mt-6 flex justify-center md:justify-start" data-aos="fade-up" data-aos-duration="900" data-aos-delay="600">
+            <div
+              className="flex justify-center items-center w-full mt-4"
+              data-aos="zoom-in"
+              data-aos-delay="600"
+            >
               <button
                 onClick={() => {
                   navigate("/SelfEmployment#after-slideshow");
                 }}
-                className="bg-white text-blue-800 px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-full font-semibold flex items-center justify-center hover:scale-105 hover:bg-gray-100 transition duration-300 shadow-lg text-xs sm:text-sm md:text-base whitespace-nowrap"
+                className="bg-white text-blue-800 px-4 sm:px-6 md:px-8 lg:px-10 py-2 sm:py-3 md:py-4 rounded-full font-semibold flex items-center justify-center hover:scale-105 hover:bg-gray-100 transition duration-300 shadow-[0_8px_24px_rgba(0,59,122),0_0_10px_rgba(34,197,94,0.6)] text-xs sm:text-sm md:text-base whitespace-nowrap mx-auto"
               >
                 Read More
-                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+                <FaHandPointRight className="ml-2 text-sm sm:text-base md:text-lg lg:text-xl" />
               </button>
             </div>
           </div>
 
-          {/* Right column button removed as per request; only the button under the paragraph is kept */}
+          <div
+            className="w-full md:w-1/3 flex justify-center items-center md:justify-center md:items-center h-full md:h-auto"
+            data-aos="fade-left"
+            data-aos-duration="900"
+            data-aos-delay="600"
+          >
+            <div
+              className="flex justify-center items-center w-full"
+              data-aos="zoom-in"
+              data-aos-delay="600"
+            >
+            </div>
+          </div>
         </div>
       </section>
       <Rationg />
@@ -1129,6 +1142,8 @@ const Home = () => {
             age: Yup.number()
               .min(15, "You must be at least 15 years old")
               .max(100, "Please enter a valid age")
+
+
               .required("Please enter your age"),
             contactNumber: Yup.string()
               .matches(

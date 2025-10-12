@@ -735,6 +735,7 @@ const handleApplyNow = (serviceTitle) => {
         <div
           ref={slideshowRef}
           className={`${isMobile ? "h-[calc(100svh-64px)] pt-0" : "md:h-[calc(100vh-74px)]"} relative w-full overflow-hidden bg-gray-900 md:pt-0`}
+          style={isMobile ? { marginTop: "-20px" } : {}}  // Pull slideshow up in mobile view
         >
           {getCurrentImages().map((src, index) => (
             <div
@@ -751,6 +752,20 @@ const handleApplyNow = (serviceTitle) => {
                 alt={`Slide ${index + 1}`}
                 className={`w-full h-full ${isMobile ? "object-cover" : "object-contain"} object-center`}
                 loading={index === 0 ? "eager" : "lazy"}
+                style={isMobile ? { 
+                  objectFit: "cover", 
+                  width: "100%", 
+                  height: "100%",
+                  minWidth: "100%",
+                  minHeight: "100%",
+                  transform: "translateY(50px)"  // Move images downward
+                } : { 
+                  objectFit: "contain", 
+                  maxWidth: "100%", 
+                  maxHeight: "100%",
+                  width: "auto",
+                  height: "auto"
+                }}
               />
               {/* Overlay clickable area only on image_two */}
               {src === images.image_two && index === currentIndex && (
