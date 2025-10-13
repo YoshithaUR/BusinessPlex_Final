@@ -758,13 +758,14 @@ const handleApplyNow = (serviceTitle) => {
                   height: "100%",
                   minWidth: "100%",
                   minHeight: "100%",
-                  transform: "translateY(50px)"  // Move images downward
+                  transform: "translateY(100px)"  // Move images downward more
                 } : { 
                   objectFit: "contain", 
                   maxWidth: "100%", 
                   maxHeight: "100%",
                   width: "auto",
-                  height: "auto"
+                  height: "auto",
+                  transform: "translateY(50px)"  // Move desktop images downward too
                 }}
               />
               {/* Overlay clickable area only on image_two */}
