@@ -734,13 +734,13 @@ const handleApplyNow = (serviceTitle) => {
       <div className="relative md:mt-[74px] mt-0">
         <div
           ref={slideshowRef}
-          className={`${isMobile ? "h-[calc(100svh-64px)] pt-0" : "md:h-[calc(100vh-74px)]"} relative w-full overflow-hidden bg-gray-900 md:pt-0`}
+          className={`${isMobile ? "h-[calc(100svh-64px)] pt-0" : "md:h-[calc(100vh-74px)]"} relative w-full overflow-hidden bg-gray-900 md:pt-0 flex items-center justify-center`}
           style={isMobile ? { marginTop: "-20px" } : {}}  // Pull slideshow up in mobile view
         >
           {getCurrentImages().map((src, index) => (
             <div
               key={index}
-              className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+              className={`absolute inset-0 transition-all duration-1000 ease-in-out flex items-center justify-center overflow-hidden ${
                 index === currentIndex
                   ? "opacity-100 scale-100"
                   : "opacity-0 scale-105"
@@ -750,7 +750,7 @@ const handleApplyNow = (serviceTitle) => {
               <img
                 src={src}
                 alt={`Slide ${index + 1}`}
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full object-contain object-center"
                 loading={index === 0 ? "eager" : "lazy"}
                 style={isMobile ? { 
                   objectFit: "cover", 
@@ -760,12 +760,19 @@ const handleApplyNow = (serviceTitle) => {
                   minHeight: "100%",
                   transform: "translateY(100px)"  // Move images downward more
                 } : { 
-                  objectFit: "cover", 
+                  objectFit: "contain", 
                   width: "100%", 
                   height: "100%",
                   minWidth: "100%",
                   minHeight: "100%",
-                  transform: "translateY(50px)"  // Move desktop images downward too
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  margin: "auto",
+                  position: "absolute",
+                  top: "0",
+                  left: "0",
+                  right: "0",
+                  bottom: "0"
                 }}
               />
               {/* Overlay clickable area only on image_two */}
@@ -790,7 +797,7 @@ const handleApplyNow = (serviceTitle) => {
                   title="applyone_one"
                 />
               )}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
             </div>
           ))}
 
