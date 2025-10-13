@@ -750,7 +750,7 @@ const handleApplyNow = (serviceTitle) => {
               <img
                 src={src}
                 alt={`Slide ${index + 1}`}
-                className={`w-full h-full ${isMobile ? "object-cover" : "object-contain"} object-center`}
+                className="w-full h-full object-cover object-center"
                 loading={index === 0 ? "eager" : "lazy"}
                 style={isMobile ? { 
                   objectFit: "cover", 
@@ -760,11 +760,11 @@ const handleApplyNow = (serviceTitle) => {
                   minHeight: "100%",
                   transform: "translateY(100px)"  // Move images downward more
                 } : { 
-                  objectFit: "contain", 
-                  maxWidth: "100%", 
-                  maxHeight: "100%",
-                  width: "auto",
-                  height: "auto",
+                  objectFit: "cover", 
+                  width: "100%", 
+                  height: "100%",
+                  minWidth: "100%",
+                  minHeight: "100%",
                   transform: "translateY(50px)"  // Move desktop images downward too
                 }}
               />
