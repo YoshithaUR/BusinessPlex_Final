@@ -1018,7 +1018,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      {/* Self-Employment Program Section */}
+       {/* Self-Employment Program Section */}
       <section
         className="relative w-full min-h-[40vh] sm:min-h-[50vh] md:min-h-[70vh] lg:min-h-[80vh] overflow-hidden mb-4 bg-gradient-to-br from-white via-green-50 to-yellow-50"
         data-aos="fade-in"
@@ -1099,6 +1099,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <Rationg />
       <Rationg />
 
       {/* Story */}
@@ -1601,6 +1602,30 @@ const Home = () => {
         
         .animate-fade-in {
           animation: fade-in 0.6s ease-out;
+        }
+        
+        /* Blob animation */
+        @keyframes blob {
+          0% {
+            transform: translate(0px, 0px) scale(1);
+          }
+          33% {
+            transform: translate(30px, -50px) scale(1.1);
+          }
+          66% {
+            transform: translate(-20px, 20px) scale(0.9);
+          }
+          100% {
+            transform: translate(0px, 0px) scale(1);
+          }
+        }
+        
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+        
+        .animation-delay-2000 {
+          animation-delay: 2s;
         }
         
         /* Ensure proper mobile responsiveness */

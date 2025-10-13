@@ -52,11 +52,6 @@ const AboutUs = () => {
   // Team data with images - Replace with your actual images from the images object
   const team = [
     { 
-      name: "Gish Liyanage", 
-      role: "CEO", 
-      image: images.images_Gish
-    },
-    { 
       name: "Thinu Jayasinghe", 
       role: "Operations Manager", 
       image: images.images_Thinu || images.image_ServicePopup03
