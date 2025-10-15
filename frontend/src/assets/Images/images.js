@@ -1,11 +1,12 @@
-// Slide Show
-import image_one from "./HomeSlideShow/1.png";
-import image_two from "./HomeSlideShow/2.png";
-import image_three from "./HomeSlideShow/3.png";
-import image_four from "./HomeSlideShow/4.png";
-// image_five removed: ./HomeSlideShow/5.png no longer exists
+// Desktop Slide Show
+import desktop_image_one from "./HomeSlideShow/desktop/1.png";
+import desktop_image_two from "./HomeSlideShow/desktop/2.png";
+import desktop_image_three from "./HomeSlideShow/desktop/3.png";
+import desktop_image_four from "./HomeSlideShow/desktop/4.png";
+import desktop_image_five from "./HomeSlideShow/desktop/5.jpg";
+import desktop_image_six from "./HomeSlideShow/desktop/6.jpg";
 
-//mobile slides
+// Mobile slides
 import mobile_image_one from "./HomeSlideShow/mobile/1.jpg";
 import mobile_image_two from "./HomeSlideShow/mobile/2.jpg";
 import mobile_image_three from "./HomeSlideShow/mobile/3.jpg";
@@ -180,12 +181,13 @@ const images = {
   images_Sharmin,
   // images_Amila,  // Commented out as file doesn't exist
 
-  // Slide Show
-  image_one,
-  image_two,
-  image_three,
-  image_four,
-  // image_five removed
+  // Desktop Slide Show
+  desktop_image_one,
+  desktop_image_two,
+  desktop_image_three,
+  desktop_image_four,
+  desktop_image_five,
+  desktop_image_six,
 
   // Home Support Services
   image_SuportService01,

@@ -27,10 +27,12 @@ import logo from "../../assets/Images/HomeSlideShow/logo.png";
 // import { FaGraduationCap } from "react-icons/fa";
 
 const DESKTOP_IMAGES = [
-  images.image_one,
-  images.image_two,
-  images.image_three,
-  images.image_four,
+  images.desktop_image_one,
+  images.desktop_image_two,
+  images.desktop_image_three,
+  images.desktop_image_four,
+  images.desktop_image_five,
+  images.desktop_image_six,
 ];
 
 const MOBILE_IMAGES = [
@@ -730,54 +732,44 @@ const handleApplyNow = (serviceTitle) => {
         </div>
       </div>
 
-      {/* Slideshow Section - Full viewport coverage */}
-      <div className="relative md:mt-[74px] mt-0">
-        <div
-          ref={slideshowRef}
-          className={`${isMobile ? "h-[calc(100svh-64px)] pt-0" : "md:h-[calc(100vh-74px)]"} relative w-full overflow-hidden bg-gray-900 md:pt-0 flex items-center justify-center`}
-          style={isMobile ? { marginTop: "-20px" } : {}}  // Pull slideshow up in mobile view
-        >
-          {getCurrentImages().map((src, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 transition-all duration-1000 ease-in-out flex items-center justify-center overflow-hidden ${
-                index === currentIndex
-                  ? "opacity-100 scale-100"
-                  : "opacity-0 scale-105"
-              }`}
-              style={{ pointerEvents: index === currentIndex ? "auto" : "none" }}
-            >
-              <img
-                src={src}
-                alt={`Slide ${index + 1}`}
-                className="w-full h-full object-contain object-center"
-                loading={index === 0 ? "eager" : "lazy"}
-                style={isMobile ? { 
-                  objectFit: "cover", 
-                  width: "100%", 
-                  height: "100%",
-                  minWidth: "100%",
-                  minHeight: "100%",
-                  transform: "translateY(100px)"  // Move images downward more
-                } : { 
-                  objectFit: "contain", 
-                  width: "100%", 
-                  height: "100%",
-                  minWidth: "100%",
-                  minHeight: "100%",
-                  maxWidth: "100%",
-                  maxHeight: "100%",
-                  margin: "auto",
-                  position: "absolute",
-                  top: "0",
-                  left: "0",
-                  right: "0",
-                  bottom: "0"
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
-            </div>
-          ))}
+       {/* Slideshow Section - Full viewport coverage */}
+       <div className="relative md:mt-[74px] mt-0">
+         <div
+           ref={slideshowRef}
+           className={`${isMobile ? "h-[calc(100svh-64px)]" : "md:h-[calc(100vh-74px)]"} relative w-full overflow-hidden`}
+           style={isMobile ? { marginTop: "-20px" } : {}}
+         >
+           {getCurrentImages().map((src, index) => (
+             <div
+               key={index}
+               className={`absolute inset-0 transition-all duration-1000 ease-in-out overflow-hidden ${
+                 index === currentIndex
+                   ? "opacity-100 scale-100"
+                   : "opacity-0 scale-105"
+               }`}
+               style={{ pointerEvents: index === currentIndex ? "auto" : "none" }}
+             >
+               <img
+                 src={src}
+                 alt={`Slide ${index + 1}`}
+                 className="w-full h-full"
+                 loading={index === 0 ? "eager" : "lazy"}
+                 style={{ 
+                   objectFit: "cover", 
+                   width: "100%", 
+                   height: "100%",
+                   minWidth: "100%",
+                   minHeight: "100%",
+                   position: "absolute",
+                   top: "0",
+                   left: "0",
+                   right: "0",
+                   bottom: "0"
+                 }}
+               />
+               <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
+             </div>
+           ))}
 
           {/* Slide Indicators - COMMENTED OUT TO HIDE THE DOTS */}
           {/* 
