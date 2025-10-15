@@ -1085,7 +1085,7 @@ const Home = () => {
         </div>
       </section>
       <Rationg />
-      <Rationg />
+      
 
       {/* Story */}
       <Story />
