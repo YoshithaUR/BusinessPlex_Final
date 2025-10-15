@@ -1067,6 +1067,20 @@ const Home = () => {
               4 employees), to explore and pursue opportunities for
               self-employment.
             </p>
+            {/* Read More Button */}
+            <div 
+              className="flex justify-center md:justify-start mt-6"
+              data-aos="fade-up"
+              data-aos-duration="900"
+              data-aos-delay="600"
+            >
+              <button
+                onClick={() => navigate('/selfEmployment')}
+                className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+              >
+                Read More
+              </button>
+            </div>
           </div>
 
           <div
