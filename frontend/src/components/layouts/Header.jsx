@@ -775,28 +775,6 @@ const handleApplyNow = (serviceTitle) => {
                   bottom: "0"
                 }}
               />
-              {/* Overlay clickable area only on image_two */}
-              {src === images.image_two && index === currentIndex && (
-                <button
-                  onClick={() => {
-                    // Navigate to application form when clicked
-                    window.location.href = "/ApplicationForm";
-                  }}
-                  style={{
-                    position: "absolute",
-                    left: "690px",
-                    top: "470px",
-                    width: `${868 - 690}px`,
-                    height: `${506 - 470}px`,
-                    background: "rgba(0,0,0,0.1)", // Slightly visible for testing, set to 'transparent' for production
-                    border: "none",
-                    cursor: "pointer",
-                    zIndex: 10,
-                  }}
-                  aria-label="applyone_one"
-                  title="applyone_one"
-                />
-              )}
               <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
             </div>
           ))}

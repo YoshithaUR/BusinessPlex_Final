@@ -1067,21 +1067,6 @@ const Home = () => {
               4 employees), to explore and pursue opportunities for
               self-employment.
             </p>
-            <div
-              className="flex justify-center items-center w-full mt-4"
-              data-aos="zoom-in"
-              data-aos-delay="600"
-            >
-              <button
-                onClick={() => {
-                  navigate("/SelfEmployment#after-slideshow");
-                }}
-                className="bg-white text-blue-800 px-4 sm:px-6 md:px-8 lg:px-10 py-2 sm:py-3 md:py-4 rounded-full font-semibold flex items-center justify-center hover:scale-105 hover:bg-gray-100 transition duration-300 shadow-[0_8px_24px_rgba(0,59,122),0_0_10px_rgba(34,197,94,0.6)] text-xs sm:text-sm md:text-base whitespace-nowrap mx-auto"
-              >
-                Read More
-                <FaHandPointRight className="ml-2 text-sm sm:text-base md:text-lg lg:text-xl" />
-              </button>
-            </div>
           </div>
 
           <div
