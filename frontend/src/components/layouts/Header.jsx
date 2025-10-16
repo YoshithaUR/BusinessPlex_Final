@@ -36,7 +36,7 @@ const DESKTOP_IMAGES = [
 ];
 
 const MOBILE_IMAGES = [
-  // images.mobile_image_one,
+
   images.mobile_image_two,
   images.mobile_image_three,
   images.mobile_image_four,
