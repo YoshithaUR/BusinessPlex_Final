@@ -31,12 +31,12 @@ const DESKTOP_IMAGES = [
   images.desktop_image_two,
   images.desktop_image_three,
   images.desktop_image_four,
-  images.desktop_image_five,
-  images.desktop_image_six,
+ 
+   
 ];
 
 const MOBILE_IMAGES = [
-  images.mobile_image_one,
+  // images.mobile_image_one,
   images.mobile_image_two,
   images.mobile_image_three,
   images.mobile_image_four,
