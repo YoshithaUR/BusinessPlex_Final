@@ -7,7 +7,7 @@ import desktop_image_five from "./HomeSlideShow/desktop/5.jpg";
 import desktop_image_six from "./HomeSlideShow/desktop/6.jpg";
 
 // Mobile slides
-import mobile_image_one from "./HomeSlideShow/mobile/1.jpg";
+
 import mobile_image_two from "./HomeSlideShow/mobile/2.jpg";
 import mobile_image_three from "./HomeSlideShow/mobile/3.jpg";
 import mobile_image_four from "./HomeSlideShow/mobile/4.jpg";
@@ -252,7 +252,7 @@ const images = {
   image_TeamBG,
   image_END01,
 
-  mobile_image_one,
+  
   mobile_image_two,
   mobile_image_three,
   mobile_image_four,
