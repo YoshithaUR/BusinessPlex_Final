@@ -733,11 +733,11 @@ const handleApplyNow = (serviceTitle) => {
       </div>
 
        {/* Slideshow Section - Full viewport coverage */}
-       <div className="relative md:mt-[74px] mt-0">
+       <div className={`${isMobile ? "relative w-full" : "relative md:mt-[74px] mt-0"}`}>
          <div
            ref={slideshowRef}
-           className={`${isMobile ? "h-[calc(100svh-64px)]" : "md:h-[calc(100vh-74px)]"} relative w-full overflow-hidden`}
-           style={isMobile ? { marginTop: "-20px" } : {}}
+           className={`${isMobile ? "h-screen" : "md:h-[calc(100vh-74px)] relative"} w-full overflow-hidden`}
+           style={isMobile ? { zIndex: 1 } : {}}
          >
            {getCurrentImages().map((src, index) => (
              <div
@@ -745,29 +745,34 @@ const handleApplyNow = (serviceTitle) => {
                className={`absolute inset-0 transition-all duration-1000 ease-in-out overflow-hidden ${
                  index === currentIndex
                    ? "opacity-100 scale-100"
-                   : "opacity-0 scale-105"
+                   : "opacity-0 scale-100"
                }`}
-               style={{ pointerEvents: index === currentIndex ? "auto" : "none" }}
+               style={{ 
+                 pointerEvents: index === currentIndex ? "auto" : "none",
+                 zIndex: isMobile ? 2 : 1
+               }}
              >
                <img
                  src={src}
                  alt={`Slide ${index + 1}`}
-                 className="w-full h-full"
+                 className={`w-full h-full ${isMobile ? "object-contain" : "object-cover"} object-center`}
                  loading={index === 0 ? "eager" : "lazy"}
-                 style={{ 
-                   objectFit: "cover", 
-                   width: "100%", 
-                   height: "100%",
-                   minWidth: "100%",
-                   minHeight: "100%",
-                   position: "absolute",
-                   top: "0",
-                   left: "0",
-                   right: "0",
-                   bottom: "0"
-                 }}
+                  style={{ 
+                    objectFit: isMobile ? "contain" : "cover", 
+                    width: "100%", 
+                    height: "100%",
+                    minWidth: "100%",
+                    minHeight: "100%",
+                    position: "absolute",
+                    top: "0",
+                    left: "0",
+                    right: "0",
+                    bottom: "0",
+                    objectPosition: "center center",  // Keep images centered and not zoomed
+                    zIndex: isMobile ? 3 : 1
+                  }}
                />
-               <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
+               <div className="absolute inset-0 bg-[#051431]" />
              </div>
            ))}
 
