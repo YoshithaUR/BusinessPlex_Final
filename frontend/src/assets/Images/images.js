@@ -8,10 +8,10 @@ import desktop_image_six from "./HomeSlideShow/desktop/6.jpg";
 
 // Mobile slides
 
-import mobile_image_two from "./HomeSlideShow/mobile/2.jpg";
-import mobile_image_three from "./HomeSlideShow/mobile/3.jpg";
-import mobile_image_four from "./HomeSlideShow/mobile/4.jpg";
-import mobile_image_five from "./HomeSlideShow/mobile/5.jpg";
+import mobile_image_two from "./HomeSlideShow/mobile/1.jpg";
+import mobile_image_three from "./HomeSlideShow/mobile/2.jpg";
+import mobile_image_four from "./HomeSlideShow/mobile/3.jpg";
+import mobile_image_five from "./HomeSlideShow/mobile/4.jpg";
 
 // Home Support Services
 import image_SuportService01 from "./Home/SuportServices1.jpg";
